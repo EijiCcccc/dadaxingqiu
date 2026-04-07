@@ -1,0 +1,124 @@
+# 搭搭星球 - 项目架构
+
+## 目录结构
+
+```
+dadaxingqiu/
+├── pubspec.yaml              # 主应用依赖配置
+├── lib/                      # 主应用入口（根目录即 app）
+│   ├── main.dart
+│   └── router/
+│       └── app_router_config.dart   # 收集各 feature 路由
+│
+├── packages/
+│   ├── core/                 # 核心包
+│   │   ├── pubspec.yaml
+│   │   └── lib/
+│   │       ├── core.dart
+│   │       ├── api/          # API 路径、接口定义
+│   │       ├── constants/    # 应用常量（appName 等）
+│   │       ├── colors/       # 颜色常量、主题色（规范要求集中管理）
+│   │       ├── theme/        # AppTheme 主题配置
+│   │       ├── router/       # route_path, app_route, global_router, route_registry
+│   │       ├── utils/        # AppLogger 等工具
+│   │       ├── storage/     # 本地存储接口与实现
+│   │       └── providers/    # 全局 Provider（DioClient、SharedPreferences 等）
+│   │
+│   ├── shared/               # 共享包
+│   │   ├── pubspec.yaml
+│   │   └── lib/
+│   │       ├── shared.dart
+│   │       ├── widgets/      # AppDialog 等通用组件
+│   │       ├── models/       # 跨 feature 共享模型
+│   │       └── utils/        # AppToast 等工具
+│   │
+│   ├── network/              # 网络层
+│   │   ├── pubspec.yaml
+│   │   └── lib/
+│   │       ├── network.dart
+│   │       └── src/          # DioClient、proto 生成代码
+│   │
+│   ├── feature_auth/        # 认证功能
+│   │   └── lib/
+│   │       ├── feature_auth.dart
+│   │       ├── router/       # auth_routes.dart
+│   │       └── presentation/
+│   │           ├── login/
+│   │           ├── complete_profile/
+│   │           └── select_tags/
+│   │
+│   ├── （主工程 lib/）      # 主首页壳、路由组装
+│   │   └── lib/
+│   │       ├── router/       # app_router_config、main_routes（壳路由）
+│   │       └── presentation/
+│   │           └── shell/    # MainHomePage（组装各 feature Tab）
+│   │
+│   ├── feature_profile/     # 个人资料与设置
+│   │   └── lib/
+│   │       ├── feature_profile.dart
+│   │       ├── router/
+│   │       └── presentation/
+│   │           ├── edit_profile/
+│   │           ├── edit_tags/
+│   │           ├── profile_tab/
+│   │           ├── user_profile/
+│   │           └── settings/
+│   │
+│   ├── feature_chat/        # 聊天功能
+│   │   └── lib/
+│   │       ├── feature_chat.dart
+│   │       ├── router/
+│   │       └── presentation/
+│   │           └── chat_conversation/
+│   │
+│   ├── feature_legal/       # 法律与关于
+│   │   └── lib/
+│   │       ├── feature_legal.dart
+│   │       ├── router/
+│   │       └── presentation/
+│   │           ├── user_agreement/
+│   │           ├── privacy_policy/
+│   │           ├── feedback/
+│   │           └── about/
+│   │
+│   └── feature_xxx/         # 占位模板
+│       └── ...
+│
+└── docs/                    # 项目文档
+    ├── 项目架构
+    ├── 路由架构说明.md
+    ├── Riverpod状态管理说明.md
+    └── 数据流与刷新说明.md
+```
+
+## 包职责
+
+| 包 | 职责 | 可依赖 |
+|----|------|--------|
+| **core** | 路由、主题、常量、颜色、工具、存储、全局 Provider | network |
+| **shared** | 通用 UI 组件、Toast、Dialog、共享模型 | core |
+| **network** | DioClient、API 请求、proto 生成 | - |
+| **feature_xxx** | 业务功能，自包含 data/presentation | core, shared, network |
+
+## Feature 包结构（有数据流时）
+
+```
+feature_xxx/lib/
+├── feature_xxx.dart         # 统一导出
+├── router/
+│   └── xxx_routes.dart      # registerXxxRoutes(registry)
+├── data/
+│   ├── models/
+│   └── repositories/
+└── presentation/
+    └── xxx/
+        ├── xxx_page.dart
+        ├── xxx_state.dart
+        └── xxx_providers.dart
+```
+
+## 依赖关系
+
+- feature 只依赖 core、shared、network，**禁止** feature 间互相依赖
+- 跳转通过 `GlobalRouter` + `AppRoute`，实现分包解耦
+- 共享数据放 core 或 shared

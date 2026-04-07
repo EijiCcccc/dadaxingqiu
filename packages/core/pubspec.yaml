@@ -1,0 +1,17 @@
+name: core
+description: 核心包 - 主题、路由、常量、工具
+version: 1.0.0
+publish_to: none
+
+environment:
+  sdk: ^3.5.3
+
+dependencies:
+  flutter:
+    sdk: flutter
+  logger: ^2.7.0
+  go_router: ^14.6.2
+  flutter_riverpod: ^2.6.1
+  shared_preferences: ^2.5.2
+  network:
+    path: ../network

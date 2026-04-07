@@ -1,0 +1,27 @@
+name: feature_auth
+description: 登录与认证功能包
+version: 1.0.0
+publish_to: none
+
+environment:
+  sdk: ^3.5.3
+
+dependencies:
+  flutter:
+    sdk: flutter
+  core:
+    path: ../core
+  shared:
+    path: ../shared
+  network:
+    path: ../network
+  fixnum: ^1.1.0
+  go_router: ^14.6.2
+  flutter_riverpod: ^2.6.1
+  dio: ^5.7.0
+  fluwx: ^5.7.5
+  sign_in_with_apple: ^6.1.3
+  device_info_plus: ^11.1.1
+  package_info_plus: ^8.1.2
+  image_picker: ^1.0.7
+  permission_handler: ^11.3.0

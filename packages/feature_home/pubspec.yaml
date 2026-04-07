@@ -1,0 +1,19 @@
+name: feature_home
+description: 首页功能包
+version: 1.0.0
+publish_to: none
+
+environment:
+  sdk: ^3.5.3
+
+dependencies:
+  flutter:
+    sdk: flutter
+  core:
+    path: ../core
+  shared:
+    path: ../shared
+  network:
+    path: ../network
+  go_router: ^14.6.2
+  flutter_riverpod: ^2.6.1

@@ -1,0 +1,11 @@
+---
+alwaysApply: true
+---
+
+# 分包数据隔离（红线）
+
+**完整约定与示例**：`.cursor/skills/flutter-implementation/SKILL.md` → **§3 分包数据隔离**。
+
+- feature **禁止** import 其他 feature；**禁止** 跨 feature `watch`/`read` Provider 或调用对方 Repository。
+- 多 feature 共享数据放在 **`core` / `shared`**；`feature_xxx` 仅依赖 **core、shared、network**（及项目明确允许的包），**不**依赖其他 `feature_*`。
+- 各 feature 独立完成 **UI → Provider → Repository → Network**，不通过其他 feature 取数。

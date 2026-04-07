@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package app.v1;
+
+option go_package = "dada-backendgo/gen/proto/app/v1;appv1";
+
+import "app/v1/user.proto";
+
+message ExploreCard {
+  int64 user_id = 1;
+  string nickname = 2;
+  int32 gender = 3;
+  string avatar_url = 4;
+  repeated UserTag tags = 5;
+}
+
+message GetExploreCardsResponse {
+  repeated ExploreCard items = 1;
+  int32 page = 2;
+  int32 page_size = 3;
+  bool has_more = 4;
+}

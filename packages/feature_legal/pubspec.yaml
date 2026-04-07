@@ -1,0 +1,17 @@
+name: feature_legal
+description: 法律与关于功能包 - 用户协议、隐私政策、反馈、关于
+version: 1.0.0
+publish_to: none
+
+environment:
+  sdk: ^3.5.3
+
+dependencies:
+  flutter:
+    sdk: flutter
+  core:
+    path: ../core
+  shared:
+    path: ../shared
+  go_router: ^14.6.2
+  flutter_riverpod: ^2.6.1

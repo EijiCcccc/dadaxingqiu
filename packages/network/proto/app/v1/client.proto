@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package app.v1;
+
+option go_package = "dada-backendgo/gen/proto/app/v1;appv1";
+
+message ClientInfo {
+  string device_id = 1;
+  string client_ip = 2;
+}

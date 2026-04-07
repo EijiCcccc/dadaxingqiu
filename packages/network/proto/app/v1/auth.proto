@@ -1,0 +1,66 @@
+syntax = "proto3";
+
+package app.v1;
+
+option go_package = "dada-backendgo/gen/proto/app/v1;appv1";
+
+import "app/v1/client.proto";
+
+message WechatLoginRequest {
+  string code = 1;
+  ClientInfo client_info = 2;
+}
+
+message RefreshTokenRequest {
+  string refresh_token = 1;
+  ClientInfo client_info = 2;
+}
+
+message AppleLoginRequest {
+  // Reserved for future Apple Sign In rollout. No server route is exposed yet.
+  string identity_token = 1;
+  string authorization_code = 2;
+  ClientInfo client_info = 3;
+}
+
+message LogoutRequest {
+  ClientInfo client_info = 1;
+}
+
+message LoginUser {
+  int64 id = 1;
+  string nickname = 2;
+  int32 gender = 3;
+  string avatar_url = 4;
+  bool is_profiled = 5;
+  bool is_tagged = 6;
+  int32 status = 7;
+}
+
+message TokenPair {
+  string access_token = 1;
+  string refresh_token = 2;
+  int64 expires_in = 3;
+}
+
+message WechatLoginResponse {
+  LoginUser user = 1;
+  TokenPair token = 2;
+  string next_step = 3;
+  bool is_new_user = 4;
+}
+
+message AppleLoginResponse {
+  LoginUser user = 1;
+  TokenPair token = 2;
+  string next_step = 3;
+  bool is_new_user = 4;
+}
+
+message RefreshTokenResponse {
+  TokenPair token = 1;
+}
+
+message LogoutResponse {
+  bool success = 1;
+}

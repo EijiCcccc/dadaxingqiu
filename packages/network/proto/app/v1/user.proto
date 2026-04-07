@@ -1,0 +1,70 @@
+syntax = "proto3";
+
+package app.v1;
+
+option go_package = "dada-backendgo/gen/proto/app/v1;appv1";
+
+message UserAvatar {
+  string url = 1;
+}
+
+message UserTag {
+  int64 id = 1;
+  string name = 2;
+  string type = 3;
+}
+
+message TagGroup {
+  string type = 1;
+  string title = 2;
+  bool required = 3;
+  int32 min_select = 4;
+  int32 max_select = 5;
+  repeated UserTag items = 6;
+}
+
+message UserProfile {
+  int64 id = 1;
+  string nickname = 2;
+  int32 gender = 3;
+  string avatar_url = 4;
+  int32 status = 5;
+  bool is_profiled = 6;
+  bool is_tagged = 7;
+  string next_step = 8;
+  UserAvatar avatar = 9;
+  repeated UserTag tags = 10;
+}
+
+message UpdateMyProfileRequest {
+  string nickname = 1;
+  int32 gender = 2;
+  string avatar_url = 3;
+}
+
+message UpdateMyProfileResponse {
+  bool updated = 1;
+  int64 id = 2;
+  string nickname = 3;
+  int32 gender = 4;
+  string avatar_url = 5;
+  int32 status = 6;
+  bool is_profiled = 7;
+  bool is_tagged = 8;
+  string next_step = 9;
+  UserAvatar avatar = 10;
+  repeated UserTag tags = 11;
+}
+
+message GetTagsResponse { repeated TagGroup groups = 1; }
+
+message UpdateMyTagsRequest {
+  repeated int64 tag_ids = 1;
+}
+
+message UpdateMyTagsResponse {
+  bool updated = 1;
+  bool is_tagged = 2;
+  string next_step = 3;
+  repeated UserTag tags = 4;
+}

@@ -1,0 +1,75 @@
+PODS:
+  - device_info_plus (0.0.1):
+    - Flutter
+  - Flutter (1.0.0)
+  - fluttertoast (0.0.2):
+    - Flutter
+  - fluwx (0.0.1):
+    - Flutter
+    - fluwx/pay (= 0.0.1)
+  - fluwx/pay (0.0.1):
+    - Flutter
+    - WechatOpenSDK-XCFramework (~> 2.0.5)
+  - image_picker_ios (0.0.1):
+    - Flutter
+  - package_info_plus (0.4.5):
+    - Flutter
+  - permission_handler_apple (9.3.0):
+    - Flutter
+  - shared_preferences_foundation (0.0.1):
+    - Flutter
+    - FlutterMacOS
+  - sign_in_with_apple (0.0.1):
+    - Flutter
+  - WechatOpenSDK-XCFramework (2.0.5)
+
+DEPENDENCIES:
+  - device_info_plus (from `.symlinks/plugins/device_info_plus/ios`)
+  - Flutter (from `Flutter`)
+  - fluttertoast (from `.symlinks/plugins/fluttertoast/ios`)
+  - fluwx (from `.symlinks/plugins/fluwx/ios`)
+  - image_picker_ios (from `.symlinks/plugins/image_picker_ios/ios`)
+  - package_info_plus (from `.symlinks/plugins/package_info_plus/ios`)
+  - permission_handler_apple (from `.symlinks/plugins/permission_handler_apple/ios`)
+  - shared_preferences_foundation (from `.symlinks/plugins/shared_preferences_foundation/darwin`)
+  - sign_in_with_apple (from `.symlinks/plugins/sign_in_with_apple/ios`)
+
+SPEC REPOS:
+  trunk:
+    - WechatOpenSDK-XCFramework
+
+EXTERNAL SOURCES:
+  device_info_plus:
+    :path: ".symlinks/plugins/device_info_plus/ios"
+  Flutter:
+    :path: Flutter
+  fluttertoast:
+    :path: ".symlinks/plugins/fluttertoast/ios"
+  fluwx:
+    :path: ".symlinks/plugins/fluwx/ios"
+  image_picker_ios:
+    :path: ".symlinks/plugins/image_picker_ios/ios"
+  package_info_plus:
+    :path: ".symlinks/plugins/package_info_plus/ios"
+  permission_handler_apple:
+    :path: ".symlinks/plugins/permission_handler_apple/ios"
+  shared_preferences_foundation:
+    :path: ".symlinks/plugins/shared_preferences_foundation/darwin"
+  sign_in_with_apple:
+    :path: ".symlinks/plugins/sign_in_with_apple/ios"
+
+SPEC CHECKSUMS:
+  device_info_plus: 21fcca2080fbcd348be798aa36c3e5ed849eefbe
+  Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
+  fluttertoast: 2c67e14dce98bbdb200df9e1acf610d7a6264ea1
+  fluwx: 2ef787502fccb3f3596b380509001a8ea71cbbff
+  image_picker_ios: 7fe1ff8e34c1790d6fff70a32484959f563a928a
+  package_info_plus: af8e2ca6888548050f16fa2f1938db7b5a5df499
+  permission_handler_apple: 4ed2196e43d0651e8ff7ca3483a069d469701f2d
+  shared_preferences_foundation: 9e1978ff2562383bd5676f64ec4e9aa8fa06a6f7
+  sign_in_with_apple: c5dcc141574c8c54d5ac99dd2163c0c72ad22418
+  WechatOpenSDK-XCFramework: ff342ae616bb86df3d236aca38059dfd4bc4a949
+
+PODFILE CHECKSUM: 6dcf23f49f9412d384a89c16f747f2ebedc4372f
+
+COCOAPODS: 1.16.2

@@ -1,0 +1,132 @@
+import { useState } from "react";
+import { useNavigate } from "react-router";
+import { Camera, ArrowLeft } from "lucide-react";
+import { Button } from "../../components/ui/button";
+import { Input } from "../../components/ui/input";
+
+export default function LightEditProfile() {
+  const navigate = useNavigate();
+  const [nickname, setNickname] = useState("星标旅人");
+  const [gender, setGender] = useState<"male" | "female">("male");
+  const [selectedTags, setSelectedTags] = useState<string[]>([
+    "游戏",
+    "音乐",
+    "旅行",
+  ]);
+
+  const handleSave = () => {
+    navigate(-1);
+  };
+
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-purple-100 via-pink-50/30 to-white max-w-md mx-auto pb-24">
+      {/* Top Navigation */}
+      <div className="sticky top-0 z-10 bg-purple-100/80 backdrop-blur-lg border-b border-purple-200/50">
+        <div className="flex items-center justify-center h-16 px-4 relative">
+          <button
+            onClick={() => navigate(-1)}
+            className="absolute left-4 w-10 h-10 flex items-center justify-center rounded-full hover:bg-purple-200/50 transition-colors -ml-2"
+          >
+            <ArrowLeft className="w-6 h-6 text-purple-900" />
+          </button>
+          <h1 className="text-lg font-semibold text-purple-900">编辑个人资料</h1>
+        </div>
+      </div>
+
+      <div className="px-6 py-8">
+        {/* Avatar Selector */}
+        <div className="flex flex-col items-center mb-10">
+          <button className="w-28 h-28 rounded-full bg-white border-2 border-dashed border-purple-400 flex items-center justify-center hover:border-purple-500 transition-colors mb-3 relative overflow-hidden shadow-lg shadow-purple-200">
+            <img
+              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop"
+              alt="Profile"
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-purple-900/40 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
+              <Camera className="w-10 h-10 text-white" />
+            </div>
+          </button>
+          <span className="text-sm text-purple-700">点击替换头像</span>
+        </div>
+
+        {/* Nickname Input */}
+        <div className="mb-8">
+          <label className="block text-purple-900 text-base font-medium mb-3">
+            昵称
+          </label>
+          <Input
+            type="text"
+            placeholder="当前昵称"
+            value={nickname}
+            onChange={(e) => setNickname(e.target.value)}
+            className="h-14 bg-white border-purple-200 text-purple-900 placeholder:text-purple-400 rounded-xl text-base focus:border-purple-500 focus:ring-purple-500/20"
+          />
+        </div>
+
+        {/* Gender Selection */}
+        <div className="mb-8">
+          <label className="block text-purple-900 text-base font-medium mb-3">
+            性别
+          </label>
+          <div className="flex gap-4">
+            <button
+              onClick={() => setGender("male")}
+              className={`flex-1 h-14 rounded-xl text-base font-medium transition-all ${
+                gender === "male"
+                  ? "bg-gradient-to-r from-blue-400 to-blue-500 text-white shadow-lg shadow-blue-400/30"
+                  : "bg-white text-purple-700 border border-purple-200 hover:border-purple-300"
+              }`}
+            >
+              男
+            </button>
+            <button
+              onClick={() => setGender("female")}
+              className={`flex-1 h-14 rounded-xl text-base font-medium transition-all ${
+                gender === "female"
+                  ? "bg-gradient-to-r from-pink-400 to-pink-500 text-white shadow-lg shadow-pink-400/30"
+                  : "bg-white text-purple-700 border border-purple-200 hover:border-purple-300"
+              }`}
+            >
+              女
+            </button>
+          </div>
+        </div>
+
+        {/* Personal Tags Section */}
+        <div className="mb-8">
+          <div className="flex items-center justify-between mb-3">
+            <label className="block text-purple-900 text-base font-medium">
+              个人标签
+            </label>
+            <button
+              onClick={() => navigate("/light/edit-tags")}
+              className="text-purple-600 text-sm font-medium hover:text-purple-700 transition-colors"
+            >
+              修改
+            </button>
+          </div>
+          <div className="bg-white border border-purple-200 rounded-xl p-4 min-h-[120px] shadow-sm">
+            <div className="flex flex-wrap gap-2">
+              {selectedTags.map((tag, index) => (
+                <span
+                  key={index}
+                  className="px-4 py-2 bg-purple-50 text-purple-600 text-sm rounded-full border border-purple-200"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Save Button */}
+        <Button
+          onClick={handleSave}
+          className="w-full h-14 bg-gradient-to-r from-purple-400 to-pink-400 hover:from-purple-500 hover:to-pink-500 text-white rounded-full text-base font-medium shadow-lg shadow-purple-400/30"
+        >
+          保存
+        </Button>
+      </div>
+    </div>
+  );
+}

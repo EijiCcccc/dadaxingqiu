@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package app.v1;
+
+option go_package = "dada-backendgo/gen/proto/app/v1;appv1";
+
+message SubmitFeedbackRequest {
+  string content = 1;
+  string contact = 2;
+}
+
+message SubmitFeedbackResponse {
+  bool submitted = 1;
+}

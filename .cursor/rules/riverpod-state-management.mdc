@@ -1,0 +1,13 @@
+---
+alwaysApply: true
+---
+
+# Riverpod（红线）
+
+**完整约定、目录结构、Provider 选型、示例**：`.cursor/skills/flutter-implementation/SKILL.md` → **§2 Riverpod 状态管理**。
+
+- 业务 / 页面级状态 **禁止** `setState`；用 Riverpod + `ref.watch`；纯局部 UI（如 `AnimationController`）可 `setState`。
+- **不要**在 `build` 里用 `ref.read`「订阅」会重建的 Provider；副作用用 `ref.listen`；**不要**在 `build` 里写导航/Toast 等副作用。
+- **`initState` 禁止 `ref`**；异步初始化放在 `Notifier.build()`、首帧回调或事件里。
+- 新代码用 **`Notifier` / `NotifierProvider`（或 Async 系）**；**禁止** 新写 `StateNotifier` / `StateNotifierProvider`。
+- 数据流：`UI → Provider → Repository → Network`；`xxx_state.dart` 与 `xxx_providers.dart` 分文件，**单文件单一顶层 Provider**（细则见 skill）。

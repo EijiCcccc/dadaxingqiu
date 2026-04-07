@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+package app.v1;
+
+option go_package = "dada-backendgo/gen/proto/app/v1;appv1";
+
+import "google/protobuf/any.proto";
+
+message ApiError {
+  int32 code = 1;
+  string message = 2;
+}
+
+message ApiResponseMeta {
+  string trace_id = 1;
+  int64 timestamp = 2;
+}
+
+message PageInfo {
+  int32 page = 1;
+  int32 page_size = 2;
+  bool has_more = 3;
+}
+
+enum ClientPlatform {
+  CLIENT_PLATFORM_UNSPECIFIED = 0;
+  CLIENT_PLATFORM_IOS = 1;
+  CLIENT_PLATFORM_ANDROID = 2;
+}
+
+message ApiResponse {
+  int32 code = 1;
+  string message = 2;
+  string trace_id = 3;
+  int64 timestamp = 4;
+  google.protobuf.Any data = 5;
+}

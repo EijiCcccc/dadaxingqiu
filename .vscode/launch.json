@@ -1,0 +1,205 @@
+{
+	// 使用 IntelliSense 了解相关属性。 
+	// 悬停以查看现有属性的描述。
+	// 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"name": "dadaxingqiu",
+			"request": "launch",
+			"type": "dart"
+		},
+		{
+			"name": "dadaxingqiu (profile mode)",
+			"request": "launch",
+			"type": "dart",
+			"flutterMode": "profile"
+		},
+		{
+			"name": "dadaxingqiu (release mode)",
+			"request": "launch",
+			"type": "dart",
+			"flutterMode": "release"
+		},
+		{
+			"name": "core",
+			"cwd": "packages/core",
+			"request": "launch",
+			"type": "dart"
+		},
+		{
+			"name": "core (profile mode)",
+			"cwd": "packages/core",
+			"request": "launch",
+			"type": "dart",
+			"flutterMode": "profile"
+		},
+		{
+			"name": "core (release mode)",
+			"cwd": "packages/core",
+			"request": "launch",
+			"type": "dart",
+			"flutterMode": "release"
+		},
+		{
+			"name": "feature_auth",
+			"cwd": "packages/feature_auth",
+			"request": "launch",
+			"type": "dart"
+		},
+		{
+			"name": "feature_auth (profile mode)",
+			"cwd": "packages/feature_auth",
+			"request": "launch",
+			"type": "dart",
+			"flutterMode": "profile"
+		},
+		{
+			"name": "feature_auth (release mode)",
+			"cwd": "packages/feature_auth",
+			"request": "launch",
+			"type": "dart",
+			"flutterMode": "release"
+		},
+		{
+			"name": "feature_chat",
+			"cwd": "packages/feature_chat",
+			"request": "launch",
+			"type": "dart"
+		},
+		{
+			"name": "feature_chat (profile mode)",
+			"cwd": "packages/feature_chat",
+			"request": "launch",
+			"type": "dart",
+			"flutterMode": "profile"
+		},
+		{
+			"name": "feature_chat (release mode)",
+			"cwd": "packages/feature_chat",
+			"request": "launch",
+			"type": "dart",
+			"flutterMode": "release"
+		},
+		{
+			"name": "feature_detail",
+			"cwd": "packages/feature_detail",
+			"request": "launch",
+			"type": "dart"
+		},
+		{
+			"name": "feature_detail (profile mode)",
+			"cwd": "packages/feature_detail",
+			"request": "launch",
+			"type": "dart",
+			"flutterMode": "profile"
+		},
+		{
+			"name": "feature_detail (release mode)",
+			"cwd": "packages/feature_detail",
+			"request": "launch",
+			"type": "dart",
+			"flutterMode": "release"
+		},
+		{
+			"name": "feature_home",
+			"cwd": "packages/feature_home",
+			"request": "launch",
+			"type": "dart"
+		},
+		{
+			"name": "feature_home (profile mode)",
+			"cwd": "packages/feature_home",
+			"request": "launch",
+			"type": "dart",
+			"flutterMode": "profile"
+		},
+		{
+			"name": "feature_home (release mode)",
+			"cwd": "packages/feature_home",
+			"request": "launch",
+			"type": "dart",
+			"flutterMode": "release"
+		},
+		{
+			"name": "feature_legal",
+			"cwd": "packages/feature_legal",
+			"request": "launch",
+			"type": "dart"
+		},
+		{
+			"name": "feature_legal (profile mode)",
+			"cwd": "packages/feature_legal",
+			"request": "launch",
+			"type": "dart",
+			"flutterMode": "profile"
+		},
+		{
+			"name": "feature_legal (release mode)",
+			"cwd": "packages/feature_legal",
+			"request": "launch",
+			"type": "dart",
+			"flutterMode": "release"
+		},
+		{
+			"name": "feature_profile",
+			"cwd": "packages/feature_profile",
+			"request": "launch",
+			"type": "dart"
+		},
+		{
+			"name": "feature_profile (profile mode)",
+			"cwd": "packages/feature_profile",
+			"request": "launch",
+			"type": "dart",
+			"flutterMode": "profile"
+		},
+		{
+			"name": "feature_profile (release mode)",
+			"cwd": "packages/feature_profile",
+			"request": "launch",
+			"type": "dart",
+			"flutterMode": "release"
+		},
+		{
+			"name": "network",
+			"cwd": "packages/network",
+			"request": "launch",
+			"type": "dart"
+		},
+		{
+			"name": "network (profile mode)",
+			"cwd": "packages/network",
+			"request": "launch",
+			"type": "dart",
+			"flutterMode": "profile"
+		},
+		{
+			"name": "network (release mode)",
+			"cwd": "packages/network",
+			"request": "launch",
+			"type": "dart",
+			"flutterMode": "release"
+		},
+		{
+			"name": "shared",
+			"cwd": "packages/shared",
+			"request": "launch",
+			"type": "dart"
+		},
+		{
+			"name": "shared (profile mode)",
+			"cwd": "packages/shared",
+			"request": "launch",
+			"type": "dart",
+			"flutterMode": "profile"
+		},
+		{
+			"name": "shared (release mode)",
+			"cwd": "packages/shared",
+			"request": "launch",
+			"type": "dart",
+			"flutterMode": "release"
+		}
+	]
+}

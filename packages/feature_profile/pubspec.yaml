@@ -1,0 +1,20 @@
+name: feature_profile
+description: 个人资料与设置功能包
+version: 1.0.0
+publish_to: none
+
+environment:
+  sdk: ^3.5.3
+
+dependencies:
+  flutter:
+    sdk: flutter
+  core:
+    path: ../core
+  network:
+    path: ../network
+  shared:
+    path: ../shared
+  go_router: ^14.6.2
+  flutter_riverpod: ^2.6.1
+  fixnum: ^1.1.0

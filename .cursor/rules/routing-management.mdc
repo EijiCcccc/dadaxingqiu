@@ -1,0 +1,11 @@
+---
+alwaysApply: true
+---
+
+# 路由管理（红线）
+
+**完整约定、示例与新增 feature 流程**：`.cursor/skills/flutter-implementation/SKILL.md` → **§1 路由管理**。
+
+- **禁止** `Navigator.push/pop`、`context.go` / `context.push`；**禁止** 自造 `context.go` 扩展；**必须** `GlobalRouter.instance` + `AppRoute` 子类跳转。
+- 路径**只**写在 `core/router/route_path.dart`；类型化路由在 `core/router/app_route.dart`；**禁止** 在 feature 内散落路径字符串。
+- feature **只依赖 core**（及 shared/network 等约定包），**不**依赖其他 feature；各包 `registerXxxRoutes`，主工程汇总注册。

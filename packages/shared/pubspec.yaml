@@ -1,0 +1,14 @@
+name: shared
+description: 共享包 - 通用组件与模型
+version: 1.0.0
+publish_to: none
+
+environment:
+  sdk: ^3.5.3
+
+dependencies:
+  flutter:
+    sdk: flutter
+  fluttertoast: ^8.2.6
+  core:
+    path: ../core

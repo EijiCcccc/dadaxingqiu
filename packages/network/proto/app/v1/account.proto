@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package app.v1;
+
+option go_package = "dada-backendgo/gen/proto/app/v1;appv1";
+
+import "app/v1/user.proto";
+
+message MySummary {
+  int64 id = 1;
+  string nickname = 2;
+  int32 gender = 3;
+  string avatar_url = 4;
+  string online_status = 5;
+  repeated UserTag tags = 6;
+}
+
+message SettingsInfo {
+  bool theme_sync_enabled = 1;
+  string privacy_policy_url = 2;
+  string user_agreement_url = 3;
+  string about_url = 4;
+  bool feedback_enabled = 5;
+}
+
+message GetVersionResponse {
+  string latest_version = 1;
+  bool force_update = 2;
+  string download_url = 3;
+  string release_notes = 4;
+}

@@ -1,0 +1,11 @@
+---
+description: 底部主按钮与标签组件统一使用 shared 包
+alwaysApply: true
+---
+
+# UI 共享组件（红线）
+
+**完整说明与代码示例**：`.cursor/skills/flutter-implementation/SKILL.md` → **§4 UI 共享组件**。
+
+- 页面底部**全宽主操作**（渐变底 + 圆角主按钮、可选 loading）：**必须** `FullWidthBottomActionBar`；**禁止** 同类场景手写 `Container` + `FilledButton` 拼一套不一致的底栏（行内小按钮、弹窗内按钮等除外）。
+- 标签：**可选中**用 `SelectableTagChip`；**只读展示**用 `TagPill` + `TagPillStyle`；从 `package:shared/shared.dart` 引用。
