@@ -412,6 +412,267 @@ class UserProfile extends $pb.GeneratedMessage {
   $core.List<UserTag> get tags => $_getList(9);
 }
 
+class OtherUserSummary extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'OtherUserSummary', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'app.v1'), createEmptyInstance: create)
+    ..aInt64(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'id')
+    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nickname')
+    ..a<$core.int>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'gender', $pb.PbFieldType.O3)
+    ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'avatarUrl')
+    ..aOS(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'onlineStatus')
+    ..pc<UserTag>(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'tags', $pb.PbFieldType.PM, subBuilder: UserTag.create)
+    ..hasRequiredFields = false
+  ;
+
+  OtherUserSummary._() : super();
+  factory OtherUserSummary({
+    $fixnum.Int64? id,
+    $core.String? nickname,
+    $core.int? gender,
+    $core.String? avatarUrl,
+    $core.String? onlineStatus,
+    $core.Iterable<UserTag>? tags,
+  }) {
+    final _result = create();
+    if (id != null) {
+      _result.id = id;
+    }
+    if (nickname != null) {
+      _result.nickname = nickname;
+    }
+    if (gender != null) {
+      _result.gender = gender;
+    }
+    if (avatarUrl != null) {
+      _result.avatarUrl = avatarUrl;
+    }
+    if (onlineStatus != null) {
+      _result.onlineStatus = onlineStatus;
+    }
+    if (tags != null) {
+      _result.tags.addAll(tags);
+    }
+    return _result;
+  }
+  factory OtherUserSummary.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory OtherUserSummary.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  OtherUserSummary clone() => OtherUserSummary()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  OtherUserSummary copyWith(void Function(OtherUserSummary) updates) => super.copyWith((message) => updates(message as OtherUserSummary)) as OtherUserSummary; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static OtherUserSummary create() => OtherUserSummary._();
+  OtherUserSummary createEmptyInstance() => create();
+  static $pb.PbList<OtherUserSummary> createRepeated() => $pb.PbList<OtherUserSummary>();
+  @$core.pragma('dart2js:noInline')
+  static OtherUserSummary getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<OtherUserSummary>(create);
+  static OtherUserSummary? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $fixnum.Int64 get id => $_getI64(0);
+  @$pb.TagNumber(1)
+  set id($fixnum.Int64 v) { $_setInt64(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearId() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get nickname => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set nickname($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasNickname() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearNickname() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.int get gender => $_getIZ(2);
+  @$pb.TagNumber(3)
+  set gender($core.int v) { $_setSignedInt32(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasGender() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearGender() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.String get avatarUrl => $_getSZ(3);
+  @$pb.TagNumber(4)
+  set avatarUrl($core.String v) { $_setString(3, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasAvatarUrl() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearAvatarUrl() => clearField(4);
+
+  @$pb.TagNumber(5)
+  $core.String get onlineStatus => $_getSZ(4);
+  @$pb.TagNumber(5)
+  set onlineStatus($core.String v) { $_setString(4, v); }
+  @$pb.TagNumber(5)
+  $core.bool hasOnlineStatus() => $_has(4);
+  @$pb.TagNumber(5)
+  void clearOnlineStatus() => clearField(5);
+
+  @$pb.TagNumber(6)
+  $core.List<UserTag> get tags => $_getList(5);
+}
+
+class CreateAvatarUploadRequest extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'CreateAvatarUploadRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'app.v1'), createEmptyInstance: create)
+    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'fileName')
+    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'contentType')
+    ..hasRequiredFields = false
+  ;
+
+  CreateAvatarUploadRequest._() : super();
+  factory CreateAvatarUploadRequest({
+    $core.String? fileName,
+    $core.String? contentType,
+  }) {
+    final _result = create();
+    if (fileName != null) {
+      _result.fileName = fileName;
+    }
+    if (contentType != null) {
+      _result.contentType = contentType;
+    }
+    return _result;
+  }
+  factory CreateAvatarUploadRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory CreateAvatarUploadRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  CreateAvatarUploadRequest clone() => CreateAvatarUploadRequest()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  CreateAvatarUploadRequest copyWith(void Function(CreateAvatarUploadRequest) updates) => super.copyWith((message) => updates(message as CreateAvatarUploadRequest)) as CreateAvatarUploadRequest; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static CreateAvatarUploadRequest create() => CreateAvatarUploadRequest._();
+  CreateAvatarUploadRequest createEmptyInstance() => create();
+  static $pb.PbList<CreateAvatarUploadRequest> createRepeated() => $pb.PbList<CreateAvatarUploadRequest>();
+  @$core.pragma('dart2js:noInline')
+  static CreateAvatarUploadRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CreateAvatarUploadRequest>(create);
+  static CreateAvatarUploadRequest? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get fileName => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set fileName($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasFileName() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearFileName() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get contentType => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set contentType($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasContentType() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearContentType() => clearField(2);
+}
+
+class CreateAvatarUploadResponse extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'CreateAvatarUploadResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'app.v1'), createEmptyInstance: create)
+    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'objectKey')
+    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'uploadUrl')
+    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'publicUrl')
+    ..aInt64(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'expiresIn')
+    ..hasRequiredFields = false
+  ;
+
+  CreateAvatarUploadResponse._() : super();
+  factory CreateAvatarUploadResponse({
+    $core.String? objectKey,
+    $core.String? uploadUrl,
+    $core.String? publicUrl,
+    $fixnum.Int64? expiresIn,
+  }) {
+    final _result = create();
+    if (objectKey != null) {
+      _result.objectKey = objectKey;
+    }
+    if (uploadUrl != null) {
+      _result.uploadUrl = uploadUrl;
+    }
+    if (publicUrl != null) {
+      _result.publicUrl = publicUrl;
+    }
+    if (expiresIn != null) {
+      _result.expiresIn = expiresIn;
+    }
+    return _result;
+  }
+  factory CreateAvatarUploadResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory CreateAvatarUploadResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  CreateAvatarUploadResponse clone() => CreateAvatarUploadResponse()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  CreateAvatarUploadResponse copyWith(void Function(CreateAvatarUploadResponse) updates) => super.copyWith((message) => updates(message as CreateAvatarUploadResponse)) as CreateAvatarUploadResponse; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static CreateAvatarUploadResponse create() => CreateAvatarUploadResponse._();
+  CreateAvatarUploadResponse createEmptyInstance() => create();
+  static $pb.PbList<CreateAvatarUploadResponse> createRepeated() => $pb.PbList<CreateAvatarUploadResponse>();
+  @$core.pragma('dart2js:noInline')
+  static CreateAvatarUploadResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CreateAvatarUploadResponse>(create);
+  static CreateAvatarUploadResponse? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get objectKey => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set objectKey($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasObjectKey() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearObjectKey() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.String get uploadUrl => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set uploadUrl($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasUploadUrl() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearUploadUrl() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.String get publicUrl => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set publicUrl($core.String v) { $_setString(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasPublicUrl() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearPublicUrl() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $fixnum.Int64 get expiresIn => $_getI64(3);
+  @$pb.TagNumber(4)
+  set expiresIn($fixnum.Int64 v) { $_setInt64(3, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasExpiresIn() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearExpiresIn() => clearField(4);
+}
+
 class UpdateMyProfileRequest extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'UpdateMyProfileRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'app.v1'), createEmptyInstance: create)
     ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nickname')

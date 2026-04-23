@@ -12,6 +12,11 @@ import About from "./screens/About";
 import UserAgreement from "./screens/UserAgreement";
 import PrivacyPolicy from "./screens/PrivacyPolicy";
 import Feedback from "./screens/Feedback";
+import FeedDetail from "./screens/FeedDetail";
+import CreateFeed from "./screens/CreateFeed";
+import FeedNotifications from "./screens/FeedNotifications";
+import ChatSettings from "./screens/ChatSettings";
+import Contacts from "./screens/Contacts";
 
 // Light theme imports
 import LightLogin from "./screens/light/Login";
@@ -27,6 +32,11 @@ import LightAbout from "./screens/light/About";
 import LightUserAgreement from "./screens/light/UserAgreement";
 import LightPrivacyPolicy from "./screens/light/PrivacyPolicy";
 import LightFeedback from "./screens/light/Feedback";
+import LightFeedDetail from "./screens/light/FeedDetail";
+import LightCreateFeed from "./screens/light/CreateFeed";
+import LightFeedNotifications from "./screens/light/FeedNotifications";
+import LightChatSettings from "./screens/light/ChatSettings";
+import LightContacts from "./screens/light/Contacts";
 
 export const router = createBrowserRouter([
   // Default route - Light theme
@@ -88,7 +98,27 @@ export const router = createBrowserRouter([
     path: "/dark/feedback",
     Component: Feedback,
   },
-  
+  {
+    path: "/dark/feed/:feedId",
+    Component: FeedDetail,
+  },
+  {
+    path: "/dark/create-feed",
+    Component: CreateFeed,
+  },
+  {
+    path: "/dark/feed-notifications",
+    Component: FeedNotifications,
+  },
+  {
+    path: "/dark/chat-settings/:userId",
+    Component: ChatSettings,
+  },
+  {
+    path: "/dark/contacts",
+    Component: Contacts,
+  },
+
   // Light theme routes
   {
     path: "/light",
@@ -145,5 +175,25 @@ export const router = createBrowserRouter([
   {
     path: "/light/feedback",
     Component: LightFeedback,
+  },
+  {
+    path: "/light/feed/:feedId",
+    Component: LightFeedDetail,
+  },
+  {
+    path: "/light/create-feed",
+    Component: LightCreateFeed,
+  },
+  {
+    path: "/light/feed-notifications",
+    Component: LightFeedNotifications,
+  },
+  {
+    path: "/light/chat-settings/:userId",
+    Component: LightChatSettings,
+  },
+  {
+    path: "/light/contacts",
+    Component: LightContacts,
   },
 ]);

@@ -3,6 +3,7 @@ import 'package:feature_auth/feature_auth.dart';
 import 'package:feature_chat/feature_chat.dart';
 import 'package:feature_detail/feature_detail.dart';
 import 'package:feature_legal/feature_legal.dart';
+import 'package:feature_post/feature_post.dart';
 import 'package:feature_profile/feature_profile.dart';
 import 'package:go_router/go_router.dart';
 
@@ -22,6 +23,7 @@ class AppRouterConfig {
     registerChatRoutes(registry);
     registerLegalRoutes(registry);
     registerDetailRoutes(registry);
+    registerPostRoutes(registry);
 
     final router = GoRouter(
       initialLocation: RoutePath.login,

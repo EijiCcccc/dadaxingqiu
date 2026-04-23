@@ -1,0 +1,56 @@
+---
+description: Auth/Profile 状态分层与缓存约定
+alwaysApply: true
+---
+# Auth / Profile 状态规则
+
+## 分层原则
+
+- `authStateProvider` 是唯一登录真源，禁止在 feature 内再维护第二套登录态
+- `AuthNotifier` 只管理登录生命周期：恢复会话、刷新 token、登出、注销
+- `myProfilerProvider` 是“我的资料”全局缓存；未登录时必须为 `null`
+- `myProfilerPageProvider` 负责页面刷新；编辑资料成功后要 `invalidate` 它
+- 登录页、验证码页、编辑资料页只维护页面状态，不持有全局会话
+- Core 只依赖抽象仓库 Provider，具体实现通过 `ProviderScope.overrides` 注入
+
+## Provider 约定
+
+- auth 全局状态用 `NotifierProvider`
+- profile 全局缓存用 `NotifierProvider`
+- 登录表单、验证码、编辑资料表单用 `NotifierProvider.autoDispose`
+- 他人资料、黑名单、扩展信息用 `FutureProvider.autoDispose` / `.family`
+
+## 示例 1：auth 全局状态
+
+```dart
+final authStateProvider = NotifierProvider<AuthNotifier, AuthState>(
+  AuthNotifier.new,
+);
+
+class AuthNotifier extends Notifier<AuthState> {
+  @override
+  AuthState build() => AuthInitial();
+
+  Future<void> logout() async {
+    await ref.read(authSessionRepositoryProvider).logout();
+    state = AuthInitial();
+  }
+}
+```
+
+## 示例 2：profile 页面状态
+
+```dart
+final editProfileFormProvider =
+    NotifierProvider.autoDispose<EditProfileFormNotifier, EditProfileFormState>(
+  EditProfileFormNotifier.new,
+);
+
+class EditProfileFormNotifier extends AutoDisposeNotifier<EditProfileFormState> {
+  @override
+  EditProfileFormState build() {
+    Future.microtask(() => loadEditableInfo());
+    return const EditProfileFormState();
+  }
+}
+```

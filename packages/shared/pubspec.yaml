@@ -10,5 +10,6 @@ dependencies:
   flutter:
     sdk: flutter
   fluttertoast: ^8.2.6
+  extended_tabs: ^4.2.0
   core:
     path: ../core

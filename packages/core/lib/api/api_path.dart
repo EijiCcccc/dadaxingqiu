@@ -16,11 +16,47 @@ class ApiPath {
   static const String usersMeTags = '/api/v1/users/me/tags';
   static const String meSummary = '/api/v1/me/summary';
 
+  /// 获取指定用户摘要
+  static String userSummary(String userId) => '/api/v1/users/$userId/summary';
+
+  /// 获取头像上传 Token
+  static const String usersMeAvatarUploadToken = '/api/v1/users/me/avatar/upload-token';
+
   // ---------- Tags ----------
   static const String tags = '/api/v1/tags';
 
   // ---------- Explore ----------
   static const String exploreCards = '/api/v1/explore/cards';
+
+  // ---------- Posts ----------
+  static const String friendPosts = '/api/v1/posts/friends';
+  static const String squarePosts = '/api/v1/posts/square';
+  static const String posts = '/api/v1/posts';
+  static const String postImageUploadToken =
+      '/api/v1/posts/image/upload-token';
+  static const String likePost = '/api/v1/posts/like';
+  static const String unlikePost = '/api/v1/posts/unlike';
+  static const String postCommentsCreate = '/api/v1/posts/comments';
+  static const String postCommentsReply = '/api/v1/posts/comments/reply';
+  static const String postCommentsDelete = '/api/v1/posts/comments/delete';
+  static const String postDelete = '/api/v1/posts/delete';
+  static const String postVisibility = '/api/v1/posts/visibility';
+  static const String postNotifications = '/api/v1/posts/notifications';
+  static const String postNotificationsUnread =
+      '/api/v1/posts/notifications/unread';
+  static const String postNotificationsRead =
+      '/api/v1/posts/notifications/read';
+
+  static String postDetail(String postId) => '/api/v1/posts/$postId';
+
+  static String postComments(String postId) =>
+      '/api/v1/posts/$postId/comments';
+
+  static String postLikes(String postId) => '/api/v1/posts/$postId/likes';
+
+  // ---------- Follow ----------
+  static const String follows = '/api/v1/follows';
+  static const String unfollowUser = '/api/v1/follows/delete';
 
   // ---------- Settings ----------
   static const String settings = '/api/v1/settings';

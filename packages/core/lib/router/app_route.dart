@@ -71,6 +71,32 @@ final class ChatRoute extends AppRoute {
   String get path => RoutePath.chat(userId);
 }
 
+/// 动态详情页
+final class FeedDetailRoute extends AppRoute {
+  const FeedDetailRoute({required this.postId}) : super();
+
+  final String postId;
+
+  @override
+  String get path => RoutePath.feedDetailWithId(postId);
+}
+
+/// 发布动态页
+final class CreatePostRoute extends AppRoute {
+  const CreatePostRoute() : super();
+
+  @override
+  String get path => RoutePath.createPost;
+}
+
+/// 动态消息页
+final class PostNotificationsRoute extends AppRoute {
+  const PostNotificationsRoute() : super();
+
+  @override
+  String get path => RoutePath.postNotifications;
+}
+
 /// 编辑资料页
 final class EditProfileRoute extends AppRoute {
   const EditProfileRoute() : super();

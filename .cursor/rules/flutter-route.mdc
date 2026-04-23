@@ -1,0 +1,19 @@
+---
+alwaysApply: true
+---
+# Flutter 路由规则
+
+- **禁止**：`Navigator.of(context).push/pop/pushReplacement/pushAndRemoveUntil`
+- **禁止**：`context.push` / `context.go` / `context.pop`（go_router 扩展）
+- **必须**：统一使用 `AppRouter`（spacecraft_core）：
+  - `AppRouter.go(path)` - 跳转
+  - `AppRouter.push(path)` - 压入新页
+  - `AppRouter.replace(path)` - 替换当前页
+  - `AppRouter.pop([result])` - 返回上一页
+
+## 路由集中管理
+
+- **路径常量集中定义**：所有路由 path 必须定义在 `AppRoutePaths`（spacecraft_core/lib/router/app_route_paths.dart）中，禁止在代码中硬编码路径字符串
+- **跳转方法集中到 AppRouter**：所有通用跳转方法集中在 `AppRouter`（spacecraft_core）中，各 feature 路由只保留 `routes` getter
+- **其他地方只调用方法**：Page、Provider 等只调用 `AppRouter.pushXxx()` / `AppRouter.goXxx()`，禁止直接调用 `GlobalRouter.push(path, extra: {...})`
+- **参数使用模型定义**：跳转传递的参数必须用类型化模型（如 `VerifyExtra`、`ResetPasswordExtra`、`ChangePasswordExtra`，均位于 spacecraft_core），禁止使用 `Map<String, dynamic>`

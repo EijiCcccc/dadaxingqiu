@@ -32,7 +32,7 @@ class AuthLoginService {
     var code = await _getWeChatAuthCode();
     if (code == null || code.isEmpty) {
       // return (error: '微信授权失败或已取消', result: null);
-      code = 'mock_wx_121234';
+      code = 'mock_wx_1212324';
     }
     return _loginAndSave(_typeWechat, code);
   }

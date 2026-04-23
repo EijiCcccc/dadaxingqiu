@@ -1,0 +1,74 @@
+# 单类单文件规则
+
+## 核心原则
+
+- **禁止**：一个 Dart 文件内定义多个公共类（public class/widget）
+- **必须**：每个公共 Widget/State/Notifier 类单独存放在一个文件中
+- **必须**：私有组件类（以 `_` 开头）如果可在多个页面复用，也必须单独提取
+
+## 文件组织规范
+
+### 页面文件（`*_page.dart`）
+
+- 只保留页面主 Widget（如 `XxxPage`）
+- 页面内的私有辅助 Widget（如 `_XxxCard`、`_XxxItem`）如果满足以下任一条件，必须拆分：
+  - 代码行数超过 100 行
+  - 可能在其他页面复用
+  - 有独立的业务逻辑
+
+### 拆分后的视图文件
+
+放到所属功能目录的 `view/` 子目录下：
+
+```
+presentation/xxx/
+├── xxx_page.dart
+├── xxx_provider.dart
+└── view/
+    ├── xxx_preview.dart      # 弹窗/预览组件
+    ├── xxx_card.dart         # 卡片组件
+    ├── xxx_section.dart      # 区块组件
+    └── xxx_list_item.dart    # 列表项组件
+```
+
+### State/Notifier 文件
+
+- `*_state.dart` 只放状态类定义
+- `*_provider.dart` 只放 Provider 和 Notifier
+- 状态类使用 `freezed` 或手动实现 `copyWith`
+
+## 示例
+
+### 修改前（不符合规范）
+
+```dart
+// medal_page.dart
+class MedalPage extends StatelessWidget { ... }
+
+class _MedalCard extends StatelessWidget { ... }  // ❌ 行数较多，应拆分
+
+class _MedalPreview extends StatelessWidget { ... }  // ❌ 可能被复用，应拆分
+
+class _MedalItem extends StatelessWidget { ... }  // ❌ 应拆分
+```
+
+### 修改后（符合规范）
+
+```dart
+// medal_page.dart
+import 'view/medal_card.dart';
+import 'view/medal_preview.dart';
+
+class MedalPage extends StatelessWidget { ... }  // ✅ 只有页面主类
+
+// view/medal_card.dart
+class MedalCard extends StatelessWidget { ... }  // ✅ 单独文件
+
+// view/medal_preview.dart  
+class MedalPreview extends StatelessWidget { ... }  // ✅ 单独文件
+```
+
+## 例外情况
+
+- 小型私有 Widget（少于 30 行且仅供当前页面使用）可暂时保留在页面文件中
+- 纯数据类（如 `Params`、`Key` 类）可与使用它们的 Provider 放在一起

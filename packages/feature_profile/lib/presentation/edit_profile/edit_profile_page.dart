@@ -4,37 +4,33 @@ import 'package:feature_profile/presentation/profile_tab/my_profile_provider.dar
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:network/network.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:shared/shared.dart';
+
+export 'package:shared/widgets/gradient_background_widget.dart';
 
 class EditProfilePage extends ConsumerWidget {
   const EditProfilePage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final profile = ref.read(myProfileProvider.future);
+    final s = ref.read(myProfileProvider);
     return Scaffold(
-        resizeToAvoidBottomInset: true,
-        body: Container(
-          width: double.infinity,
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
-              colors: [
-                AppColors.bgPurple100,
-                AppColors.bgPink50,
-                Colors.white,
-              ],
+      resizeToAvoidBottomInset: true,
+      backgroundColor: Colors.transparent,
+      body: GradientBackgroundWidget(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            const EditProfileAppBar(title: '编辑个人资料'),
+            Expanded(
+              child: _EditProfileForm(profile: s.profile!),
             ),
-          ),
-          child: Row(children: [
-            _EditProfileAppBar(onBack: () => GlobalRouter.instance.pop()),
-            SafeArea(
-              bottom: false,
-              child:_EditProfileForm(profile: profile),
-            ),
-          ]),
-        ));
+          ],
+        ),
+      ),
+    );
   }
 }
 
@@ -88,15 +84,76 @@ class _EditProfileFormState extends ConsumerState<_EditProfileForm> {
     }
   }
 
+  /// 处理头像选择
+  Future<void> _pickAvatar(BuildContext context) async {
+    final pickerNotifier = ref.read(avatarPickerProvider.notifier);
+    final pickerState = ref.read(avatarPickerProvider);
+
+    if (pickerState.isLoading) return;
+
+    // 检查权限状态
+    final status = await pickerNotifier.checkPermission();
+
+    if (!status.isGranted) {
+      if (!context.mounted) return;
+
+      // 首次请求权限前弹窗确认
+      final confirmed = await AppDialog.show(
+        context,
+        title: '相册权限',
+        content: '选择个人头像需要访问您的相册，是否授权？',
+        confirmText: '授权',
+        cancelText: '取消',
+      );
+      if (confirmed != true) return;
+
+      final granted = await pickerNotifier.requestPermission();
+      if (!granted) {
+        if (!context.mounted) return;
+        if (status.isPermanentlyDenied) {
+          final openSettings = await AppDialog.show(
+            context,
+            title: '需要相册权限',
+            content: '请在设置中开启相册权限以选择头像',
+            confirmText: '去设置',
+            cancelText: '取消',
+          );
+          if (openSettings == true) {
+            await pickerNotifier.openSettings();
+          }
+        } else {
+          AppToast.error('需要相册权限才能选择头像');
+        }
+        return;
+      }
+    }
+
+    // 权限已授权，选择并上传头像
+    final publicUrl = await pickerNotifier.pickAndUploadAvatar();
+
+    if (publicUrl != null) {
+      // 更新头像 URL 到编辑状态
+      ref.read(editProfileProvider(_userId).notifier).setAvatarUrl(publicUrl);
+      AppToast.success('头像上传成功');
+    } else {
+      final error = ref.read(avatarPickerProvider).error;
+      if (error != null) {
+        AppToast.error(error);
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final editAsync = ref.watch(editProfileProvider(_userId));
 
     return editAsync.when(
       data: (edit) => _buildLoadedForm(edit),
-      loading: () => const AsyncExpandedLoadingBody(),
-      error: (_, __) => AsyncLoadErrorBody(
-        onRetry: () => ref.invalidate(editProfileProvider(_userId)),
+      loading: () => const Center(child: CircularProgressIndicator()),
+      error: (error, stack) => Center(
+        child: AsyncLoadErrorBody(
+          onRetry: () => ref.invalidate(editProfileProvider(_userId)),
+        ),
       ),
     );
   }
@@ -133,7 +190,7 @@ class _EditProfileFormState extends ConsumerState<_EditProfileForm> {
                   Column(
                     children: [
                       GestureDetector(
-                        onTap: () {},
+                        onTap: () => _pickAvatar(context),
                         child: Container(
                           width: 112,
                           height: 112,
@@ -321,47 +378,6 @@ class _EditProfileFormState extends ConsumerState<_EditProfileForm> {
                 ),
         ),
       ],
-    );
-  }
-}
-
-class _EditProfileAppBar extends StatelessWidget {
-  const _EditProfileAppBar({required this.onBack});
-
-  final VoidCallback onBack;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
-      decoration: BoxDecoration(
-        color: AppColors.bgPurple100.withOpacity(0.8),
-        border: Border(
-          bottom: BorderSide(
-            color: AppColors.borderPurple.withOpacity(0.5),
-          ),
-        ),
-      ),
-      child: Stack(
-        alignment: Alignment.center,
-        children: [
-          Align(
-            alignment: Alignment.centerLeft,
-            child: IconButton(
-              onPressed: onBack,
-              icon: const Icon(Icons.arrow_back, color: AppColors.primaryDark),
-            ),
-          ),
-          const Text(
-            '编辑个人资料',
-            style: TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.w600,
-              color: AppColors.primaryDark,
-            ),
-          ),
-        ],
-      ),
     );
   }
 }

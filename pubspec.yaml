@@ -55,6 +55,8 @@ dependencies:
     path: packages/feature_home
   feature_detail:
     path: packages/feature_detail
+  feature_post:
+    path: packages/feature_post
 
 dev_dependencies:
   flutter_test:

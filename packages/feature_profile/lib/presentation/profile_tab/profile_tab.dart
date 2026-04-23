@@ -12,18 +12,18 @@ class ProfileTab extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final async = ref.watch(myProfileProvider);
+    final s = ref.watch(myProfileProvider);
 
     return SafeArea(
       top: true,
-      child: async.when(
-        loading: () => const Center(child: CircularProgressIndicator()),
-        error: (error, stack) => Center(
-          child: AsyncLoadErrorBody(
-            onRetry: () => ref.invalidate(myProfileProvider),
-          ),
-        ),
-        data: (profile) => SingleChildScrollView(
+      child: _buildContent(context, ref, s),
+    );
+  }
+
+  Widget _buildContent(BuildContext context, WidgetRef ref, MyProfileState s) {
+    if (s.profile != null) {
+      final profile = s.profile!;
+      return SingleChildScrollView(
           physics: const AlwaysScrollableScrollPhysics(),
           child: Column(
             children: [
@@ -87,7 +87,14 @@ class ProfileTab extends ConsumerWidget {
               ),
             ],
           ),
-        ),
+        );
+    }
+    if (s.isLoading) {
+      return const Center(child: CircularProgressIndicator());
+    }
+    return Center(
+      child: AsyncLoadErrorBody(
+        onRetry: () => ref.read(myProfileProvider.notifier).refresh(),
       ),
     );
   }
@@ -120,8 +127,8 @@ class _ProfileHeaderCard extends StatelessWidget {
               CircleAvatar(
                 radius: 40,
                 backgroundColor: const Color(0xFFF3E8FF),
-                // backgroundImage:
-                //     avatarUrl.isNotEmpty ? NetworkImage(avatarUrl) : null,
+                backgroundImage:
+                    avatarUrl.isNotEmpty ? NetworkImage(avatarUrl) : null,
                 child: avatarUrl.isEmpty
                     ? const Icon(Icons.person,
                         size: 40, color: Color(0xFF9CA3AF))

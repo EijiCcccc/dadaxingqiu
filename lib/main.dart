@@ -25,7 +25,7 @@ void main() async {
   // 3. 初始化 DioClient（baseUrl 与《iOS 联调说明》一致）
   final dioClient = DioClient(
     baseUrl:
-        'https://pavilion-lands-was-dangerous.trycloudflare.com',
+        'https://supported-queue-dollar-leone.trycloudflare.com',
     connectTimeout: const Duration(seconds: 10),
     receiveTimeout: const Duration(seconds: 10),
   );

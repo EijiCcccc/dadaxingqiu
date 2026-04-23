@@ -64,6 +64,45 @@ const UserProfile$json = const {
 
 /// Descriptor for `UserProfile`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List userProfileDescriptor = $convert.base64Decode('CgtVc2VyUHJvZmlsZRIOCgJpZBgBIAEoA1ICaWQSGgoIbmlja25hbWUYAiABKAlSCG5pY2tuYW1lEhYKBmdlbmRlchgDIAEoBVIGZ2VuZGVyEh0KCmF2YXRhcl91cmwYBCABKAlSCWF2YXRhclVybBIWCgZzdGF0dXMYBSABKAVSBnN0YXR1cxIfCgtpc19wcm9maWxlZBgGIAEoCFIKaXNQcm9maWxlZBIbCglpc190YWdnZWQYByABKAhSCGlzVGFnZ2VkEhsKCW5leHRfc3RlcBgIIAEoCVIIbmV4dFN0ZXASKgoGYXZhdGFyGAkgASgLMhIuYXBwLnYxLlVzZXJBdmF0YXJSBmF2YXRhchIjCgR0YWdzGAogAygLMg8uYXBwLnYxLlVzZXJUYWdSBHRhZ3M=');
+@$core.Deprecated('Use otherUserSummaryDescriptor instead')
+const OtherUserSummary$json = const {
+  '1': 'OtherUserSummary',
+  '2': const [
+    const {'1': 'id', '3': 1, '4': 1, '5': 3, '10': 'id'},
+    const {'1': 'nickname', '3': 2, '4': 1, '5': 9, '10': 'nickname'},
+    const {'1': 'gender', '3': 3, '4': 1, '5': 5, '10': 'gender'},
+    const {'1': 'avatar_url', '3': 4, '4': 1, '5': 9, '10': 'avatarUrl'},
+    const {'1': 'online_status', '3': 5, '4': 1, '5': 9, '10': 'onlineStatus'},
+    const {'1': 'tags', '3': 6, '4': 3, '5': 11, '6': '.app.v1.UserTag', '10': 'tags'},
+  ],
+};
+
+/// Descriptor for `OtherUserSummary`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List otherUserSummaryDescriptor = $convert.base64Decode('ChBPdGhlclVzZXJTdW1tYXJ5Eg4KAmlkGAEgASgDUgJpZBIaCghuaWNrbmFtZRgCIAEoCVIIbmlja25hbWUSFgoGZ2VuZGVyGAMgASgFUgZnZW5kZXISHQoKYXZhdGFyX3VybBgEIAEoCVIJYXZhdGFyVXJsEiMKDW9ubGluZV9zdGF0dXMYBSABKAlSDG9ubGluZVN0YXR1cxIjCgR0YWdzGAYgAygLMg8uYXBwLnYxLlVzZXJUYWdSBHRhZ3M=');
+@$core.Deprecated('Use createAvatarUploadRequestDescriptor instead')
+const CreateAvatarUploadRequest$json = const {
+  '1': 'CreateAvatarUploadRequest',
+  '2': const [
+    const {'1': 'file_name', '3': 1, '4': 1, '5': 9, '10': 'fileName'},
+    const {'1': 'content_type', '3': 2, '4': 1, '5': 9, '10': 'contentType'},
+  ],
+};
+
+/// Descriptor for `CreateAvatarUploadRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List createAvatarUploadRequestDescriptor = $convert.base64Decode('ChlDcmVhdGVBdmF0YXJVcGxvYWRSZXF1ZXN0EhsKCWZpbGVfbmFtZRgBIAEoCVIIZmlsZU5hbWUSIQoMY29udGVudF90eXBlGAIgASgJUgtjb250ZW50VHlwZQ==');
+@$core.Deprecated('Use createAvatarUploadResponseDescriptor instead')
+const CreateAvatarUploadResponse$json = const {
+  '1': 'CreateAvatarUploadResponse',
+  '2': const [
+    const {'1': 'object_key', '3': 1, '4': 1, '5': 9, '10': 'objectKey'},
+    const {'1': 'upload_url', '3': 2, '4': 1, '5': 9, '10': 'uploadUrl'},
+    const {'1': 'public_url', '3': 3, '4': 1, '5': 9, '10': 'publicUrl'},
+    const {'1': 'expires_in', '3': 4, '4': 1, '5': 3, '10': 'expiresIn'},
+  ],
+};
+
+/// Descriptor for `CreateAvatarUploadResponse`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List createAvatarUploadResponseDescriptor = $convert.base64Decode('ChpDcmVhdGVBdmF0YXJVcGxvYWRSZXNwb25zZRIdCgpvYmplY3Rfa2V5GAEgASgJUglvYmplY3RLZXkSHQoKdXBsb2FkX3VybBgCIAEoCVIJdXBsb2FkVXJsEh0KCnB1YmxpY191cmwYAyABKAlSCXB1YmxpY1VybBIdCgpleHBpcmVzX2luGAQgASgDUglleHBpcmVzSW4=');
 @$core.Deprecated('Use updateMyProfileRequestDescriptor instead')
 const UpdateMyProfileRequest$json = const {
   '1': 'UpdateMyProfileRequest',

@@ -26,9 +26,17 @@ class SelectTagsPage extends ConsumerWidget {
     final selectedIds = ref.read(selectedTagIdsProvider);
     final repo = ref.read(authRepositoryProvider);
     try {
-      final avatarUrl = await repo.uploadAvatar(form.avatarFile!);
+      // final avatarUrl = await repo.uploadAvatar(form.avatarFile!);
+
+      final ext = form.avatarFile!.path.split('.').last.toLowerCase();
+      final contentType = ext == 'jpg' ? 'image/jpeg' : 'image/$ext';
+      final avatarUrl =
+          await ref.read(authRepositoryProvider).getAvatarUploadToken(
+                fileName: form.avatarFile!.path,
+                contentType: contentType,
+              );
       await repo.completeProfile(
-        avatarUrl: avatarUrl,
+        avatarUrl: avatarUrl.publicUrl,
         nickname: form.nickname.trim(),
         gender: form.gender!,
         tagIds: selectedIds.toList(),
@@ -74,10 +82,10 @@ class SelectTagsPage extends ConsumerWidget {
                   loading: () =>
                       const Center(child: CircularProgressIndicator()),
                   error: (_, __) => Center(
-                        child: AsyncLoadErrorBody(
-                          onRetry: () => ref.invalidate(tagListProvider),
-                        ),
-                      ),
+                    child: AsyncLoadErrorBody(
+                      onRetry: () => ref.invalidate(tagListProvider),
+                    ),
+                  ),
                 ),
               ),
               _buildBottomBar(context, canSubmit, ref),

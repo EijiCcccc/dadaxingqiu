@@ -27,6 +27,16 @@ class RoutePath {
   /// 聊天页（带 userId）
   static String chat(String userId) => '/chat/$userId';
 
+  /// 动态详情页（带 postId）
+  static const String feedDetail = '/feed';
+  static String feedDetailWithId(String postId) => '$feedDetail/$postId';
+
+  /// 发布动态页
+  static const String createPost = '/posts/create';
+
+  /// 动态消息页
+  static const String postNotifications = '/posts/notifications';
+
   /// 编辑资料页
   static const String editProfile = '/edit-profile';
 

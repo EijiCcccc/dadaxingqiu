@@ -1,0 +1,128 @@
+---
+description: Flutter/Riverpod 通用状态管理规则
+alwaysApply: true
+---
+# Flutter 状态管理规则
+
+## 基本要求
+
+- **禁止**：`setState`、Bloc、GetX、全局单例 + `ChangeNotifier`
+- **禁止**：在 Widget 的 `build` 中初始化、请求数据、写业务判断
+- **必须**：统一使用 Riverpod 的 `Provider` / `Notifier` / `FutureProvider`
+- **职责分离**：Page 只负责展示和触发动作；校验、异步、状态转换放在 Provider/Notifier
+- **首次加载**：在 `Notifier.build()` 里用 `Future.microtask(() => loadXxx())`，或在应用层用 `ref.listen`
+- **状态类**：多字段状态必须不可变，并提供 `copyWith`
+
+## Provider 选型
+
+- `StateProvider.autoDispose`：单个 UI 开关，如“是否同意协议”“是否显示密码”
+- `FutureProvider.autoDispose` / `.family`：只读型异步查询，如他人资料、黑名单、扩展信息
+- `NotifierProvider.autoDispose` / `.family`：表单、提交流程、多字段页面状态
+- `NotifierProvider`：全局长期状态，如登录态、我的资料缓存
+
+## ref 使用规则
+
+- `ref.watch`：给 Widget 订阅状态，用于界面刷新
+- `ref.read`：给点击事件、Notifier 方法、一次性动作取依赖
+- `ref.listen`：处理副作用，如跳转、Toast、Dialog、IM/GME 初始化
+- **禁止**：在 `build()` 里用状态变化直接触发副作用
+
+## 生命周期与刷新
+
+- 页面级、路由级、临时表单状态默认使用 `autoDispose`
+- 全局会话、全局缓存、跨页面共享状态默认不要 `autoDispose`
+- 写操作成功后，必须 `invalidate` 相关查询 Provider，或调用统一 `refresh()`
+- **禁止**：只改本地展示，不刷新真实数据源
+
+## family 规则
+
+- `family` 参数必须稳定、可比较、不可变
+- 简单参数直接传基础类型；复杂参数封装成 `Params` / `Key` 类
+- `Params` / `Key` 类应实现相等性，避免重复请求和缓存失效异常
+
+## Provider 拆分与整合
+
+- 一个 Provider 只负责一类状态、一个生命周期、一个刷新策略
+- 页面临时状态、全局状态、轮询/倒计时状态，通常应拆分
+- 职责不同、生命周期不同、刷新方式不同、依赖来源不同，必须拆分
+- 同一个表单、同一个提交流程、总是一起初始化和销毁的状态，可以整合成一个 `Notifier`
+- 如果拆分后只是增加 Provider 之间互相读取、没有降低复杂度，就不要硬拆
+- 如果一个 Provider 已经同时承担列表、表单、全局会话等多种职责，应立即拆分
+
+## 异步与错误处理
+
+- 异步方法必须考虑防重入，如 `if (state.isLoading) return`
+- 可展示、可重试的错误进入 `state`；一次性提示通过 `ref.listen` 处理
+- `isLoading` 应按场景拆分，避免一个字段同时承担初始化、刷新、提交、分页等职责
+
+## 状态边界
+
+- UI 只调用 Provider/Notifier 暴露的方法，不直接拼装业务状态
+- `state` 中不要保存 `BuildContext`、Controller、`FocusNode`、`Timer`、Repository
+- Provider 之间禁止形成循环依赖；共享逻辑应下沉到 Repository 或独立工具层
+
+## 文件组织
+
+- **必须**：按功能建子目录，禁止在 `presentation/` 下平铺多个 page/provider/state 文件
+- **必须**：页面、Provider、State 同属一个功能时，统一收敛到同一个功能目录
+- **必须**：页面内拆出的弹窗、卡片、列表项、表单段等纯视图组件，新建文件放到所属功能目录的 `view/` 下
+- **禁止**：把 `_XxxDialog`、`_XxxCard`、`_XxxSection`、`_XxxItem` 这类可独立拆分的视图实现长期内联在 `xxx_page.dart`
+- **禁止**：集中式 `presentation/providers/` 目录；Provider/State 必须跟随所属功能放置
+- **允许**：纯展示页面若暂时没有状态，可只保留 `xxx_page.dart`，但目录结构仍必须是 `presentation/xxx/`
+
+```text
+feature_name/
+└── presentation/
+    ├── xxx/
+    │   ├── xxx_page.dart
+    │   ├── xxx_provider.dart
+    │   └── xxx_state.dart
+    │   └── view/
+    │       ├── xxx_dialog.dart
+    │       └── xxx_card.dart
+    └── yyy/
+        ├── yyy_page.dart
+        ├── yyy_provider.dart
+        └── yyy_state.dart
+        └── view/
+            └── yyy_section.dart
+```
+
+## 示例 1：页面状态
+
+```dart
+final loginFormProvider =
+    NotifierProvider.autoDispose<LoginFormNotifier, LoginFormState>(
+  LoginFormNotifier.new,
+);
+
+class LoginFormNotifier extends AutoDisposeNotifier<LoginFormState> {
+  @override
+  LoginFormState build() => const LoginFormState();
+
+  Future<void> submit() async {
+    state = state.copyWith(isLoading: true);
+    final repo = ref.read(authRepositoryProvider);
+    await repo.loginWithPassword(state.phone, state.password);
+    state = state.copyWith(isLoading: false);
+  }
+}
+```
+
+## 示例 2：全局状态
+
+```dart
+final authStateProvider = NotifierProvider<AuthNotifier, AuthState>(
+  AuthNotifier.new,
+);
+
+class AuthNotifier extends Notifier<AuthState> {
+  @override
+  AuthState build() => AuthInitial();
+
+  Future<void> logout() async {
+    await ref.read(authSessionRepositoryProvider).logout();
+    state = AuthInitial();
+  }
+}
+```

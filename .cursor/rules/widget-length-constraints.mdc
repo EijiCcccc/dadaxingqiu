@@ -1,0 +1,140 @@
+---
+alwaysApply: true
+---
+# Widget 和方法长度限制
+
+## 核心原则
+
+| 原则 | 说明 |
+|------|------|
+| **单一职责** | 一个 Widget/方法只做一件事 |
+| **易于阅读** | 代码应在屏幕可视范围内理解 |
+| **便于维护** | 拆分成小块更易测试和复用 |
+| **文件内聚** | 每个文件职责清晰单一 |
+
+## 长度限制标准
+
+| 类型 | 最大行数 | 处理方式 |
+|------|---------|---------|
+| **build 方法** | 50 行 | 超过则提取子 Widget |
+| **独立 Widget** | 100 行 | 超过则拆分为多个文件 |
+| **私有方法** | 30 行 | 超过需重构或拆分 |
+| **单一文件** | 300 行 | 超过则考虑拆分为多个文件 |
+
+## 提取规则
+
+### 1. 提取子 Widget
+
+当 `build` 方法超过 50 行时，将内部组件提取为独立 Widget：
+
+```dart
+// ❌ 过长 - build 方法超过 50 行
+class MikukuProfilePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Column(
+        children: [
+          // 50+ 行的嵌套组件...
+          Container(...),
+          ListView(...),
+          Card(...),
+          // ... 更多层级
+        ],
+      ),
+    );
+  }
+}
+
+// ✅ 正确 - 提取为独立 Widget
+class ProfilePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Column(
+        children: [
+          ProfileHeaderWidget(),
+          ProfileStatsWidget(),
+          ProfilePostsWidget(),
+        ],
+      ),
+    );
+  }
+}
+```
+
+### 2. 提取为独立文件
+
+当 Widget 超过 100 行时，创建单独文件：
+
+```
+lib/app/modules/profile/views/
+  mikuku_profile_page.dart          # 主页面 (精简)
+  mikuku_profile_header_widget.dart   # 头部组件
+  mikuku_profile_stats_widget.dart   # 统计组件
+  mikuku_profile_posts_widget.dart   # 帖子列表组件
+```
+
+### 3. 方法拆分
+
+当私有方法超过 30 行时，拆分为多个方法：
+
+```dart
+// ❌ 过长方法
+void _handleUserAction(UserAction action) {
+  // 30+ 行的复杂逻辑...
+  if (action.type == 'like') {
+    // 10 行处理
+  } else if (action.type == 'comment') {
+    // 15 行处理
+  } else if (action.type == 'share') {
+    // 10 行处理
+  }
+}
+
+// ✅ 正确 - 拆分为多个方法
+void _handleUserAction(UserAction action) {
+  switch (action.type) {
+    case 'like':
+      _handleLikeAction(action);
+      break;
+    case 'comment':
+      _handleCommentAction(action);
+      break;
+    case 'share':
+      _handleShareAction(action);
+      break;
+  }
+}
+
+void _handleLikeAction(UserAction action) { /* ... */ }
+void _handleCommentAction(UserAction action) { /* ... */ }
+void _handleShareAction(UserAction action) { /* ... */ }
+```
+
+## 命名规范
+
+提取的 Widget 遵循现有命名规则：
+
+| 类型 | 命名模式 | 示例 |
+|------|---------|------|
+| 页面文件 | `mikuku_*_page.dart` | `mikuku_profile_page.dart` |
+| 组件文件 | `mikuku_*_widget.dart` | `mikuku_profile_header_widget.dart` |
+| 类名 | `Mikuku*Widget` | `MikukuProfileHeaderWidget` |
+
+## 检查清单
+
+- [ ] build 方法不超过 50 行
+- [ ] 单个 Widget 类不超过 100 行
+- [ ] 私有方法不超过 30 行
+- [ ] 单个文件不超过 300 行
+- [ ] 提取的 Widget 遵循命名规范
+- [ ] 新文件放在合适目录
+
+## 规则
+
+1. **超过限制必须拆分**：不妥协，立即提取
+2. **保持语义清晰**：提取的组件要有明确单一职责
+3. **命名一致**：遵循项目 `mikuku_*_widget.dart` 命名规范
+4. **文件位置合理**：组件与使用它的地方就近放置
+5. **避免过度拆分**：太小的 Widget（< 10 行）可内联

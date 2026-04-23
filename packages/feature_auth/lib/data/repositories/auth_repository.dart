@@ -168,9 +168,21 @@ class AuthRepository {
     await updateMyTags(tagIds: ids);
   }
 
-  /// 上传头像获取 URL
-  /// TODO: 对接实际上传接口，当前返回本地路径占位
-  Future<String> uploadAvatar(File file) async {
-    return 'https://placeholder/avatar_${file.path.hashCode}.jpg';
+  
+  /// POST `/api/v1/users/me/avatar/upload-token`
+  Future<CreateAvatarUploadResponse> getAvatarUploadToken({
+    required String fileName,
+    required String contentType,
+  }) async {
+    final request = CreateAvatarUploadRequest(
+      fileName: fileName,
+      contentType: contentType,
+    );
+    return _client
+        .postPb<CreateAvatarUploadResponse, CreateAvatarUploadRequest>(
+      ApiPath.usersMeAvatarUploadToken,
+      request: request,
+      message: CreateAvatarUploadResponse.create,
+    );
   }
 }

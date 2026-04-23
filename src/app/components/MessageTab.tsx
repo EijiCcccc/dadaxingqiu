@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { useNavigate } from "react-router";
 import { motion } from "motion/react";
+import { Users, Pin } from "lucide-react";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -20,6 +21,7 @@ const mockChats = [
     lastMessage: "晚上一起打游戏吗？",
     time: "18:30",
     unread: 2,
+    isPinned: true,
   },
   {
     id: 2,
@@ -28,6 +30,7 @@ const mockChats = [
     lastMessage: "那部电影真的超级好看！",
     time: "17:45",
     unread: 0,
+    isPinned: false,
   },
   {
     id: 3,
@@ -36,6 +39,7 @@ const mockChats = [
     lastMessage: "周末去新开的咖啡店吧～",
     time: "15:20",
     unread: 1,
+    isPinned: true,
   },
   {
     id: 4,
@@ -44,6 +48,7 @@ const mockChats = [
     lastMessage: "明天健身房见！",
     time: "昨天",
     unread: 0,
+    isPinned: false,
   },
   {
     id: 5,
@@ -52,6 +57,7 @@ const mockChats = [
     lastMessage: "新画的同人图你看看怎么样",
     time: "昨天",
     unread: 0,
+    isPinned: false,
   },
   {
     id: 6,
@@ -60,6 +66,7 @@ const mockChats = [
     lastMessage: "这个bug终于修好了哈哈",
     time: "周二",
     unread: 0,
+    isPinned: false,
   },
   {
     id: 7,
@@ -68,6 +75,7 @@ const mockChats = [
     lastMessage: "[语音消息]",
     time: "周一",
     unread: 0,
+    isPinned: false,
   },
 ];
 
@@ -76,6 +84,14 @@ export default function MessageTab() {
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
   const [chatToDelete, setChatToDelete] = useState<number | null>(null);
   const navigate = useNavigate();
+
+  // Sort chats: pinned first, then by original order
+  const sortedChats = useMemo(() => {
+    return [...chats].sort((a, b) => {
+      if (a.isPinned === b.isPinned) return 0;
+      return a.isPinned ? -1 : 1;
+    });
+  }, [chats]);
 
   const handleDeleteClick = (chatId: number) => {
     setChatToDelete(chatId);
@@ -99,12 +115,20 @@ export default function MessageTab() {
     <div className="min-h-screen bg-[#1a1a1a]">
       {/* Header */}
       <div className="sticky top-0 bg-[#1a1a1a]/60 backdrop-blur-lg border-b border-gray-800/30 px-4 py-4">
-        <h1 className="text-xl font-bold text-white">消息</h1>
+        <div className="flex items-center justify-between">
+          <h1 className="text-xl font-bold text-white">消息</h1>
+          <button
+            onClick={() => navigate("/dark/contacts")}
+            className="w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-700/50 transition-colors -mr-2"
+          >
+            <Users className="w-6 h-6 text-white" />
+          </button>
+        </div>
       </div>
 
       {/* Chat List */}
       <div>
-        {chats.map((chat) => (
+        {sortedChats.map((chat) => (
           <div key={chat.id} className="relative overflow-hidden border-b border-gray-800/20">
             {/* Delete Button Background */}
             <div className="absolute right-0 top-0 bottom-0 w-20 bg-red-500 flex items-center justify-center">
@@ -122,7 +146,11 @@ export default function MessageTab() {
                 }
               }}
               onClick={() => navigate(`/dark/chat/${chat.id}`)}
-              className="flex items-center gap-3 px-4 py-3 bg-[#1a1a1a] cursor-pointer relative z-10 active:bg-[#252525] transition-colors"
+              className={`flex items-center gap-3 px-4 py-3 cursor-pointer relative z-10 transition-colors ${
+                chat.isPinned
+                  ? "bg-gray-800/30 active:bg-gray-800/40"
+                  : "bg-[#1a1a1a] active:bg-[#252525]"
+              }`}
             >
               {/* Avatar */}
               <div className="relative flex-shrink-0">
@@ -141,8 +169,13 @@ export default function MessageTab() {
               {/* Content */}
               <div className="flex-1 min-w-0">
                 <div className="flex items-center justify-between mb-1">
-                  <h3 className="text-white font-medium text-sm">{chat.username}</h3>
-                  <span className="text-gray-500 text-xs">{chat.time}</span>
+                  <div className="flex items-center gap-1.5 min-w-0">
+                    {chat.isPinned && (
+                      <Pin className="w-3.5 h-3.5 text-gray-500 flex-shrink-0" />
+                    )}
+                    <h3 className="text-white font-medium text-sm truncate">{chat.username}</h3>
+                  </div>
+                  <span className="text-gray-500 text-xs flex-shrink-0">{chat.time}</span>
                 </div>
                 <p className="text-gray-400 text-sm truncate">{chat.lastMessage}</p>
               </div>

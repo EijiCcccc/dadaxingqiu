@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router";
 import { Sparkles } from "lucide-react";
 import { Button } from "../components/ui/button";
+import { AppIcon } from "../components/AppIcon";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -23,15 +24,13 @@ export default function Login() {
       <div className="relative z-10 flex flex-col items-center">
         {/* Logo */}
         <div className="mb-8 relative">
-          <div className="w-24 h-24 bg-gradient-to-br from-purple-500 via-pink-500 to-purple-600 rounded-full flex items-center justify-center shadow-2xl shadow-purple-500/50">
-            <Sparkles className="w-12 h-12 text-white" />
+          <div className="w-32 h-32 rounded-3xl overflow-hidden shadow-2xl shadow-purple-500/50">
+            <AppIcon />
           </div>
-          <div className="absolute -top-2 -right-2 w-8 h-8 bg-gradient-to-br from-yellow-400 to-pink-400 rounded-full shadow-lg shadow-yellow-400/50"></div>
-          <div className="absolute -bottom-1 -left-1 w-5 h-5 bg-gradient-to-br from-purple-400 to-pink-400 rounded-full shadow-lg shadow-purple-400/50"></div>
         </div>
 
         {/* App Name */}
-        <h1 className="text-4xl font-bold text-white mb-2 tracking-wide">搭搭星球</h1>
+        <h1 className="text-4xl font-bold text-white mb-2 tracking-wide">嗒伴</h1>
         <p className="text-purple-200 mb-16 text-sm">找到你的星际搭子</p>
 
         {/* Login Buttons */}

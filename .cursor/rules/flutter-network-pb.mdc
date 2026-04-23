@@ -1,0 +1,9 @@
+---
+alwaysApply: true
+---
+# Flutter 网络请求规则
+
+- **禁止**：自行定义请求/响应模型（如 `CreateRoomParams`、`RoomInfoDto` 等）
+- **必须**：全部使用 pb 协议中的类型（spacecraft_network 导出的 `*.pb.dart`）
+- 请求参数使用 `*Req`（如 `CreateRoomReq`），响应数据使用 `*Rsp` 中的字段（如 `CreateRoomRsp.roomInfo`）
+- 新增接口时，先在 proto 中定义消息，再生成 Dart 代码，禁止在业务层手写模型

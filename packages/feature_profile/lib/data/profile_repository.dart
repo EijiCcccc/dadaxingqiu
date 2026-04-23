@@ -1,4 +1,5 @@
 import 'package:core/core.dart';
+import 'package:dio/dio.dart';
 import 'package:fixnum/fixnum.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:network/network.dart';
@@ -82,6 +83,52 @@ class ProfileRepository {
       ApiPath.feedback,
       request: request,
       message: SubmitFeedbackResponse.create,
+    );
+  }
+
+  /// GET `/api/v1/users/{user_id}/summary`
+  Future<OtherUserSummary> getUserSummary({required String userId}) async {
+    return _client.getPb<OtherUserSummary>(
+      ApiPath.userSummary(userId),
+      message: OtherUserSummary.create,
+    );
+  }
+
+  /// POST `/api/v1/users/me/avatar/upload-token`
+  Future<CreateAvatarUploadResponse> getAvatarUploadToken({
+    required String fileName,
+    required String contentType,
+  }) async {
+    final request = CreateAvatarUploadRequest(
+      fileName: fileName,
+      contentType: contentType,
+    );
+    return _client
+        .postPb<CreateAvatarUploadResponse, CreateAvatarUploadRequest>(
+      ApiPath.usersMeAvatarUploadToken,
+      request: request,
+      message: CreateAvatarUploadResponse.create,
+    );
+  }
+
+  /// 上传头像到指定 URL（直传 OSS/S3）
+  /// [uploadUrl] 从 getAvatarUploadToken 获取
+  /// [imageBytes] 图片二进制数据
+  /// [headers] 从 getAvatarUploadToken 获取的额外请求头
+  Future<void> uploadAvatarToUrl({
+    required String uploadUrl,
+    required List<int> imageBytes,
+    required Map<String, String> headers,
+  }) async {
+    await _client.dio.put(
+      uploadUrl,
+      data: Stream.fromIterable([imageBytes]),
+      options: Options(
+        headers: {
+          'Content-Length': imageBytes.length.toString(),
+          ...headers,
+        },
+      ),
     );
   }
 }

@@ -13,20 +13,19 @@ export 'edit_tags_state.dart';
 /// 编辑标签页所需：标签分组 + 当前用户资料（用于初始选中）
 ///
 /// 我的资料走 [myProfileProvider]，避免与「我的」等入口重复请求 `getMyProfile`。
-final editTagsBootstrapProvider =
-    FutureProvider.autoDispose<({GetTagsResponse catalog, UserProfile profile})>(
-        (ref) async {
+final editTagsBootstrapProvider = FutureProvider.autoDispose<
+    ({GetTagsResponse catalog, UserProfile profile})>((ref) async {
   final repo = ref.watch(profileRepositoryProvider);
   final catalog = await repo.getTagList();
-  final profile = await ref.read(myProfileProvider.future);
+  final profile = await ref.read(myProfileProvider.notifier).ensureLoaded();
   return (catalog: catalog, profile: profile);
 });
 
 class EditTagsNotifier extends AutoDisposeFamilyNotifier<EditTagsState, Int64> {
   @override
-  EditTagsState build(Int64 profileId) {
+  EditTagsState build(Int64 arg) {
     final data = ref.read(editTagsBootstrapProvider).valueOrNull;
-    if (data == null || data.profile.id != profileId) {
+    if (data == null || data.profile.id != arg) {
       return const EditTagsState(selectedIds: <Int64>{});
     }
     return EditTagsState(
@@ -58,7 +57,7 @@ class EditTagsNotifier extends AutoDisposeFamilyNotifier<EditTagsState, Int64> {
     try {
       final repo = ref.read(profileRepositoryProvider);
       await repo.updateMyTags(tagIds: state.selectedIds.toList());
-      ref.invalidate(myProfileProvider);
+      ref.read(myProfileProvider.notifier).refresh();
       ref.invalidate(editProfileProvider(data.profile.id.toString()));
       ref.invalidate(editTagsBootstrapProvider);
       AppToast.success('已保存');
@@ -73,7 +72,7 @@ class EditTagsNotifier extends AutoDisposeFamilyNotifier<EditTagsState, Int64> {
 }
 
 /// [profileId] 为 [UserProfile.id]
-final editTagsProvider = NotifierProvider.autoDispose
-    .family<EditTagsNotifier, EditTagsState, Int64>(
+final editTagsProvider =
+    NotifierProvider.autoDispose.family<EditTagsNotifier, EditTagsState, Int64>(
   EditTagsNotifier.new,
 );

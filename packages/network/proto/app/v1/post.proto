@@ -1,0 +1,242 @@
+syntax = "proto3";
+
+package app.v1;
+
+option go_package = "dada-backendgo/gen/proto/app/v1;appv1";
+
+enum PostVisibility {
+  UNSPECIFIED = 0;
+  SELF_ONLY = 1;
+  PUBLIC = 2;
+  FRIENDS_ONLY = 3;
+  SQUARE_ONLY = 4;
+}
+
+enum PostNotificationType {
+  POST_LIKED = 0;
+  POST_COMMENTED = 1;
+  COMMENT_REPLIED = 2;
+}
+
+message FollowUserRequest {
+  int64 target_user_id = 1;
+}
+
+message FollowUserResponse {
+  GetFollowRelationResponse relation = 1;
+}
+
+message UnfollowUserRequest {
+  int64 target_user_id = 1;
+}
+
+message UnfollowUserResponse {
+  GetFollowRelationResponse relation = 1;
+}
+
+message GetFollowRelationResponse {
+  int64 target_user_id = 1;
+  bool is_following = 2;
+  bool is_followed_by_target_user = 3;
+  bool is_mutual_follow = 4;
+}
+
+message PostImage {
+  string image_url = 1;
+  string thumb_url = 2;
+  int32 sort_order = 3;
+}
+
+message PostAuthorRelation {
+  int64 user_id = 1;
+  string nickname = 2;
+  int32 gender = 3;
+  string avatar_url = 4;
+  bool is_following = 5;
+  bool is_followed_by = 6;
+  bool is_mutual_follow = 7;
+}
+
+message PostItem {
+  int64 post_id = 1;
+  PostAuthorRelation author = 2;
+  string content = 3;
+  repeated PostImage images = 4;
+  PostVisibility visibility = 5;
+  bool is_deleted = 6;
+  int64 deleted_at = 7;
+  int64 like_count = 8;
+  int64 comment_count = 9;
+  bool is_liked_by_me = 10;
+  int64 created_at = 11;
+  int64 updated_at = 12;
+}
+
+message GetSquarePostsResponse {
+  repeated PostItem items = 1;
+  int32 page = 2;
+  int32 page_size = 3;
+  bool has_more = 4;
+}
+
+message GetFriendPostsResponse {
+  repeated PostItem items = 1;
+  int32 page = 2;
+  int32 page_size = 3;
+  bool has_more = 4;
+}
+
+message CreatePostImageUploadRequest {
+  string file_name = 1;
+  string content_type = 2;
+}
+
+message CreatePostImageUploadResponse {
+  string object_key = 1;
+  string upload_url = 2;
+  string public_url = 3;
+  int64 expires_in = 4;
+}
+
+message CreatePostRequest {
+  string content = 1;
+  repeated string image_urls = 2;
+  PostVisibility visibility = 3;
+}
+
+message CreatePostResponse {
+  PostItem post = 1;
+}
+
+message GetPostDetailResponse {
+  PostItem post = 1;
+}
+
+message PostCommentItem {
+  int64 comment_id = 1;
+  int64 post_id = 2;
+  PostAuthorRelation author = 3;
+  int64 reply_to_comment_id = 4;
+  int64 reply_to_user_id = 5;
+  string content = 6;
+  string display_content = 7;
+  bool is_deleted = 8;
+  int64 deleted_at = 9;
+  int64 created_at = 10;
+  int64 updated_at = 11;
+}
+
+message GetPostCommentsResponse {
+  repeated PostCommentItem items = 1;
+  int32 page = 2;
+  int32 page_size = 3;
+  bool has_more = 4;
+}
+
+message GetPostLikesResponse {
+  repeated PostAuthorRelation items = 1;
+  int32 page = 2;
+  int32 page_size = 3;
+  bool has_more = 4;
+}
+
+message LikePostRequest {
+  int64 post_id = 1;
+}
+
+message LikePostResponse {
+  bool success = 1;
+  int64 like_count = 2;
+  bool is_liked = 3;
+}
+
+message UnlikePostRequest {
+  int64 post_id = 1;
+}
+
+message UnlikePostResponse {
+  bool success = 1;
+  int64 like_count = 2;
+  bool is_liked = 3;
+}
+
+message CreatePostCommentRequest {
+  int64 post_id = 1;
+  string content = 2;
+}
+
+message CreatePostCommentResponse {
+  PostCommentItem comment = 1;
+}
+
+message ReplyPostCommentRequest {
+  int64 post_id = 1;
+  int64 comment_id = 2;
+  string content = 3;
+}
+
+message ReplyPostCommentResponse {
+  PostCommentItem comment = 1;
+}
+
+message DeletePostCommentRequest {
+  int64 comment_id = 1;
+  int64 post_id = 2;
+}
+
+message DeletePostCommentResponse {
+  bool success = 1;
+}
+
+message DeletePostRequest {
+  int64 post_id = 1;
+}
+
+message DeletePostResponse {
+  bool success = 1;
+}
+
+message UpdatePostVisibilityRequest {
+  int64 post_id = 1;
+  PostVisibility visibility = 2;
+}
+
+message UpdatePostVisibilityResponse {
+  PostItem post = 1;
+}
+
+message PostNotificationItem {
+  int64 notification_id = 1;
+  PostNotificationType type = 2;
+  PostAuthorRelation actor = 3;
+  int64 post_id = 4;
+  int64 comment_id = 5;
+  int64 reply_comment_id = 6;
+  string preview_text = 7;
+  string preview_thumb_url = 8;
+  bool is_read = 9;
+  int64 read_at = 10;
+  bool is_post_deleted = 11;
+  bool is_comment_deleted = 12;
+  bool is_reply_comment_deleted = 13;
+  int64 created_at = 14;
+  int64 updated_at = 15;
+}
+
+message GetPostNotificationsResponse {
+  repeated PostNotificationItem items = 1;
+  int32 page = 2;
+  int32 page_size = 3;
+  bool has_more = 4;
+}
+
+message GetPostUnreadCountResponse {
+  int64 unread_count = 1;
+}
+
+message MarkPostNotificationsReadResponse {
+  bool success = 1;
+  int64 unread_count = 2;
+}
+
+message MarkPostNotificationsReadRequest {}

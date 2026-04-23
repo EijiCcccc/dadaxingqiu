@@ -1,5 +1,6 @@
 import 'package:feature_chat/feature_chat.dart';
 import 'package:feature_home/feature_home.dart';
+import 'package:feature_post/feature_post.dart';
 import 'package:feature_profile/feature_profile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -12,7 +13,7 @@ class MainHomePage extends ConsumerStatefulWidget {
   ConsumerState<MainHomePage> createState() => _MainHomePageState();
 }
 
-enum _HomeTab { planet, message, profile }
+enum _HomeTab { planet, feed, message, profile }
 
 class _MainHomePageState extends ConsumerState<MainHomePage> {
   _HomeTab _activeTab = _HomeTab.planet;
@@ -41,6 +42,7 @@ class _MainHomePageState extends ConsumerState<MainHomePage> {
                 sizing: StackFit.expand,
                 children: const [
                   PlanetTab(),
+                  FeedTab(),
                   MessageTab(),
                   ProfileTab(),
                 ],
@@ -76,6 +78,15 @@ class _MainHomePageState extends ConsumerState<MainHomePage> {
             ),
             Expanded(
               child: _TabItem(
+                icon: Icons.grid_view_rounded,
+                label: '动态',
+                isActive: _activeTab == _HomeTab.feed,
+                badgeCountAsync: ref.watch(postUnreadCountProvider),
+                onTap: () => setState(() => _activeTab = _HomeTab.feed),
+              ),
+            ),
+            Expanded(
+              child: _TabItem(
                 icon: Icons.chat_bubble_outline,
                 label: '消息',
                 isActive: _activeTab == _HomeTab.message,
@@ -89,7 +100,7 @@ class _MainHomePageState extends ConsumerState<MainHomePage> {
                 isActive: _activeTab == _HomeTab.profile,
                 onTap: () {
                   // 每次点「我的」都重新拉取资料（含已停留在该 Tab 时再次点击）
-                  ref.invalidate(myProfileProvider);
+                  ref.read(myProfileProvider.notifier).refresh();
                   if (_activeTab != _HomeTab.profile) {
                     setState(() => _activeTab = _HomeTab.profile);
                   }
@@ -109,12 +120,14 @@ class _TabItem extends StatelessWidget {
     required this.label,
     required this.isActive,
     required this.onTap,
+    this.badgeCountAsync,
   });
 
   final IconData icon;
   final String label;
   final bool isActive;
   final VoidCallback onTap;
+  final AsyncValue<int>? badgeCountAsync;
 
   /// 最小高度 48（Material 建议触摸目标），整格可点
   static const double _minTapHeight = 52;
@@ -131,10 +144,41 @@ class _TabItem extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(
-              icon,
-              size: 24,
-              color: isActive ? const Color(0xFF7C3AED) : const Color(0xFF9CA3AF),
+            Stack(
+              clipBehavior: Clip.none,
+              children: [
+                Icon(
+                  icon,
+                  size: 24,
+                  color:
+                      isActive ? const Color(0xFF7C3AED) : const Color(0xFF9CA3AF),
+                ),
+                if ((badgeCountAsync?.valueOrNull ?? 0) > 0)
+                  Positioned(
+                    right: -8,
+                    top: -6,
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 4),
+                      height: 16,
+                      decoration: const BoxDecoration(
+                        color: Colors.redAccent,
+                        borderRadius: BorderRadius.all(Radius.circular(999)),
+                      ),
+                      child: Center(
+                        child: Text(
+                          (badgeCountAsync!.valueOrNull ?? 0) > 99
+                              ? '99+'
+                              : '${badgeCountAsync!.valueOrNull}',
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontSize: 9,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+              ],
             ),
             const SizedBox(height: 4),
             Text(

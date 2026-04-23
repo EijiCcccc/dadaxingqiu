@@ -1,0 +1,67 @@
+---
+description: Flutter 分包依赖添加与引用规则
+alwaysApply: true
+---
+# Flutter 添加依赖规则（Spacecraft）
+
+## 先判断加在哪个包
+
+- `spacecraft/`：只放应用壳依赖，如 `bot_toast`、仅 `lib/main.dart` 使用的集成
+- `packages/spacecraft_core`：放跨功能共用能力，如路由、主题、全局 Provider、IM/GME 编排
+- `packages/infrastructure/*`：只放基础设施依赖，如 `dio`、`logger`
+- `packages/spacecraft_feature/*`：只放当前 feature 直接使用的依赖
+- 如果多个 feature 都要用，优先抽到 `spacecraft_core` 或 `spacecraft_shared`
+
+### 示例
+
+- ✅ 只有 `lib/main.dart` 用到的库：加到根应用 `spacecraft/`
+- ✅ 只有 `spacecraft_profile` 用到的库：加到 `packages/spacecraft_feature/spacecraft_profile`
+- ✅ 多个 feature 共用的能力：考虑加到 `packages/spacecraft_core`
+- ❌ `spacecraft_profile` 专用依赖加到 `spacecraft_core`
+
+## 依赖方向
+
+- `infrastructure` **禁止**依赖 `spacecraft_feature/*`
+- `spacecraft_core` 可以依赖 `infrastructure`，但应避免为了工具类反向制造依赖环
+- 新增依赖前先判断：会不会出现 `A -> B` 且 `B -> A`
+- 如果会形成循环，改为抽第三个无业务包，或改成接口/回调倒置
+
+### 示例
+
+- ✅ `spacecraft_core` 依赖 `spacecraft_logger`
+- ✅ `spacecraft_network` 依赖 `dio`
+- ❌ `spacecraft_network` 依赖 `spacecraft_profile`
+- ❌ `spacecraft_logger` 为了拿工具方法再依赖 `spacecraft_core`
+
+## 本地 path 依赖写法
+
+- 统一使用相对路径，与仓库现有 `pubspec.yaml` 保持一致
+
+```yaml
+# packages/spacecraft_core
+spacecraft_logger:
+  path: ../infrastructure/spacecraft_logger
+
+# packages/infrastructure/spacecraft_network
+spacecraft_logger:
+  path: ../spacecraft_logger
+```
+
+## import 规则
+
+- **禁止** 通过 `package:<包名>/lib/...` 或 `src/...` 深层引用内部实现
+- **必须** 只从包入口文件引用：`package:<包名>/<包名>.dart`
+- 若需要暴露新符号，应在包入口 `export`，不要让调用方改深层 import
+
+### 示例
+
+```dart
+// ✅ 正确
+import 'package:spacecraft_auth/spacecraft_auth.dart';
+import 'package:spacecraft_chat/spacecraft_chat.dart';
+
+// ❌ 错误
+import 'package:spacecraft_auth/lib/presentation/login_page.dart';
+import 'package:spacecraft_chat/src/chat_service.dart';
+```
+
