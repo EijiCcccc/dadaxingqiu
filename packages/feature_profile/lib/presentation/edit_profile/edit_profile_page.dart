@@ -23,7 +23,7 @@ class EditProfilePage extends ConsumerWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           mainAxisSize: MainAxisSize.max,
           children: [
-            const EditProfileAppBar(title: '编辑个人资料'),
+            const AppBarWidget(title: '编辑个人资料'),
             Expanded(
               child: _EditProfileForm(profile: s.profile!),
             ),

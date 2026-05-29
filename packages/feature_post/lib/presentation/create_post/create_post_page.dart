@@ -20,6 +20,15 @@ class _CreatePostPageState extends ConsumerState<CreatePostPage> {
   final _controller = TextEditingController();
 
   @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
+      _syncControllerText(ref.read(createPostProvider).content);
+    });
+  }
+
+  @override
   void dispose() {
     _controller.dispose();
     super.dispose();
@@ -28,104 +37,136 @@ class _CreatePostPageState extends ConsumerState<CreatePostPage> {
   @override
   Widget build(BuildContext context) {
     final state = ref.watch(createPostProvider);
-    return Scaffold(
-      backgroundColor: Colors.transparent,
-      body: GradientBackgroundWidget(
-        child: SafeArea(
-          top: false,
-          child: Column(
-            children: [
-              _CreatePostAppBar(
-                onBack: () => _handleBack(state),
-                onPublish: state.canSubmit
-                    ? () async {
-                        final result =
-                            await ref.read(createPostProvider.notifier).submit();
-                        if (!mounted || result == null) return;
-                        GlobalRouter.instance.pop();
-                      }
-                    : null,
-                isSubmitting: state.isSubmitting,
-              ),
-              Expanded(
-                child: ListView(
-                  padding: const EdgeInsets.fromLTRB(16, 16, 16, 24),
-                  children: [
-                    TextField(
-                      controller: _controller,
-                      maxLines: 8,
-                      minLines: 6,
-                      maxLength: _maxLength,
-                      onChanged: ref.read(createPostProvider.notifier).setContent,
-                      decoration: const InputDecoration(
-                        hintText: '分享今天的新鲜事吧~',
-                        border: InputBorder.none,
-                        counterText: '',
-                      ),
-                    ),
-                    Align(
-                      alignment: Alignment.centerRight,
-                      child: Text(
-                        '${state.content.length}/$_maxLength',
-                        style: const TextStyle(
-                          color: AppColors.textSecondary,
-                          fontSize: 12,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 12),
-                    _ImageGrid(
-                      images: state.images,
-                      isPicking: state.isPickingImages,
-                      onAdd: _handlePickImages,
-                      onRemove: (index) => ref
-                          .read(createPostProvider.notifier)
-                          .removeImageAt(index),
-                    ),
-                    const SizedBox(height: 12),
-                    _VisibilityTile(
-                      visibility: state.visibility,
-                      onTap: () => _showVisibilitySheet(state.visibility),
-                    ),
-                    if (state.error != null) ...[
-                      const SizedBox(height: 12),
-                      Text(
-                        state.error!,
-                        style: const TextStyle(
-                          color: Colors.redAccent,
-                          fontSize: 13,
+    return PopScope(
+      canPop: false,
+      onPopInvokedWithResult: (didPop, result) async {
+        if (didPop) return;
+        await _handleBack(state);
+      },
+      child: GestureDetector(
+        behavior: HitTestBehavior.translucent,
+        onTap: _dismissKeyboard,
+        child: Scaffold(
+          backgroundColor: Colors.transparent,
+          body: GradientBackgroundWidget(
+            child: SafeArea(
+              top: false,
+              child: Column(
+                children: [
+                  AppBarWidget(
+                    title: '发布动态',
+                    onBack: () => _handleBack(state),
+                    actions: [
+                      TextButton(
+                        onPressed: state.canSubmit ? _handleSubmit : null,
+                        child: const Text(
+                          '发布',
+                          style: TextStyle(color: AppColors.primary),
                         ),
                       ),
                     ],
-                    const SizedBox(height: 16),
-                    Text(
-                      '禁止发布色情、谩骂、引战、第三方平台等违规内容，多次发布违规内容将被禁言或封号。',
-                      style: TextStyle(
-                        color: Colors.grey.shade600,
-                        fontSize: 12,
-                        height: 1.5,
-                      ),
+                  ),
+                  Expanded(
+                    child: ListView(
+                      keyboardDismissBehavior:
+                          ScrollViewKeyboardDismissBehavior.onDrag,
+                      padding: const EdgeInsets.fromLTRB(16, 16, 16, 24),
+                      children: [
+                        TextField(
+                          style: const TextStyle(color: Colors.black),
+                          controller: _controller,
+                          maxLines: 8,
+                          minLines: 6,
+                          maxLength: _maxLength,
+                          onTapOutside: (_) => _dismissKeyboard(),
+                          onChanged:
+                              ref.read(createPostProvider.notifier).setContent,
+                          decoration: const InputDecoration(
+                            hintText: '分享今天的新鲜事吧~',
+                            border: InputBorder.none,
+                            counterText: '',
+                          ),
+                        ),
+                        Align(
+                          alignment: Alignment.centerRight,
+                          child: Text(
+                            '${state.content.length}/$_maxLength',
+                            style: const TextStyle(
+                              color: AppColors.textSecondary,
+                              fontSize: 12,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 12),
+                        _ImageGrid(
+                          images: state.images,
+                          isPicking: state.isPickingImages,
+                          onAdd: _handlePickImages,
+                          onRemove: (index) => ref
+                              .read(createPostProvider.notifier)
+                              .removeImageAt(index),
+                        ),
+                        const SizedBox(height: 12),
+                        _VisibilityTile(
+                          visibility: state.visibility,
+                          onTap: () => _showVisibilitySheet(state.visibility),
+                        ),
+                        if (state.error != null) ...[
+                          const SizedBox(height: 12),
+                          Text(
+                            state.error!,
+                            style: const TextStyle(
+                              color: Colors.redAccent,
+                              fontSize: 13,
+                            ),
+                          ),
+                        ],
+                        const SizedBox(height: 16),
+                        Text(
+                          '禁止发布色情、谩骂、引战、第三方平台等违规内容，多次发布违规内容将被禁言或封号。',
+                          style: TextStyle(
+                            color: Colors.grey.shade600,
+                            fontSize: 12,
+                            height: 1.5,
+                          ),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
+                  ),
+                  FullWidthBottomActionBar(
+                    onPressed: state.canSubmit ? _handleSubmit : null,
+                    label: '发布动态',
+                    loading: state.isSubmitting,
+                  ),
+                ],
               ),
-              FullWidthBottomActionBar(
-                onPressed: state.canSubmit
-                    ? () async {
-                        final result =
-                            await ref.read(createPostProvider.notifier).submit();
-                        if (!mounted || result == null) return;
-                        GlobalRouter.instance.pop();
-                      }
-                    : null,
-                label: '发布动态',
-                loading: state.isSubmitting,
-              ),
-            ],
+            ),
           ),
         ),
       ),
     );
+  }
+
+  void _dismissKeyboard() {
+    final focusScope = FocusScope.of(context);
+    if (!focusScope.hasPrimaryFocus && focusScope.focusedChild != null) {
+      focusScope.unfocus();
+    }
+  }
+
+  void _syncControllerText(String content) {
+    if (_controller.text == content) return;
+    _controller.value = TextEditingValue(
+      text: content,
+      selection: TextSelection.collapsed(offset: content.length),
+    );
+  }
+
+  Future<void> _handleSubmit() async {
+    _dismissKeyboard();
+    final result = await ref.read(createPostProvider.notifier).submit();
+    if (!mounted || result == null) return;
+    GlobalRouter.instance.pop();
   }
 
   Future<void> _handlePickImages() async {
@@ -178,7 +219,9 @@ class _CreatePostPageState extends ConsumerState<CreatePostPage> {
                   trailing:
                       current == option.$1 ? const Icon(Icons.check) : null,
                   onTap: () {
-                    ref.read(createPostProvider.notifier).setVisibility(option.$1);
+                    ref
+                        .read(createPostProvider.notifier)
+                        .setVisibility(option.$1);
                     Navigator.of(context).pop();
                   },
                 ),
@@ -190,81 +233,32 @@ class _CreatePostPageState extends ConsumerState<CreatePostPage> {
   }
 
   Future<void> _handleBack(CreatePostState state) async {
-    if (state.content.trim().isEmpty && state.images.isEmpty) {
+    if (state.isSubmitting) return;
+
+    _dismissKeyboard();
+    final notifier = ref.read(createPostProvider.notifier);
+    if (!state.hasContent) {
+      notifier.clearDraft();
       GlobalRouter.instance.pop();
       return;
     }
-    final shouldLeave = await showDialog<bool>(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: const Text('放弃本次编辑？'),
-        content: const Text('当前动态尚未发布，确认离开吗？'),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.of(context).pop(false),
-            child: const Text('继续编辑'),
-          ),
-          FilledButton(
-            onPressed: () => Navigator.of(context).pop(true),
-            child: const Text('放弃'),
-          ),
-        ],
-      ),
+
+    final shouldSaveDraft = await AppDialog.show(
+      context,
+      title: '保存当前动态？',
+      content: '当前动态尚未发布，是否保存后退出？',
+      confirmText: '确定',
+      cancelText: '取消',
+      barrierDismissible: false,
     );
-    if (shouldLeave == true && mounted) {
-      GlobalRouter.instance.pop();
+    if (!mounted || shouldSaveDraft == null) return;
+
+    if (shouldSaveDraft) {
+      notifier.saveDraft();
+    } else {
+      notifier.clearDraft();
     }
-  }
-}
-
-class _CreatePostAppBar extends StatelessWidget {
-  const _CreatePostAppBar({
-    required this.onBack,
-    required this.onPublish,
-    required this.isSubmitting,
-  });
-
-  final VoidCallback onBack;
-  final VoidCallback? onPublish;
-  final bool isSubmitting;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 56,
-      padding: const EdgeInsets.symmetric(horizontal: 8),
-      decoration: BoxDecoration(
-        color: AppColors.bgPurple100.withOpacity(0.85),
-        border: Border(
-          bottom: BorderSide(
-            color: AppColors.borderPurple.withOpacity(0.5),
-          ),
-        ),
-      ),
-      child: Row(
-        children: [
-          IconButton(
-            onPressed: onBack,
-            icon: const Icon(Icons.arrow_back, color: AppColors.primaryDark),
-          ),
-          const Expanded(
-            child: Text(
-              '发布动态',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                color: AppColors.primaryDark,
-                fontSize: 18,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
-          ),
-          TextButton(
-            onPressed: isSubmitting ? null : onPublish,
-            child: const Text('发布'),
-          ),
-        ],
-      ),
-    );
+    GlobalRouter.instance.pop();
   }
 }
 
@@ -344,7 +338,7 @@ class _ImageGrid extends StatelessWidget {
           onTap: isPicking ? null : onAdd,
           child: Container(
             decoration: BoxDecoration(
-              color: Colors.white.withOpacity(0.7),
+              color: Colors.white.withOpacity( 0.7),
               borderRadius: BorderRadius.circular(12),
               border: Border.all(color: AppColors.borderPurple),
             ),
@@ -388,7 +382,7 @@ class _VisibilityTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: Colors.white.withOpacity(0.7),
+      color: Colors.white.withOpacity( 0.7),
       borderRadius: BorderRadius.circular(16),
       child: ListTile(
         onTap: onTap,

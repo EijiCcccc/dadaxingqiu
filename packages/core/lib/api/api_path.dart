@@ -64,4 +64,7 @@ class ApiPath {
 
   // ---------- Feedback ----------
   static const String feedback = '/api/v1/feedback';
+
+  // ---------- IM ----------
+  static const String imSession = '/api/v1/im/session';
 }

@@ -7,5 +7,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 final authLoginServiceProvider = Provider<AuthLoginService>((ref) {
   final repo = ref.watch(authRepositoryProvider);
   final storage = ref.watch(keyValueStorageProvider);
-  return AuthLoginService(authRepository: repo, storage: storage);
+  return AuthLoginService(
+    authRepository: repo,
+    storage: storage,
+    imAuthBridge: ref.watch(imAuthBridgeProvider),
+  );
 });

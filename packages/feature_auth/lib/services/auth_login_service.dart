@@ -15,11 +15,14 @@ class AuthLoginService {
   AuthLoginService({
     required AuthRepository authRepository,
     required KeyValueStorage storage,
+    ImAuthBridge? imAuthBridge,
   })  : _authRepository = authRepository,
-        _storage = storage;
+        _storage = storage,
+        _imAuthBridge = imAuthBridge;
 
   final AuthRepository _authRepository;
   final KeyValueStorage _storage;
+  final ImAuthBridge? _imAuthBridge;
 
   /// 微信登录 type=1
   static const int _typeWechat = 1;
@@ -121,6 +124,7 @@ class AuthLoginService {
             StorageKeys.userId,
             res.user.id.toString(),
           );
+          await _imAuthBridge?.login(res.user.id.toString());
         }
         final registered =
             res.hasUser() && res.user.isProfiled && res.user.isTagged;

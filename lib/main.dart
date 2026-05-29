@@ -1,4 +1,6 @@
+import 'package:core/constants/app_config.dart';
 import 'package:core/core.dart';
+import 'package:feature_chat/feature_chat.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fluwx/fluwx.dart';
@@ -6,6 +8,7 @@ import 'package:go_router/go_router.dart';
 import 'package:network/network.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'bootstrap/app_bootstrap.dart';
 import 'router/app_router_config.dart';
 
 void main() async {
@@ -24,8 +27,7 @@ void main() async {
 
   // 3. 初始化 DioClient（baseUrl 与《iOS 联调说明》一致）
   final dioClient = DioClient(
-    baseUrl:
-        'https://supported-queue-dollar-leone.trycloudflare.com',
+    baseUrl: AppConfig.baseUrl,
     connectTimeout: const Duration(seconds: 10),
     receiveTimeout: const Duration(seconds: 10),
   );
@@ -41,8 +43,13 @@ void main() async {
       overrides: [
         sharedPreferencesProvider.overrideWithValue(prefs),
         dioClientProvider.overrideWithValue(dioClient),
+        imAuthBridgeProvider.overrideWith(
+          (ref) => ref.watch(featureChatImAuthBridgeProvider),
+        ),
       ],
-      child: MyApp(router: router),
+      child: AppBootstrap(
+        child: MyApp(router: router),
+      ),
     ),
   );
 }

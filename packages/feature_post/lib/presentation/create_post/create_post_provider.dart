@@ -61,11 +61,13 @@ class CreatePostState {
   final bool isSubmitting;
   final String? error;
 
+  bool get hasContent => content.trim().isNotEmpty || images.isNotEmpty;
   bool get hasUploadingImage => images.any((image) => image.isUploading);
   bool get canSubmit =>
       !isSubmitting &&
       !hasUploadingImage &&
-      (content.trim().isNotEmpty || images.any((image) => image.publicUrl != null));
+      (content.trim().isNotEmpty ||
+          images.any((image) => image.publicUrl != null));
 
   CreatePostState copyWith({
     String? content,
@@ -84,18 +86,50 @@ class CreatePostState {
       error: error,
     );
   }
+
+  CreatePostState toDraftState() {
+    return CreatePostState(
+      content: content,
+      images: [
+        for (final image in images)
+          image.copyWith(
+            isUploading: false,
+            error: image.publicUrl == null ? null : image.error,
+          ),
+      ],
+      visibility: visibility,
+    );
+  }
 }
+
+final createPostDraftProvider =
+    NotifierProvider<CreatePostDraftNotifier, CreatePostState>(
+  CreatePostDraftNotifier.new,
+);
 
 final createPostProvider =
     NotifierProvider.autoDispose<CreatePostNotifier, CreatePostState>(
   CreatePostNotifier.new,
 );
 
+class CreatePostDraftNotifier extends Notifier<CreatePostState> {
+  @override
+  CreatePostState build() => const CreatePostState();
+
+  void save(CreatePostState value) {
+    state = value.toDraftState();
+  }
+
+  void clear() {
+    state = const CreatePostState();
+  }
+}
+
 class CreatePostNotifier extends AutoDisposeNotifier<CreatePostState> {
   static const _maxImages = 9;
 
   @override
-  CreatePostState build() => const CreatePostState();
+  CreatePostState build() => ref.read(createPostDraftProvider);
 
   void setContent(String value) {
     state = state.copyWith(content: value, error: null);
@@ -109,6 +143,14 @@ class CreatePostNotifier extends AutoDisposeNotifier<CreatePostState> {
     if (index < 0 || index >= state.images.length) return;
     final images = [...state.images]..removeAt(index);
     state = state.copyWith(images: images, error: null);
+  }
+
+  void saveDraft() {
+    ref.read(createPostDraftProvider.notifier).save(state);
+  }
+
+  void clearDraft() {
+    ref.read(createPostDraftProvider.notifier).clear();
   }
 
   Future<bool> requestPermission() async {
@@ -189,6 +231,7 @@ class CreatePostNotifier extends AutoDisposeNotifier<CreatePostState> {
           );
       ref.invalidate(feedListProvider(FeedSource.friends));
       ref.invalidate(feedListProvider(FeedSource.square));
+      clearDraft();
       state = const CreatePostState();
       return response.post;
     } catch (e) {

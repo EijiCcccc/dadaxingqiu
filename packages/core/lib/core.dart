@@ -9,3 +9,4 @@ export 'router/router.dart';
 export 'utils/utils.dart';
 export 'storage/storage.dart';
 export 'providers/providers.dart';
+export 'im/im_auth_bridge.dart';

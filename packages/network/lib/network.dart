@@ -12,5 +12,6 @@ export 'src/generated/app/v1/client.pb.dart';
 export 'src/generated/app/v1/common.pb.dart';
 export 'src/generated/app/v1/explore.pb.dart';
 export 'src/generated/app/v1/feedback.pb.dart';
+export 'src/generated/app/v1/im.pb.dart';
 export 'src/generated/app/v1/post.pb.dart';
 export 'src/generated/app/v1/user.pb.dart';

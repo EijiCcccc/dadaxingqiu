@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package app.v1;
+
+option go_package = "dada-backendgo/gen/proto/app/v1;appv1";
+
+message ContactUserItem {
+  int64 user_id = 1;
+  string nickname = 2;
+  string remark_name = 3;
+  string display_name = 4;
+  int32 gender = 5;
+  string avatar_url = 6;
+  int64 intimacy = 7;
+  bool is_following = 8;
+  bool is_followed_by = 9;
+  bool is_mutual_follow = 10;
+  int64 relation_updated_at = 11;
+}
+
+message GetContactFriendsResponse {
+  repeated ContactUserItem items = 1;
+  int32 page = 2;
+  int32 page_size = 3;
+  bool has_more = 4;
+}
+
+message GetContactFollowingResponse {
+  repeated ContactUserItem items = 1;
+  int32 page = 2;
+  int32 page_size = 3;
+  bool has_more = 4;
+}
+
+message GetContactFollowersResponse {
+  repeated ContactUserItem items = 1;
+  int32 page = 2;
+  int32 page_size = 3;
+  bool has_more = 4;
+}

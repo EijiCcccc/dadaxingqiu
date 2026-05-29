@@ -11,7 +11,10 @@ dependencies:
     sdk: flutter
   core:
     path: ../core
+  network:
+    path: ../network
   shared:
     path: ../shared
   go_router: ^14.6.2
   flutter_riverpod: ^2.6.1
+  tencent_cloud_chat_sdk: 8.4.6667

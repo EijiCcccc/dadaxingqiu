@@ -90,7 +90,11 @@ class _MainHomePageState extends ConsumerState<MainHomePage> {
                 icon: Icons.chat_bubble_outline,
                 label: '消息',
                 isActive: _activeTab == _HomeTab.message,
-                onTap: () => setState(() => _activeTab = _HomeTab.message),
+                badgeCountAsync: ref.watch(chatTabUnreadCountProvider),
+                onTap: () {
+                  clearChatTabBadge(ref);
+                  setState(() => _activeTab = _HomeTab.message);
+                },
               ),
             ),
             Expanded(

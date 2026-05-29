@@ -148,6 +148,7 @@ class SettingsPage extends ConsumerWidget {
     );
     if (result == true) {
       final storage = ref.read(keyValueStorageProvider);
+      await ref.read(imAuthBridgeProvider)?.logout();
       await storage.remove(StorageKeys.userToken);
       await storage.remove(StorageKeys.userId);
       if (context.mounted) {

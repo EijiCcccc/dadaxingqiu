@@ -40,4 +40,6 @@ class AppColors {
   static const Color tagBgGray = Color(0xFFF3F4F6);
   /// 资料页等「浅紫底」标签
   static const Color tagBgSoftPurple = Color(0xFFF5F3FF);
+
+  static const Color lineColor = Color(0xFFE5E7EB);
 }

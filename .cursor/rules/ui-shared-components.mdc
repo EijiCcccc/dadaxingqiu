@@ -1,8 +1,6 @@
 ---
-description: 底部主按钮与标签组件统一使用 shared 包
 alwaysApply: true
 ---
-
 # UI 共享组件（红线）
 
 **完整说明与代码示例**：`.cursor/skills/flutter-implementation/SKILL.md` → **§4 UI 共享组件**。

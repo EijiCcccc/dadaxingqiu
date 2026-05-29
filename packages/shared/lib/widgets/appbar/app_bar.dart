@@ -2,21 +2,27 @@ import 'package:core/colors/colors.dart';
 import 'package:core/router/global_router.dart';
 import 'package:flutter/material.dart';
 
-class EditProfileAppBar extends StatelessWidget {
-  const EditProfileAppBar({super.key, this.onBack, required this.title});
+class AppBarWidget extends StatelessWidget {
+  const AppBarWidget(
+      {super.key, this.onBack, required this.title, this.actions, this.backgroundColor, this.textColor, this.borderColor});
 
   final String title;
   final VoidCallback? onBack;
+  final List<Widget>? actions;
+  final Color? backgroundColor;
+  final Color? textColor;
+  final Color? borderColor;
+
 
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16),
       decoration: BoxDecoration(
-        color: AppColors.bgPurple100.withOpacity(0.8),
+        color: backgroundColor ?? AppColors.bgPurple100.withOpacity(0.8),
         border: Border(
           bottom: BorderSide(
-            color: AppColors.borderPurple.withOpacity(0.5),
+            color: borderColor ?? AppColors.borderPurple.withOpacity(0.5),
           ),
         ),
       ),
@@ -33,16 +39,25 @@ class EditProfileAppBar extends StatelessWidget {
                   GlobalRouter.instance.pop();
                 }
               },
-              icon: const Icon(Icons.arrow_back, color: AppColors.primaryDark),
+              icon: Icon(Icons.arrow_back, color: textColor ?? AppColors.primaryDark),
             ),
           ),
           Text(
             title,
-            style: const TextStyle(
+            style: TextStyle(
               fontSize: 18,
               fontWeight: FontWeight.w600,
-              color: AppColors.primaryDark,
+              color: textColor ?? AppColors.primaryDark,
             ),
+          ),
+          Align(
+            alignment: Alignment.centerRight,
+            child: actions != null
+                ? Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: actions!,
+                  )
+                : const SizedBox.shrink(),
           ),
         ],
       ),

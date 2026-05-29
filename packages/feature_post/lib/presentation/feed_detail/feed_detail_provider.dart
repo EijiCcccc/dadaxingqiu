@@ -3,49 +3,15 @@ import 'dart:async';
 import 'package:fixnum/fixnum.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:network/network.dart';
+import 'package:protobuf/protobuf.dart';
 
 import '../../providers/feed_list_provider.dart';
 import '../../providers/post_repository_provider.dart';
-
-class PostDetailState {
-  const PostDetailState({
-    required this.post,
-    required this.comments,
-    required this.likes,
-    this.isSendingComment = false,
-    this.isDeletingPost = false,
-    this.isUpdatingVisibility = false,
-  });
-
-  final PostItem post;
-  final List<PostCommentItem> comments;
-  final List<PostAuthorRelation> likes;
-  final bool isSendingComment;
-  final bool isDeletingPost;
-  final bool isUpdatingVisibility;
-
-  PostDetailState copyWith({
-    PostItem? post,
-    List<PostCommentItem>? comments,
-    List<PostAuthorRelation>? likes,
-    bool? isSendingComment,
-    bool? isDeletingPost,
-    bool? isUpdatingVisibility,
-  }) {
-    return PostDetailState(
-      post: post ?? this.post,
-      comments: comments ?? this.comments,
-      likes: likes ?? this.likes,
-      isSendingComment: isSendingComment ?? this.isSendingComment,
-      isDeletingPost: isDeletingPost ?? this.isDeletingPost,
-      isUpdatingVisibility: isUpdatingVisibility ?? this.isUpdatingVisibility,
-    );
-  }
-}
+import 'feed_detail_state.dart';
 
 final feedDetailProvider = AsyncNotifierProvider.autoDispose
     .family<FeedDetailNotifier, PostDetailState, String>(
-  FeedDetailNotifier.new,
+  () => FeedDetailNotifier(),
 );
 
 class FeedDetailNotifier
@@ -226,18 +192,19 @@ class FeedDetailNotifier
     final targetRelation = _findUserRelation(current, userId);
     if (targetRelation == null) return;
 
-    final optimisticRelation = targetRelation.clone()
+    final optimisticRelation = targetRelation.deepCopy()
       ..isFollowing = !targetRelation.isFollowing
       ..isMutualFollow =
           !targetRelation.isFollowing && targetRelation.isFollowedBy;
-    state = AsyncData(_replaceUserRelation(current, userId, optimisticRelation));
+    state =
+        AsyncData(_replaceUserRelation(current, userId, optimisticRelation));
 
     try {
       final repository = ref.read(postRepositoryProvider);
       final relation = targetRelation.isFollowing
           ? (await repository.unfollowUser(userId)).relation
           : (await repository.followUser(userId)).relation;
-      final synced = optimisticRelation.clone()
+      final synced = optimisticRelation.deepCopy()
         ..isFollowing = relation.isFollowing
         ..isFollowedBy = relation.isFollowedByTargetUser
         ..isMutualFollow = relation.isMutualFollow;
@@ -271,15 +238,16 @@ class FeedDetailNotifier
         : current.post;
     final likes = current.likes
         .map(
-          (item) =>
-              item.userId.toString() == userId ? relation.clone() : item.clone(),
+          (item) => item.userId.toString() == userId
+              ? relation.deepCopy()
+              : item.deepCopy(),
         )
         .toList();
     final comments = current.comments
         .map(
           (item) => item.author.userId.toString() == userId
-              ? (item.clone()..author = relation.clone())
-              : item.clone(),
+              ? (item.deepCopy()..author = relation.deepCopy())
+              : item.deepCopy(),
         )
         .toList();
     return current.copyWith(post: post, likes: likes, comments: comments);
@@ -292,8 +260,8 @@ class FeedDetailNotifier
     Int64? commentCount,
     bool? isLikedByMe,
   }) {
-    return post.clone()
-      ..author = author ?? post.author.clone()
+    return post.deepCopy()
+      ..author = author ?? post.author.deepCopy()
       ..likeCount = likeCount ?? post.likeCount
       ..commentCount = commentCount ?? post.commentCount
       ..isLikedByMe = isLikedByMe ?? post.isLikedByMe;
