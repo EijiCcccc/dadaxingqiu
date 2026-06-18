@@ -165,8 +165,8 @@ class FeedListNotifier
     try {
       final repo = ref.read(postRepositoryProvider);
       final relation = author.isFollowing
-          ? (await repo.unfollowUser(author.userId.toString())).relation
-          : (await repo.followUser(author.userId.toString())).relation;
+          ? (await repo.unfollowUser(author.userId)).relation
+          : (await repo.followUser(author.userId)).relation;
       final syncedAuthor = _copyAuthor(
         optimisticAuthor,
         isFollowing: relation.isFollowing,

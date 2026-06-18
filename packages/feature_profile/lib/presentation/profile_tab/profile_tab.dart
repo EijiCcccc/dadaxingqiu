@@ -124,15 +124,12 @@ class _ProfileHeaderCard extends StatelessWidget {
         children: [
           Stack(
             children: [
-              CircleAvatar(
+              AppNetworkAvatar(
+                url: avatarUrl,
                 radius: 40,
                 backgroundColor: const Color(0xFFF3E8FF),
-                backgroundImage:
-                    avatarUrl.isNotEmpty ? NetworkImage(avatarUrl) : null,
-                child: avatarUrl.isEmpty
-                    ? const Icon(Icons.person,
-                        size: 40, color: Color(0xFF9CA3AF))
-                    : null,
+                fallbackIconColor: const Color(0xFF9CA3AF),
+                fallbackIconSize: 40,
               ),
               Positioned(
                 bottom: 0,

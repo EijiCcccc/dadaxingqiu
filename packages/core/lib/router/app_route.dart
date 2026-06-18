@@ -71,6 +71,16 @@ final class ChatRoute extends AppRoute {
   String get path => RoutePath.chat(userId);
 }
 
+/// 聊天设置页
+final class ChatSettingsRoute extends AppRoute {
+  const ChatSettingsRoute({required this.userId}) : super();
+
+  final String userId;
+
+  @override
+  String get path => RoutePath.chatSettings(userId);
+}
+
 /// 动态详情页
 final class FeedDetailRoute extends AppRoute {
   const FeedDetailRoute({required this.postId}) : super();
@@ -151,4 +161,12 @@ final class FeedbackRoute extends AppRoute {
 
   @override
   String get path => RoutePath.feedback;
+}
+
+/// 通讯录页
+final class ContactRoute extends AppRoute {
+  const ContactRoute() : super();
+
+  @override
+  String get path => RoutePath.contacts;
 }

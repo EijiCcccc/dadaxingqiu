@@ -124,8 +124,8 @@ class PostNotificationsNotifier
     try {
       final repo = ref.read(postRepositoryProvider);
       final relation = author.isFollowing
-          ? (await repo.unfollowUser(author.userId.toString())).relation
-          : (await repo.followUser(author.userId.toString())).relation;
+          ? (await repo.unfollowUser(author.userId)).relation
+          : (await repo.followUser(author.userId)).relation;
       items[index] = optimistic.clone()
         ..actor = (optimistic.actor.clone()
           ..isFollowing = relation.isFollowing

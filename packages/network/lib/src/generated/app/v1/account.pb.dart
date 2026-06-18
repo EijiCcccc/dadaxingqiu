@@ -1,60 +1,66 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: app/v1/account.proto
 //
-// @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+// @dart = 3.3
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
-import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
 import 'user.pb.dart' as $0;
 
-class MySummary extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'MySummary', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'app.v1'), createEmptyInstance: create)
-    ..aInt64(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'id')
-    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nickname')
-    ..a<$core.int>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'gender', $pb.PbFieldType.O3)
-    ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'avatarUrl')
-    ..aOS(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'onlineStatus')
-    ..pc<$0.UserTag>(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'tags', $pb.PbFieldType.PM, subBuilder: $0.UserTag.create)
-    ..hasRequiredFields = false
-  ;
+export 'package:protobuf/protobuf.dart' show GeneratedMessageGenericExtensions;
 
-  MySummary._() : super();
+class MySummary extends $pb.GeneratedMessage {
   factory MySummary({
-    $fixnum.Int64? id,
+    $core.String? id,
     $core.String? nickname,
     $core.int? gender,
     $core.String? avatarUrl,
     $core.String? onlineStatus,
     $core.Iterable<$0.UserTag>? tags,
   }) {
-    final _result = create();
+    final $result = create();
     if (id != null) {
-      _result.id = id;
+      $result.id = id;
     }
     if (nickname != null) {
-      _result.nickname = nickname;
+      $result.nickname = nickname;
     }
     if (gender != null) {
-      _result.gender = gender;
+      $result.gender = gender;
     }
     if (avatarUrl != null) {
-      _result.avatarUrl = avatarUrl;
+      $result.avatarUrl = avatarUrl;
     }
     if (onlineStatus != null) {
-      _result.onlineStatus = onlineStatus;
+      $result.onlineStatus = onlineStatus;
     }
     if (tags != null) {
-      _result.tags.addAll(tags);
+      $result.tags.addAll(tags);
     }
-    return _result;
+    return $result;
   }
+  MySummary._() : super();
   factory MySummary.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory MySummary.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'MySummary', package: const $pb.PackageName(_omitMessageNames ? '' : 'app.v1'), createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'id')
+    ..aOS(2, _omitFieldNames ? '' : 'nickname')
+    ..a<$core.int>(3, _omitFieldNames ? '' : 'gender', $pb.PbFieldType.O3)
+    ..aOS(4, _omitFieldNames ? '' : 'avatarUrl')
+    ..aOS(5, _omitFieldNames ? '' : 'onlineStatus')
+    ..pc<$0.UserTag>(6, _omitFieldNames ? '' : 'tags', $pb.PbFieldType.PM, subBuilder: $0.UserTag.create)
+    ..hasRequiredFields = false
+  ;
+
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -64,8 +70,10 @@ class MySummary extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  MySummary copyWith(void Function(MySummary) updates) => super.copyWith((message) => updates(message as MySummary)) as MySummary; // ignore: deprecated_member_use
+  MySummary copyWith(void Function(MySummary) updates) => super.copyWith((message) => updates(message as MySummary)) as MySummary;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MySummary create() => MySummary._();
   MySummary createEmptyInstance() => create();
@@ -75,13 +83,13 @@ class MySummary extends $pb.GeneratedMessage {
   static MySummary? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $fixnum.Int64 get id => $_getI64(0);
+  $core.String get id => $_getSZ(0);
   @$pb.TagNumber(1)
-  set id($fixnum.Int64 v) { $_setInt64(0, v); }
+  set id($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
   $core.bool hasId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearId() => clearField(1);
+  void clearId() => $_clearField(1);
 
   @$pb.TagNumber(2)
   $core.String get nickname => $_getSZ(1);
@@ -90,7 +98,7 @@ class MySummary extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $core.bool hasNickname() => $_has(1);
   @$pb.TagNumber(2)
-  void clearNickname() => clearField(2);
+  void clearNickname() => $_clearField(2);
 
   @$pb.TagNumber(3)
   $core.int get gender => $_getIZ(2);
@@ -99,7 +107,7 @@ class MySummary extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   $core.bool hasGender() => $_has(2);
   @$pb.TagNumber(3)
-  void clearGender() => clearField(3);
+  void clearGender() => $_clearField(3);
 
   @$pb.TagNumber(4)
   $core.String get avatarUrl => $_getSZ(3);
@@ -108,7 +116,7 @@ class MySummary extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   $core.bool hasAvatarUrl() => $_has(3);
   @$pb.TagNumber(4)
-  void clearAvatarUrl() => clearField(4);
+  void clearAvatarUrl() => $_clearField(4);
 
   @$pb.TagNumber(5)
   $core.String get onlineStatus => $_getSZ(4);
@@ -117,23 +125,13 @@ class MySummary extends $pb.GeneratedMessage {
   @$pb.TagNumber(5)
   $core.bool hasOnlineStatus() => $_has(4);
   @$pb.TagNumber(5)
-  void clearOnlineStatus() => clearField(5);
+  void clearOnlineStatus() => $_clearField(5);
 
   @$pb.TagNumber(6)
-  $core.List<$0.UserTag> get tags => $_getList(5);
+  $pb.PbList<$0.UserTag> get tags => $_getList(5);
 }
 
 class SettingsInfo extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'SettingsInfo', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'app.v1'), createEmptyInstance: create)
-    ..aOB(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'themeSyncEnabled')
-    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'privacyPolicyUrl')
-    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'userAgreementUrl')
-    ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'aboutUrl')
-    ..aOB(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'feedbackEnabled')
-    ..hasRequiredFields = false
-  ;
-
-  SettingsInfo._() : super();
   factory SettingsInfo({
     $core.bool? themeSyncEnabled,
     $core.String? privacyPolicyUrl,
@@ -141,26 +139,37 @@ class SettingsInfo extends $pb.GeneratedMessage {
     $core.String? aboutUrl,
     $core.bool? feedbackEnabled,
   }) {
-    final _result = create();
+    final $result = create();
     if (themeSyncEnabled != null) {
-      _result.themeSyncEnabled = themeSyncEnabled;
+      $result.themeSyncEnabled = themeSyncEnabled;
     }
     if (privacyPolicyUrl != null) {
-      _result.privacyPolicyUrl = privacyPolicyUrl;
+      $result.privacyPolicyUrl = privacyPolicyUrl;
     }
     if (userAgreementUrl != null) {
-      _result.userAgreementUrl = userAgreementUrl;
+      $result.userAgreementUrl = userAgreementUrl;
     }
     if (aboutUrl != null) {
-      _result.aboutUrl = aboutUrl;
+      $result.aboutUrl = aboutUrl;
     }
     if (feedbackEnabled != null) {
-      _result.feedbackEnabled = feedbackEnabled;
+      $result.feedbackEnabled = feedbackEnabled;
     }
-    return _result;
+    return $result;
   }
+  SettingsInfo._() : super();
   factory SettingsInfo.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory SettingsInfo.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'SettingsInfo', package: const $pb.PackageName(_omitMessageNames ? '' : 'app.v1'), createEmptyInstance: create)
+    ..aOB(1, _omitFieldNames ? '' : 'themeSyncEnabled')
+    ..aOS(2, _omitFieldNames ? '' : 'privacyPolicyUrl')
+    ..aOS(3, _omitFieldNames ? '' : 'userAgreementUrl')
+    ..aOS(4, _omitFieldNames ? '' : 'aboutUrl')
+    ..aOB(5, _omitFieldNames ? '' : 'feedbackEnabled')
+    ..hasRequiredFields = false
+  ;
+
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -170,8 +179,10 @@ class SettingsInfo extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  SettingsInfo copyWith(void Function(SettingsInfo) updates) => super.copyWith((message) => updates(message as SettingsInfo)) as SettingsInfo; // ignore: deprecated_member_use
+  SettingsInfo copyWith(void Function(SettingsInfo) updates) => super.copyWith((message) => updates(message as SettingsInfo)) as SettingsInfo;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static SettingsInfo create() => SettingsInfo._();
   SettingsInfo createEmptyInstance() => create();
@@ -187,7 +198,7 @@ class SettingsInfo extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $core.bool hasThemeSyncEnabled() => $_has(0);
   @$pb.TagNumber(1)
-  void clearThemeSyncEnabled() => clearField(1);
+  void clearThemeSyncEnabled() => $_clearField(1);
 
   @$pb.TagNumber(2)
   $core.String get privacyPolicyUrl => $_getSZ(1);
@@ -196,7 +207,7 @@ class SettingsInfo extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $core.bool hasPrivacyPolicyUrl() => $_has(1);
   @$pb.TagNumber(2)
-  void clearPrivacyPolicyUrl() => clearField(2);
+  void clearPrivacyPolicyUrl() => $_clearField(2);
 
   @$pb.TagNumber(3)
   $core.String get userAgreementUrl => $_getSZ(2);
@@ -205,7 +216,7 @@ class SettingsInfo extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   $core.bool hasUserAgreementUrl() => $_has(2);
   @$pb.TagNumber(3)
-  void clearUserAgreementUrl() => clearField(3);
+  void clearUserAgreementUrl() => $_clearField(3);
 
   @$pb.TagNumber(4)
   $core.String get aboutUrl => $_getSZ(3);
@@ -214,7 +225,7 @@ class SettingsInfo extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   $core.bool hasAboutUrl() => $_has(3);
   @$pb.TagNumber(4)
-  void clearAboutUrl() => clearField(4);
+  void clearAboutUrl() => $_clearField(4);
 
   @$pb.TagNumber(5)
   $core.bool get feedbackEnabled => $_getBF(4);
@@ -223,42 +234,43 @@ class SettingsInfo extends $pb.GeneratedMessage {
   @$pb.TagNumber(5)
   $core.bool hasFeedbackEnabled() => $_has(4);
   @$pb.TagNumber(5)
-  void clearFeedbackEnabled() => clearField(5);
+  void clearFeedbackEnabled() => $_clearField(5);
 }
 
 class GetVersionResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GetVersionResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'app.v1'), createEmptyInstance: create)
-    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'latestVersion')
-    ..aOB(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'forceUpdate')
-    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'downloadUrl')
-    ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'releaseNotes')
-    ..hasRequiredFields = false
-  ;
-
-  GetVersionResponse._() : super();
   factory GetVersionResponse({
     $core.String? latestVersion,
     $core.bool? forceUpdate,
     $core.String? downloadUrl,
     $core.String? releaseNotes,
   }) {
-    final _result = create();
+    final $result = create();
     if (latestVersion != null) {
-      _result.latestVersion = latestVersion;
+      $result.latestVersion = latestVersion;
     }
     if (forceUpdate != null) {
-      _result.forceUpdate = forceUpdate;
+      $result.forceUpdate = forceUpdate;
     }
     if (downloadUrl != null) {
-      _result.downloadUrl = downloadUrl;
+      $result.downloadUrl = downloadUrl;
     }
     if (releaseNotes != null) {
-      _result.releaseNotes = releaseNotes;
+      $result.releaseNotes = releaseNotes;
     }
-    return _result;
+    return $result;
   }
+  GetVersionResponse._() : super();
   factory GetVersionResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory GetVersionResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetVersionResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'app.v1'), createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'latestVersion')
+    ..aOB(2, _omitFieldNames ? '' : 'forceUpdate')
+    ..aOS(3, _omitFieldNames ? '' : 'downloadUrl')
+    ..aOS(4, _omitFieldNames ? '' : 'releaseNotes')
+    ..hasRequiredFields = false
+  ;
+
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -268,8 +280,10 @@ class GetVersionResponse extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  GetVersionResponse copyWith(void Function(GetVersionResponse) updates) => super.copyWith((message) => updates(message as GetVersionResponse)) as GetVersionResponse; // ignore: deprecated_member_use
+  GetVersionResponse copyWith(void Function(GetVersionResponse) updates) => super.copyWith((message) => updates(message as GetVersionResponse)) as GetVersionResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GetVersionResponse create() => GetVersionResponse._();
   GetVersionResponse createEmptyInstance() => create();
@@ -285,7 +299,7 @@ class GetVersionResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $core.bool hasLatestVersion() => $_has(0);
   @$pb.TagNumber(1)
-  void clearLatestVersion() => clearField(1);
+  void clearLatestVersion() => $_clearField(1);
 
   @$pb.TagNumber(2)
   $core.bool get forceUpdate => $_getBF(1);
@@ -294,7 +308,7 @@ class GetVersionResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $core.bool hasForceUpdate() => $_has(1);
   @$pb.TagNumber(2)
-  void clearForceUpdate() => clearField(2);
+  void clearForceUpdate() => $_clearField(2);
 
   @$pb.TagNumber(3)
   $core.String get downloadUrl => $_getSZ(2);
@@ -303,7 +317,7 @@ class GetVersionResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   $core.bool hasDownloadUrl() => $_has(2);
   @$pb.TagNumber(3)
-  void clearDownloadUrl() => clearField(3);
+  void clearDownloadUrl() => $_clearField(3);
 
   @$pb.TagNumber(4)
   $core.String get releaseNotes => $_getSZ(3);
@@ -312,6 +326,9 @@ class GetVersionResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   $core.bool hasReleaseNotes() => $_has(3);
   @$pb.TagNumber(4)
-  void clearReleaseNotes() => clearField(4);
+  void clearReleaseNotes() => $_clearField(4);
 }
 
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames = $core.bool.fromEnvironment('protobuf.omit_message_names');

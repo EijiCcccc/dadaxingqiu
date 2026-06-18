@@ -21,7 +21,7 @@ class EditProfileNotifier
   FutureOr<EditProfileState> build(String userId) async {
     final repo = ref.read(profileRepositoryProvider);
     final p = await repo.getMyProfile();
-    if (p.id.toString() != userId) {
+    if (p.id != userId) {
       return EditProfileState.empty;
     }
     return EditProfileState(

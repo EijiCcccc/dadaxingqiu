@@ -7,7 +7,7 @@ option go_package = "dada-backendgo/gen/proto/app/v1;appv1";
 import "app/v1/user.proto";
 
 message MySummary {
-  int64 id = 1;
+  string id = 1;
   string nickname = 2;
   int32 gender = 3;
   string avatar_url = 4;

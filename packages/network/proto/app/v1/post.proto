@@ -19,7 +19,7 @@ enum PostNotificationType {
 }
 
 message FollowUserRequest {
-  int64 target_user_id = 1;
+  string target_user_id = 1;
 }
 
 message FollowUserResponse {
@@ -27,7 +27,7 @@ message FollowUserResponse {
 }
 
 message UnfollowUserRequest {
-  int64 target_user_id = 1;
+  string target_user_id = 1;
 }
 
 message UnfollowUserResponse {
@@ -35,7 +35,7 @@ message UnfollowUserResponse {
 }
 
 message GetFollowRelationResponse {
-  int64 target_user_id = 1;
+  string target_user_id = 1;
   bool is_following = 2;
   bool is_followed_by_target_user = 3;
   bool is_mutual_follow = 4;
@@ -48,7 +48,7 @@ message PostImage {
 }
 
 message PostAuthorRelation {
-  int64 user_id = 1;
+  string user_id = 1;
   string nickname = 2;
   int32 gender = 3;
   string avatar_url = 4;
@@ -117,7 +117,7 @@ message PostCommentItem {
   int64 post_id = 2;
   PostAuthorRelation author = 3;
   int64 reply_to_comment_id = 4;
-  int64 reply_to_user_id = 5;
+  string reply_to_user_id = 5;
   string content = 6;
   string display_content = 7;
   bool is_deleted = 8;

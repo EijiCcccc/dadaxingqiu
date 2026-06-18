@@ -6,7 +6,7 @@ option go_package = "dada-backendgo/gen/proto/app/v1;appv1";
 
 message GetIMSessionResponse {
   int64 sdk_app_id = 1;
-  string im_user_id = 2;
+  string user_id = 2;
   string user_sig = 3;
   int64 expire_at = 4;
   string nickname = 5;
@@ -14,22 +14,21 @@ message GetIMSessionResponse {
 }
 
 message IMConversationMeta {
-  int64 user_id = 1;
-  string im_user_id = 2;
-  string nickname = 3;
-  string remark_name = 4;
-  string display_name = 5;
-  int32 gender = 6;
-  string avatar_url = 7;
-  int64 intimacy = 8;
-  bool is_pinned = 9;
-  int64 pinned_at = 10;
-  string chat_background_url = 11;
-  bool is_following = 12;
-  bool is_followed_by = 13;
-  bool is_mutual_follow = 14;
-  bool is_deleted = 15;
-  int64 deleted_at = 16;
+  string user_id = 1;
+  string nickname = 2;
+  string remark_name = 3;
+  string display_name = 4;
+  int32 gender = 5;
+  string avatar_url = 6;
+  int64 intimacy = 7;
+  bool is_pinned = 8;
+  int64 pinned_at = 9;
+  string chat_background_url = 10;
+  bool is_following = 11;
+  bool is_followed_by = 12;
+  bool is_mutual_follow = 13;
+  bool is_deleted = 14;
+  int64 deleted_at = 15;
 }
 
 message GetIMConversationMetaResponse {
@@ -37,7 +36,7 @@ message GetIMConversationMetaResponse {
 }
 
 message GetIMIntimacyResponse {
-  int64 peer_user_id = 1;
+  string peer_user_id = 1;
   string display_name = 2;
   string avatar_url = 3;
   int64 sent_count = 4;

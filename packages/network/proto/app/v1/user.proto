@@ -24,7 +24,7 @@ message TagGroup {
 }
 
 message UserProfile {
-  int64 id = 1;
+  string id = 1;
   string nickname = 2;
   int32 gender = 3;
   string avatar_url = 4;
@@ -37,7 +37,7 @@ message UserProfile {
 }
 
 message OtherUserSummary {
-  int64 id = 1;
+  string id = 1;
   string nickname = 2;
   int32 gender = 3;
   string avatar_url = 4;
@@ -65,7 +65,7 @@ message UpdateMyProfileRequest {
 
 message UpdateMyProfileResponse {
   bool updated = 1;
-  int64 id = 2;
+  string id = 2;
   string nickname = 3;
   int32 gender = 4;
   string avatar_url = 5;

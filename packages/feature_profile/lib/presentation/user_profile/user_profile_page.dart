@@ -97,15 +97,12 @@ class UserProfilePage extends ConsumerWidget {
   Widget _buildUserInfo(OtherUserSummary summary) {
     return Row(
       children: [
-        CircleAvatar(
+        AppNetworkAvatar(
           radius: 32,
-          backgroundImage: summary.avatarUrl.isNotEmpty
-              ? NetworkImage(summary.avatarUrl)
-              : null,
+          url: summary.avatarUrl,
           backgroundColor: const Color(0xFFF3E8FF),
-          child: summary.avatarUrl.isEmpty
-              ? const Icon(Icons.person, size: 32, color: Color(0xFF9CA3AF))
-              : null,
+          fallbackIconColor: const Color(0xFF9CA3AF),
+          fallbackIconSize: 32,
         ),
         const SizedBox(width: 16),
         Expanded(

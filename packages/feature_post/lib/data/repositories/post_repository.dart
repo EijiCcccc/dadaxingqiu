@@ -184,7 +184,7 @@ class PostRepository {
   Future<FollowUserResponse> followUser(String userId) {
     return _client.postPb<FollowUserResponse, FollowUserRequest>(
       ApiPath.follows,
-      request: FollowUserRequest()..targetUserId = _toInt64(userId),
+      request: FollowUserRequest()..targetUserId = userId,
       message: FollowUserResponse.new,
     );
   }
@@ -192,7 +192,7 @@ class PostRepository {
   Future<UnfollowUserResponse> unfollowUser(String userId) {
     return _client.postPb<UnfollowUserResponse, UnfollowUserRequest>(
       ApiPath.unfollowUser,
-      request: UnfollowUserRequest()..targetUserId = _toInt64(userId),
+      request: UnfollowUserRequest()..targetUserId = userId,
       message: UnfollowUserResponse.new,
     );
   }

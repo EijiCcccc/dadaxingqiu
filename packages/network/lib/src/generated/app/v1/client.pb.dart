@@ -1,37 +1,44 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: app/v1/client.proto
 //
-// @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+// @dart = 3.3
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-class ClientInfo extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'ClientInfo', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'app.v1'), createEmptyInstance: create)
-    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'deviceId')
-    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'clientIp')
-    ..hasRequiredFields = false
-  ;
+export 'package:protobuf/protobuf.dart' show GeneratedMessageGenericExtensions;
 
-  ClientInfo._() : super();
+class ClientInfo extends $pb.GeneratedMessage {
   factory ClientInfo({
     $core.String? deviceId,
     $core.String? clientIp,
   }) {
-    final _result = create();
+    final $result = create();
     if (deviceId != null) {
-      _result.deviceId = deviceId;
+      $result.deviceId = deviceId;
     }
     if (clientIp != null) {
-      _result.clientIp = clientIp;
+      $result.clientIp = clientIp;
     }
-    return _result;
+    return $result;
   }
+  ClientInfo._() : super();
   factory ClientInfo.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory ClientInfo.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ClientInfo', package: const $pb.PackageName(_omitMessageNames ? '' : 'app.v1'), createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'deviceId')
+    ..aOS(2, _omitFieldNames ? '' : 'clientIp')
+    ..hasRequiredFields = false
+  ;
+
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -41,8 +48,10 @@ class ClientInfo extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  ClientInfo copyWith(void Function(ClientInfo) updates) => super.copyWith((message) => updates(message as ClientInfo)) as ClientInfo; // ignore: deprecated_member_use
+  ClientInfo copyWith(void Function(ClientInfo) updates) => super.copyWith((message) => updates(message as ClientInfo)) as ClientInfo;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static ClientInfo create() => ClientInfo._();
   ClientInfo createEmptyInstance() => create();
@@ -58,7 +67,7 @@ class ClientInfo extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $core.bool hasDeviceId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearDeviceId() => clearField(1);
+  void clearDeviceId() => $_clearField(1);
 
   @$pb.TagNumber(2)
   $core.String get clientIp => $_getSZ(1);
@@ -67,6 +76,9 @@ class ClientInfo extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $core.bool hasClientIp() => $_has(1);
   @$pb.TagNumber(2)
-  void clearClientIp() => clearField(2);
+  void clearClientIp() => $_clearField(2);
 }
 
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames = $core.bool.fromEnvironment('protobuf.omit_message_names');

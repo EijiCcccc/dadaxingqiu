@@ -27,6 +27,9 @@ class RoutePath {
   /// 聊天页（带 userId）
   static String chat(String userId) => '/chat/$userId';
 
+  /// 聊天设置页（带 userId）
+  static String chatSettings(String userId) => '/chat/$userId/settings';
+
   /// 动态详情页（带 postId）
   static const String feedDetail = '/feed';
   static String feedDetailWithId(String postId) => '$feedDetail/$postId';
@@ -57,4 +60,7 @@ class RoutePath {
 
   /// 意见反馈页
   static const String feedback = '/feedback';
+
+  /// 通讯录页
+  static const String contacts = '/contacts';
 }

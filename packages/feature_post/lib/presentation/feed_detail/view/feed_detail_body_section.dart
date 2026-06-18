@@ -95,7 +95,7 @@ bool _shouldHandleRefreshNotification(ScrollNotification notification) {
 void _handleLikePrimaryAction(
     WidgetRef ref, String postId, PostAuthorRelation user) {
   if (user.isFollowing) {
-    GlobalRouter.instance.push(ChatRoute(userId: user.userId.toString()));
+    GlobalRouter.instance.push(ChatRoute(userId: user.userId));
     return;
   }
   // ref.read(feedDetailProvider(postId).notifier).toggleFollowUser(

@@ -11,7 +11,6 @@ import 'package:tencent_cloud_chat_sdk/tencent_im_sdk_plugin.dart';
 import '../models/chat_conversation.dart';
 import '../models/chat_message.dart';
 import 'tencent_im_mapper.dart';
-import 'package:fixnum/fixnum.dart';
 
 typedef ImConversationsChanged = void Function();
 typedef ImMessagesChanged = void Function(String userId);
@@ -46,14 +45,14 @@ class TencentImService {
 
   Future<bool> login() async {
     final session = await _fetchSession();
-    if (!session.hasImUserId() || !session.hasUserSig()) {
-      return false;
+    if (!session.hasUserId() || !session.hasUserSig()) {
+      // return false;
     }
 
     final sdkAppId = session.sdkAppId.toInt();
     await _ensureInitialized(sdkAppId);
 
-    final imUserId = session.imUserId;
+    final imUserId = session.userId;
     if (_loggedIn && _currentUserId == imUserId) return true;
 
     if (_loggedIn) {
@@ -116,7 +115,7 @@ class TencentImService {
 
     if (result.code != 0 || result.data == null) return [];
 
-    final messages = result.data!
+    return result.data!
         .map(
           (message) => TencentImMapper.toChatMessage(
             message,
@@ -125,8 +124,6 @@ class TencentImService {
         )
         .whereType<ChatMessage>()
         .toList();
-    messages.sort((a, b) => a.createdAt.compareTo(b.createdAt));
-    return messages;
   }
 
   Future<bool> sendTextMessage({
@@ -141,9 +138,61 @@ class TencentImService {
       return false;
     }
 
+    return _sendCreatedMessage(
+      messageId: createResult.data!.id!,
+      peerUserId: peerUserId,
+    );
+  }
+
+  Future<bool> sendImageMessage({
+    required String peerUserId,
+    required String imagePath,
+  }) async {
+    if (!_loggedIn) return false;
+
+    final createResult =
+        await _manager.v2TIMMessageManager.createImageMessage(
+      imagePath: imagePath,
+    );
+    if (createResult.code != 0 || createResult.data?.id == null) {
+      return false;
+    }
+
+    return _sendCreatedMessage(
+      messageId: createResult.data!.id!,
+      peerUserId: peerUserId,
+    );
+  }
+
+  Future<bool> sendSoundMessage({
+    required String peerUserId,
+    required String soundPath,
+    required int durationSec,
+  }) async {
+    if (!_loggedIn) return false;
+
+    final createResult =
+        await _manager.v2TIMMessageManager.createSoundMessage(
+      soundPath: soundPath,
+      duration: durationSec,
+    );
+    if (createResult.code != 0 || createResult.data?.id == null) {
+      return false;
+    }
+
+    return _sendCreatedMessage(
+      messageId: createResult.data!.id!,
+      peerUserId: peerUserId,
+    );
+  }
+
+  Future<bool> _sendCreatedMessage({
+    required String messageId,
+    required String peerUserId,
+  }) async {
     final sendResult = await _manager.v2TIMMessageManager.sendMessage(
-      id: createResult.data!.id!,
-      receiver: peerUserId.contains('u_') ? peerUserId : 'u_$peerUserId',
+      id: messageId,
+      receiver: peerUserId,
       groupID: '',
     );
 

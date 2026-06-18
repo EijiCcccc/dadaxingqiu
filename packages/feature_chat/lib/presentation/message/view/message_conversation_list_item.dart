@@ -1,5 +1,6 @@
 import 'package:core/colors/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:shared/shared.dart';
 
 import '../../../models/chat_conversation.dart';
 import '../../../utils/chat_time_formatter.dart';
@@ -51,10 +52,15 @@ class _MessageConversationListItemState
   @override
   Widget build(BuildContext context) {
     final conversation = widget.conversation;
+    final itemColor = conversation.isPinned
+        ? Colors.white.withOpacity(0.75)
+        : Colors.white.withOpacity(0.95);
 
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.4),
+        color: conversation.isPinned
+            ? AppColors.bgPurple100.withOpacity(0.55)
+            : Colors.white.withOpacity(0.4),
         border: Border(
           bottom: BorderSide(color: AppColors.bgPurple100.withOpacity(0.5)),
         ),
@@ -96,7 +102,7 @@ class _MessageConversationListItemState
               child: Transform.translate(
                 offset: Offset(_dragOffset, 0),
                 child: ColoredBox(
-                  color: Colors.white.withOpacity(0.95),
+                  color: itemColor,
                   child: Padding(
                     padding: const EdgeInsets.symmetric(
                       horizontal: 16,
@@ -133,9 +139,10 @@ class _MessageConversationListItemState
     return Stack(
       clipBehavior: Clip.none,
       children: [
-        CircleAvatar(
+        AppNetworkAvatar(
+          url: conversation.avatar,
           radius: 24,
-          backgroundImage: NetworkImage(conversation.avatar),
+          fallbackIconColor: AppColors.textMuted,
         ),
         if (conversation.hasUnread)
           Positioned(

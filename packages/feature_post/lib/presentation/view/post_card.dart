@@ -1,6 +1,7 @@
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:network/network.dart';
+import 'package:shared/shared.dart';
 
 import '../post_display.dart';
 
@@ -39,15 +40,11 @@ class PostCard extends StatelessWidget {
           children: [
             Row(
               children: [
-                CircleAvatar(
+                AppNetworkAvatar(
+                  url: postAuthorAvatar(author),
                   radius: 24,
                   backgroundColor: AppColors.bgPurple100,
-                  backgroundImage: postAuthorAvatar(author).isNotEmpty
-                      ? NetworkImage(postAuthorAvatar(author))
-                      : null,
-                  child: postAuthorAvatar(author).isEmpty
-                      ? const Icon(Icons.person, color: AppColors.textMuted)
-                      : null,
+                  fallbackIconColor: AppColors.textMuted,
                 ),
                 const SizedBox(width: 12),
                 Expanded(
@@ -189,7 +186,7 @@ class _PostImageGrid extends StatelessWidget {
             color: AppColors.tagBgGray,
             child: imageUrl.isEmpty
                 ? const Icon(Icons.image_outlined)
-                : Image.network(imageUrl, fit: BoxFit.cover),
+                : AppNetworkImage(url: imageUrl, fit: BoxFit.cover),
           ),
         );
       },

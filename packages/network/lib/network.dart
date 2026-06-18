@@ -8,6 +8,8 @@ export 'src/dio_client.dart';
 // account：设置 / 主页摘要等
 export 'src/generated/app/v1/account.pb.dart';
 export 'src/generated/app/v1/auth.pb.dart';
+export 'src/generated/app/v1/chat.pb.dart';
+export 'src/generated/app/v1/contact.pb.dart';
 export 'src/generated/app/v1/client.pb.dart';
 export 'src/generated/app/v1/common.pb.dart';
 export 'src/generated/app/v1/explore.pb.dart';

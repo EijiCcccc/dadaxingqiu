@@ -5,7 +5,7 @@ package app.v1;
 option go_package = "dada-backendgo/gen/proto/app/v1;appv1";
 
 message GetChatSettingsResponse {
-  int64 peer_user_id = 1;
+  string peer_user_id = 1;
   string nickname = 2;
   string remark_name = 3;
   string display_name = 4;
@@ -33,7 +33,7 @@ message UpdateUserRemarkRequest {
 }
 
 message UpdateUserRemarkResponse {
-  int64 target_user_id = 1;
+  string target_user_id = 1;
   string remark_name = 2;
   string display_name = 3;
 }

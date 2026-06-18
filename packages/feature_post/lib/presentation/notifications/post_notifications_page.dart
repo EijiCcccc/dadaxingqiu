@@ -75,7 +75,7 @@ class _PostNotificationsPageState
                           onPrimaryAction: () {
                             if (item.actor.isFollowing) {
                               GlobalRouter.instance.push(
-                                ChatRoute(userId: item.actor.userId.toString()),
+                                ChatRoute(userId: item.actor.userId),
                               );
                               return;
                             }
@@ -183,13 +183,9 @@ class _NotificationTile extends StatelessWidget {
             Stack(
               clipBehavior: Clip.none,
               children: [
-                CircleAvatar(
+                AppNetworkAvatar(
+                  url: postAuthorAvatar(actor),
                   radius: 24,
-                  backgroundImage: postAuthorAvatar(actor).isNotEmpty
-                      ? NetworkImage(postAuthorAvatar(actor))
-                      : null,
-                  child:
-                      postAuthorAvatar(actor).isEmpty ? const Icon(Icons.person) : null,
                 ),
                 if (!item.isRead)
                   const Positioned(
@@ -277,7 +273,7 @@ class _PreviewBox extends StatelessWidget {
         height: 64,
         color: AppColors.tagBgGray,
         child: hasImage
-            ? Image.network(item.previewThumbUrl, fit: BoxFit.cover)
+            ? AppNetworkImage(url: item.previewThumbUrl, fit: BoxFit.cover)
             : Padding(
                 padding: const EdgeInsets.all(8),
                 child: Text(

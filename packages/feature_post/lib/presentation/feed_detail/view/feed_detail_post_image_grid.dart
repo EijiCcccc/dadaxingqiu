@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:network/network.dart';
+import 'package:shared/shared.dart';
 
 class FeedDetailPostImageGrid extends StatelessWidget {
   const FeedDetailPostImageGrid({
@@ -26,7 +27,7 @@ class FeedDetailPostImageGrid extends StatelessWidget {
             image.thumbUrl.isNotEmpty ? image.thumbUrl : image.imageUrl;
         return ClipRRect(
           borderRadius: BorderRadius.circular(12),
-          child: Image.network(imageUrl, fit: BoxFit.cover),
+          child: AppNetworkImage(url: imageUrl, fit: BoxFit.cover),
         );
       },
     );

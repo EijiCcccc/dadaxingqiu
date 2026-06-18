@@ -1,6 +1,7 @@
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:network/network.dart';
+import 'package:shared/shared.dart';
 
 import '../../post_display.dart';
 
@@ -24,14 +25,10 @@ class FeedDetailCommentListItem extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          CircleAvatar(
+          AppNetworkAvatar(
+            url: postAuthorAvatar(comment.author),
             radius: 18,
-            backgroundImage: postAuthorAvatar(comment.author).isNotEmpty
-                ? NetworkImage(postAuthorAvatar(comment.author))
-                : null,
-            child: postAuthorAvatar(comment.author).isEmpty
-                ? const Icon(Icons.person, size: 18)
-                : null,
+            fallbackIconSize: 18,
           ),
           const SizedBox(width: 12),
           Expanded(
@@ -71,6 +68,6 @@ class FeedDetailCommentListItem extends StatelessWidget {
 }
 
 String _commentContent(PostCommentItem comment) {
-  if (comment.replyToUserId <= 0) return comment.content;
+  if (comment.replyToUserId.isEmpty) return comment.content;
   return '回复 ${comment.author.nickname}: ${comment.content}';
 }

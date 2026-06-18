@@ -17,4 +17,14 @@ dependencies:
     path: ../shared
   go_router: ^14.6.2
   flutter_riverpod: ^2.6.1
+  extended_tabs: ^4.2.0
   tencent_cloud_chat_sdk: 8.4.6667
+  image_picker: ^1.0.7
+  permission_handler: ^11.3.0
+  device_info_plus: ^11.1.1
+  photo_manager: ^3.6.4
+  record: 6.0.0
+  audioplayers: 6.1.0
+  path_provider: 2.1.5
+  shared_preferences: 2.5.2
+  path: 1.9.1

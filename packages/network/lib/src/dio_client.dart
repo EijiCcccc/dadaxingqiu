@@ -50,7 +50,6 @@ class DioClient {
     );
   }
 
-
   static DioException _missingDataException(
     RequestOptions requestOptions,
     Response<dynamic>? response,
@@ -155,26 +154,30 @@ class DioClient {
     Options? options,
     CancelToken? cancelToken,
   }) async {
-    final res = await _dio.put<List<int>>(
-      path,
-      data: request.writeToBuffer(),
-      queryParameters: queryParameters,
-      options: (options ?? Options()).copyWith(
-        contentType: kProtobufContentType,
-        responseType: ResponseType.bytes,
-        headers: {
-          ...?options?.headers,
-          'Accept': kProtobufContentType,
-        },
-      ),
-      cancelToken: cancelToken,
-    );
-    _ensureBytes(res);
-    final api = ApiResponse.fromBuffer(res.data!);
-    if (api.code != 0) {
-      throw _apiBusinessException(res.requestOptions, res, api);
+    try {
+      final res = await _dio.put<List<int>>(
+        path,
+        data: request.writeToBuffer(),
+        queryParameters: queryParameters,
+        options: (options ?? Options()).copyWith(
+          contentType: kProtobufContentType,
+          responseType: ResponseType.bytes,
+          headers: {
+            ...?options?.headers,
+            'Accept': kProtobufContentType,
+          },
+        ),
+        cancelToken: cancelToken,
+      );
+      _ensureBytes(res);
+      final api = ApiResponse.fromBuffer(res.data!);
+      if (api.code != 0) {
+        throw _apiBusinessException(res.requestOptions, res, api);
+      }
+      return _unpackAnyData(res.requestOptions, res, api, message);
+    } catch (e) {
+      throw e;
     }
-    return _unpackAnyData(res.requestOptions, res, api, message);
   }
 
   /// 附加 Bearer Token（从 [readToken] 读取，无 token 则不设置）

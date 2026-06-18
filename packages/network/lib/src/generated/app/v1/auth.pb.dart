@@ -1,9 +1,13 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: app/v1/auth.proto
 //
-// @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+// @dart = 3.3
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
@@ -12,29 +16,32 @@ import 'package:protobuf/protobuf.dart' as $pb;
 
 import 'client.pb.dart' as $1;
 
-class WechatLoginRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'WechatLoginRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'app.v1'), createEmptyInstance: create)
-    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'code')
-    ..aOM<$1.ClientInfo>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'clientInfo', subBuilder: $1.ClientInfo.create)
-    ..hasRequiredFields = false
-  ;
+export 'package:protobuf/protobuf.dart' show GeneratedMessageGenericExtensions;
 
-  WechatLoginRequest._() : super();
+class WechatLoginRequest extends $pb.GeneratedMessage {
   factory WechatLoginRequest({
     $core.String? code,
     $1.ClientInfo? clientInfo,
   }) {
-    final _result = create();
+    final $result = create();
     if (code != null) {
-      _result.code = code;
+      $result.code = code;
     }
     if (clientInfo != null) {
-      _result.clientInfo = clientInfo;
+      $result.clientInfo = clientInfo;
     }
-    return _result;
+    return $result;
   }
+  WechatLoginRequest._() : super();
   factory WechatLoginRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory WechatLoginRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'WechatLoginRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'app.v1'), createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'code')
+    ..aOM<$1.ClientInfo>(2, _omitFieldNames ? '' : 'clientInfo', subBuilder: $1.ClientInfo.create)
+    ..hasRequiredFields = false
+  ;
+
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -44,8 +51,10 @@ class WechatLoginRequest extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  WechatLoginRequest copyWith(void Function(WechatLoginRequest) updates) => super.copyWith((message) => updates(message as WechatLoginRequest)) as WechatLoginRequest; // ignore: deprecated_member_use
+  WechatLoginRequest copyWith(void Function(WechatLoginRequest) updates) => super.copyWith((message) => updates(message as WechatLoginRequest)) as WechatLoginRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static WechatLoginRequest create() => WechatLoginRequest._();
   WechatLoginRequest createEmptyInstance() => create();
@@ -61,43 +70,44 @@ class WechatLoginRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $core.bool hasCode() => $_has(0);
   @$pb.TagNumber(1)
-  void clearCode() => clearField(1);
+  void clearCode() => $_clearField(1);
 
   @$pb.TagNumber(2)
   $1.ClientInfo get clientInfo => $_getN(1);
   @$pb.TagNumber(2)
-  set clientInfo($1.ClientInfo v) { setField(2, v); }
+  set clientInfo($1.ClientInfo v) { $_setField(2, v); }
   @$pb.TagNumber(2)
   $core.bool hasClientInfo() => $_has(1);
   @$pb.TagNumber(2)
-  void clearClientInfo() => clearField(2);
+  void clearClientInfo() => $_clearField(2);
   @$pb.TagNumber(2)
   $1.ClientInfo ensureClientInfo() => $_ensure(1);
 }
 
 class RefreshTokenRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'RefreshTokenRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'app.v1'), createEmptyInstance: create)
-    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'refreshToken')
-    ..aOM<$1.ClientInfo>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'clientInfo', subBuilder: $1.ClientInfo.create)
-    ..hasRequiredFields = false
-  ;
-
-  RefreshTokenRequest._() : super();
   factory RefreshTokenRequest({
     $core.String? refreshToken,
     $1.ClientInfo? clientInfo,
   }) {
-    final _result = create();
+    final $result = create();
     if (refreshToken != null) {
-      _result.refreshToken = refreshToken;
+      $result.refreshToken = refreshToken;
     }
     if (clientInfo != null) {
-      _result.clientInfo = clientInfo;
+      $result.clientInfo = clientInfo;
     }
-    return _result;
+    return $result;
   }
+  RefreshTokenRequest._() : super();
   factory RefreshTokenRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory RefreshTokenRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'RefreshTokenRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'app.v1'), createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'refreshToken')
+    ..aOM<$1.ClientInfo>(2, _omitFieldNames ? '' : 'clientInfo', subBuilder: $1.ClientInfo.create)
+    ..hasRequiredFields = false
+  ;
+
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -107,8 +117,10 @@ class RefreshTokenRequest extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  RefreshTokenRequest copyWith(void Function(RefreshTokenRequest) updates) => super.copyWith((message) => updates(message as RefreshTokenRequest)) as RefreshTokenRequest; // ignore: deprecated_member_use
+  RefreshTokenRequest copyWith(void Function(RefreshTokenRequest) updates) => super.copyWith((message) => updates(message as RefreshTokenRequest)) as RefreshTokenRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static RefreshTokenRequest create() => RefreshTokenRequest._();
   RefreshTokenRequest createEmptyInstance() => create();
@@ -124,48 +136,49 @@ class RefreshTokenRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $core.bool hasRefreshToken() => $_has(0);
   @$pb.TagNumber(1)
-  void clearRefreshToken() => clearField(1);
+  void clearRefreshToken() => $_clearField(1);
 
   @$pb.TagNumber(2)
   $1.ClientInfo get clientInfo => $_getN(1);
   @$pb.TagNumber(2)
-  set clientInfo($1.ClientInfo v) { setField(2, v); }
+  set clientInfo($1.ClientInfo v) { $_setField(2, v); }
   @$pb.TagNumber(2)
   $core.bool hasClientInfo() => $_has(1);
   @$pb.TagNumber(2)
-  void clearClientInfo() => clearField(2);
+  void clearClientInfo() => $_clearField(2);
   @$pb.TagNumber(2)
   $1.ClientInfo ensureClientInfo() => $_ensure(1);
 }
 
 class AppleLoginRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'AppleLoginRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'app.v1'), createEmptyInstance: create)
-    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'identityToken')
-    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'authorizationCode')
-    ..aOM<$1.ClientInfo>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'clientInfo', subBuilder: $1.ClientInfo.create)
-    ..hasRequiredFields = false
-  ;
-
-  AppleLoginRequest._() : super();
   factory AppleLoginRequest({
     $core.String? identityToken,
     $core.String? authorizationCode,
     $1.ClientInfo? clientInfo,
   }) {
-    final _result = create();
+    final $result = create();
     if (identityToken != null) {
-      _result.identityToken = identityToken;
+      $result.identityToken = identityToken;
     }
     if (authorizationCode != null) {
-      _result.authorizationCode = authorizationCode;
+      $result.authorizationCode = authorizationCode;
     }
     if (clientInfo != null) {
-      _result.clientInfo = clientInfo;
+      $result.clientInfo = clientInfo;
     }
-    return _result;
+    return $result;
   }
+  AppleLoginRequest._() : super();
   factory AppleLoginRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory AppleLoginRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'AppleLoginRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'app.v1'), createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'identityToken')
+    ..aOS(2, _omitFieldNames ? '' : 'authorizationCode')
+    ..aOM<$1.ClientInfo>(3, _omitFieldNames ? '' : 'clientInfo', subBuilder: $1.ClientInfo.create)
+    ..hasRequiredFields = false
+  ;
+
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -175,8 +188,10 @@ class AppleLoginRequest extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  AppleLoginRequest copyWith(void Function(AppleLoginRequest) updates) => super.copyWith((message) => updates(message as AppleLoginRequest)) as AppleLoginRequest; // ignore: deprecated_member_use
+  AppleLoginRequest copyWith(void Function(AppleLoginRequest) updates) => super.copyWith((message) => updates(message as AppleLoginRequest)) as AppleLoginRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static AppleLoginRequest create() => AppleLoginRequest._();
   AppleLoginRequest createEmptyInstance() => create();
@@ -185,6 +200,7 @@ class AppleLoginRequest extends $pb.GeneratedMessage {
   static AppleLoginRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<AppleLoginRequest>(create);
   static AppleLoginRequest? _defaultInstance;
 
+  /// Reserved for future Apple Sign In rollout. No server route is exposed yet.
   @$pb.TagNumber(1)
   $core.String get identityToken => $_getSZ(0);
   @$pb.TagNumber(1)
@@ -192,7 +208,7 @@ class AppleLoginRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $core.bool hasIdentityToken() => $_has(0);
   @$pb.TagNumber(1)
-  void clearIdentityToken() => clearField(1);
+  void clearIdentityToken() => $_clearField(1);
 
   @$pb.TagNumber(2)
   $core.String get authorizationCode => $_getSZ(1);
@@ -201,38 +217,39 @@ class AppleLoginRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $core.bool hasAuthorizationCode() => $_has(1);
   @$pb.TagNumber(2)
-  void clearAuthorizationCode() => clearField(2);
+  void clearAuthorizationCode() => $_clearField(2);
 
   @$pb.TagNumber(3)
   $1.ClientInfo get clientInfo => $_getN(2);
   @$pb.TagNumber(3)
-  set clientInfo($1.ClientInfo v) { setField(3, v); }
+  set clientInfo($1.ClientInfo v) { $_setField(3, v); }
   @$pb.TagNumber(3)
   $core.bool hasClientInfo() => $_has(2);
   @$pb.TagNumber(3)
-  void clearClientInfo() => clearField(3);
+  void clearClientInfo() => $_clearField(3);
   @$pb.TagNumber(3)
   $1.ClientInfo ensureClientInfo() => $_ensure(2);
 }
 
 class LogoutRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'LogoutRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'app.v1'), createEmptyInstance: create)
-    ..aOM<$1.ClientInfo>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'clientInfo', subBuilder: $1.ClientInfo.create)
-    ..hasRequiredFields = false
-  ;
-
-  LogoutRequest._() : super();
   factory LogoutRequest({
     $1.ClientInfo? clientInfo,
   }) {
-    final _result = create();
+    final $result = create();
     if (clientInfo != null) {
-      _result.clientInfo = clientInfo;
+      $result.clientInfo = clientInfo;
     }
-    return _result;
+    return $result;
   }
+  LogoutRequest._() : super();
   factory LogoutRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory LogoutRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'LogoutRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'app.v1'), createEmptyInstance: create)
+    ..aOM<$1.ClientInfo>(1, _omitFieldNames ? '' : 'clientInfo', subBuilder: $1.ClientInfo.create)
+    ..hasRequiredFields = false
+  ;
+
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -242,8 +259,10 @@ class LogoutRequest extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  LogoutRequest copyWith(void Function(LogoutRequest) updates) => super.copyWith((message) => updates(message as LogoutRequest)) as LogoutRequest; // ignore: deprecated_member_use
+  LogoutRequest copyWith(void Function(LogoutRequest) updates) => super.copyWith((message) => updates(message as LogoutRequest)) as LogoutRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static LogoutRequest create() => LogoutRequest._();
   LogoutRequest createEmptyInstance() => create();
@@ -255,30 +274,18 @@ class LogoutRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $1.ClientInfo get clientInfo => $_getN(0);
   @$pb.TagNumber(1)
-  set clientInfo($1.ClientInfo v) { setField(1, v); }
+  set clientInfo($1.ClientInfo v) { $_setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasClientInfo() => $_has(0);
   @$pb.TagNumber(1)
-  void clearClientInfo() => clearField(1);
+  void clearClientInfo() => $_clearField(1);
   @$pb.TagNumber(1)
   $1.ClientInfo ensureClientInfo() => $_ensure(0);
 }
 
 class LoginUser extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'LoginUser', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'app.v1'), createEmptyInstance: create)
-    ..aInt64(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'id')
-    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nickname')
-    ..a<$core.int>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'gender', $pb.PbFieldType.O3)
-    ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'avatarUrl')
-    ..aOB(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'isProfiled')
-    ..aOB(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'isTagged')
-    ..a<$core.int>(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'status', $pb.PbFieldType.O3)
-    ..hasRequiredFields = false
-  ;
-
-  LoginUser._() : super();
   factory LoginUser({
-    $fixnum.Int64? id,
+    $core.String? id,
     $core.String? nickname,
     $core.int? gender,
     $core.String? avatarUrl,
@@ -286,32 +293,45 @@ class LoginUser extends $pb.GeneratedMessage {
     $core.bool? isTagged,
     $core.int? status,
   }) {
-    final _result = create();
+    final $result = create();
     if (id != null) {
-      _result.id = id;
+      $result.id = id;
     }
     if (nickname != null) {
-      _result.nickname = nickname;
+      $result.nickname = nickname;
     }
     if (gender != null) {
-      _result.gender = gender;
+      $result.gender = gender;
     }
     if (avatarUrl != null) {
-      _result.avatarUrl = avatarUrl;
+      $result.avatarUrl = avatarUrl;
     }
     if (isProfiled != null) {
-      _result.isProfiled = isProfiled;
+      $result.isProfiled = isProfiled;
     }
     if (isTagged != null) {
-      _result.isTagged = isTagged;
+      $result.isTagged = isTagged;
     }
     if (status != null) {
-      _result.status = status;
+      $result.status = status;
     }
-    return _result;
+    return $result;
   }
+  LoginUser._() : super();
   factory LoginUser.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory LoginUser.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'LoginUser', package: const $pb.PackageName(_omitMessageNames ? '' : 'app.v1'), createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'id')
+    ..aOS(2, _omitFieldNames ? '' : 'nickname')
+    ..a<$core.int>(3, _omitFieldNames ? '' : 'gender', $pb.PbFieldType.O3)
+    ..aOS(4, _omitFieldNames ? '' : 'avatarUrl')
+    ..aOB(5, _omitFieldNames ? '' : 'isProfiled')
+    ..aOB(6, _omitFieldNames ? '' : 'isTagged')
+    ..a<$core.int>(7, _omitFieldNames ? '' : 'status', $pb.PbFieldType.O3)
+    ..hasRequiredFields = false
+  ;
+
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -321,8 +341,10 @@ class LoginUser extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  LoginUser copyWith(void Function(LoginUser) updates) => super.copyWith((message) => updates(message as LoginUser)) as LoginUser; // ignore: deprecated_member_use
+  LoginUser copyWith(void Function(LoginUser) updates) => super.copyWith((message) => updates(message as LoginUser)) as LoginUser;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static LoginUser create() => LoginUser._();
   LoginUser createEmptyInstance() => create();
@@ -332,13 +354,13 @@ class LoginUser extends $pb.GeneratedMessage {
   static LoginUser? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $fixnum.Int64 get id => $_getI64(0);
+  $core.String get id => $_getSZ(0);
   @$pb.TagNumber(1)
-  set id($fixnum.Int64 v) { $_setInt64(0, v); }
+  set id($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
   $core.bool hasId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearId() => clearField(1);
+  void clearId() => $_clearField(1);
 
   @$pb.TagNumber(2)
   $core.String get nickname => $_getSZ(1);
@@ -347,7 +369,7 @@ class LoginUser extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $core.bool hasNickname() => $_has(1);
   @$pb.TagNumber(2)
-  void clearNickname() => clearField(2);
+  void clearNickname() => $_clearField(2);
 
   @$pb.TagNumber(3)
   $core.int get gender => $_getIZ(2);
@@ -356,7 +378,7 @@ class LoginUser extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   $core.bool hasGender() => $_has(2);
   @$pb.TagNumber(3)
-  void clearGender() => clearField(3);
+  void clearGender() => $_clearField(3);
 
   @$pb.TagNumber(4)
   $core.String get avatarUrl => $_getSZ(3);
@@ -365,7 +387,7 @@ class LoginUser extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   $core.bool hasAvatarUrl() => $_has(3);
   @$pb.TagNumber(4)
-  void clearAvatarUrl() => clearField(4);
+  void clearAvatarUrl() => $_clearField(4);
 
   @$pb.TagNumber(5)
   $core.bool get isProfiled => $_getBF(4);
@@ -374,7 +396,7 @@ class LoginUser extends $pb.GeneratedMessage {
   @$pb.TagNumber(5)
   $core.bool hasIsProfiled() => $_has(4);
   @$pb.TagNumber(5)
-  void clearIsProfiled() => clearField(5);
+  void clearIsProfiled() => $_clearField(5);
 
   @$pb.TagNumber(6)
   $core.bool get isTagged => $_getBF(5);
@@ -383,7 +405,7 @@ class LoginUser extends $pb.GeneratedMessage {
   @$pb.TagNumber(6)
   $core.bool hasIsTagged() => $_has(5);
   @$pb.TagNumber(6)
-  void clearIsTagged() => clearField(6);
+  void clearIsTagged() => $_clearField(6);
 
   @$pb.TagNumber(7)
   $core.int get status => $_getIZ(6);
@@ -392,37 +414,38 @@ class LoginUser extends $pb.GeneratedMessage {
   @$pb.TagNumber(7)
   $core.bool hasStatus() => $_has(6);
   @$pb.TagNumber(7)
-  void clearStatus() => clearField(7);
+  void clearStatus() => $_clearField(7);
 }
 
 class TokenPair extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'TokenPair', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'app.v1'), createEmptyInstance: create)
-    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'accessToken')
-    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'refreshToken')
-    ..aInt64(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'expiresIn')
-    ..hasRequiredFields = false
-  ;
-
-  TokenPair._() : super();
   factory TokenPair({
     $core.String? accessToken,
     $core.String? refreshToken,
     $fixnum.Int64? expiresIn,
   }) {
-    final _result = create();
+    final $result = create();
     if (accessToken != null) {
-      _result.accessToken = accessToken;
+      $result.accessToken = accessToken;
     }
     if (refreshToken != null) {
-      _result.refreshToken = refreshToken;
+      $result.refreshToken = refreshToken;
     }
     if (expiresIn != null) {
-      _result.expiresIn = expiresIn;
+      $result.expiresIn = expiresIn;
     }
-    return _result;
+    return $result;
   }
+  TokenPair._() : super();
   factory TokenPair.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory TokenPair.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'TokenPair', package: const $pb.PackageName(_omitMessageNames ? '' : 'app.v1'), createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'accessToken')
+    ..aOS(2, _omitFieldNames ? '' : 'refreshToken')
+    ..aInt64(3, _omitFieldNames ? '' : 'expiresIn')
+    ..hasRequiredFields = false
+  ;
+
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -432,8 +455,10 @@ class TokenPair extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  TokenPair copyWith(void Function(TokenPair) updates) => super.copyWith((message) => updates(message as TokenPair)) as TokenPair; // ignore: deprecated_member_use
+  TokenPair copyWith(void Function(TokenPair) updates) => super.copyWith((message) => updates(message as TokenPair)) as TokenPair;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static TokenPair create() => TokenPair._();
   TokenPair createEmptyInstance() => create();
@@ -449,7 +474,7 @@ class TokenPair extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $core.bool hasAccessToken() => $_has(0);
   @$pb.TagNumber(1)
-  void clearAccessToken() => clearField(1);
+  void clearAccessToken() => $_clearField(1);
 
   @$pb.TagNumber(2)
   $core.String get refreshToken => $_getSZ(1);
@@ -458,7 +483,7 @@ class TokenPair extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $core.bool hasRefreshToken() => $_has(1);
   @$pb.TagNumber(2)
-  void clearRefreshToken() => clearField(2);
+  void clearRefreshToken() => $_clearField(2);
 
   @$pb.TagNumber(3)
   $fixnum.Int64 get expiresIn => $_getI64(2);
@@ -467,42 +492,43 @@ class TokenPair extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   $core.bool hasExpiresIn() => $_has(2);
   @$pb.TagNumber(3)
-  void clearExpiresIn() => clearField(3);
+  void clearExpiresIn() => $_clearField(3);
 }
 
 class WechatLoginResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'WechatLoginResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'app.v1'), createEmptyInstance: create)
-    ..aOM<LoginUser>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'user', subBuilder: LoginUser.create)
-    ..aOM<TokenPair>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'token', subBuilder: TokenPair.create)
-    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nextStep')
-    ..aOB(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'isNewUser')
-    ..hasRequiredFields = false
-  ;
-
-  WechatLoginResponse._() : super();
   factory WechatLoginResponse({
     LoginUser? user,
     TokenPair? token,
     $core.String? nextStep,
     $core.bool? isNewUser,
   }) {
-    final _result = create();
+    final $result = create();
     if (user != null) {
-      _result.user = user;
+      $result.user = user;
     }
     if (token != null) {
-      _result.token = token;
+      $result.token = token;
     }
     if (nextStep != null) {
-      _result.nextStep = nextStep;
+      $result.nextStep = nextStep;
     }
     if (isNewUser != null) {
-      _result.isNewUser = isNewUser;
+      $result.isNewUser = isNewUser;
     }
-    return _result;
+    return $result;
   }
+  WechatLoginResponse._() : super();
   factory WechatLoginResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory WechatLoginResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'WechatLoginResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'app.v1'), createEmptyInstance: create)
+    ..aOM<LoginUser>(1, _omitFieldNames ? '' : 'user', subBuilder: LoginUser.create)
+    ..aOM<TokenPair>(2, _omitFieldNames ? '' : 'token', subBuilder: TokenPair.create)
+    ..aOS(3, _omitFieldNames ? '' : 'nextStep')
+    ..aOB(4, _omitFieldNames ? '' : 'isNewUser')
+    ..hasRequiredFields = false
+  ;
+
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -512,8 +538,10 @@ class WechatLoginResponse extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  WechatLoginResponse copyWith(void Function(WechatLoginResponse) updates) => super.copyWith((message) => updates(message as WechatLoginResponse)) as WechatLoginResponse; // ignore: deprecated_member_use
+  WechatLoginResponse copyWith(void Function(WechatLoginResponse) updates) => super.copyWith((message) => updates(message as WechatLoginResponse)) as WechatLoginResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static WechatLoginResponse create() => WechatLoginResponse._();
   WechatLoginResponse createEmptyInstance() => create();
@@ -525,22 +553,22 @@ class WechatLoginResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   LoginUser get user => $_getN(0);
   @$pb.TagNumber(1)
-  set user(LoginUser v) { setField(1, v); }
+  set user(LoginUser v) { $_setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasUser() => $_has(0);
   @$pb.TagNumber(1)
-  void clearUser() => clearField(1);
+  void clearUser() => $_clearField(1);
   @$pb.TagNumber(1)
   LoginUser ensureUser() => $_ensure(0);
 
   @$pb.TagNumber(2)
   TokenPair get token => $_getN(1);
   @$pb.TagNumber(2)
-  set token(TokenPair v) { setField(2, v); }
+  set token(TokenPair v) { $_setField(2, v); }
   @$pb.TagNumber(2)
   $core.bool hasToken() => $_has(1);
   @$pb.TagNumber(2)
-  void clearToken() => clearField(2);
+  void clearToken() => $_clearField(2);
   @$pb.TagNumber(2)
   TokenPair ensureToken() => $_ensure(1);
 
@@ -551,7 +579,7 @@ class WechatLoginResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   $core.bool hasNextStep() => $_has(2);
   @$pb.TagNumber(3)
-  void clearNextStep() => clearField(3);
+  void clearNextStep() => $_clearField(3);
 
   @$pb.TagNumber(4)
   $core.bool get isNewUser => $_getBF(3);
@@ -560,42 +588,43 @@ class WechatLoginResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   $core.bool hasIsNewUser() => $_has(3);
   @$pb.TagNumber(4)
-  void clearIsNewUser() => clearField(4);
+  void clearIsNewUser() => $_clearField(4);
 }
 
 class AppleLoginResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'AppleLoginResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'app.v1'), createEmptyInstance: create)
-    ..aOM<LoginUser>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'user', subBuilder: LoginUser.create)
-    ..aOM<TokenPair>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'token', subBuilder: TokenPair.create)
-    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nextStep')
-    ..aOB(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'isNewUser')
-    ..hasRequiredFields = false
-  ;
-
-  AppleLoginResponse._() : super();
   factory AppleLoginResponse({
     LoginUser? user,
     TokenPair? token,
     $core.String? nextStep,
     $core.bool? isNewUser,
   }) {
-    final _result = create();
+    final $result = create();
     if (user != null) {
-      _result.user = user;
+      $result.user = user;
     }
     if (token != null) {
-      _result.token = token;
+      $result.token = token;
     }
     if (nextStep != null) {
-      _result.nextStep = nextStep;
+      $result.nextStep = nextStep;
     }
     if (isNewUser != null) {
-      _result.isNewUser = isNewUser;
+      $result.isNewUser = isNewUser;
     }
-    return _result;
+    return $result;
   }
+  AppleLoginResponse._() : super();
   factory AppleLoginResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory AppleLoginResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'AppleLoginResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'app.v1'), createEmptyInstance: create)
+    ..aOM<LoginUser>(1, _omitFieldNames ? '' : 'user', subBuilder: LoginUser.create)
+    ..aOM<TokenPair>(2, _omitFieldNames ? '' : 'token', subBuilder: TokenPair.create)
+    ..aOS(3, _omitFieldNames ? '' : 'nextStep')
+    ..aOB(4, _omitFieldNames ? '' : 'isNewUser')
+    ..hasRequiredFields = false
+  ;
+
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -605,8 +634,10 @@ class AppleLoginResponse extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  AppleLoginResponse copyWith(void Function(AppleLoginResponse) updates) => super.copyWith((message) => updates(message as AppleLoginResponse)) as AppleLoginResponse; // ignore: deprecated_member_use
+  AppleLoginResponse copyWith(void Function(AppleLoginResponse) updates) => super.copyWith((message) => updates(message as AppleLoginResponse)) as AppleLoginResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static AppleLoginResponse create() => AppleLoginResponse._();
   AppleLoginResponse createEmptyInstance() => create();
@@ -618,22 +649,22 @@ class AppleLoginResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   LoginUser get user => $_getN(0);
   @$pb.TagNumber(1)
-  set user(LoginUser v) { setField(1, v); }
+  set user(LoginUser v) { $_setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasUser() => $_has(0);
   @$pb.TagNumber(1)
-  void clearUser() => clearField(1);
+  void clearUser() => $_clearField(1);
   @$pb.TagNumber(1)
   LoginUser ensureUser() => $_ensure(0);
 
   @$pb.TagNumber(2)
   TokenPair get token => $_getN(1);
   @$pb.TagNumber(2)
-  set token(TokenPair v) { setField(2, v); }
+  set token(TokenPair v) { $_setField(2, v); }
   @$pb.TagNumber(2)
   $core.bool hasToken() => $_has(1);
   @$pb.TagNumber(2)
-  void clearToken() => clearField(2);
+  void clearToken() => $_clearField(2);
   @$pb.TagNumber(2)
   TokenPair ensureToken() => $_ensure(1);
 
@@ -644,7 +675,7 @@ class AppleLoginResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   $core.bool hasNextStep() => $_has(2);
   @$pb.TagNumber(3)
-  void clearNextStep() => clearField(3);
+  void clearNextStep() => $_clearField(3);
 
   @$pb.TagNumber(4)
   $core.bool get isNewUser => $_getBF(3);
@@ -653,27 +684,28 @@ class AppleLoginResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   $core.bool hasIsNewUser() => $_has(3);
   @$pb.TagNumber(4)
-  void clearIsNewUser() => clearField(4);
+  void clearIsNewUser() => $_clearField(4);
 }
 
 class RefreshTokenResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'RefreshTokenResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'app.v1'), createEmptyInstance: create)
-    ..aOM<TokenPair>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'token', subBuilder: TokenPair.create)
-    ..hasRequiredFields = false
-  ;
-
-  RefreshTokenResponse._() : super();
   factory RefreshTokenResponse({
     TokenPair? token,
   }) {
-    final _result = create();
+    final $result = create();
     if (token != null) {
-      _result.token = token;
+      $result.token = token;
     }
-    return _result;
+    return $result;
   }
+  RefreshTokenResponse._() : super();
   factory RefreshTokenResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory RefreshTokenResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'RefreshTokenResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'app.v1'), createEmptyInstance: create)
+    ..aOM<TokenPair>(1, _omitFieldNames ? '' : 'token', subBuilder: TokenPair.create)
+    ..hasRequiredFields = false
+  ;
+
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -683,8 +715,10 @@ class RefreshTokenResponse extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  RefreshTokenResponse copyWith(void Function(RefreshTokenResponse) updates) => super.copyWith((message) => updates(message as RefreshTokenResponse)) as RefreshTokenResponse; // ignore: deprecated_member_use
+  RefreshTokenResponse copyWith(void Function(RefreshTokenResponse) updates) => super.copyWith((message) => updates(message as RefreshTokenResponse)) as RefreshTokenResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static RefreshTokenResponse create() => RefreshTokenResponse._();
   RefreshTokenResponse createEmptyInstance() => create();
@@ -696,33 +730,34 @@ class RefreshTokenResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   TokenPair get token => $_getN(0);
   @$pb.TagNumber(1)
-  set token(TokenPair v) { setField(1, v); }
+  set token(TokenPair v) { $_setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasToken() => $_has(0);
   @$pb.TagNumber(1)
-  void clearToken() => clearField(1);
+  void clearToken() => $_clearField(1);
   @$pb.TagNumber(1)
   TokenPair ensureToken() => $_ensure(0);
 }
 
 class LogoutResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'LogoutResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'app.v1'), createEmptyInstance: create)
-    ..aOB(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'success')
-    ..hasRequiredFields = false
-  ;
-
-  LogoutResponse._() : super();
   factory LogoutResponse({
     $core.bool? success,
   }) {
-    final _result = create();
+    final $result = create();
     if (success != null) {
-      _result.success = success;
+      $result.success = success;
     }
-    return _result;
+    return $result;
   }
+  LogoutResponse._() : super();
   factory LogoutResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory LogoutResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'LogoutResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'app.v1'), createEmptyInstance: create)
+    ..aOB(1, _omitFieldNames ? '' : 'success')
+    ..hasRequiredFields = false
+  ;
+
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -732,8 +767,10 @@ class LogoutResponse extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  LogoutResponse copyWith(void Function(LogoutResponse) updates) => super.copyWith((message) => updates(message as LogoutResponse)) as LogoutResponse; // ignore: deprecated_member_use
+  LogoutResponse copyWith(void Function(LogoutResponse) updates) => super.copyWith((message) => updates(message as LogoutResponse)) as LogoutResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static LogoutResponse create() => LogoutResponse._();
   LogoutResponse createEmptyInstance() => create();
@@ -749,6 +786,9 @@ class LogoutResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $core.bool hasSuccess() => $_has(0);
   @$pb.TagNumber(1)
-  void clearSuccess() => clearField(1);
+  void clearSuccess() => $_clearField(1);
 }
 
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames = $core.bool.fromEnvironment('protobuf.omit_message_names');

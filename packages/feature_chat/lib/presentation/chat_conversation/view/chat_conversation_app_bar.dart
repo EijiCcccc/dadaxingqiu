@@ -7,16 +7,19 @@ class ChatConversationAppBar extends StatelessWidget {
     super.key,
     required this.username,
     required this.onMoreTap,
+    this.prependActions,
   });
 
   final String username;
   final VoidCallback onMoreTap;
+  final List<Widget>? prependActions;
 
   @override
   Widget build(BuildContext context) {
     return AppBarWidget(
       title: username,
       actions: [
+        ...?prependActions,
         IconButton(
           onPressed: onMoreTap,
           icon: const Icon(Icons.more_horiz, color: AppColors.primaryDark),

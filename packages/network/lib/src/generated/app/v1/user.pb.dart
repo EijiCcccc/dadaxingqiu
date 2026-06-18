@@ -1,33 +1,40 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: app/v1/user.proto
 //
-// @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+// @dart = 3.3
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
 import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
-class UserAvatar extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'UserAvatar', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'app.v1'), createEmptyInstance: create)
-    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'url')
-    ..hasRequiredFields = false
-  ;
+export 'package:protobuf/protobuf.dart' show GeneratedMessageGenericExtensions;
 
-  UserAvatar._() : super();
+class UserAvatar extends $pb.GeneratedMessage {
   factory UserAvatar({
     $core.String? url,
   }) {
-    final _result = create();
+    final $result = create();
     if (url != null) {
-      _result.url = url;
+      $result.url = url;
     }
-    return _result;
+    return $result;
   }
+  UserAvatar._() : super();
   factory UserAvatar.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory UserAvatar.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'UserAvatar', package: const $pb.PackageName(_omitMessageNames ? '' : 'app.v1'), createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'url')
+    ..hasRequiredFields = false
+  ;
+
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -37,8 +44,10 @@ class UserAvatar extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  UserAvatar copyWith(void Function(UserAvatar) updates) => super.copyWith((message) => updates(message as UserAvatar)) as UserAvatar; // ignore: deprecated_member_use
+  UserAvatar copyWith(void Function(UserAvatar) updates) => super.copyWith((message) => updates(message as UserAvatar)) as UserAvatar;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static UserAvatar create() => UserAvatar._();
   UserAvatar createEmptyInstance() => create();
@@ -54,37 +63,38 @@ class UserAvatar extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $core.bool hasUrl() => $_has(0);
   @$pb.TagNumber(1)
-  void clearUrl() => clearField(1);
+  void clearUrl() => $_clearField(1);
 }
 
 class UserTag extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'UserTag', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'app.v1'), createEmptyInstance: create)
-    ..aInt64(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'id')
-    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'name')
-    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'type')
-    ..hasRequiredFields = false
-  ;
-
-  UserTag._() : super();
   factory UserTag({
     $fixnum.Int64? id,
     $core.String? name,
     $core.String? type,
   }) {
-    final _result = create();
+    final $result = create();
     if (id != null) {
-      _result.id = id;
+      $result.id = id;
     }
     if (name != null) {
-      _result.name = name;
+      $result.name = name;
     }
     if (type != null) {
-      _result.type = type;
+      $result.type = type;
     }
-    return _result;
+    return $result;
   }
+  UserTag._() : super();
   factory UserTag.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory UserTag.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'UserTag', package: const $pb.PackageName(_omitMessageNames ? '' : 'app.v1'), createEmptyInstance: create)
+    ..aInt64(1, _omitFieldNames ? '' : 'id')
+    ..aOS(2, _omitFieldNames ? '' : 'name')
+    ..aOS(3, _omitFieldNames ? '' : 'type')
+    ..hasRequiredFields = false
+  ;
+
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -94,8 +104,10 @@ class UserTag extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  UserTag copyWith(void Function(UserTag) updates) => super.copyWith((message) => updates(message as UserTag)) as UserTag; // ignore: deprecated_member_use
+  UserTag copyWith(void Function(UserTag) updates) => super.copyWith((message) => updates(message as UserTag)) as UserTag;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static UserTag create() => UserTag._();
   UserTag createEmptyInstance() => create();
@@ -111,7 +123,7 @@ class UserTag extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $core.bool hasId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearId() => clearField(1);
+  void clearId() => $_clearField(1);
 
   @$pb.TagNumber(2)
   $core.String get name => $_getSZ(1);
@@ -120,7 +132,7 @@ class UserTag extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $core.bool hasName() => $_has(1);
   @$pb.TagNumber(2)
-  void clearName() => clearField(2);
+  void clearName() => $_clearField(2);
 
   @$pb.TagNumber(3)
   $core.String get type => $_getSZ(2);
@@ -129,21 +141,10 @@ class UserTag extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   $core.bool hasType() => $_has(2);
   @$pb.TagNumber(3)
-  void clearType() => clearField(3);
+  void clearType() => $_clearField(3);
 }
 
 class TagGroup extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'TagGroup', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'app.v1'), createEmptyInstance: create)
-    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'type')
-    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'title')
-    ..aOB(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'required')
-    ..a<$core.int>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'minSelect', $pb.PbFieldType.O3)
-    ..a<$core.int>(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'maxSelect', $pb.PbFieldType.O3)
-    ..pc<UserTag>(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'items', $pb.PbFieldType.PM, subBuilder: UserTag.create)
-    ..hasRequiredFields = false
-  ;
-
-  TagGroup._() : super();
   factory TagGroup({
     $core.String? type,
     $core.String? title,
@@ -152,29 +153,41 @@ class TagGroup extends $pb.GeneratedMessage {
     $core.int? maxSelect,
     $core.Iterable<UserTag>? items,
   }) {
-    final _result = create();
+    final $result = create();
     if (type != null) {
-      _result.type = type;
+      $result.type = type;
     }
     if (title != null) {
-      _result.title = title;
+      $result.title = title;
     }
     if (required != null) {
-      _result.required = required;
+      $result.required = required;
     }
     if (minSelect != null) {
-      _result.minSelect = minSelect;
+      $result.minSelect = minSelect;
     }
     if (maxSelect != null) {
-      _result.maxSelect = maxSelect;
+      $result.maxSelect = maxSelect;
     }
     if (items != null) {
-      _result.items.addAll(items);
+      $result.items.addAll(items);
     }
-    return _result;
+    return $result;
   }
+  TagGroup._() : super();
   factory TagGroup.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory TagGroup.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'TagGroup', package: const $pb.PackageName(_omitMessageNames ? '' : 'app.v1'), createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'type')
+    ..aOS(2, _omitFieldNames ? '' : 'title')
+    ..aOB(3, _omitFieldNames ? '' : 'required')
+    ..a<$core.int>(4, _omitFieldNames ? '' : 'minSelect', $pb.PbFieldType.O3)
+    ..a<$core.int>(5, _omitFieldNames ? '' : 'maxSelect', $pb.PbFieldType.O3)
+    ..pc<UserTag>(6, _omitFieldNames ? '' : 'items', $pb.PbFieldType.PM, subBuilder: UserTag.create)
+    ..hasRequiredFields = false
+  ;
+
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -184,8 +197,10 @@ class TagGroup extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  TagGroup copyWith(void Function(TagGroup) updates) => super.copyWith((message) => updates(message as TagGroup)) as TagGroup; // ignore: deprecated_member_use
+  TagGroup copyWith(void Function(TagGroup) updates) => super.copyWith((message) => updates(message as TagGroup)) as TagGroup;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static TagGroup create() => TagGroup._();
   TagGroup createEmptyInstance() => create();
@@ -201,7 +216,7 @@ class TagGroup extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $core.bool hasType() => $_has(0);
   @$pb.TagNumber(1)
-  void clearType() => clearField(1);
+  void clearType() => $_clearField(1);
 
   @$pb.TagNumber(2)
   $core.String get title => $_getSZ(1);
@@ -210,7 +225,7 @@ class TagGroup extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $core.bool hasTitle() => $_has(1);
   @$pb.TagNumber(2)
-  void clearTitle() => clearField(2);
+  void clearTitle() => $_clearField(2);
 
   @$pb.TagNumber(3)
   $core.bool get required => $_getBF(2);
@@ -219,7 +234,7 @@ class TagGroup extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   $core.bool hasRequired() => $_has(2);
   @$pb.TagNumber(3)
-  void clearRequired() => clearField(3);
+  void clearRequired() => $_clearField(3);
 
   @$pb.TagNumber(4)
   $core.int get minSelect => $_getIZ(3);
@@ -228,7 +243,7 @@ class TagGroup extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   $core.bool hasMinSelect() => $_has(3);
   @$pb.TagNumber(4)
-  void clearMinSelect() => clearField(4);
+  void clearMinSelect() => $_clearField(4);
 
   @$pb.TagNumber(5)
   $core.int get maxSelect => $_getIZ(4);
@@ -237,30 +252,15 @@ class TagGroup extends $pb.GeneratedMessage {
   @$pb.TagNumber(5)
   $core.bool hasMaxSelect() => $_has(4);
   @$pb.TagNumber(5)
-  void clearMaxSelect() => clearField(5);
+  void clearMaxSelect() => $_clearField(5);
 
   @$pb.TagNumber(6)
-  $core.List<UserTag> get items => $_getList(5);
+  $pb.PbList<UserTag> get items => $_getList(5);
 }
 
 class UserProfile extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'UserProfile', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'app.v1'), createEmptyInstance: create)
-    ..aInt64(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'id')
-    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nickname')
-    ..a<$core.int>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'gender', $pb.PbFieldType.O3)
-    ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'avatarUrl')
-    ..a<$core.int>(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'status', $pb.PbFieldType.O3)
-    ..aOB(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'isProfiled')
-    ..aOB(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'isTagged')
-    ..aOS(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nextStep')
-    ..aOM<UserAvatar>(9, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'avatar', subBuilder: UserAvatar.create)
-    ..pc<UserTag>(10, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'tags', $pb.PbFieldType.PM, subBuilder: UserTag.create)
-    ..hasRequiredFields = false
-  ;
-
-  UserProfile._() : super();
   factory UserProfile({
-    $fixnum.Int64? id,
+    $core.String? id,
     $core.String? nickname,
     $core.int? gender,
     $core.String? avatarUrl,
@@ -271,41 +271,57 @@ class UserProfile extends $pb.GeneratedMessage {
     UserAvatar? avatar,
     $core.Iterable<UserTag>? tags,
   }) {
-    final _result = create();
+    final $result = create();
     if (id != null) {
-      _result.id = id;
+      $result.id = id;
     }
     if (nickname != null) {
-      _result.nickname = nickname;
+      $result.nickname = nickname;
     }
     if (gender != null) {
-      _result.gender = gender;
+      $result.gender = gender;
     }
     if (avatarUrl != null) {
-      _result.avatarUrl = avatarUrl;
+      $result.avatarUrl = avatarUrl;
     }
     if (status != null) {
-      _result.status = status;
+      $result.status = status;
     }
     if (isProfiled != null) {
-      _result.isProfiled = isProfiled;
+      $result.isProfiled = isProfiled;
     }
     if (isTagged != null) {
-      _result.isTagged = isTagged;
+      $result.isTagged = isTagged;
     }
     if (nextStep != null) {
-      _result.nextStep = nextStep;
+      $result.nextStep = nextStep;
     }
     if (avatar != null) {
-      _result.avatar = avatar;
+      $result.avatar = avatar;
     }
     if (tags != null) {
-      _result.tags.addAll(tags);
+      $result.tags.addAll(tags);
     }
-    return _result;
+    return $result;
   }
+  UserProfile._() : super();
   factory UserProfile.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory UserProfile.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'UserProfile', package: const $pb.PackageName(_omitMessageNames ? '' : 'app.v1'), createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'id')
+    ..aOS(2, _omitFieldNames ? '' : 'nickname')
+    ..a<$core.int>(3, _omitFieldNames ? '' : 'gender', $pb.PbFieldType.O3)
+    ..aOS(4, _omitFieldNames ? '' : 'avatarUrl')
+    ..a<$core.int>(5, _omitFieldNames ? '' : 'status', $pb.PbFieldType.O3)
+    ..aOB(6, _omitFieldNames ? '' : 'isProfiled')
+    ..aOB(7, _omitFieldNames ? '' : 'isTagged')
+    ..aOS(8, _omitFieldNames ? '' : 'nextStep')
+    ..aOM<UserAvatar>(9, _omitFieldNames ? '' : 'avatar', subBuilder: UserAvatar.create)
+    ..pc<UserTag>(10, _omitFieldNames ? '' : 'tags', $pb.PbFieldType.PM, subBuilder: UserTag.create)
+    ..hasRequiredFields = false
+  ;
+
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -315,8 +331,10 @@ class UserProfile extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  UserProfile copyWith(void Function(UserProfile) updates) => super.copyWith((message) => updates(message as UserProfile)) as UserProfile; // ignore: deprecated_member_use
+  UserProfile copyWith(void Function(UserProfile) updates) => super.copyWith((message) => updates(message as UserProfile)) as UserProfile;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static UserProfile create() => UserProfile._();
   UserProfile createEmptyInstance() => create();
@@ -326,13 +344,13 @@ class UserProfile extends $pb.GeneratedMessage {
   static UserProfile? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $fixnum.Int64 get id => $_getI64(0);
+  $core.String get id => $_getSZ(0);
   @$pb.TagNumber(1)
-  set id($fixnum.Int64 v) { $_setInt64(0, v); }
+  set id($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
   $core.bool hasId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearId() => clearField(1);
+  void clearId() => $_clearField(1);
 
   @$pb.TagNumber(2)
   $core.String get nickname => $_getSZ(1);
@@ -341,7 +359,7 @@ class UserProfile extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $core.bool hasNickname() => $_has(1);
   @$pb.TagNumber(2)
-  void clearNickname() => clearField(2);
+  void clearNickname() => $_clearField(2);
 
   @$pb.TagNumber(3)
   $core.int get gender => $_getIZ(2);
@@ -350,7 +368,7 @@ class UserProfile extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   $core.bool hasGender() => $_has(2);
   @$pb.TagNumber(3)
-  void clearGender() => clearField(3);
+  void clearGender() => $_clearField(3);
 
   @$pb.TagNumber(4)
   $core.String get avatarUrl => $_getSZ(3);
@@ -359,7 +377,7 @@ class UserProfile extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   $core.bool hasAvatarUrl() => $_has(3);
   @$pb.TagNumber(4)
-  void clearAvatarUrl() => clearField(4);
+  void clearAvatarUrl() => $_clearField(4);
 
   @$pb.TagNumber(5)
   $core.int get status => $_getIZ(4);
@@ -368,7 +386,7 @@ class UserProfile extends $pb.GeneratedMessage {
   @$pb.TagNumber(5)
   $core.bool hasStatus() => $_has(4);
   @$pb.TagNumber(5)
-  void clearStatus() => clearField(5);
+  void clearStatus() => $_clearField(5);
 
   @$pb.TagNumber(6)
   $core.bool get isProfiled => $_getBF(5);
@@ -377,7 +395,7 @@ class UserProfile extends $pb.GeneratedMessage {
   @$pb.TagNumber(6)
   $core.bool hasIsProfiled() => $_has(5);
   @$pb.TagNumber(6)
-  void clearIsProfiled() => clearField(6);
+  void clearIsProfiled() => $_clearField(6);
 
   @$pb.TagNumber(7)
   $core.bool get isTagged => $_getBF(6);
@@ -386,7 +404,7 @@ class UserProfile extends $pb.GeneratedMessage {
   @$pb.TagNumber(7)
   $core.bool hasIsTagged() => $_has(6);
   @$pb.TagNumber(7)
-  void clearIsTagged() => clearField(7);
+  void clearIsTagged() => $_clearField(7);
 
   @$pb.TagNumber(8)
   $core.String get nextStep => $_getSZ(7);
@@ -395,66 +413,67 @@ class UserProfile extends $pb.GeneratedMessage {
   @$pb.TagNumber(8)
   $core.bool hasNextStep() => $_has(7);
   @$pb.TagNumber(8)
-  void clearNextStep() => clearField(8);
+  void clearNextStep() => $_clearField(8);
 
   @$pb.TagNumber(9)
   UserAvatar get avatar => $_getN(8);
   @$pb.TagNumber(9)
-  set avatar(UserAvatar v) { setField(9, v); }
+  set avatar(UserAvatar v) { $_setField(9, v); }
   @$pb.TagNumber(9)
   $core.bool hasAvatar() => $_has(8);
   @$pb.TagNumber(9)
-  void clearAvatar() => clearField(9);
+  void clearAvatar() => $_clearField(9);
   @$pb.TagNumber(9)
   UserAvatar ensureAvatar() => $_ensure(8);
 
   @$pb.TagNumber(10)
-  $core.List<UserTag> get tags => $_getList(9);
+  $pb.PbList<UserTag> get tags => $_getList(9);
 }
 
 class OtherUserSummary extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'OtherUserSummary', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'app.v1'), createEmptyInstance: create)
-    ..aInt64(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'id')
-    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nickname')
-    ..a<$core.int>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'gender', $pb.PbFieldType.O3)
-    ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'avatarUrl')
-    ..aOS(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'onlineStatus')
-    ..pc<UserTag>(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'tags', $pb.PbFieldType.PM, subBuilder: UserTag.create)
-    ..hasRequiredFields = false
-  ;
-
-  OtherUserSummary._() : super();
   factory OtherUserSummary({
-    $fixnum.Int64? id,
+    $core.String? id,
     $core.String? nickname,
     $core.int? gender,
     $core.String? avatarUrl,
     $core.String? onlineStatus,
     $core.Iterable<UserTag>? tags,
   }) {
-    final _result = create();
+    final $result = create();
     if (id != null) {
-      _result.id = id;
+      $result.id = id;
     }
     if (nickname != null) {
-      _result.nickname = nickname;
+      $result.nickname = nickname;
     }
     if (gender != null) {
-      _result.gender = gender;
+      $result.gender = gender;
     }
     if (avatarUrl != null) {
-      _result.avatarUrl = avatarUrl;
+      $result.avatarUrl = avatarUrl;
     }
     if (onlineStatus != null) {
-      _result.onlineStatus = onlineStatus;
+      $result.onlineStatus = onlineStatus;
     }
     if (tags != null) {
-      _result.tags.addAll(tags);
+      $result.tags.addAll(tags);
     }
-    return _result;
+    return $result;
   }
+  OtherUserSummary._() : super();
   factory OtherUserSummary.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory OtherUserSummary.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'OtherUserSummary', package: const $pb.PackageName(_omitMessageNames ? '' : 'app.v1'), createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'id')
+    ..aOS(2, _omitFieldNames ? '' : 'nickname')
+    ..a<$core.int>(3, _omitFieldNames ? '' : 'gender', $pb.PbFieldType.O3)
+    ..aOS(4, _omitFieldNames ? '' : 'avatarUrl')
+    ..aOS(5, _omitFieldNames ? '' : 'onlineStatus')
+    ..pc<UserTag>(6, _omitFieldNames ? '' : 'tags', $pb.PbFieldType.PM, subBuilder: UserTag.create)
+    ..hasRequiredFields = false
+  ;
+
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -464,8 +483,10 @@ class OtherUserSummary extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  OtherUserSummary copyWith(void Function(OtherUserSummary) updates) => super.copyWith((message) => updates(message as OtherUserSummary)) as OtherUserSummary; // ignore: deprecated_member_use
+  OtherUserSummary copyWith(void Function(OtherUserSummary) updates) => super.copyWith((message) => updates(message as OtherUserSummary)) as OtherUserSummary;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static OtherUserSummary create() => OtherUserSummary._();
   OtherUserSummary createEmptyInstance() => create();
@@ -475,13 +496,13 @@ class OtherUserSummary extends $pb.GeneratedMessage {
   static OtherUserSummary? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $fixnum.Int64 get id => $_getI64(0);
+  $core.String get id => $_getSZ(0);
   @$pb.TagNumber(1)
-  set id($fixnum.Int64 v) { $_setInt64(0, v); }
+  set id($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
   $core.bool hasId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearId() => clearField(1);
+  void clearId() => $_clearField(1);
 
   @$pb.TagNumber(2)
   $core.String get nickname => $_getSZ(1);
@@ -490,7 +511,7 @@ class OtherUserSummary extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $core.bool hasNickname() => $_has(1);
   @$pb.TagNumber(2)
-  void clearNickname() => clearField(2);
+  void clearNickname() => $_clearField(2);
 
   @$pb.TagNumber(3)
   $core.int get gender => $_getIZ(2);
@@ -499,7 +520,7 @@ class OtherUserSummary extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   $core.bool hasGender() => $_has(2);
   @$pb.TagNumber(3)
-  void clearGender() => clearField(3);
+  void clearGender() => $_clearField(3);
 
   @$pb.TagNumber(4)
   $core.String get avatarUrl => $_getSZ(3);
@@ -508,7 +529,7 @@ class OtherUserSummary extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   $core.bool hasAvatarUrl() => $_has(3);
   @$pb.TagNumber(4)
-  void clearAvatarUrl() => clearField(4);
+  void clearAvatarUrl() => $_clearField(4);
 
   @$pb.TagNumber(5)
   $core.String get onlineStatus => $_getSZ(4);
@@ -517,35 +538,36 @@ class OtherUserSummary extends $pb.GeneratedMessage {
   @$pb.TagNumber(5)
   $core.bool hasOnlineStatus() => $_has(4);
   @$pb.TagNumber(5)
-  void clearOnlineStatus() => clearField(5);
+  void clearOnlineStatus() => $_clearField(5);
 
   @$pb.TagNumber(6)
-  $core.List<UserTag> get tags => $_getList(5);
+  $pb.PbList<UserTag> get tags => $_getList(5);
 }
 
 class CreateAvatarUploadRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'CreateAvatarUploadRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'app.v1'), createEmptyInstance: create)
-    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'fileName')
-    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'contentType')
-    ..hasRequiredFields = false
-  ;
-
-  CreateAvatarUploadRequest._() : super();
   factory CreateAvatarUploadRequest({
     $core.String? fileName,
     $core.String? contentType,
   }) {
-    final _result = create();
+    final $result = create();
     if (fileName != null) {
-      _result.fileName = fileName;
+      $result.fileName = fileName;
     }
     if (contentType != null) {
-      _result.contentType = contentType;
+      $result.contentType = contentType;
     }
-    return _result;
+    return $result;
   }
+  CreateAvatarUploadRequest._() : super();
   factory CreateAvatarUploadRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory CreateAvatarUploadRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CreateAvatarUploadRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'app.v1'), createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'fileName')
+    ..aOS(2, _omitFieldNames ? '' : 'contentType')
+    ..hasRequiredFields = false
+  ;
+
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -555,8 +577,10 @@ class CreateAvatarUploadRequest extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  CreateAvatarUploadRequest copyWith(void Function(CreateAvatarUploadRequest) updates) => super.copyWith((message) => updates(message as CreateAvatarUploadRequest)) as CreateAvatarUploadRequest; // ignore: deprecated_member_use
+  CreateAvatarUploadRequest copyWith(void Function(CreateAvatarUploadRequest) updates) => super.copyWith((message) => updates(message as CreateAvatarUploadRequest)) as CreateAvatarUploadRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static CreateAvatarUploadRequest create() => CreateAvatarUploadRequest._();
   CreateAvatarUploadRequest createEmptyInstance() => create();
@@ -572,7 +596,7 @@ class CreateAvatarUploadRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $core.bool hasFileName() => $_has(0);
   @$pb.TagNumber(1)
-  void clearFileName() => clearField(1);
+  void clearFileName() => $_clearField(1);
 
   @$pb.TagNumber(2)
   $core.String get contentType => $_getSZ(1);
@@ -581,42 +605,43 @@ class CreateAvatarUploadRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $core.bool hasContentType() => $_has(1);
   @$pb.TagNumber(2)
-  void clearContentType() => clearField(2);
+  void clearContentType() => $_clearField(2);
 }
 
 class CreateAvatarUploadResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'CreateAvatarUploadResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'app.v1'), createEmptyInstance: create)
-    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'objectKey')
-    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'uploadUrl')
-    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'publicUrl')
-    ..aInt64(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'expiresIn')
-    ..hasRequiredFields = false
-  ;
-
-  CreateAvatarUploadResponse._() : super();
   factory CreateAvatarUploadResponse({
     $core.String? objectKey,
     $core.String? uploadUrl,
     $core.String? publicUrl,
     $fixnum.Int64? expiresIn,
   }) {
-    final _result = create();
+    final $result = create();
     if (objectKey != null) {
-      _result.objectKey = objectKey;
+      $result.objectKey = objectKey;
     }
     if (uploadUrl != null) {
-      _result.uploadUrl = uploadUrl;
+      $result.uploadUrl = uploadUrl;
     }
     if (publicUrl != null) {
-      _result.publicUrl = publicUrl;
+      $result.publicUrl = publicUrl;
     }
     if (expiresIn != null) {
-      _result.expiresIn = expiresIn;
+      $result.expiresIn = expiresIn;
     }
-    return _result;
+    return $result;
   }
+  CreateAvatarUploadResponse._() : super();
   factory CreateAvatarUploadResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory CreateAvatarUploadResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CreateAvatarUploadResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'app.v1'), createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'objectKey')
+    ..aOS(2, _omitFieldNames ? '' : 'uploadUrl')
+    ..aOS(3, _omitFieldNames ? '' : 'publicUrl')
+    ..aInt64(4, _omitFieldNames ? '' : 'expiresIn')
+    ..hasRequiredFields = false
+  ;
+
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -626,8 +651,10 @@ class CreateAvatarUploadResponse extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  CreateAvatarUploadResponse copyWith(void Function(CreateAvatarUploadResponse) updates) => super.copyWith((message) => updates(message as CreateAvatarUploadResponse)) as CreateAvatarUploadResponse; // ignore: deprecated_member_use
+  CreateAvatarUploadResponse copyWith(void Function(CreateAvatarUploadResponse) updates) => super.copyWith((message) => updates(message as CreateAvatarUploadResponse)) as CreateAvatarUploadResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static CreateAvatarUploadResponse create() => CreateAvatarUploadResponse._();
   CreateAvatarUploadResponse createEmptyInstance() => create();
@@ -643,7 +670,7 @@ class CreateAvatarUploadResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $core.bool hasObjectKey() => $_has(0);
   @$pb.TagNumber(1)
-  void clearObjectKey() => clearField(1);
+  void clearObjectKey() => $_clearField(1);
 
   @$pb.TagNumber(2)
   $core.String get uploadUrl => $_getSZ(1);
@@ -652,7 +679,7 @@ class CreateAvatarUploadResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $core.bool hasUploadUrl() => $_has(1);
   @$pb.TagNumber(2)
-  void clearUploadUrl() => clearField(2);
+  void clearUploadUrl() => $_clearField(2);
 
   @$pb.TagNumber(3)
   $core.String get publicUrl => $_getSZ(2);
@@ -661,7 +688,7 @@ class CreateAvatarUploadResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   $core.bool hasPublicUrl() => $_has(2);
   @$pb.TagNumber(3)
-  void clearPublicUrl() => clearField(3);
+  void clearPublicUrl() => $_clearField(3);
 
   @$pb.TagNumber(4)
   $fixnum.Int64 get expiresIn => $_getI64(3);
@@ -670,37 +697,38 @@ class CreateAvatarUploadResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   $core.bool hasExpiresIn() => $_has(3);
   @$pb.TagNumber(4)
-  void clearExpiresIn() => clearField(4);
+  void clearExpiresIn() => $_clearField(4);
 }
 
 class UpdateMyProfileRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'UpdateMyProfileRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'app.v1'), createEmptyInstance: create)
-    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nickname')
-    ..a<$core.int>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'gender', $pb.PbFieldType.O3)
-    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'avatarUrl')
-    ..hasRequiredFields = false
-  ;
-
-  UpdateMyProfileRequest._() : super();
   factory UpdateMyProfileRequest({
     $core.String? nickname,
     $core.int? gender,
     $core.String? avatarUrl,
   }) {
-    final _result = create();
+    final $result = create();
     if (nickname != null) {
-      _result.nickname = nickname;
+      $result.nickname = nickname;
     }
     if (gender != null) {
-      _result.gender = gender;
+      $result.gender = gender;
     }
     if (avatarUrl != null) {
-      _result.avatarUrl = avatarUrl;
+      $result.avatarUrl = avatarUrl;
     }
-    return _result;
+    return $result;
   }
+  UpdateMyProfileRequest._() : super();
   factory UpdateMyProfileRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory UpdateMyProfileRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'UpdateMyProfileRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'app.v1'), createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'nickname')
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'gender', $pb.PbFieldType.O3)
+    ..aOS(3, _omitFieldNames ? '' : 'avatarUrl')
+    ..hasRequiredFields = false
+  ;
+
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -710,8 +738,10 @@ class UpdateMyProfileRequest extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  UpdateMyProfileRequest copyWith(void Function(UpdateMyProfileRequest) updates) => super.copyWith((message) => updates(message as UpdateMyProfileRequest)) as UpdateMyProfileRequest; // ignore: deprecated_member_use
+  UpdateMyProfileRequest copyWith(void Function(UpdateMyProfileRequest) updates) => super.copyWith((message) => updates(message as UpdateMyProfileRequest)) as UpdateMyProfileRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static UpdateMyProfileRequest create() => UpdateMyProfileRequest._();
   UpdateMyProfileRequest createEmptyInstance() => create();
@@ -727,7 +757,7 @@ class UpdateMyProfileRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $core.bool hasNickname() => $_has(0);
   @$pb.TagNumber(1)
-  void clearNickname() => clearField(1);
+  void clearNickname() => $_clearField(1);
 
   @$pb.TagNumber(2)
   $core.int get gender => $_getIZ(1);
@@ -736,7 +766,7 @@ class UpdateMyProfileRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $core.bool hasGender() => $_has(1);
   @$pb.TagNumber(2)
-  void clearGender() => clearField(2);
+  void clearGender() => $_clearField(2);
 
   @$pb.TagNumber(3)
   $core.String get avatarUrl => $_getSZ(2);
@@ -745,29 +775,13 @@ class UpdateMyProfileRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   $core.bool hasAvatarUrl() => $_has(2);
   @$pb.TagNumber(3)
-  void clearAvatarUrl() => clearField(3);
+  void clearAvatarUrl() => $_clearField(3);
 }
 
 class UpdateMyProfileResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'UpdateMyProfileResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'app.v1'), createEmptyInstance: create)
-    ..aOB(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'updated')
-    ..aInt64(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'id')
-    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nickname')
-    ..a<$core.int>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'gender', $pb.PbFieldType.O3)
-    ..aOS(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'avatarUrl')
-    ..a<$core.int>(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'status', $pb.PbFieldType.O3)
-    ..aOB(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'isProfiled')
-    ..aOB(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'isTagged')
-    ..aOS(9, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nextStep')
-    ..aOM<UserAvatar>(10, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'avatar', subBuilder: UserAvatar.create)
-    ..pc<UserTag>(11, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'tags', $pb.PbFieldType.PM, subBuilder: UserTag.create)
-    ..hasRequiredFields = false
-  ;
-
-  UpdateMyProfileResponse._() : super();
   factory UpdateMyProfileResponse({
     $core.bool? updated,
-    $fixnum.Int64? id,
+    $core.String? id,
     $core.String? nickname,
     $core.int? gender,
     $core.String? avatarUrl,
@@ -778,44 +792,61 @@ class UpdateMyProfileResponse extends $pb.GeneratedMessage {
     UserAvatar? avatar,
     $core.Iterable<UserTag>? tags,
   }) {
-    final _result = create();
+    final $result = create();
     if (updated != null) {
-      _result.updated = updated;
+      $result.updated = updated;
     }
     if (id != null) {
-      _result.id = id;
+      $result.id = id;
     }
     if (nickname != null) {
-      _result.nickname = nickname;
+      $result.nickname = nickname;
     }
     if (gender != null) {
-      _result.gender = gender;
+      $result.gender = gender;
     }
     if (avatarUrl != null) {
-      _result.avatarUrl = avatarUrl;
+      $result.avatarUrl = avatarUrl;
     }
     if (status != null) {
-      _result.status = status;
+      $result.status = status;
     }
     if (isProfiled != null) {
-      _result.isProfiled = isProfiled;
+      $result.isProfiled = isProfiled;
     }
     if (isTagged != null) {
-      _result.isTagged = isTagged;
+      $result.isTagged = isTagged;
     }
     if (nextStep != null) {
-      _result.nextStep = nextStep;
+      $result.nextStep = nextStep;
     }
     if (avatar != null) {
-      _result.avatar = avatar;
+      $result.avatar = avatar;
     }
     if (tags != null) {
-      _result.tags.addAll(tags);
+      $result.tags.addAll(tags);
     }
-    return _result;
+    return $result;
   }
+  UpdateMyProfileResponse._() : super();
   factory UpdateMyProfileResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory UpdateMyProfileResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'UpdateMyProfileResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'app.v1'), createEmptyInstance: create)
+    ..aOB(1, _omitFieldNames ? '' : 'updated')
+    ..aOS(2, _omitFieldNames ? '' : 'id')
+    ..aOS(3, _omitFieldNames ? '' : 'nickname')
+    ..a<$core.int>(4, _omitFieldNames ? '' : 'gender', $pb.PbFieldType.O3)
+    ..aOS(5, _omitFieldNames ? '' : 'avatarUrl')
+    ..a<$core.int>(6, _omitFieldNames ? '' : 'status', $pb.PbFieldType.O3)
+    ..aOB(7, _omitFieldNames ? '' : 'isProfiled')
+    ..aOB(8, _omitFieldNames ? '' : 'isTagged')
+    ..aOS(9, _omitFieldNames ? '' : 'nextStep')
+    ..aOM<UserAvatar>(10, _omitFieldNames ? '' : 'avatar', subBuilder: UserAvatar.create)
+    ..pc<UserTag>(11, _omitFieldNames ? '' : 'tags', $pb.PbFieldType.PM, subBuilder: UserTag.create)
+    ..hasRequiredFields = false
+  ;
+
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -825,8 +856,10 @@ class UpdateMyProfileResponse extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  UpdateMyProfileResponse copyWith(void Function(UpdateMyProfileResponse) updates) => super.copyWith((message) => updates(message as UpdateMyProfileResponse)) as UpdateMyProfileResponse; // ignore: deprecated_member_use
+  UpdateMyProfileResponse copyWith(void Function(UpdateMyProfileResponse) updates) => super.copyWith((message) => updates(message as UpdateMyProfileResponse)) as UpdateMyProfileResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static UpdateMyProfileResponse create() => UpdateMyProfileResponse._();
   UpdateMyProfileResponse createEmptyInstance() => create();
@@ -842,16 +875,16 @@ class UpdateMyProfileResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $core.bool hasUpdated() => $_has(0);
   @$pb.TagNumber(1)
-  void clearUpdated() => clearField(1);
+  void clearUpdated() => $_clearField(1);
 
   @$pb.TagNumber(2)
-  $fixnum.Int64 get id => $_getI64(1);
+  $core.String get id => $_getSZ(1);
   @$pb.TagNumber(2)
-  set id($fixnum.Int64 v) { $_setInt64(1, v); }
+  set id($core.String v) { $_setString(1, v); }
   @$pb.TagNumber(2)
   $core.bool hasId() => $_has(1);
   @$pb.TagNumber(2)
-  void clearId() => clearField(2);
+  void clearId() => $_clearField(2);
 
   @$pb.TagNumber(3)
   $core.String get nickname => $_getSZ(2);
@@ -860,7 +893,7 @@ class UpdateMyProfileResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   $core.bool hasNickname() => $_has(2);
   @$pb.TagNumber(3)
-  void clearNickname() => clearField(3);
+  void clearNickname() => $_clearField(3);
 
   @$pb.TagNumber(4)
   $core.int get gender => $_getIZ(3);
@@ -869,7 +902,7 @@ class UpdateMyProfileResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   $core.bool hasGender() => $_has(3);
   @$pb.TagNumber(4)
-  void clearGender() => clearField(4);
+  void clearGender() => $_clearField(4);
 
   @$pb.TagNumber(5)
   $core.String get avatarUrl => $_getSZ(4);
@@ -878,7 +911,7 @@ class UpdateMyProfileResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(5)
   $core.bool hasAvatarUrl() => $_has(4);
   @$pb.TagNumber(5)
-  void clearAvatarUrl() => clearField(5);
+  void clearAvatarUrl() => $_clearField(5);
 
   @$pb.TagNumber(6)
   $core.int get status => $_getIZ(5);
@@ -887,7 +920,7 @@ class UpdateMyProfileResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(6)
   $core.bool hasStatus() => $_has(5);
   @$pb.TagNumber(6)
-  void clearStatus() => clearField(6);
+  void clearStatus() => $_clearField(6);
 
   @$pb.TagNumber(7)
   $core.bool get isProfiled => $_getBF(6);
@@ -896,7 +929,7 @@ class UpdateMyProfileResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(7)
   $core.bool hasIsProfiled() => $_has(6);
   @$pb.TagNumber(7)
-  void clearIsProfiled() => clearField(7);
+  void clearIsProfiled() => $_clearField(7);
 
   @$pb.TagNumber(8)
   $core.bool get isTagged => $_getBF(7);
@@ -905,7 +938,7 @@ class UpdateMyProfileResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(8)
   $core.bool hasIsTagged() => $_has(7);
   @$pb.TagNumber(8)
-  void clearIsTagged() => clearField(8);
+  void clearIsTagged() => $_clearField(8);
 
   @$pb.TagNumber(9)
   $core.String get nextStep => $_getSZ(8);
@@ -914,41 +947,42 @@ class UpdateMyProfileResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(9)
   $core.bool hasNextStep() => $_has(8);
   @$pb.TagNumber(9)
-  void clearNextStep() => clearField(9);
+  void clearNextStep() => $_clearField(9);
 
   @$pb.TagNumber(10)
   UserAvatar get avatar => $_getN(9);
   @$pb.TagNumber(10)
-  set avatar(UserAvatar v) { setField(10, v); }
+  set avatar(UserAvatar v) { $_setField(10, v); }
   @$pb.TagNumber(10)
   $core.bool hasAvatar() => $_has(9);
   @$pb.TagNumber(10)
-  void clearAvatar() => clearField(10);
+  void clearAvatar() => $_clearField(10);
   @$pb.TagNumber(10)
   UserAvatar ensureAvatar() => $_ensure(9);
 
   @$pb.TagNumber(11)
-  $core.List<UserTag> get tags => $_getList(10);
+  $pb.PbList<UserTag> get tags => $_getList(10);
 }
 
 class GetTagsResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GetTagsResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'app.v1'), createEmptyInstance: create)
-    ..pc<TagGroup>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'groups', $pb.PbFieldType.PM, subBuilder: TagGroup.create)
-    ..hasRequiredFields = false
-  ;
-
-  GetTagsResponse._() : super();
   factory GetTagsResponse({
     $core.Iterable<TagGroup>? groups,
   }) {
-    final _result = create();
+    final $result = create();
     if (groups != null) {
-      _result.groups.addAll(groups);
+      $result.groups.addAll(groups);
     }
-    return _result;
+    return $result;
   }
+  GetTagsResponse._() : super();
   factory GetTagsResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory GetTagsResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetTagsResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'app.v1'), createEmptyInstance: create)
+    ..pc<TagGroup>(1, _omitFieldNames ? '' : 'groups', $pb.PbFieldType.PM, subBuilder: TagGroup.create)
+    ..hasRequiredFields = false
+  ;
+
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -958,8 +992,10 @@ class GetTagsResponse extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  GetTagsResponse copyWith(void Function(GetTagsResponse) updates) => super.copyWith((message) => updates(message as GetTagsResponse)) as GetTagsResponse; // ignore: deprecated_member_use
+  GetTagsResponse copyWith(void Function(GetTagsResponse) updates) => super.copyWith((message) => updates(message as GetTagsResponse)) as GetTagsResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GetTagsResponse create() => GetTagsResponse._();
   GetTagsResponse createEmptyInstance() => create();
@@ -969,27 +1005,28 @@ class GetTagsResponse extends $pb.GeneratedMessage {
   static GetTagsResponse? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.List<TagGroup> get groups => $_getList(0);
+  $pb.PbList<TagGroup> get groups => $_getList(0);
 }
 
 class UpdateMyTagsRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'UpdateMyTagsRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'app.v1'), createEmptyInstance: create)
-    ..p<$fixnum.Int64>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'tagIds', $pb.PbFieldType.K6)
-    ..hasRequiredFields = false
-  ;
-
-  UpdateMyTagsRequest._() : super();
   factory UpdateMyTagsRequest({
     $core.Iterable<$fixnum.Int64>? tagIds,
   }) {
-    final _result = create();
+    final $result = create();
     if (tagIds != null) {
-      _result.tagIds.addAll(tagIds);
+      $result.tagIds.addAll(tagIds);
     }
-    return _result;
+    return $result;
   }
+  UpdateMyTagsRequest._() : super();
   factory UpdateMyTagsRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory UpdateMyTagsRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'UpdateMyTagsRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'app.v1'), createEmptyInstance: create)
+    ..p<$fixnum.Int64>(1, _omitFieldNames ? '' : 'tagIds', $pb.PbFieldType.K6)
+    ..hasRequiredFields = false
+  ;
+
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -999,8 +1036,10 @@ class UpdateMyTagsRequest extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  UpdateMyTagsRequest copyWith(void Function(UpdateMyTagsRequest) updates) => super.copyWith((message) => updates(message as UpdateMyTagsRequest)) as UpdateMyTagsRequest; // ignore: deprecated_member_use
+  UpdateMyTagsRequest copyWith(void Function(UpdateMyTagsRequest) updates) => super.copyWith((message) => updates(message as UpdateMyTagsRequest)) as UpdateMyTagsRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static UpdateMyTagsRequest create() => UpdateMyTagsRequest._();
   UpdateMyTagsRequest createEmptyInstance() => create();
@@ -1010,42 +1049,43 @@ class UpdateMyTagsRequest extends $pb.GeneratedMessage {
   static UpdateMyTagsRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.List<$fixnum.Int64> get tagIds => $_getList(0);
+  $pb.PbList<$fixnum.Int64> get tagIds => $_getList(0);
 }
 
 class UpdateMyTagsResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'UpdateMyTagsResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'app.v1'), createEmptyInstance: create)
-    ..aOB(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'updated')
-    ..aOB(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'isTagged')
-    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nextStep')
-    ..pc<UserTag>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'tags', $pb.PbFieldType.PM, subBuilder: UserTag.create)
-    ..hasRequiredFields = false
-  ;
-
-  UpdateMyTagsResponse._() : super();
   factory UpdateMyTagsResponse({
     $core.bool? updated,
     $core.bool? isTagged,
     $core.String? nextStep,
     $core.Iterable<UserTag>? tags,
   }) {
-    final _result = create();
+    final $result = create();
     if (updated != null) {
-      _result.updated = updated;
+      $result.updated = updated;
     }
     if (isTagged != null) {
-      _result.isTagged = isTagged;
+      $result.isTagged = isTagged;
     }
     if (nextStep != null) {
-      _result.nextStep = nextStep;
+      $result.nextStep = nextStep;
     }
     if (tags != null) {
-      _result.tags.addAll(tags);
+      $result.tags.addAll(tags);
     }
-    return _result;
+    return $result;
   }
+  UpdateMyTagsResponse._() : super();
   factory UpdateMyTagsResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory UpdateMyTagsResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'UpdateMyTagsResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'app.v1'), createEmptyInstance: create)
+    ..aOB(1, _omitFieldNames ? '' : 'updated')
+    ..aOB(2, _omitFieldNames ? '' : 'isTagged')
+    ..aOS(3, _omitFieldNames ? '' : 'nextStep')
+    ..pc<UserTag>(4, _omitFieldNames ? '' : 'tags', $pb.PbFieldType.PM, subBuilder: UserTag.create)
+    ..hasRequiredFields = false
+  ;
+
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -1055,8 +1095,10 @@ class UpdateMyTagsResponse extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  UpdateMyTagsResponse copyWith(void Function(UpdateMyTagsResponse) updates) => super.copyWith((message) => updates(message as UpdateMyTagsResponse)) as UpdateMyTagsResponse; // ignore: deprecated_member_use
+  UpdateMyTagsResponse copyWith(void Function(UpdateMyTagsResponse) updates) => super.copyWith((message) => updates(message as UpdateMyTagsResponse)) as UpdateMyTagsResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static UpdateMyTagsResponse create() => UpdateMyTagsResponse._();
   UpdateMyTagsResponse createEmptyInstance() => create();
@@ -1072,7 +1114,7 @@ class UpdateMyTagsResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $core.bool hasUpdated() => $_has(0);
   @$pb.TagNumber(1)
-  void clearUpdated() => clearField(1);
+  void clearUpdated() => $_clearField(1);
 
   @$pb.TagNumber(2)
   $core.bool get isTagged => $_getBF(1);
@@ -1081,7 +1123,7 @@ class UpdateMyTagsResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $core.bool hasIsTagged() => $_has(1);
   @$pb.TagNumber(2)
-  void clearIsTagged() => clearField(2);
+  void clearIsTagged() => $_clearField(2);
 
   @$pb.TagNumber(3)
   $core.String get nextStep => $_getSZ(2);
@@ -1090,9 +1132,12 @@ class UpdateMyTagsResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   $core.bool hasNextStep() => $_has(2);
   @$pb.TagNumber(3)
-  void clearNextStep() => clearField(3);
+  void clearNextStep() => $_clearField(3);
 
   @$pb.TagNumber(4)
-  $core.List<UserTag> get tags => $_getList(3);
+  $pb.PbList<UserTag> get tags => $_getList(3);
 }
 
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames = $core.bool.fromEnvironment('protobuf.omit_message_names');

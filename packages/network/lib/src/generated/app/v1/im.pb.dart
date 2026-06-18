@@ -19,7 +19,7 @@ export 'package:protobuf/protobuf.dart' show GeneratedMessageGenericExtensions;
 class GetIMSessionResponse extends $pb.GeneratedMessage {
   factory GetIMSessionResponse({
     $fixnum.Int64? sdkAppId,
-    $core.String? imUserId,
+    $core.String? userId,
     $core.String? userSig,
     $fixnum.Int64? expireAt,
     $core.String? nickname,
@@ -29,8 +29,8 @@ class GetIMSessionResponse extends $pb.GeneratedMessage {
     if (sdkAppId != null) {
       $result.sdkAppId = sdkAppId;
     }
-    if (imUserId != null) {
-      $result.imUserId = imUserId;
+    if (userId != null) {
+      $result.userId = userId;
     }
     if (userSig != null) {
       $result.userSig = userSig;
@@ -52,7 +52,7 @@ class GetIMSessionResponse extends $pb.GeneratedMessage {
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetIMSessionResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'app.v1'), createEmptyInstance: create)
     ..aInt64(1, _omitFieldNames ? '' : 'sdkAppId')
-    ..aOS(2, _omitFieldNames ? '' : 'imUserId')
+    ..aOS(2, _omitFieldNames ? '' : 'userId')
     ..aOS(3, _omitFieldNames ? '' : 'userSig')
     ..aInt64(4, _omitFieldNames ? '' : 'expireAt')
     ..aOS(5, _omitFieldNames ? '' : 'nickname')
@@ -91,13 +91,13 @@ class GetIMSessionResponse extends $pb.GeneratedMessage {
   void clearSdkAppId() => $_clearField(1);
 
   @$pb.TagNumber(2)
-  $core.String get imUserId => $_getSZ(1);
+  $core.String get userId => $_getSZ(1);
   @$pb.TagNumber(2)
-  set imUserId($core.String v) { $_setString(1, v); }
+  set userId($core.String v) { $_setString(1, v); }
   @$pb.TagNumber(2)
-  $core.bool hasImUserId() => $_has(1);
+  $core.bool hasUserId() => $_has(1);
   @$pb.TagNumber(2)
-  void clearImUserId() => $_clearField(2);
+  void clearUserId() => $_clearField(2);
 
   @$pb.TagNumber(3)
   $core.String get userSig => $_getSZ(2);
@@ -138,8 +138,7 @@ class GetIMSessionResponse extends $pb.GeneratedMessage {
 
 class IMConversationMeta extends $pb.GeneratedMessage {
   factory IMConversationMeta({
-    $fixnum.Int64? userId,
-    $core.String? imUserId,
+    $core.String? userId,
     $core.String? nickname,
     $core.String? remarkName,
     $core.String? displayName,
@@ -158,9 +157,6 @@ class IMConversationMeta extends $pb.GeneratedMessage {
     final $result = create();
     if (userId != null) {
       $result.userId = userId;
-    }
-    if (imUserId != null) {
-      $result.imUserId = imUserId;
     }
     if (nickname != null) {
       $result.nickname = nickname;
@@ -211,22 +207,21 @@ class IMConversationMeta extends $pb.GeneratedMessage {
   factory IMConversationMeta.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'IMConversationMeta', package: const $pb.PackageName(_omitMessageNames ? '' : 'app.v1'), createEmptyInstance: create)
-    ..aInt64(1, _omitFieldNames ? '' : 'userId')
-    ..aOS(2, _omitFieldNames ? '' : 'imUserId')
-    ..aOS(3, _omitFieldNames ? '' : 'nickname')
-    ..aOS(4, _omitFieldNames ? '' : 'remarkName')
-    ..aOS(5, _omitFieldNames ? '' : 'displayName')
-    ..a<$core.int>(6, _omitFieldNames ? '' : 'gender', $pb.PbFieldType.O3)
-    ..aOS(7, _omitFieldNames ? '' : 'avatarUrl')
-    ..aInt64(8, _omitFieldNames ? '' : 'intimacy')
-    ..aOB(9, _omitFieldNames ? '' : 'isPinned')
-    ..aInt64(10, _omitFieldNames ? '' : 'pinnedAt')
-    ..aOS(11, _omitFieldNames ? '' : 'chatBackgroundUrl')
-    ..aOB(12, _omitFieldNames ? '' : 'isFollowing')
-    ..aOB(13, _omitFieldNames ? '' : 'isFollowedBy')
-    ..aOB(14, _omitFieldNames ? '' : 'isMutualFollow')
-    ..aOB(15, _omitFieldNames ? '' : 'isDeleted')
-    ..aInt64(16, _omitFieldNames ? '' : 'deletedAt')
+    ..aOS(1, _omitFieldNames ? '' : 'userId')
+    ..aOS(2, _omitFieldNames ? '' : 'nickname')
+    ..aOS(3, _omitFieldNames ? '' : 'remarkName')
+    ..aOS(4, _omitFieldNames ? '' : 'displayName')
+    ..a<$core.int>(5, _omitFieldNames ? '' : 'gender', $pb.PbFieldType.O3)
+    ..aOS(6, _omitFieldNames ? '' : 'avatarUrl')
+    ..aInt64(7, _omitFieldNames ? '' : 'intimacy')
+    ..aOB(8, _omitFieldNames ? '' : 'isPinned')
+    ..aInt64(9, _omitFieldNames ? '' : 'pinnedAt')
+    ..aOS(10, _omitFieldNames ? '' : 'chatBackgroundUrl')
+    ..aOB(11, _omitFieldNames ? '' : 'isFollowing')
+    ..aOB(12, _omitFieldNames ? '' : 'isFollowedBy')
+    ..aOB(13, _omitFieldNames ? '' : 'isMutualFollow')
+    ..aOB(14, _omitFieldNames ? '' : 'isDeleted')
+    ..aInt64(15, _omitFieldNames ? '' : 'deletedAt')
     ..hasRequiredFields = false
   ;
 
@@ -252,148 +247,139 @@ class IMConversationMeta extends $pb.GeneratedMessage {
   static IMConversationMeta? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $fixnum.Int64 get userId => $_getI64(0);
+  $core.String get userId => $_getSZ(0);
   @$pb.TagNumber(1)
-  set userId($fixnum.Int64 v) { $_setInt64(0, v); }
+  set userId($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
   $core.bool hasUserId() => $_has(0);
   @$pb.TagNumber(1)
   void clearUserId() => $_clearField(1);
 
   @$pb.TagNumber(2)
-  $core.String get imUserId => $_getSZ(1);
+  $core.String get nickname => $_getSZ(1);
   @$pb.TagNumber(2)
-  set imUserId($core.String v) { $_setString(1, v); }
+  set nickname($core.String v) { $_setString(1, v); }
   @$pb.TagNumber(2)
-  $core.bool hasImUserId() => $_has(1);
+  $core.bool hasNickname() => $_has(1);
   @$pb.TagNumber(2)
-  void clearImUserId() => $_clearField(2);
+  void clearNickname() => $_clearField(2);
 
   @$pb.TagNumber(3)
-  $core.String get nickname => $_getSZ(2);
+  $core.String get remarkName => $_getSZ(2);
   @$pb.TagNumber(3)
-  set nickname($core.String v) { $_setString(2, v); }
+  set remarkName($core.String v) { $_setString(2, v); }
   @$pb.TagNumber(3)
-  $core.bool hasNickname() => $_has(2);
+  $core.bool hasRemarkName() => $_has(2);
   @$pb.TagNumber(3)
-  void clearNickname() => $_clearField(3);
+  void clearRemarkName() => $_clearField(3);
 
   @$pb.TagNumber(4)
-  $core.String get remarkName => $_getSZ(3);
+  $core.String get displayName => $_getSZ(3);
   @$pb.TagNumber(4)
-  set remarkName($core.String v) { $_setString(3, v); }
+  set displayName($core.String v) { $_setString(3, v); }
   @$pb.TagNumber(4)
-  $core.bool hasRemarkName() => $_has(3);
+  $core.bool hasDisplayName() => $_has(3);
   @$pb.TagNumber(4)
-  void clearRemarkName() => $_clearField(4);
+  void clearDisplayName() => $_clearField(4);
 
   @$pb.TagNumber(5)
-  $core.String get displayName => $_getSZ(4);
+  $core.int get gender => $_getIZ(4);
   @$pb.TagNumber(5)
-  set displayName($core.String v) { $_setString(4, v); }
+  set gender($core.int v) { $_setSignedInt32(4, v); }
   @$pb.TagNumber(5)
-  $core.bool hasDisplayName() => $_has(4);
+  $core.bool hasGender() => $_has(4);
   @$pb.TagNumber(5)
-  void clearDisplayName() => $_clearField(5);
+  void clearGender() => $_clearField(5);
 
   @$pb.TagNumber(6)
-  $core.int get gender => $_getIZ(5);
+  $core.String get avatarUrl => $_getSZ(5);
   @$pb.TagNumber(6)
-  set gender($core.int v) { $_setSignedInt32(5, v); }
+  set avatarUrl($core.String v) { $_setString(5, v); }
   @$pb.TagNumber(6)
-  $core.bool hasGender() => $_has(5);
+  $core.bool hasAvatarUrl() => $_has(5);
   @$pb.TagNumber(6)
-  void clearGender() => $_clearField(6);
+  void clearAvatarUrl() => $_clearField(6);
 
   @$pb.TagNumber(7)
-  $core.String get avatarUrl => $_getSZ(6);
+  $fixnum.Int64 get intimacy => $_getI64(6);
   @$pb.TagNumber(7)
-  set avatarUrl($core.String v) { $_setString(6, v); }
+  set intimacy($fixnum.Int64 v) { $_setInt64(6, v); }
   @$pb.TagNumber(7)
-  $core.bool hasAvatarUrl() => $_has(6);
+  $core.bool hasIntimacy() => $_has(6);
   @$pb.TagNumber(7)
-  void clearAvatarUrl() => $_clearField(7);
+  void clearIntimacy() => $_clearField(7);
 
   @$pb.TagNumber(8)
-  $fixnum.Int64 get intimacy => $_getI64(7);
+  $core.bool get isPinned => $_getBF(7);
   @$pb.TagNumber(8)
-  set intimacy($fixnum.Int64 v) { $_setInt64(7, v); }
+  set isPinned($core.bool v) { $_setBool(7, v); }
   @$pb.TagNumber(8)
-  $core.bool hasIntimacy() => $_has(7);
+  $core.bool hasIsPinned() => $_has(7);
   @$pb.TagNumber(8)
-  void clearIntimacy() => $_clearField(8);
+  void clearIsPinned() => $_clearField(8);
 
   @$pb.TagNumber(9)
-  $core.bool get isPinned => $_getBF(8);
+  $fixnum.Int64 get pinnedAt => $_getI64(8);
   @$pb.TagNumber(9)
-  set isPinned($core.bool v) { $_setBool(8, v); }
+  set pinnedAt($fixnum.Int64 v) { $_setInt64(8, v); }
   @$pb.TagNumber(9)
-  $core.bool hasIsPinned() => $_has(8);
+  $core.bool hasPinnedAt() => $_has(8);
   @$pb.TagNumber(9)
-  void clearIsPinned() => $_clearField(9);
+  void clearPinnedAt() => $_clearField(9);
 
   @$pb.TagNumber(10)
-  $fixnum.Int64 get pinnedAt => $_getI64(9);
+  $core.String get chatBackgroundUrl => $_getSZ(9);
   @$pb.TagNumber(10)
-  set pinnedAt($fixnum.Int64 v) { $_setInt64(9, v); }
+  set chatBackgroundUrl($core.String v) { $_setString(9, v); }
   @$pb.TagNumber(10)
-  $core.bool hasPinnedAt() => $_has(9);
+  $core.bool hasChatBackgroundUrl() => $_has(9);
   @$pb.TagNumber(10)
-  void clearPinnedAt() => $_clearField(10);
+  void clearChatBackgroundUrl() => $_clearField(10);
 
   @$pb.TagNumber(11)
-  $core.String get chatBackgroundUrl => $_getSZ(10);
+  $core.bool get isFollowing => $_getBF(10);
   @$pb.TagNumber(11)
-  set chatBackgroundUrl($core.String v) { $_setString(10, v); }
+  set isFollowing($core.bool v) { $_setBool(10, v); }
   @$pb.TagNumber(11)
-  $core.bool hasChatBackgroundUrl() => $_has(10);
+  $core.bool hasIsFollowing() => $_has(10);
   @$pb.TagNumber(11)
-  void clearChatBackgroundUrl() => $_clearField(11);
+  void clearIsFollowing() => $_clearField(11);
 
   @$pb.TagNumber(12)
-  $core.bool get isFollowing => $_getBF(11);
+  $core.bool get isFollowedBy => $_getBF(11);
   @$pb.TagNumber(12)
-  set isFollowing($core.bool v) { $_setBool(11, v); }
+  set isFollowedBy($core.bool v) { $_setBool(11, v); }
   @$pb.TagNumber(12)
-  $core.bool hasIsFollowing() => $_has(11);
+  $core.bool hasIsFollowedBy() => $_has(11);
   @$pb.TagNumber(12)
-  void clearIsFollowing() => $_clearField(12);
+  void clearIsFollowedBy() => $_clearField(12);
 
   @$pb.TagNumber(13)
-  $core.bool get isFollowedBy => $_getBF(12);
+  $core.bool get isMutualFollow => $_getBF(12);
   @$pb.TagNumber(13)
-  set isFollowedBy($core.bool v) { $_setBool(12, v); }
+  set isMutualFollow($core.bool v) { $_setBool(12, v); }
   @$pb.TagNumber(13)
-  $core.bool hasIsFollowedBy() => $_has(12);
+  $core.bool hasIsMutualFollow() => $_has(12);
   @$pb.TagNumber(13)
-  void clearIsFollowedBy() => $_clearField(13);
+  void clearIsMutualFollow() => $_clearField(13);
 
   @$pb.TagNumber(14)
-  $core.bool get isMutualFollow => $_getBF(13);
+  $core.bool get isDeleted => $_getBF(13);
   @$pb.TagNumber(14)
-  set isMutualFollow($core.bool v) { $_setBool(13, v); }
+  set isDeleted($core.bool v) { $_setBool(13, v); }
   @$pb.TagNumber(14)
-  $core.bool hasIsMutualFollow() => $_has(13);
+  $core.bool hasIsDeleted() => $_has(13);
   @$pb.TagNumber(14)
-  void clearIsMutualFollow() => $_clearField(14);
+  void clearIsDeleted() => $_clearField(14);
 
   @$pb.TagNumber(15)
-  $core.bool get isDeleted => $_getBF(14);
+  $fixnum.Int64 get deletedAt => $_getI64(14);
   @$pb.TagNumber(15)
-  set isDeleted($core.bool v) { $_setBool(14, v); }
+  set deletedAt($fixnum.Int64 v) { $_setInt64(14, v); }
   @$pb.TagNumber(15)
-  $core.bool hasIsDeleted() => $_has(14);
+  $core.bool hasDeletedAt() => $_has(14);
   @$pb.TagNumber(15)
-  void clearIsDeleted() => $_clearField(15);
-
-  @$pb.TagNumber(16)
-  $fixnum.Int64 get deletedAt => $_getI64(15);
-  @$pb.TagNumber(16)
-  set deletedAt($fixnum.Int64 v) { $_setInt64(15, v); }
-  @$pb.TagNumber(16)
-  $core.bool hasDeletedAt() => $_has(15);
-  @$pb.TagNumber(16)
-  void clearDeletedAt() => $_clearField(16);
+  void clearDeletedAt() => $_clearField(15);
 }
 
 class GetIMConversationMetaResponse extends $pb.GeneratedMessage {
@@ -442,7 +428,7 @@ class GetIMConversationMetaResponse extends $pb.GeneratedMessage {
 
 class GetIMIntimacyResponse extends $pb.GeneratedMessage {
   factory GetIMIntimacyResponse({
-    $fixnum.Int64? peerUserId,
+    $core.String? peerUserId,
     $core.String? displayName,
     $core.String? avatarUrl,
     $fixnum.Int64? sentCount,
@@ -475,7 +461,7 @@ class GetIMIntimacyResponse extends $pb.GeneratedMessage {
   factory GetIMIntimacyResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetIMIntimacyResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'app.v1'), createEmptyInstance: create)
-    ..aInt64(1, _omitFieldNames ? '' : 'peerUserId')
+    ..aOS(1, _omitFieldNames ? '' : 'peerUserId')
     ..aOS(2, _omitFieldNames ? '' : 'displayName')
     ..aOS(3, _omitFieldNames ? '' : 'avatarUrl')
     ..aInt64(4, _omitFieldNames ? '' : 'sentCount')
@@ -506,9 +492,9 @@ class GetIMIntimacyResponse extends $pb.GeneratedMessage {
   static GetIMIntimacyResponse? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $fixnum.Int64 get peerUserId => $_getI64(0);
+  $core.String get peerUserId => $_getSZ(0);
   @$pb.TagNumber(1)
-  set peerUserId($fixnum.Int64 v) { $_setInt64(0, v); }
+  set peerUserId($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
   $core.bool hasPeerUserId() => $_has(0);
   @$pb.TagNumber(1)

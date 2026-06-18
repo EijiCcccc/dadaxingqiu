@@ -1,6 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:network/network.dart';
 
 import '../models/chat_conversation.dart';
+import 'chat_repository_provider.dart';
 import 'tencent_im_service_provider.dart';
 
 final chatConversationsProvider =
@@ -21,9 +23,20 @@ class ChatConversationsNotifier extends Notifier<List<ChatConversation>> {
   }
 
   List<ChatConversation> get sorted {
-    final list = [...state];
-    list.sort((a, b) => b.lastMessageAt.compareTo(a.lastMessageAt));
-    return list;
+    final pinned = <ChatConversation>[];
+    final normal = <ChatConversation>[];
+
+    for (final item in state) {
+      if (item.isPinned) {
+        pinned.add(item);
+      } else {
+        normal.add(item);
+      }
+    }
+
+    pinned.sort((a, b) => b.lastMessageAt.compareTo(a.lastMessageAt));
+    normal.sort((a, b) => b.lastMessageAt.compareTo(a.lastMessageAt));
+    return [...pinned, ...normal];
   }
 
   ChatConversation? findByUserId(String userId) {
@@ -39,7 +52,53 @@ class ChatConversationsNotifier extends Notifier<List<ChatConversation>> {
       state = const [];
       return;
     }
-    state = await im.fetchConversations();
+
+    final conversations = await im.fetchConversations();
+    state = await _mergeConversationMeta(conversations);
+  }
+
+  Future<List<ChatConversation>> _mergeConversationMeta(
+    List<ChatConversation> conversations,
+  ) async {
+    if (conversations.isEmpty) return conversations;
+
+    try {
+      final repo = ref.read(chatRepositoryProvider);
+      final response = await repo.getConversationMeta(
+        peerUserIds: conversations.map((item) => item.userId).toList(),
+      );
+
+      final metaMap = <String, IMConversationMeta>{};
+      for (final item in response.items) {
+        metaMap[item.userId] = item;
+      }
+
+      return conversations.map((conversation) {
+        final meta = metaMap[conversation.userId];
+        if (meta == null) return conversation;
+
+        final displayName = meta.displayName.isNotEmpty
+            ? meta.displayName
+            : (meta.nickname.isNotEmpty
+                ? meta.nickname
+                : conversation.username);
+
+        return conversation.copyWith(
+          username: displayName,
+          avatar: meta.avatarUrl.isNotEmpty ? meta.avatarUrl : conversation.avatar,
+          remarkName: meta.remarkName,
+          isPinned: meta.isPinned,
+          pinnedAt: meta.hasPinnedAt() && meta.pinnedAt.toInt() > 0
+              ? DateTime.fromMillisecondsSinceEpoch(
+                  meta.pinnedAt.toInt() * 1000,
+                )
+              : null,
+          chatBackgroundUrl: meta.chatBackgroundUrl,
+        );
+      }).toList();
+    } catch (_) {
+      return conversations;
+    }
   }
 
   void resetToEmpty() {
@@ -71,8 +130,7 @@ class ChatConversationsNotifier extends Notifier<List<ChatConversation>> {
 
     state = state
         .map(
-          (item) =>
-              item.userId == userId ? item.copyWith(hasUnread: false) : item,
+          (item) => item.userId == userId ? item.copyWith(hasUnread: false) : item,
         )
         .toList();
   }
@@ -81,10 +139,17 @@ class ChatConversationsNotifier extends Notifier<List<ChatConversation>> {
     final im = ref.read(tencentImServiceProvider);
     if (im.isLoggedIn) {
       await im.deleteConversation(userId);
-      await refreshFromIm();
-      return;
     }
     state = state.where((item) => item.userId != userId).toList();
+  }
+
+  Future<void> updatePin({
+    required String userId,
+    required bool isPinned,
+  }) async {
+    final repo = ref.read(chatRepositoryProvider);
+    await repo.updateChatPin(peerUserId: userId, isPinned: isPinned);
+    await refreshFromIm();
   }
 
   int get unreadCount => state.where((item) => item.hasUnread).length;

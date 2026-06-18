@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../models/chat_message.dart';
+import '../presentation/chat_conversation/chat_intimacy_provider.dart';
 import 'chat_conversations_provider.dart';
 import 'tencent_im_service_provider.dart';
 
@@ -37,9 +38,41 @@ class ChatMessagesNotifier extends FamilyNotifier<List<ChatMessage>, String> {
 
     final ok = await im.sendTextMessage(peerUserId: arg, text: trimmed);
     if (ok) {
-      await refreshFromIm();
-      await ref.read(chatConversationsProvider.notifier).refreshFromIm();
+      await _refreshAfterSend();
     }
+  }
+
+  Future<void> sendImage(String path) async {
+    final im = ref.read(tencentImServiceProvider);
+    if (!im.isLoggedIn) return;
+
+    final ok = await im.sendImageMessage(peerUserId: arg, imagePath: path);
+    if (ok) {
+      await _refreshAfterSend();
+    }
+  }
+
+  Future<void> sendVoice({
+    required String path,
+    required int durationSec,
+  }) async {
+    final im = ref.read(tencentImServiceProvider);
+    if (!im.isLoggedIn) return;
+
+    final ok = await im.sendSoundMessage(
+      peerUserId: arg,
+      soundPath: path,
+      durationSec: durationSec,
+    );
+    if (ok) {
+      await _refreshAfterSend();
+    }
+  }
+
+  Future<void> _refreshAfterSend() async {
+    await refreshFromIm();
+    await ref.read(chatConversationsProvider.notifier).refreshFromIm();
+    ref.invalidate(chatIntimacyProvider(arg));
   }
 
   Future<void> recallMessage(String messageId) async {

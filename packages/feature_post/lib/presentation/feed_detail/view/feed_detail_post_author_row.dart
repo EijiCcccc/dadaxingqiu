@@ -1,6 +1,7 @@
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:network/network.dart';
+import 'package:shared/shared.dart';
 
 import '../../post_display.dart';
 
@@ -18,15 +19,10 @@ class FeedDetailPostAuthorRow extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        CircleAvatar(
+        AppNetworkAvatar(
+          url: postAuthorAvatar(author),
           radius: 24,
           backgroundColor: AppColors.bgPurple100,
-          backgroundImage: postAuthorAvatar(author).isNotEmpty
-              ? NetworkImage(postAuthorAvatar(author))
-              : null,
-          child: postAuthorAvatar(author).isEmpty
-              ? const Icon(Icons.person)
-              : null,
         ),
         const SizedBox(width: 12),
         Expanded(child: _buildAuthorMeta()),
@@ -75,7 +71,7 @@ class FeedDetailPostAuthorRow extends StatelessWidget {
   Widget _buildGreetButton() {
     return FilledButton.tonal(
       onPressed: () => GlobalRouter.instance.push(
-        ChatRoute(userId: author.userId.toString()),
+        ChatRoute(userId: author.userId),
       ),
       style: FilledButton.styleFrom(
         backgroundColor: AppColors.primary,

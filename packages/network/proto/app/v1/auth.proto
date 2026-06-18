@@ -28,7 +28,7 @@ message LogoutRequest {
 }
 
 message LoginUser {
-  int64 id = 1;
+  string id = 1;
   string nickname = 2;
   int32 gender = 3;
   string avatar_url = 4;

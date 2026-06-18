@@ -21,9 +21,9 @@ final editTagsBootstrapProvider = FutureProvider.autoDispose<
   return (catalog: catalog, profile: profile);
 });
 
-class EditTagsNotifier extends AutoDisposeFamilyNotifier<EditTagsState, Int64> {
+class EditTagsNotifier extends AutoDisposeFamilyNotifier<EditTagsState, String> {
   @override
-  EditTagsState build(Int64 arg) {
+  EditTagsState build(String arg) {
     final data = ref.read(editTagsBootstrapProvider).valueOrNull;
     if (data == null || data.profile.id != arg) {
       return const EditTagsState(selectedIds: <Int64>{});
@@ -58,7 +58,7 @@ class EditTagsNotifier extends AutoDisposeFamilyNotifier<EditTagsState, Int64> {
       final repo = ref.read(profileRepositoryProvider);
       await repo.updateMyTags(tagIds: state.selectedIds.toList());
       ref.read(myProfileProvider.notifier).refresh();
-      ref.invalidate(editProfileProvider(data.profile.id.toString()));
+      ref.invalidate(editProfileProvider(data.profile.id));
       ref.invalidate(editTagsBootstrapProvider);
       AppToast.success('已保存');
       GlobalRouter.instance.pop();
@@ -73,6 +73,6 @@ class EditTagsNotifier extends AutoDisposeFamilyNotifier<EditTagsState, Int64> {
 
 /// [profileId] 为 [UserProfile.id]
 final editTagsProvider =
-    NotifierProvider.autoDispose.family<EditTagsNotifier, EditTagsState, Int64>(
+    NotifierProvider.autoDispose.family<EditTagsNotifier, EditTagsState, String>(
   EditTagsNotifier.new,
 );

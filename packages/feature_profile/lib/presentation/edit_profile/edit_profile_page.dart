@@ -46,7 +46,7 @@ class _EditProfileForm extends ConsumerStatefulWidget {
 class _EditProfileFormState extends ConsumerState<_EditProfileForm> {
   late final TextEditingController _nicknameController;
 
-  String get _userId => widget.profile.id.toString();
+  String get _userId => widget.profile.id;
 
   @override
   void initState() {
@@ -163,12 +163,12 @@ class _EditProfileFormState extends ConsumerState<_EditProfileForm> {
 
     final avatarDisplay = edit.avatarUrl.isEmpty
         ? const Icon(Icons.person, size: 56, color: AppColors.textMuted)
-        : Image.network(
-            edit.avatarUrl,
+        : AppNetworkImage(
+            url: edit.avatarUrl,
             fit: BoxFit.cover,
             width: 112,
             height: 112,
-            errorBuilder: (_, __, ___) => const Icon(
+            errorWidget: const Icon(
               Icons.person,
               size: 56,
               color: AppColors.textMuted,

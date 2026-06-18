@@ -1,6 +1,7 @@
 import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:network/network.dart';
+import 'package:shared/shared.dart';
 
 import '../../post_display.dart';
 
@@ -23,14 +24,9 @@ class FeedDetailLikeListItem extends StatelessWidget {
       onTap: onTap,
       child: Row(
         children: [
-          CircleAvatar(
+          AppNetworkAvatar(
+            url: postAuthorAvatar(user),
             radius: 22,
-            backgroundImage: postAuthorAvatar(user).isNotEmpty
-                ? NetworkImage(postAuthorAvatar(user))
-                : null,
-            child: postAuthorAvatar(user).isEmpty
-                ? const Icon(Icons.person)
-                : null,
           ),
           const SizedBox(width: 12),
           Expanded(

@@ -222,88 +222,28 @@ class _LogoSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      clipBehavior: Clip.none,
-      children: [
-        Container(
+    return Container(
+      width: 96,
+      height: 96,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(24),
+        boxShadow: [
+          BoxShadow(
+            color: const Color(0xFFA855F7).withOpacity(0.5),
+            blurRadius: 24,
+          ),
+        ],
+      ),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(24),
+        child: Image.asset(
+          appIconAssetPath,
+          package: appAssetPackage,
           width: 96,
           height: 96,
-          decoration: BoxDecoration(
-            gradient: const LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: [
-                Color(0xFFA855F7), // purple-500
-                Color(0xFFEC4899), // pink-500
-                Color(0xFF9333EA), // purple-600
-              ],
-            ),
-            borderRadius: BorderRadius.circular(48),
-            boxShadow: [
-              BoxShadow(
-                color: const Color(0xFFA855F7).withOpacity(0.5),
-                blurRadius: 24,
-                spreadRadius: 0,
-              ),
-            ],
-          ),
-          child: const Icon(
-            Icons.auto_awesome,
-            size: 48,
-            color: Colors.white,
-          ),
+          fit: BoxFit.cover,
         ),
-        Positioned(
-          top: -8,
-          right: -8,
-          child: Container(
-            width: 32,
-            height: 32,
-            decoration: BoxDecoration(
-              gradient: const LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: [
-                  Color(0xFFFACC15), // yellow-400
-                  Color(0xFFF472B6), // pink-400
-                ],
-              ),
-              shape: BoxShape.circle,
-              boxShadow: [
-                BoxShadow(
-                  color: const Color(0xFFFACC15).withOpacity(0.5),
-                  blurRadius: 8,
-                ),
-              ],
-            ),
-          ),
-        ),
-        Positioned(
-          bottom: -4,
-          left: -4,
-          child: Container(
-            width: 20,
-            height: 20,
-            decoration: BoxDecoration(
-              gradient: const LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: [
-                  Color(0xFFC084FC), // purple-400
-                  Color(0xFFF472B6), // pink-400
-                ],
-              ),
-              shape: BoxShape.circle,
-              boxShadow: [
-                BoxShadow(
-                  color: const Color(0xFFC084FC).withOpacity(0.5),
-                  blurRadius: 8,
-                ),
-              ],
-            ),
-          ),
-        ),
-      ],
+      ),
     );
   }
 }
@@ -314,19 +254,19 @@ class _AppNameSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       children: [
         Text(
-          '搭搭星球',
-          style: TextStyle(
+          appName,
+          style: const TextStyle(
             fontSize: 36,
             fontWeight: FontWeight.bold,
             color: Colors.white,
             letterSpacing: 1,
           ),
         ),
-        SizedBox(height: 8),
-        Text(
+        const SizedBox(height: 8),
+        const Text(
           '找到你的星际搭子',
           style: TextStyle(
             fontSize: 14,
@@ -441,7 +381,8 @@ class _TermsAndPrivacy extends StatelessWidget {
           ),
         ),
         TextButton(
-          onPressed: () {},
+          onPressed: () =>
+              GlobalRouter.instance.push(const UserAgreementRoute()),
           style: const ButtonStyle(
             padding: WidgetStatePropertyAll(EdgeInsets.symmetric(horizontal: 4)),
             minimumSize: WidgetStatePropertyAll(Size.zero),
@@ -452,6 +393,8 @@ class _TermsAndPrivacy extends StatelessWidget {
             style: TextStyle(
               fontSize: 12,
               color: Colors.white,
+              decoration: TextDecoration.underline,
+              decorationColor: Colors.white,
             ),
           ),
         ),
@@ -463,7 +406,8 @@ class _TermsAndPrivacy extends StatelessWidget {
           ),
         ),
         TextButton(
-          onPressed: () {},
+          onPressed: () =>
+              GlobalRouter.instance.push(const PrivacyPolicyRoute()),
           style: const ButtonStyle(
             padding: WidgetStatePropertyAll(EdgeInsets.symmetric(horizontal: 4)),
             minimumSize: WidgetStatePropertyAll(Size.zero),
@@ -474,6 +418,8 @@ class _TermsAndPrivacy extends StatelessWidget {
             style: TextStyle(
               fontSize: 12,
               color: Colors.white,
+              decoration: TextDecoration.underline,
+              decorationColor: Colors.white,
             ),
           ),
         ),

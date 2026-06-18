@@ -1,4 +1,6 @@
 PODS:
+  - audioplayers_darwin (0.0.1):
+    - Flutter
   - device_info_plus (0.0.1):
     - Flutter
   - Flutter (1.0.0)
@@ -20,11 +22,19 @@ PODS:
     - FlutterMacOS
   - permission_handler_apple (9.3.0):
     - Flutter
+  - photo_manager (3.9.0):
+    - Flutter
+    - FlutterMacOS
+  - record_ios (1.2.1):
+    - Flutter
   - shared_preferences_foundation (0.0.1):
     - Flutter
     - FlutterMacOS
   - sign_in_with_apple (0.0.1):
     - Flutter
+  - sqflite_darwin (0.0.4):
+    - Flutter
+    - FlutterMacOS
   - tencent_cloud_chat_sdk (8.0.0):
     - Flutter
     - HydraAsync
@@ -33,6 +43,7 @@ PODS:
   - WechatOpenSDK-XCFramework (2.0.5)
 
 DEPENDENCIES:
+  - audioplayers_darwin (from `.symlinks/plugins/audioplayers_darwin/ios`)
   - device_info_plus (from `.symlinks/plugins/device_info_plus/ios`)
   - Flutter (from `Flutter`)
   - fluttertoast (from `.symlinks/plugins/fluttertoast/ios`)
@@ -41,8 +52,11 @@ DEPENDENCIES:
   - package_info_plus (from `.symlinks/plugins/package_info_plus/ios`)
   - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/darwin`)
   - permission_handler_apple (from `.symlinks/plugins/permission_handler_apple/ios`)
+  - photo_manager (from `.symlinks/plugins/photo_manager/darwin`)
+  - record_ios (from `.symlinks/plugins/record_ios/ios`)
   - shared_preferences_foundation (from `.symlinks/plugins/shared_preferences_foundation/darwin`)
   - sign_in_with_apple (from `.symlinks/plugins/sign_in_with_apple/ios`)
+  - sqflite_darwin (from `.symlinks/plugins/sqflite_darwin/darwin`)
   - tencent_cloud_chat_sdk (from `.symlinks/plugins/tencent_cloud_chat_sdk/ios`)
 
 SPEC REPOS:
@@ -52,6 +66,8 @@ SPEC REPOS:
     - WechatOpenSDK-XCFramework
 
 EXTERNAL SOURCES:
+  audioplayers_darwin:
+    :path: ".symlinks/plugins/audioplayers_darwin/ios"
   device_info_plus:
     :path: ".symlinks/plugins/device_info_plus/ios"
   Flutter:
@@ -68,14 +84,21 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/path_provider_foundation/darwin"
   permission_handler_apple:
     :path: ".symlinks/plugins/permission_handler_apple/ios"
+  photo_manager:
+    :path: ".symlinks/plugins/photo_manager/darwin"
+  record_ios:
+    :path: ".symlinks/plugins/record_ios/ios"
   shared_preferences_foundation:
     :path: ".symlinks/plugins/shared_preferences_foundation/darwin"
   sign_in_with_apple:
     :path: ".symlinks/plugins/sign_in_with_apple/ios"
+  sqflite_darwin:
+    :path: ".symlinks/plugins/sqflite_darwin/darwin"
   tencent_cloud_chat_sdk:
     :path: ".symlinks/plugins/tencent_cloud_chat_sdk/ios"
 
 SPEC CHECKSUMS:
+  audioplayers_darwin: ccf9c770ee768abb07e26d90af093f7bab1c12ab
   device_info_plus: 21fcca2080fbcd348be798aa36c3e5ed849eefbe
   Flutter: cabc95a1d2626b1b06e7179b784ebcf0c0cde467
   fluttertoast: 2c67e14dce98bbdb200df9e1acf610d7a6264ea1
@@ -85,12 +108,15 @@ SPEC CHECKSUMS:
   package_info_plus: af8e2ca6888548050f16fa2f1938db7b5a5df499
   path_provider_foundation: 080d55be775b7414fd5a5ef3ac137b97b097e564
   permission_handler_apple: 4ed2196e43d0651e8ff7ca3483a069d469701f2d
+  photo_manager: 25fd77df14f4f0ba5ef99e2c61814dde77e2bceb
+  record_ios: 980fd386a97a35987d0fce3dfda4b26a38c90f4c
   shared_preferences_foundation: 9e1978ff2562383bd5676f64ec4e9aa8fa06a6f7
   sign_in_with_apple: c5dcc141574c8c54d5ac99dd2163c0c72ad22418
+  sqflite_darwin: 20b2a3a3b70e43edae938624ce550a3cbf66a3d0
   tencent_cloud_chat_sdk: b35569e14d88a47ff13e935f1c6601412b9efabe
   TXIMSDK_Plus_iOS_XCFramework: 85fa4127be9114f39d69d64587e04f3e3fddbbd9
   WechatOpenSDK-XCFramework: ff342ae616bb86df3d236aca38059dfd4bc4a949
 
-PODFILE CHECKSUM: 25d1c71f87de82f01826d679baa1f00736b83ba8
+PODFILE CHECKSUM: c48edc12d743d2ed918446abdfb2e344503116aa
 
 COCOAPODS: 1.16.2

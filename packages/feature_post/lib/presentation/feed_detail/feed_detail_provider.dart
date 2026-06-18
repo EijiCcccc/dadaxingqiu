@@ -216,14 +216,14 @@ class FeedDetailNotifier
   }
 
   PostAuthorRelation? _findUserRelation(PostDetailState state, String userId) {
-    if (state.post.author.userId.toString() == userId) {
+    if (state.post.author.userId == userId) {
       return state.post.author;
     }
     for (final like in state.likes) {
-      if (like.userId.toString() == userId) return like;
+      if (like.userId == userId) return like;
     }
     for (final comment in state.comments) {
-      if (comment.author.userId.toString() == userId) return comment.author;
+      if (comment.author.userId == userId) return comment.author;
     }
     return null;
   }
@@ -233,19 +233,19 @@ class FeedDetailNotifier
     String userId,
     PostAuthorRelation relation,
   ) {
-    final post = current.post.author.userId.toString() == userId
+    final post = current.post.author.userId == userId
         ? _copyPost(current.post, author: relation)
         : current.post;
     final likes = current.likes
         .map(
-          (item) => item.userId.toString() == userId
+          (item) => item.userId == userId
               ? relation.deepCopy()
               : item.deepCopy(),
         )
         .toList();
     final comments = current.comments
         .map(
-          (item) => item.author.userId.toString() == userId
+          (item) => item.author.userId == userId
               ? (item.deepCopy()..author = relation.deepCopy())
               : item.deepCopy(),
         )

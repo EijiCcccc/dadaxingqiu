@@ -12,7 +12,7 @@ class UserCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => GlobalRouter.instance
-          .push(UserProfileRoute(userId: '${user.userId}')),
+          .push(UserProfileRoute(userId: user.userId)),
       child: Container(
         height: double.infinity,
         decoration: BoxDecoration(
@@ -30,15 +30,15 @@ class UserCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            const AspectRatio(
+            AspectRatio(
               aspectRatio: 1,
               child: ClipRRect(
                 borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
-                // child: Image.network(
-                //   user.avatarUrl,
-                //   fit: BoxFit.cover,
-                //   width: double.infinity,
-                // ),
+                child: AppNetworkImage(
+                  url: user.avatarUrl,
+                  fit: BoxFit.cover,
+                  width: double.infinity,
+                ),
               ),
             ),
             Expanded(

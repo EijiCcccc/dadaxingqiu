@@ -122,9 +122,9 @@ class AuthLoginService {
         if (res.hasUser()) {
           await _storage.setString(
             StorageKeys.userId,
-            res.user.id.toString(),
+            res.user.id,
           );
-          await _imAuthBridge?.login(res.user.id.toString());
+          await _imAuthBridge?.login(res.user.id);
         }
         final registered =
             res.hasUser() && res.user.isProfiled && res.user.isTagged;

@@ -67,4 +67,35 @@ class ApiPath {
 
   // ---------- IM ----------
   static const String imSession = '/api/v1/im/session';
+
+  /// 获取与指定用户的亲密度详情
+  static String imIntimacy(String peerUserId) =>
+      '/api/v1/im/intimacy/$peerUserId';
+
+  /// 批量获取会话补充信息
+  static const String imConversationMeta = '/api/v1/im/conversations/meta';
+
+  // ---------- Chat Settings ----------
+  static String chatSettings(String peerUserId) =>
+      '/api/v1/chats/$peerUserId/settings';
+
+  static String chatPin(String peerUserId) =>
+      '/api/v1/chats/$peerUserId/pin';
+
+  static String userRemark(String targetUserId) =>
+      '/api/v1/users/$targetUserId/remark';
+
+  static String chatBackgroundUploadToken(String peerUserId) =>
+      '/api/v1/chats/$peerUserId/background/upload-token';
+
+  static String chatBackground(String peerUserId) =>
+      '/api/v1/chats/$peerUserId/background';
+
+  static String chatDelete(String peerUserId) =>
+      '/api/v1/chats/$peerUserId/delete';
+
+  // ---------- Contacts ----------
+  static const String contactFriends = '/api/v1/contacts/friends';
+  static const String contactFollowing = '/api/v1/contacts/following';
+  static const String contactFollowers = '/api/v1/contacts/followers';
 }

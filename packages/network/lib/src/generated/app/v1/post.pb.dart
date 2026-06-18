@@ -1,9 +1,13 @@
-///
+//
 //  Generated code. Do not modify.
 //  source: app/v1/post.proto
 //
-// @dart = 2.12
-// ignore_for_file: annotate_overrides,camel_case_types,constant_identifier_names,directives_ordering,library_prefixes,non_constant_identifier_names,prefer_final_fields,return_of_invalid_type,unnecessary_const,unnecessary_import,unnecessary_this,unused_import,unused_shown_name
+// @dart = 3.3
+
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
+// ignore_for_file: constant_identifier_names, library_prefixes
+// ignore_for_file: non_constant_identifier_names, prefer_final_fields
+// ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
 import 'dart:core' as $core;
 
@@ -12,26 +16,29 @@ import 'package:protobuf/protobuf.dart' as $pb;
 
 import 'post.pbenum.dart';
 
+export 'package:protobuf/protobuf.dart' show GeneratedMessageGenericExtensions;
+
 export 'post.pbenum.dart';
 
 class FollowUserRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'FollowUserRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'app.v1'), createEmptyInstance: create)
-    ..aInt64(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'targetUserId')
+  factory FollowUserRequest({
+    $core.String? targetUserId,
+  }) {
+    final $result = create();
+    if (targetUserId != null) {
+      $result.targetUserId = targetUserId;
+    }
+    return $result;
+  }
+  FollowUserRequest._() : super();
+  factory FollowUserRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory FollowUserRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'FollowUserRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'app.v1'), createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'targetUserId')
     ..hasRequiredFields = false
   ;
 
-  FollowUserRequest._() : super();
-  factory FollowUserRequest({
-    $fixnum.Int64? targetUserId,
-  }) {
-    final _result = create();
-    if (targetUserId != null) {
-      _result.targetUserId = targetUserId;
-    }
-    return _result;
-  }
-  factory FollowUserRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory FollowUserRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -41,8 +48,10 @@ class FollowUserRequest extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  FollowUserRequest copyWith(void Function(FollowUserRequest) updates) => super.copyWith((message) => updates(message as FollowUserRequest)) as FollowUserRequest; // ignore: deprecated_member_use
+  FollowUserRequest copyWith(void Function(FollowUserRequest) updates) => super.copyWith((message) => updates(message as FollowUserRequest)) as FollowUserRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static FollowUserRequest create() => FollowUserRequest._();
   FollowUserRequest createEmptyInstance() => create();
@@ -52,33 +61,34 @@ class FollowUserRequest extends $pb.GeneratedMessage {
   static FollowUserRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $fixnum.Int64 get targetUserId => $_getI64(0);
+  $core.String get targetUserId => $_getSZ(0);
   @$pb.TagNumber(1)
-  set targetUserId($fixnum.Int64 v) { $_setInt64(0, v); }
+  set targetUserId($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
   $core.bool hasTargetUserId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearTargetUserId() => clearField(1);
+  void clearTargetUserId() => $_clearField(1);
 }
 
 class FollowUserResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'FollowUserResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'app.v1'), createEmptyInstance: create)
-    ..aOM<GetFollowRelationResponse>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'relation', subBuilder: GetFollowRelationResponse.create)
-    ..hasRequiredFields = false
-  ;
-
-  FollowUserResponse._() : super();
   factory FollowUserResponse({
     GetFollowRelationResponse? relation,
   }) {
-    final _result = create();
+    final $result = create();
     if (relation != null) {
-      _result.relation = relation;
+      $result.relation = relation;
     }
-    return _result;
+    return $result;
   }
+  FollowUserResponse._() : super();
   factory FollowUserResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory FollowUserResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'FollowUserResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'app.v1'), createEmptyInstance: create)
+    ..aOM<GetFollowRelationResponse>(1, _omitFieldNames ? '' : 'relation', subBuilder: GetFollowRelationResponse.create)
+    ..hasRequiredFields = false
+  ;
+
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -88,8 +98,10 @@ class FollowUserResponse extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  FollowUserResponse copyWith(void Function(FollowUserResponse) updates) => super.copyWith((message) => updates(message as FollowUserResponse)) as FollowUserResponse; // ignore: deprecated_member_use
+  FollowUserResponse copyWith(void Function(FollowUserResponse) updates) => super.copyWith((message) => updates(message as FollowUserResponse)) as FollowUserResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static FollowUserResponse create() => FollowUserResponse._();
   FollowUserResponse createEmptyInstance() => create();
@@ -101,33 +113,34 @@ class FollowUserResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   GetFollowRelationResponse get relation => $_getN(0);
   @$pb.TagNumber(1)
-  set relation(GetFollowRelationResponse v) { setField(1, v); }
+  set relation(GetFollowRelationResponse v) { $_setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasRelation() => $_has(0);
   @$pb.TagNumber(1)
-  void clearRelation() => clearField(1);
+  void clearRelation() => $_clearField(1);
   @$pb.TagNumber(1)
   GetFollowRelationResponse ensureRelation() => $_ensure(0);
 }
 
 class UnfollowUserRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'UnfollowUserRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'app.v1'), createEmptyInstance: create)
-    ..aInt64(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'targetUserId')
+  factory UnfollowUserRequest({
+    $core.String? targetUserId,
+  }) {
+    final $result = create();
+    if (targetUserId != null) {
+      $result.targetUserId = targetUserId;
+    }
+    return $result;
+  }
+  UnfollowUserRequest._() : super();
+  factory UnfollowUserRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory UnfollowUserRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'UnfollowUserRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'app.v1'), createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'targetUserId')
     ..hasRequiredFields = false
   ;
 
-  UnfollowUserRequest._() : super();
-  factory UnfollowUserRequest({
-    $fixnum.Int64? targetUserId,
-  }) {
-    final _result = create();
-    if (targetUserId != null) {
-      _result.targetUserId = targetUserId;
-    }
-    return _result;
-  }
-  factory UnfollowUserRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory UnfollowUserRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -137,8 +150,10 @@ class UnfollowUserRequest extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  UnfollowUserRequest copyWith(void Function(UnfollowUserRequest) updates) => super.copyWith((message) => updates(message as UnfollowUserRequest)) as UnfollowUserRequest; // ignore: deprecated_member_use
+  UnfollowUserRequest copyWith(void Function(UnfollowUserRequest) updates) => super.copyWith((message) => updates(message as UnfollowUserRequest)) as UnfollowUserRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static UnfollowUserRequest create() => UnfollowUserRequest._();
   UnfollowUserRequest createEmptyInstance() => create();
@@ -148,33 +163,34 @@ class UnfollowUserRequest extends $pb.GeneratedMessage {
   static UnfollowUserRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $fixnum.Int64 get targetUserId => $_getI64(0);
+  $core.String get targetUserId => $_getSZ(0);
   @$pb.TagNumber(1)
-  set targetUserId($fixnum.Int64 v) { $_setInt64(0, v); }
+  set targetUserId($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
   $core.bool hasTargetUserId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearTargetUserId() => clearField(1);
+  void clearTargetUserId() => $_clearField(1);
 }
 
 class UnfollowUserResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'UnfollowUserResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'app.v1'), createEmptyInstance: create)
-    ..aOM<GetFollowRelationResponse>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'relation', subBuilder: GetFollowRelationResponse.create)
-    ..hasRequiredFields = false
-  ;
-
-  UnfollowUserResponse._() : super();
   factory UnfollowUserResponse({
     GetFollowRelationResponse? relation,
   }) {
-    final _result = create();
+    final $result = create();
     if (relation != null) {
-      _result.relation = relation;
+      $result.relation = relation;
     }
-    return _result;
+    return $result;
   }
+  UnfollowUserResponse._() : super();
   factory UnfollowUserResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory UnfollowUserResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'UnfollowUserResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'app.v1'), createEmptyInstance: create)
+    ..aOM<GetFollowRelationResponse>(1, _omitFieldNames ? '' : 'relation', subBuilder: GetFollowRelationResponse.create)
+    ..hasRequiredFields = false
+  ;
+
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -184,8 +200,10 @@ class UnfollowUserResponse extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  UnfollowUserResponse copyWith(void Function(UnfollowUserResponse) updates) => super.copyWith((message) => updates(message as UnfollowUserResponse)) as UnfollowUserResponse; // ignore: deprecated_member_use
+  UnfollowUserResponse copyWith(void Function(UnfollowUserResponse) updates) => super.copyWith((message) => updates(message as UnfollowUserResponse)) as UnfollowUserResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static UnfollowUserResponse create() => UnfollowUserResponse._();
   UnfollowUserResponse createEmptyInstance() => create();
@@ -197,48 +215,49 @@ class UnfollowUserResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   GetFollowRelationResponse get relation => $_getN(0);
   @$pb.TagNumber(1)
-  set relation(GetFollowRelationResponse v) { setField(1, v); }
+  set relation(GetFollowRelationResponse v) { $_setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasRelation() => $_has(0);
   @$pb.TagNumber(1)
-  void clearRelation() => clearField(1);
+  void clearRelation() => $_clearField(1);
   @$pb.TagNumber(1)
   GetFollowRelationResponse ensureRelation() => $_ensure(0);
 }
 
 class GetFollowRelationResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GetFollowRelationResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'app.v1'), createEmptyInstance: create)
-    ..aInt64(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'targetUserId')
-    ..aOB(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'isFollowing')
-    ..aOB(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'isFollowedByTargetUser')
-    ..aOB(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'isMutualFollow')
-    ..hasRequiredFields = false
-  ;
-
-  GetFollowRelationResponse._() : super();
   factory GetFollowRelationResponse({
-    $fixnum.Int64? targetUserId,
+    $core.String? targetUserId,
     $core.bool? isFollowing,
     $core.bool? isFollowedByTargetUser,
     $core.bool? isMutualFollow,
   }) {
-    final _result = create();
+    final $result = create();
     if (targetUserId != null) {
-      _result.targetUserId = targetUserId;
+      $result.targetUserId = targetUserId;
     }
     if (isFollowing != null) {
-      _result.isFollowing = isFollowing;
+      $result.isFollowing = isFollowing;
     }
     if (isFollowedByTargetUser != null) {
-      _result.isFollowedByTargetUser = isFollowedByTargetUser;
+      $result.isFollowedByTargetUser = isFollowedByTargetUser;
     }
     if (isMutualFollow != null) {
-      _result.isMutualFollow = isMutualFollow;
+      $result.isMutualFollow = isMutualFollow;
     }
-    return _result;
+    return $result;
   }
+  GetFollowRelationResponse._() : super();
   factory GetFollowRelationResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory GetFollowRelationResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetFollowRelationResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'app.v1'), createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'targetUserId')
+    ..aOB(2, _omitFieldNames ? '' : 'isFollowing')
+    ..aOB(3, _omitFieldNames ? '' : 'isFollowedByTargetUser')
+    ..aOB(4, _omitFieldNames ? '' : 'isMutualFollow')
+    ..hasRequiredFields = false
+  ;
+
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -248,8 +267,10 @@ class GetFollowRelationResponse extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  GetFollowRelationResponse copyWith(void Function(GetFollowRelationResponse) updates) => super.copyWith((message) => updates(message as GetFollowRelationResponse)) as GetFollowRelationResponse; // ignore: deprecated_member_use
+  GetFollowRelationResponse copyWith(void Function(GetFollowRelationResponse) updates) => super.copyWith((message) => updates(message as GetFollowRelationResponse)) as GetFollowRelationResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GetFollowRelationResponse create() => GetFollowRelationResponse._();
   GetFollowRelationResponse createEmptyInstance() => create();
@@ -259,13 +280,13 @@ class GetFollowRelationResponse extends $pb.GeneratedMessage {
   static GetFollowRelationResponse? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $fixnum.Int64 get targetUserId => $_getI64(0);
+  $core.String get targetUserId => $_getSZ(0);
   @$pb.TagNumber(1)
-  set targetUserId($fixnum.Int64 v) { $_setInt64(0, v); }
+  set targetUserId($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
   $core.bool hasTargetUserId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearTargetUserId() => clearField(1);
+  void clearTargetUserId() => $_clearField(1);
 
   @$pb.TagNumber(2)
   $core.bool get isFollowing => $_getBF(1);
@@ -274,7 +295,7 @@ class GetFollowRelationResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $core.bool hasIsFollowing() => $_has(1);
   @$pb.TagNumber(2)
-  void clearIsFollowing() => clearField(2);
+  void clearIsFollowing() => $_clearField(2);
 
   @$pb.TagNumber(3)
   $core.bool get isFollowedByTargetUser => $_getBF(2);
@@ -283,7 +304,7 @@ class GetFollowRelationResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   $core.bool hasIsFollowedByTargetUser() => $_has(2);
   @$pb.TagNumber(3)
-  void clearIsFollowedByTargetUser() => clearField(3);
+  void clearIsFollowedByTargetUser() => $_clearField(3);
 
   @$pb.TagNumber(4)
   $core.bool get isMutualFollow => $_getBF(3);
@@ -292,37 +313,38 @@ class GetFollowRelationResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   $core.bool hasIsMutualFollow() => $_has(3);
   @$pb.TagNumber(4)
-  void clearIsMutualFollow() => clearField(4);
+  void clearIsMutualFollow() => $_clearField(4);
 }
 
 class PostImage extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'PostImage', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'app.v1'), createEmptyInstance: create)
-    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'imageUrl')
-    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'thumbUrl')
-    ..a<$core.int>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'sortOrder', $pb.PbFieldType.O3)
-    ..hasRequiredFields = false
-  ;
-
-  PostImage._() : super();
   factory PostImage({
     $core.String? imageUrl,
     $core.String? thumbUrl,
     $core.int? sortOrder,
   }) {
-    final _result = create();
+    final $result = create();
     if (imageUrl != null) {
-      _result.imageUrl = imageUrl;
+      $result.imageUrl = imageUrl;
     }
     if (thumbUrl != null) {
-      _result.thumbUrl = thumbUrl;
+      $result.thumbUrl = thumbUrl;
     }
     if (sortOrder != null) {
-      _result.sortOrder = sortOrder;
+      $result.sortOrder = sortOrder;
     }
-    return _result;
+    return $result;
   }
+  PostImage._() : super();
   factory PostImage.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory PostImage.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'PostImage', package: const $pb.PackageName(_omitMessageNames ? '' : 'app.v1'), createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'imageUrl')
+    ..aOS(2, _omitFieldNames ? '' : 'thumbUrl')
+    ..a<$core.int>(3, _omitFieldNames ? '' : 'sortOrder', $pb.PbFieldType.O3)
+    ..hasRequiredFields = false
+  ;
+
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -332,8 +354,10 @@ class PostImage extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  PostImage copyWith(void Function(PostImage) updates) => super.copyWith((message) => updates(message as PostImage)) as PostImage; // ignore: deprecated_member_use
+  PostImage copyWith(void Function(PostImage) updates) => super.copyWith((message) => updates(message as PostImage)) as PostImage;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static PostImage create() => PostImage._();
   PostImage createEmptyInstance() => create();
@@ -349,7 +373,7 @@ class PostImage extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $core.bool hasImageUrl() => $_has(0);
   @$pb.TagNumber(1)
-  void clearImageUrl() => clearField(1);
+  void clearImageUrl() => $_clearField(1);
 
   @$pb.TagNumber(2)
   $core.String get thumbUrl => $_getSZ(1);
@@ -358,7 +382,7 @@ class PostImage extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $core.bool hasThumbUrl() => $_has(1);
   @$pb.TagNumber(2)
-  void clearThumbUrl() => clearField(2);
+  void clearThumbUrl() => $_clearField(2);
 
   @$pb.TagNumber(3)
   $core.int get sortOrder => $_getIZ(2);
@@ -367,24 +391,12 @@ class PostImage extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   $core.bool hasSortOrder() => $_has(2);
   @$pb.TagNumber(3)
-  void clearSortOrder() => clearField(3);
+  void clearSortOrder() => $_clearField(3);
 }
 
 class PostAuthorRelation extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'PostAuthorRelation', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'app.v1'), createEmptyInstance: create)
-    ..aInt64(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'userId')
-    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'nickname')
-    ..a<$core.int>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'gender', $pb.PbFieldType.O3)
-    ..aOS(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'avatarUrl')
-    ..aOB(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'isFollowing')
-    ..aOB(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'isFollowedBy')
-    ..aOB(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'isMutualFollow')
-    ..hasRequiredFields = false
-  ;
-
-  PostAuthorRelation._() : super();
   factory PostAuthorRelation({
-    $fixnum.Int64? userId,
+    $core.String? userId,
     $core.String? nickname,
     $core.int? gender,
     $core.String? avatarUrl,
@@ -392,32 +404,45 @@ class PostAuthorRelation extends $pb.GeneratedMessage {
     $core.bool? isFollowedBy,
     $core.bool? isMutualFollow,
   }) {
-    final _result = create();
+    final $result = create();
     if (userId != null) {
-      _result.userId = userId;
+      $result.userId = userId;
     }
     if (nickname != null) {
-      _result.nickname = nickname;
+      $result.nickname = nickname;
     }
     if (gender != null) {
-      _result.gender = gender;
+      $result.gender = gender;
     }
     if (avatarUrl != null) {
-      _result.avatarUrl = avatarUrl;
+      $result.avatarUrl = avatarUrl;
     }
     if (isFollowing != null) {
-      _result.isFollowing = isFollowing;
+      $result.isFollowing = isFollowing;
     }
     if (isFollowedBy != null) {
-      _result.isFollowedBy = isFollowedBy;
+      $result.isFollowedBy = isFollowedBy;
     }
     if (isMutualFollow != null) {
-      _result.isMutualFollow = isMutualFollow;
+      $result.isMutualFollow = isMutualFollow;
     }
-    return _result;
+    return $result;
   }
+  PostAuthorRelation._() : super();
   factory PostAuthorRelation.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory PostAuthorRelation.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'PostAuthorRelation', package: const $pb.PackageName(_omitMessageNames ? '' : 'app.v1'), createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'userId')
+    ..aOS(2, _omitFieldNames ? '' : 'nickname')
+    ..a<$core.int>(3, _omitFieldNames ? '' : 'gender', $pb.PbFieldType.O3)
+    ..aOS(4, _omitFieldNames ? '' : 'avatarUrl')
+    ..aOB(5, _omitFieldNames ? '' : 'isFollowing')
+    ..aOB(6, _omitFieldNames ? '' : 'isFollowedBy')
+    ..aOB(7, _omitFieldNames ? '' : 'isMutualFollow')
+    ..hasRequiredFields = false
+  ;
+
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -427,8 +452,10 @@ class PostAuthorRelation extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  PostAuthorRelation copyWith(void Function(PostAuthorRelation) updates) => super.copyWith((message) => updates(message as PostAuthorRelation)) as PostAuthorRelation; // ignore: deprecated_member_use
+  PostAuthorRelation copyWith(void Function(PostAuthorRelation) updates) => super.copyWith((message) => updates(message as PostAuthorRelation)) as PostAuthorRelation;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static PostAuthorRelation create() => PostAuthorRelation._();
   PostAuthorRelation createEmptyInstance() => create();
@@ -438,13 +465,13 @@ class PostAuthorRelation extends $pb.GeneratedMessage {
   static PostAuthorRelation? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $fixnum.Int64 get userId => $_getI64(0);
+  $core.String get userId => $_getSZ(0);
   @$pb.TagNumber(1)
-  set userId($fixnum.Int64 v) { $_setInt64(0, v); }
+  set userId($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
   $core.bool hasUserId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearUserId() => clearField(1);
+  void clearUserId() => $_clearField(1);
 
   @$pb.TagNumber(2)
   $core.String get nickname => $_getSZ(1);
@@ -453,7 +480,7 @@ class PostAuthorRelation extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $core.bool hasNickname() => $_has(1);
   @$pb.TagNumber(2)
-  void clearNickname() => clearField(2);
+  void clearNickname() => $_clearField(2);
 
   @$pb.TagNumber(3)
   $core.int get gender => $_getIZ(2);
@@ -462,7 +489,7 @@ class PostAuthorRelation extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   $core.bool hasGender() => $_has(2);
   @$pb.TagNumber(3)
-  void clearGender() => clearField(3);
+  void clearGender() => $_clearField(3);
 
   @$pb.TagNumber(4)
   $core.String get avatarUrl => $_getSZ(3);
@@ -471,7 +498,7 @@ class PostAuthorRelation extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   $core.bool hasAvatarUrl() => $_has(3);
   @$pb.TagNumber(4)
-  void clearAvatarUrl() => clearField(4);
+  void clearAvatarUrl() => $_clearField(4);
 
   @$pb.TagNumber(5)
   $core.bool get isFollowing => $_getBF(4);
@@ -480,7 +507,7 @@ class PostAuthorRelation extends $pb.GeneratedMessage {
   @$pb.TagNumber(5)
   $core.bool hasIsFollowing() => $_has(4);
   @$pb.TagNumber(5)
-  void clearIsFollowing() => clearField(5);
+  void clearIsFollowing() => $_clearField(5);
 
   @$pb.TagNumber(6)
   $core.bool get isFollowedBy => $_getBF(5);
@@ -489,7 +516,7 @@ class PostAuthorRelation extends $pb.GeneratedMessage {
   @$pb.TagNumber(6)
   $core.bool hasIsFollowedBy() => $_has(5);
   @$pb.TagNumber(6)
-  void clearIsFollowedBy() => clearField(6);
+  void clearIsFollowedBy() => $_clearField(6);
 
   @$pb.TagNumber(7)
   $core.bool get isMutualFollow => $_getBF(6);
@@ -498,27 +525,10 @@ class PostAuthorRelation extends $pb.GeneratedMessage {
   @$pb.TagNumber(7)
   $core.bool hasIsMutualFollow() => $_has(6);
   @$pb.TagNumber(7)
-  void clearIsMutualFollow() => clearField(7);
+  void clearIsMutualFollow() => $_clearField(7);
 }
 
 class PostItem extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'PostItem', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'app.v1'), createEmptyInstance: create)
-    ..aInt64(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'postId')
-    ..aOM<PostAuthorRelation>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'author', subBuilder: PostAuthorRelation.create)
-    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'content')
-    ..pc<PostImage>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'images', $pb.PbFieldType.PM, subBuilder: PostImage.create)
-    ..e<PostVisibility>(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'visibility', $pb.PbFieldType.OE, defaultOrMaker: PostVisibility.UNSPECIFIED, valueOf: PostVisibility.valueOf, enumValues: PostVisibility.values)
-    ..aOB(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'isDeleted')
-    ..aInt64(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'deletedAt')
-    ..aInt64(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'likeCount')
-    ..aInt64(9, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'commentCount')
-    ..aOB(10, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'isLikedByMe')
-    ..aInt64(11, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'createdAt')
-    ..aInt64(12, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'updatedAt')
-    ..hasRequiredFields = false
-  ;
-
-  PostItem._() : super();
   factory PostItem({
     $fixnum.Int64? postId,
     PostAuthorRelation? author,
@@ -533,47 +543,65 @@ class PostItem extends $pb.GeneratedMessage {
     $fixnum.Int64? createdAt,
     $fixnum.Int64? updatedAt,
   }) {
-    final _result = create();
+    final $result = create();
     if (postId != null) {
-      _result.postId = postId;
+      $result.postId = postId;
     }
     if (author != null) {
-      _result.author = author;
+      $result.author = author;
     }
     if (content != null) {
-      _result.content = content;
+      $result.content = content;
     }
     if (images != null) {
-      _result.images.addAll(images);
+      $result.images.addAll(images);
     }
     if (visibility != null) {
-      _result.visibility = visibility;
+      $result.visibility = visibility;
     }
     if (isDeleted != null) {
-      _result.isDeleted = isDeleted;
+      $result.isDeleted = isDeleted;
     }
     if (deletedAt != null) {
-      _result.deletedAt = deletedAt;
+      $result.deletedAt = deletedAt;
     }
     if (likeCount != null) {
-      _result.likeCount = likeCount;
+      $result.likeCount = likeCount;
     }
     if (commentCount != null) {
-      _result.commentCount = commentCount;
+      $result.commentCount = commentCount;
     }
     if (isLikedByMe != null) {
-      _result.isLikedByMe = isLikedByMe;
+      $result.isLikedByMe = isLikedByMe;
     }
     if (createdAt != null) {
-      _result.createdAt = createdAt;
+      $result.createdAt = createdAt;
     }
     if (updatedAt != null) {
-      _result.updatedAt = updatedAt;
+      $result.updatedAt = updatedAt;
     }
-    return _result;
+    return $result;
   }
+  PostItem._() : super();
   factory PostItem.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory PostItem.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'PostItem', package: const $pb.PackageName(_omitMessageNames ? '' : 'app.v1'), createEmptyInstance: create)
+    ..aInt64(1, _omitFieldNames ? '' : 'postId')
+    ..aOM<PostAuthorRelation>(2, _omitFieldNames ? '' : 'author', subBuilder: PostAuthorRelation.create)
+    ..aOS(3, _omitFieldNames ? '' : 'content')
+    ..pc<PostImage>(4, _omitFieldNames ? '' : 'images', $pb.PbFieldType.PM, subBuilder: PostImage.create)
+    ..e<PostVisibility>(5, _omitFieldNames ? '' : 'visibility', $pb.PbFieldType.OE, defaultOrMaker: PostVisibility.UNSPECIFIED, valueOf: PostVisibility.valueOf, enumValues: PostVisibility.values)
+    ..aOB(6, _omitFieldNames ? '' : 'isDeleted')
+    ..aInt64(7, _omitFieldNames ? '' : 'deletedAt')
+    ..aInt64(8, _omitFieldNames ? '' : 'likeCount')
+    ..aInt64(9, _omitFieldNames ? '' : 'commentCount')
+    ..aOB(10, _omitFieldNames ? '' : 'isLikedByMe')
+    ..aInt64(11, _omitFieldNames ? '' : 'createdAt')
+    ..aInt64(12, _omitFieldNames ? '' : 'updatedAt')
+    ..hasRequiredFields = false
+  ;
+
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -583,8 +611,10 @@ class PostItem extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  PostItem copyWith(void Function(PostItem) updates) => super.copyWith((message) => updates(message as PostItem)) as PostItem; // ignore: deprecated_member_use
+  PostItem copyWith(void Function(PostItem) updates) => super.copyWith((message) => updates(message as PostItem)) as PostItem;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static PostItem create() => PostItem._();
   PostItem createEmptyInstance() => create();
@@ -600,16 +630,16 @@ class PostItem extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $core.bool hasPostId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearPostId() => clearField(1);
+  void clearPostId() => $_clearField(1);
 
   @$pb.TagNumber(2)
   PostAuthorRelation get author => $_getN(1);
   @$pb.TagNumber(2)
-  set author(PostAuthorRelation v) { setField(2, v); }
+  set author(PostAuthorRelation v) { $_setField(2, v); }
   @$pb.TagNumber(2)
   $core.bool hasAuthor() => $_has(1);
   @$pb.TagNumber(2)
-  void clearAuthor() => clearField(2);
+  void clearAuthor() => $_clearField(2);
   @$pb.TagNumber(2)
   PostAuthorRelation ensureAuthor() => $_ensure(1);
 
@@ -620,19 +650,19 @@ class PostItem extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   $core.bool hasContent() => $_has(2);
   @$pb.TagNumber(3)
-  void clearContent() => clearField(3);
+  void clearContent() => $_clearField(3);
 
   @$pb.TagNumber(4)
-  $core.List<PostImage> get images => $_getList(3);
+  $pb.PbList<PostImage> get images => $_getList(3);
 
   @$pb.TagNumber(5)
   PostVisibility get visibility => $_getN(4);
   @$pb.TagNumber(5)
-  set visibility(PostVisibility v) { setField(5, v); }
+  set visibility(PostVisibility v) { $_setField(5, v); }
   @$pb.TagNumber(5)
   $core.bool hasVisibility() => $_has(4);
   @$pb.TagNumber(5)
-  void clearVisibility() => clearField(5);
+  void clearVisibility() => $_clearField(5);
 
   @$pb.TagNumber(6)
   $core.bool get isDeleted => $_getBF(5);
@@ -641,7 +671,7 @@ class PostItem extends $pb.GeneratedMessage {
   @$pb.TagNumber(6)
   $core.bool hasIsDeleted() => $_has(5);
   @$pb.TagNumber(6)
-  void clearIsDeleted() => clearField(6);
+  void clearIsDeleted() => $_clearField(6);
 
   @$pb.TagNumber(7)
   $fixnum.Int64 get deletedAt => $_getI64(6);
@@ -650,7 +680,7 @@ class PostItem extends $pb.GeneratedMessage {
   @$pb.TagNumber(7)
   $core.bool hasDeletedAt() => $_has(6);
   @$pb.TagNumber(7)
-  void clearDeletedAt() => clearField(7);
+  void clearDeletedAt() => $_clearField(7);
 
   @$pb.TagNumber(8)
   $fixnum.Int64 get likeCount => $_getI64(7);
@@ -659,7 +689,7 @@ class PostItem extends $pb.GeneratedMessage {
   @$pb.TagNumber(8)
   $core.bool hasLikeCount() => $_has(7);
   @$pb.TagNumber(8)
-  void clearLikeCount() => clearField(8);
+  void clearLikeCount() => $_clearField(8);
 
   @$pb.TagNumber(9)
   $fixnum.Int64 get commentCount => $_getI64(8);
@@ -668,7 +698,7 @@ class PostItem extends $pb.GeneratedMessage {
   @$pb.TagNumber(9)
   $core.bool hasCommentCount() => $_has(8);
   @$pb.TagNumber(9)
-  void clearCommentCount() => clearField(9);
+  void clearCommentCount() => $_clearField(9);
 
   @$pb.TagNumber(10)
   $core.bool get isLikedByMe => $_getBF(9);
@@ -677,7 +707,7 @@ class PostItem extends $pb.GeneratedMessage {
   @$pb.TagNumber(10)
   $core.bool hasIsLikedByMe() => $_has(9);
   @$pb.TagNumber(10)
-  void clearIsLikedByMe() => clearField(10);
+  void clearIsLikedByMe() => $_clearField(10);
 
   @$pb.TagNumber(11)
   $fixnum.Int64 get createdAt => $_getI64(10);
@@ -686,7 +716,7 @@ class PostItem extends $pb.GeneratedMessage {
   @$pb.TagNumber(11)
   $core.bool hasCreatedAt() => $_has(10);
   @$pb.TagNumber(11)
-  void clearCreatedAt() => clearField(11);
+  void clearCreatedAt() => $_clearField(11);
 
   @$pb.TagNumber(12)
   $fixnum.Int64 get updatedAt => $_getI64(11);
@@ -695,42 +725,43 @@ class PostItem extends $pb.GeneratedMessage {
   @$pb.TagNumber(12)
   $core.bool hasUpdatedAt() => $_has(11);
   @$pb.TagNumber(12)
-  void clearUpdatedAt() => clearField(12);
+  void clearUpdatedAt() => $_clearField(12);
 }
 
 class GetSquarePostsResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GetSquarePostsResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'app.v1'), createEmptyInstance: create)
-    ..pc<PostItem>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'items', $pb.PbFieldType.PM, subBuilder: PostItem.create)
-    ..a<$core.int>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'page', $pb.PbFieldType.O3)
-    ..a<$core.int>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pageSize', $pb.PbFieldType.O3)
-    ..aOB(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'hasMore')
-    ..hasRequiredFields = false
-  ;
-
-  GetSquarePostsResponse._() : super();
   factory GetSquarePostsResponse({
     $core.Iterable<PostItem>? items,
     $core.int? page,
     $core.int? pageSize,
     $core.bool? hasMore,
   }) {
-    final _result = create();
+    final $result = create();
     if (items != null) {
-      _result.items.addAll(items);
+      $result.items.addAll(items);
     }
     if (page != null) {
-      _result.page = page;
+      $result.page = page;
     }
     if (pageSize != null) {
-      _result.pageSize = pageSize;
+      $result.pageSize = pageSize;
     }
     if (hasMore != null) {
-      _result.hasMore = hasMore;
+      $result.hasMore = hasMore;
     }
-    return _result;
+    return $result;
   }
+  GetSquarePostsResponse._() : super();
   factory GetSquarePostsResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory GetSquarePostsResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetSquarePostsResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'app.v1'), createEmptyInstance: create)
+    ..pc<PostItem>(1, _omitFieldNames ? '' : 'items', $pb.PbFieldType.PM, subBuilder: PostItem.create)
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'page', $pb.PbFieldType.O3)
+    ..a<$core.int>(3, _omitFieldNames ? '' : 'pageSize', $pb.PbFieldType.O3)
+    ..aOB(4, _omitFieldNames ? '' : 'hasMore')
+    ..hasRequiredFields = false
+  ;
+
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -740,8 +771,10 @@ class GetSquarePostsResponse extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  GetSquarePostsResponse copyWith(void Function(GetSquarePostsResponse) updates) => super.copyWith((message) => updates(message as GetSquarePostsResponse)) as GetSquarePostsResponse; // ignore: deprecated_member_use
+  GetSquarePostsResponse copyWith(void Function(GetSquarePostsResponse) updates) => super.copyWith((message) => updates(message as GetSquarePostsResponse)) as GetSquarePostsResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GetSquarePostsResponse create() => GetSquarePostsResponse._();
   GetSquarePostsResponse createEmptyInstance() => create();
@@ -751,7 +784,7 @@ class GetSquarePostsResponse extends $pb.GeneratedMessage {
   static GetSquarePostsResponse? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.List<PostItem> get items => $_getList(0);
+  $pb.PbList<PostItem> get items => $_getList(0);
 
   @$pb.TagNumber(2)
   $core.int get page => $_getIZ(1);
@@ -760,7 +793,7 @@ class GetSquarePostsResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $core.bool hasPage() => $_has(1);
   @$pb.TagNumber(2)
-  void clearPage() => clearField(2);
+  void clearPage() => $_clearField(2);
 
   @$pb.TagNumber(3)
   $core.int get pageSize => $_getIZ(2);
@@ -769,7 +802,7 @@ class GetSquarePostsResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   $core.bool hasPageSize() => $_has(2);
   @$pb.TagNumber(3)
-  void clearPageSize() => clearField(3);
+  void clearPageSize() => $_clearField(3);
 
   @$pb.TagNumber(4)
   $core.bool get hasMore => $_getBF(3);
@@ -778,42 +811,43 @@ class GetSquarePostsResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   $core.bool hasHasMore() => $_has(3);
   @$pb.TagNumber(4)
-  void clearHasMore() => clearField(4);
+  void clearHasMore() => $_clearField(4);
 }
 
 class GetFriendPostsResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GetFriendPostsResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'app.v1'), createEmptyInstance: create)
-    ..pc<PostItem>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'items', $pb.PbFieldType.PM, subBuilder: PostItem.create)
-    ..a<$core.int>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'page', $pb.PbFieldType.O3)
-    ..a<$core.int>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pageSize', $pb.PbFieldType.O3)
-    ..aOB(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'hasMore')
-    ..hasRequiredFields = false
-  ;
-
-  GetFriendPostsResponse._() : super();
   factory GetFriendPostsResponse({
     $core.Iterable<PostItem>? items,
     $core.int? page,
     $core.int? pageSize,
     $core.bool? hasMore,
   }) {
-    final _result = create();
+    final $result = create();
     if (items != null) {
-      _result.items.addAll(items);
+      $result.items.addAll(items);
     }
     if (page != null) {
-      _result.page = page;
+      $result.page = page;
     }
     if (pageSize != null) {
-      _result.pageSize = pageSize;
+      $result.pageSize = pageSize;
     }
     if (hasMore != null) {
-      _result.hasMore = hasMore;
+      $result.hasMore = hasMore;
     }
-    return _result;
+    return $result;
   }
+  GetFriendPostsResponse._() : super();
   factory GetFriendPostsResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory GetFriendPostsResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetFriendPostsResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'app.v1'), createEmptyInstance: create)
+    ..pc<PostItem>(1, _omitFieldNames ? '' : 'items', $pb.PbFieldType.PM, subBuilder: PostItem.create)
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'page', $pb.PbFieldType.O3)
+    ..a<$core.int>(3, _omitFieldNames ? '' : 'pageSize', $pb.PbFieldType.O3)
+    ..aOB(4, _omitFieldNames ? '' : 'hasMore')
+    ..hasRequiredFields = false
+  ;
+
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -823,8 +857,10 @@ class GetFriendPostsResponse extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  GetFriendPostsResponse copyWith(void Function(GetFriendPostsResponse) updates) => super.copyWith((message) => updates(message as GetFriendPostsResponse)) as GetFriendPostsResponse; // ignore: deprecated_member_use
+  GetFriendPostsResponse copyWith(void Function(GetFriendPostsResponse) updates) => super.copyWith((message) => updates(message as GetFriendPostsResponse)) as GetFriendPostsResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GetFriendPostsResponse create() => GetFriendPostsResponse._();
   GetFriendPostsResponse createEmptyInstance() => create();
@@ -834,7 +870,7 @@ class GetFriendPostsResponse extends $pb.GeneratedMessage {
   static GetFriendPostsResponse? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.List<PostItem> get items => $_getList(0);
+  $pb.PbList<PostItem> get items => $_getList(0);
 
   @$pb.TagNumber(2)
   $core.int get page => $_getIZ(1);
@@ -843,7 +879,7 @@ class GetFriendPostsResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $core.bool hasPage() => $_has(1);
   @$pb.TagNumber(2)
-  void clearPage() => clearField(2);
+  void clearPage() => $_clearField(2);
 
   @$pb.TagNumber(3)
   $core.int get pageSize => $_getIZ(2);
@@ -852,7 +888,7 @@ class GetFriendPostsResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   $core.bool hasPageSize() => $_has(2);
   @$pb.TagNumber(3)
-  void clearPageSize() => clearField(3);
+  void clearPageSize() => $_clearField(3);
 
   @$pb.TagNumber(4)
   $core.bool get hasMore => $_getBF(3);
@@ -861,32 +897,33 @@ class GetFriendPostsResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   $core.bool hasHasMore() => $_has(3);
   @$pb.TagNumber(4)
-  void clearHasMore() => clearField(4);
+  void clearHasMore() => $_clearField(4);
 }
 
 class CreatePostImageUploadRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'CreatePostImageUploadRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'app.v1'), createEmptyInstance: create)
-    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'fileName')
-    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'contentType')
-    ..hasRequiredFields = false
-  ;
-
-  CreatePostImageUploadRequest._() : super();
   factory CreatePostImageUploadRequest({
     $core.String? fileName,
     $core.String? contentType,
   }) {
-    final _result = create();
+    final $result = create();
     if (fileName != null) {
-      _result.fileName = fileName;
+      $result.fileName = fileName;
     }
     if (contentType != null) {
-      _result.contentType = contentType;
+      $result.contentType = contentType;
     }
-    return _result;
+    return $result;
   }
+  CreatePostImageUploadRequest._() : super();
   factory CreatePostImageUploadRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory CreatePostImageUploadRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CreatePostImageUploadRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'app.v1'), createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'fileName')
+    ..aOS(2, _omitFieldNames ? '' : 'contentType')
+    ..hasRequiredFields = false
+  ;
+
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -896,8 +933,10 @@ class CreatePostImageUploadRequest extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  CreatePostImageUploadRequest copyWith(void Function(CreatePostImageUploadRequest) updates) => super.copyWith((message) => updates(message as CreatePostImageUploadRequest)) as CreatePostImageUploadRequest; // ignore: deprecated_member_use
+  CreatePostImageUploadRequest copyWith(void Function(CreatePostImageUploadRequest) updates) => super.copyWith((message) => updates(message as CreatePostImageUploadRequest)) as CreatePostImageUploadRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static CreatePostImageUploadRequest create() => CreatePostImageUploadRequest._();
   CreatePostImageUploadRequest createEmptyInstance() => create();
@@ -913,7 +952,7 @@ class CreatePostImageUploadRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $core.bool hasFileName() => $_has(0);
   @$pb.TagNumber(1)
-  void clearFileName() => clearField(1);
+  void clearFileName() => $_clearField(1);
 
   @$pb.TagNumber(2)
   $core.String get contentType => $_getSZ(1);
@@ -922,42 +961,43 @@ class CreatePostImageUploadRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $core.bool hasContentType() => $_has(1);
   @$pb.TagNumber(2)
-  void clearContentType() => clearField(2);
+  void clearContentType() => $_clearField(2);
 }
 
 class CreatePostImageUploadResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'CreatePostImageUploadResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'app.v1'), createEmptyInstance: create)
-    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'objectKey')
-    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'uploadUrl')
-    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'publicUrl')
-    ..aInt64(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'expiresIn')
-    ..hasRequiredFields = false
-  ;
-
-  CreatePostImageUploadResponse._() : super();
   factory CreatePostImageUploadResponse({
     $core.String? objectKey,
     $core.String? uploadUrl,
     $core.String? publicUrl,
     $fixnum.Int64? expiresIn,
   }) {
-    final _result = create();
+    final $result = create();
     if (objectKey != null) {
-      _result.objectKey = objectKey;
+      $result.objectKey = objectKey;
     }
     if (uploadUrl != null) {
-      _result.uploadUrl = uploadUrl;
+      $result.uploadUrl = uploadUrl;
     }
     if (publicUrl != null) {
-      _result.publicUrl = publicUrl;
+      $result.publicUrl = publicUrl;
     }
     if (expiresIn != null) {
-      _result.expiresIn = expiresIn;
+      $result.expiresIn = expiresIn;
     }
-    return _result;
+    return $result;
   }
+  CreatePostImageUploadResponse._() : super();
   factory CreatePostImageUploadResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory CreatePostImageUploadResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CreatePostImageUploadResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'app.v1'), createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'objectKey')
+    ..aOS(2, _omitFieldNames ? '' : 'uploadUrl')
+    ..aOS(3, _omitFieldNames ? '' : 'publicUrl')
+    ..aInt64(4, _omitFieldNames ? '' : 'expiresIn')
+    ..hasRequiredFields = false
+  ;
+
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -967,8 +1007,10 @@ class CreatePostImageUploadResponse extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  CreatePostImageUploadResponse copyWith(void Function(CreatePostImageUploadResponse) updates) => super.copyWith((message) => updates(message as CreatePostImageUploadResponse)) as CreatePostImageUploadResponse; // ignore: deprecated_member_use
+  CreatePostImageUploadResponse copyWith(void Function(CreatePostImageUploadResponse) updates) => super.copyWith((message) => updates(message as CreatePostImageUploadResponse)) as CreatePostImageUploadResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static CreatePostImageUploadResponse create() => CreatePostImageUploadResponse._();
   CreatePostImageUploadResponse createEmptyInstance() => create();
@@ -984,7 +1026,7 @@ class CreatePostImageUploadResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $core.bool hasObjectKey() => $_has(0);
   @$pb.TagNumber(1)
-  void clearObjectKey() => clearField(1);
+  void clearObjectKey() => $_clearField(1);
 
   @$pb.TagNumber(2)
   $core.String get uploadUrl => $_getSZ(1);
@@ -993,7 +1035,7 @@ class CreatePostImageUploadResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $core.bool hasUploadUrl() => $_has(1);
   @$pb.TagNumber(2)
-  void clearUploadUrl() => clearField(2);
+  void clearUploadUrl() => $_clearField(2);
 
   @$pb.TagNumber(3)
   $core.String get publicUrl => $_getSZ(2);
@@ -1002,7 +1044,7 @@ class CreatePostImageUploadResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   $core.bool hasPublicUrl() => $_has(2);
   @$pb.TagNumber(3)
-  void clearPublicUrl() => clearField(3);
+  void clearPublicUrl() => $_clearField(3);
 
   @$pb.TagNumber(4)
   $fixnum.Int64 get expiresIn => $_getI64(3);
@@ -1011,37 +1053,38 @@ class CreatePostImageUploadResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   $core.bool hasExpiresIn() => $_has(3);
   @$pb.TagNumber(4)
-  void clearExpiresIn() => clearField(4);
+  void clearExpiresIn() => $_clearField(4);
 }
 
 class CreatePostRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'CreatePostRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'app.v1'), createEmptyInstance: create)
-    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'content')
-    ..pPS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'imageUrls')
-    ..e<PostVisibility>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'visibility', $pb.PbFieldType.OE, defaultOrMaker: PostVisibility.UNSPECIFIED, valueOf: PostVisibility.valueOf, enumValues: PostVisibility.values)
-    ..hasRequiredFields = false
-  ;
-
-  CreatePostRequest._() : super();
   factory CreatePostRequest({
     $core.String? content,
     $core.Iterable<$core.String>? imageUrls,
     PostVisibility? visibility,
   }) {
-    final _result = create();
+    final $result = create();
     if (content != null) {
-      _result.content = content;
+      $result.content = content;
     }
     if (imageUrls != null) {
-      _result.imageUrls.addAll(imageUrls);
+      $result.imageUrls.addAll(imageUrls);
     }
     if (visibility != null) {
-      _result.visibility = visibility;
+      $result.visibility = visibility;
     }
-    return _result;
+    return $result;
   }
+  CreatePostRequest._() : super();
   factory CreatePostRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory CreatePostRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CreatePostRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'app.v1'), createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'content')
+    ..pPS(2, _omitFieldNames ? '' : 'imageUrls')
+    ..e<PostVisibility>(3, _omitFieldNames ? '' : 'visibility', $pb.PbFieldType.OE, defaultOrMaker: PostVisibility.UNSPECIFIED, valueOf: PostVisibility.valueOf, enumValues: PostVisibility.values)
+    ..hasRequiredFields = false
+  ;
+
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -1051,8 +1094,10 @@ class CreatePostRequest extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  CreatePostRequest copyWith(void Function(CreatePostRequest) updates) => super.copyWith((message) => updates(message as CreatePostRequest)) as CreatePostRequest; // ignore: deprecated_member_use
+  CreatePostRequest copyWith(void Function(CreatePostRequest) updates) => super.copyWith((message) => updates(message as CreatePostRequest)) as CreatePostRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static CreatePostRequest create() => CreatePostRequest._();
   CreatePostRequest createEmptyInstance() => create();
@@ -1068,39 +1113,40 @@ class CreatePostRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $core.bool hasContent() => $_has(0);
   @$pb.TagNumber(1)
-  void clearContent() => clearField(1);
+  void clearContent() => $_clearField(1);
 
   @$pb.TagNumber(2)
-  $core.List<$core.String> get imageUrls => $_getList(1);
+  $pb.PbList<$core.String> get imageUrls => $_getList(1);
 
   @$pb.TagNumber(3)
   PostVisibility get visibility => $_getN(2);
   @$pb.TagNumber(3)
-  set visibility(PostVisibility v) { setField(3, v); }
+  set visibility(PostVisibility v) { $_setField(3, v); }
   @$pb.TagNumber(3)
   $core.bool hasVisibility() => $_has(2);
   @$pb.TagNumber(3)
-  void clearVisibility() => clearField(3);
+  void clearVisibility() => $_clearField(3);
 }
 
 class CreatePostResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'CreatePostResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'app.v1'), createEmptyInstance: create)
-    ..aOM<PostItem>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'post', subBuilder: PostItem.create)
-    ..hasRequiredFields = false
-  ;
-
-  CreatePostResponse._() : super();
   factory CreatePostResponse({
     PostItem? post,
   }) {
-    final _result = create();
+    final $result = create();
     if (post != null) {
-      _result.post = post;
+      $result.post = post;
     }
-    return _result;
+    return $result;
   }
+  CreatePostResponse._() : super();
   factory CreatePostResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory CreatePostResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CreatePostResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'app.v1'), createEmptyInstance: create)
+    ..aOM<PostItem>(1, _omitFieldNames ? '' : 'post', subBuilder: PostItem.create)
+    ..hasRequiredFields = false
+  ;
+
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -1110,8 +1156,10 @@ class CreatePostResponse extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  CreatePostResponse copyWith(void Function(CreatePostResponse) updates) => super.copyWith((message) => updates(message as CreatePostResponse)) as CreatePostResponse; // ignore: deprecated_member_use
+  CreatePostResponse copyWith(void Function(CreatePostResponse) updates) => super.copyWith((message) => updates(message as CreatePostResponse)) as CreatePostResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static CreatePostResponse create() => CreatePostResponse._();
   CreatePostResponse createEmptyInstance() => create();
@@ -1123,33 +1171,34 @@ class CreatePostResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   PostItem get post => $_getN(0);
   @$pb.TagNumber(1)
-  set post(PostItem v) { setField(1, v); }
+  set post(PostItem v) { $_setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasPost() => $_has(0);
   @$pb.TagNumber(1)
-  void clearPost() => clearField(1);
+  void clearPost() => $_clearField(1);
   @$pb.TagNumber(1)
   PostItem ensurePost() => $_ensure(0);
 }
 
 class GetPostDetailResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GetPostDetailResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'app.v1'), createEmptyInstance: create)
-    ..aOM<PostItem>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'post', subBuilder: PostItem.create)
-    ..hasRequiredFields = false
-  ;
-
-  GetPostDetailResponse._() : super();
   factory GetPostDetailResponse({
     PostItem? post,
   }) {
-    final _result = create();
+    final $result = create();
     if (post != null) {
-      _result.post = post;
+      $result.post = post;
     }
-    return _result;
+    return $result;
   }
+  GetPostDetailResponse._() : super();
   factory GetPostDetailResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory GetPostDetailResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetPostDetailResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'app.v1'), createEmptyInstance: create)
+    ..aOM<PostItem>(1, _omitFieldNames ? '' : 'post', subBuilder: PostItem.create)
+    ..hasRequiredFields = false
+  ;
+
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -1159,8 +1208,10 @@ class GetPostDetailResponse extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  GetPostDetailResponse copyWith(void Function(GetPostDetailResponse) updates) => super.copyWith((message) => updates(message as GetPostDetailResponse)) as GetPostDetailResponse; // ignore: deprecated_member_use
+  GetPostDetailResponse copyWith(void Function(GetPostDetailResponse) updates) => super.copyWith((message) => updates(message as GetPostDetailResponse)) as GetPostDetailResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GetPostDetailResponse create() => GetPostDetailResponse._();
   GetPostDetailResponse createEmptyInstance() => create();
@@ -1172,38 +1223,22 @@ class GetPostDetailResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   PostItem get post => $_getN(0);
   @$pb.TagNumber(1)
-  set post(PostItem v) { setField(1, v); }
+  set post(PostItem v) { $_setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasPost() => $_has(0);
   @$pb.TagNumber(1)
-  void clearPost() => clearField(1);
+  void clearPost() => $_clearField(1);
   @$pb.TagNumber(1)
   PostItem ensurePost() => $_ensure(0);
 }
 
 class PostCommentItem extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'PostCommentItem', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'app.v1'), createEmptyInstance: create)
-    ..aInt64(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'commentId')
-    ..aInt64(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'postId')
-    ..aOM<PostAuthorRelation>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'author', subBuilder: PostAuthorRelation.create)
-    ..aInt64(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'replyToCommentId')
-    ..aInt64(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'replyToUserId')
-    ..aOS(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'content')
-    ..aOS(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'displayContent')
-    ..aOB(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'isDeleted')
-    ..aInt64(9, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'deletedAt')
-    ..aInt64(10, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'createdAt')
-    ..aInt64(11, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'updatedAt')
-    ..hasRequiredFields = false
-  ;
-
-  PostCommentItem._() : super();
   factory PostCommentItem({
     $fixnum.Int64? commentId,
     $fixnum.Int64? postId,
     PostAuthorRelation? author,
     $fixnum.Int64? replyToCommentId,
-    $fixnum.Int64? replyToUserId,
+    $core.String? replyToUserId,
     $core.String? content,
     $core.String? displayContent,
     $core.bool? isDeleted,
@@ -1211,44 +1246,61 @@ class PostCommentItem extends $pb.GeneratedMessage {
     $fixnum.Int64? createdAt,
     $fixnum.Int64? updatedAt,
   }) {
-    final _result = create();
+    final $result = create();
     if (commentId != null) {
-      _result.commentId = commentId;
+      $result.commentId = commentId;
     }
     if (postId != null) {
-      _result.postId = postId;
+      $result.postId = postId;
     }
     if (author != null) {
-      _result.author = author;
+      $result.author = author;
     }
     if (replyToCommentId != null) {
-      _result.replyToCommentId = replyToCommentId;
+      $result.replyToCommentId = replyToCommentId;
     }
     if (replyToUserId != null) {
-      _result.replyToUserId = replyToUserId;
+      $result.replyToUserId = replyToUserId;
     }
     if (content != null) {
-      _result.content = content;
+      $result.content = content;
     }
     if (displayContent != null) {
-      _result.displayContent = displayContent;
+      $result.displayContent = displayContent;
     }
     if (isDeleted != null) {
-      _result.isDeleted = isDeleted;
+      $result.isDeleted = isDeleted;
     }
     if (deletedAt != null) {
-      _result.deletedAt = deletedAt;
+      $result.deletedAt = deletedAt;
     }
     if (createdAt != null) {
-      _result.createdAt = createdAt;
+      $result.createdAt = createdAt;
     }
     if (updatedAt != null) {
-      _result.updatedAt = updatedAt;
+      $result.updatedAt = updatedAt;
     }
-    return _result;
+    return $result;
   }
+  PostCommentItem._() : super();
   factory PostCommentItem.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory PostCommentItem.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'PostCommentItem', package: const $pb.PackageName(_omitMessageNames ? '' : 'app.v1'), createEmptyInstance: create)
+    ..aInt64(1, _omitFieldNames ? '' : 'commentId')
+    ..aInt64(2, _omitFieldNames ? '' : 'postId')
+    ..aOM<PostAuthorRelation>(3, _omitFieldNames ? '' : 'author', subBuilder: PostAuthorRelation.create)
+    ..aInt64(4, _omitFieldNames ? '' : 'replyToCommentId')
+    ..aOS(5, _omitFieldNames ? '' : 'replyToUserId')
+    ..aOS(6, _omitFieldNames ? '' : 'content')
+    ..aOS(7, _omitFieldNames ? '' : 'displayContent')
+    ..aOB(8, _omitFieldNames ? '' : 'isDeleted')
+    ..aInt64(9, _omitFieldNames ? '' : 'deletedAt')
+    ..aInt64(10, _omitFieldNames ? '' : 'createdAt')
+    ..aInt64(11, _omitFieldNames ? '' : 'updatedAt')
+    ..hasRequiredFields = false
+  ;
+
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -1258,8 +1310,10 @@ class PostCommentItem extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  PostCommentItem copyWith(void Function(PostCommentItem) updates) => super.copyWith((message) => updates(message as PostCommentItem)) as PostCommentItem; // ignore: deprecated_member_use
+  PostCommentItem copyWith(void Function(PostCommentItem) updates) => super.copyWith((message) => updates(message as PostCommentItem)) as PostCommentItem;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static PostCommentItem create() => PostCommentItem._();
   PostCommentItem createEmptyInstance() => create();
@@ -1275,7 +1329,7 @@ class PostCommentItem extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $core.bool hasCommentId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearCommentId() => clearField(1);
+  void clearCommentId() => $_clearField(1);
 
   @$pb.TagNumber(2)
   $fixnum.Int64 get postId => $_getI64(1);
@@ -1284,16 +1338,16 @@ class PostCommentItem extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $core.bool hasPostId() => $_has(1);
   @$pb.TagNumber(2)
-  void clearPostId() => clearField(2);
+  void clearPostId() => $_clearField(2);
 
   @$pb.TagNumber(3)
   PostAuthorRelation get author => $_getN(2);
   @$pb.TagNumber(3)
-  set author(PostAuthorRelation v) { setField(3, v); }
+  set author(PostAuthorRelation v) { $_setField(3, v); }
   @$pb.TagNumber(3)
   $core.bool hasAuthor() => $_has(2);
   @$pb.TagNumber(3)
-  void clearAuthor() => clearField(3);
+  void clearAuthor() => $_clearField(3);
   @$pb.TagNumber(3)
   PostAuthorRelation ensureAuthor() => $_ensure(2);
 
@@ -1304,16 +1358,16 @@ class PostCommentItem extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   $core.bool hasReplyToCommentId() => $_has(3);
   @$pb.TagNumber(4)
-  void clearReplyToCommentId() => clearField(4);
+  void clearReplyToCommentId() => $_clearField(4);
 
   @$pb.TagNumber(5)
-  $fixnum.Int64 get replyToUserId => $_getI64(4);
+  $core.String get replyToUserId => $_getSZ(4);
   @$pb.TagNumber(5)
-  set replyToUserId($fixnum.Int64 v) { $_setInt64(4, v); }
+  set replyToUserId($core.String v) { $_setString(4, v); }
   @$pb.TagNumber(5)
   $core.bool hasReplyToUserId() => $_has(4);
   @$pb.TagNumber(5)
-  void clearReplyToUserId() => clearField(5);
+  void clearReplyToUserId() => $_clearField(5);
 
   @$pb.TagNumber(6)
   $core.String get content => $_getSZ(5);
@@ -1322,7 +1376,7 @@ class PostCommentItem extends $pb.GeneratedMessage {
   @$pb.TagNumber(6)
   $core.bool hasContent() => $_has(5);
   @$pb.TagNumber(6)
-  void clearContent() => clearField(6);
+  void clearContent() => $_clearField(6);
 
   @$pb.TagNumber(7)
   $core.String get displayContent => $_getSZ(6);
@@ -1331,7 +1385,7 @@ class PostCommentItem extends $pb.GeneratedMessage {
   @$pb.TagNumber(7)
   $core.bool hasDisplayContent() => $_has(6);
   @$pb.TagNumber(7)
-  void clearDisplayContent() => clearField(7);
+  void clearDisplayContent() => $_clearField(7);
 
   @$pb.TagNumber(8)
   $core.bool get isDeleted => $_getBF(7);
@@ -1340,7 +1394,7 @@ class PostCommentItem extends $pb.GeneratedMessage {
   @$pb.TagNumber(8)
   $core.bool hasIsDeleted() => $_has(7);
   @$pb.TagNumber(8)
-  void clearIsDeleted() => clearField(8);
+  void clearIsDeleted() => $_clearField(8);
 
   @$pb.TagNumber(9)
   $fixnum.Int64 get deletedAt => $_getI64(8);
@@ -1349,7 +1403,7 @@ class PostCommentItem extends $pb.GeneratedMessage {
   @$pb.TagNumber(9)
   $core.bool hasDeletedAt() => $_has(8);
   @$pb.TagNumber(9)
-  void clearDeletedAt() => clearField(9);
+  void clearDeletedAt() => $_clearField(9);
 
   @$pb.TagNumber(10)
   $fixnum.Int64 get createdAt => $_getI64(9);
@@ -1358,7 +1412,7 @@ class PostCommentItem extends $pb.GeneratedMessage {
   @$pb.TagNumber(10)
   $core.bool hasCreatedAt() => $_has(9);
   @$pb.TagNumber(10)
-  void clearCreatedAt() => clearField(10);
+  void clearCreatedAt() => $_clearField(10);
 
   @$pb.TagNumber(11)
   $fixnum.Int64 get updatedAt => $_getI64(10);
@@ -1367,42 +1421,43 @@ class PostCommentItem extends $pb.GeneratedMessage {
   @$pb.TagNumber(11)
   $core.bool hasUpdatedAt() => $_has(10);
   @$pb.TagNumber(11)
-  void clearUpdatedAt() => clearField(11);
+  void clearUpdatedAt() => $_clearField(11);
 }
 
 class GetPostCommentsResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GetPostCommentsResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'app.v1'), createEmptyInstance: create)
-    ..pc<PostCommentItem>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'items', $pb.PbFieldType.PM, subBuilder: PostCommentItem.create)
-    ..a<$core.int>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'page', $pb.PbFieldType.O3)
-    ..a<$core.int>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pageSize', $pb.PbFieldType.O3)
-    ..aOB(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'hasMore')
-    ..hasRequiredFields = false
-  ;
-
-  GetPostCommentsResponse._() : super();
   factory GetPostCommentsResponse({
     $core.Iterable<PostCommentItem>? items,
     $core.int? page,
     $core.int? pageSize,
     $core.bool? hasMore,
   }) {
-    final _result = create();
+    final $result = create();
     if (items != null) {
-      _result.items.addAll(items);
+      $result.items.addAll(items);
     }
     if (page != null) {
-      _result.page = page;
+      $result.page = page;
     }
     if (pageSize != null) {
-      _result.pageSize = pageSize;
+      $result.pageSize = pageSize;
     }
     if (hasMore != null) {
-      _result.hasMore = hasMore;
+      $result.hasMore = hasMore;
     }
-    return _result;
+    return $result;
   }
+  GetPostCommentsResponse._() : super();
   factory GetPostCommentsResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory GetPostCommentsResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetPostCommentsResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'app.v1'), createEmptyInstance: create)
+    ..pc<PostCommentItem>(1, _omitFieldNames ? '' : 'items', $pb.PbFieldType.PM, subBuilder: PostCommentItem.create)
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'page', $pb.PbFieldType.O3)
+    ..a<$core.int>(3, _omitFieldNames ? '' : 'pageSize', $pb.PbFieldType.O3)
+    ..aOB(4, _omitFieldNames ? '' : 'hasMore')
+    ..hasRequiredFields = false
+  ;
+
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -1412,8 +1467,10 @@ class GetPostCommentsResponse extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  GetPostCommentsResponse copyWith(void Function(GetPostCommentsResponse) updates) => super.copyWith((message) => updates(message as GetPostCommentsResponse)) as GetPostCommentsResponse; // ignore: deprecated_member_use
+  GetPostCommentsResponse copyWith(void Function(GetPostCommentsResponse) updates) => super.copyWith((message) => updates(message as GetPostCommentsResponse)) as GetPostCommentsResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GetPostCommentsResponse create() => GetPostCommentsResponse._();
   GetPostCommentsResponse createEmptyInstance() => create();
@@ -1423,7 +1480,7 @@ class GetPostCommentsResponse extends $pb.GeneratedMessage {
   static GetPostCommentsResponse? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.List<PostCommentItem> get items => $_getList(0);
+  $pb.PbList<PostCommentItem> get items => $_getList(0);
 
   @$pb.TagNumber(2)
   $core.int get page => $_getIZ(1);
@@ -1432,7 +1489,7 @@ class GetPostCommentsResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $core.bool hasPage() => $_has(1);
   @$pb.TagNumber(2)
-  void clearPage() => clearField(2);
+  void clearPage() => $_clearField(2);
 
   @$pb.TagNumber(3)
   $core.int get pageSize => $_getIZ(2);
@@ -1441,7 +1498,7 @@ class GetPostCommentsResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   $core.bool hasPageSize() => $_has(2);
   @$pb.TagNumber(3)
-  void clearPageSize() => clearField(3);
+  void clearPageSize() => $_clearField(3);
 
   @$pb.TagNumber(4)
   $core.bool get hasMore => $_getBF(3);
@@ -1450,42 +1507,43 @@ class GetPostCommentsResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   $core.bool hasHasMore() => $_has(3);
   @$pb.TagNumber(4)
-  void clearHasMore() => clearField(4);
+  void clearHasMore() => $_clearField(4);
 }
 
 class GetPostLikesResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GetPostLikesResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'app.v1'), createEmptyInstance: create)
-    ..pc<PostAuthorRelation>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'items', $pb.PbFieldType.PM, subBuilder: PostAuthorRelation.create)
-    ..a<$core.int>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'page', $pb.PbFieldType.O3)
-    ..a<$core.int>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pageSize', $pb.PbFieldType.O3)
-    ..aOB(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'hasMore')
-    ..hasRequiredFields = false
-  ;
-
-  GetPostLikesResponse._() : super();
   factory GetPostLikesResponse({
     $core.Iterable<PostAuthorRelation>? items,
     $core.int? page,
     $core.int? pageSize,
     $core.bool? hasMore,
   }) {
-    final _result = create();
+    final $result = create();
     if (items != null) {
-      _result.items.addAll(items);
+      $result.items.addAll(items);
     }
     if (page != null) {
-      _result.page = page;
+      $result.page = page;
     }
     if (pageSize != null) {
-      _result.pageSize = pageSize;
+      $result.pageSize = pageSize;
     }
     if (hasMore != null) {
-      _result.hasMore = hasMore;
+      $result.hasMore = hasMore;
     }
-    return _result;
+    return $result;
   }
+  GetPostLikesResponse._() : super();
   factory GetPostLikesResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory GetPostLikesResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetPostLikesResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'app.v1'), createEmptyInstance: create)
+    ..pc<PostAuthorRelation>(1, _omitFieldNames ? '' : 'items', $pb.PbFieldType.PM, subBuilder: PostAuthorRelation.create)
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'page', $pb.PbFieldType.O3)
+    ..a<$core.int>(3, _omitFieldNames ? '' : 'pageSize', $pb.PbFieldType.O3)
+    ..aOB(4, _omitFieldNames ? '' : 'hasMore')
+    ..hasRequiredFields = false
+  ;
+
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -1495,8 +1553,10 @@ class GetPostLikesResponse extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  GetPostLikesResponse copyWith(void Function(GetPostLikesResponse) updates) => super.copyWith((message) => updates(message as GetPostLikesResponse)) as GetPostLikesResponse; // ignore: deprecated_member_use
+  GetPostLikesResponse copyWith(void Function(GetPostLikesResponse) updates) => super.copyWith((message) => updates(message as GetPostLikesResponse)) as GetPostLikesResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GetPostLikesResponse create() => GetPostLikesResponse._();
   GetPostLikesResponse createEmptyInstance() => create();
@@ -1506,7 +1566,7 @@ class GetPostLikesResponse extends $pb.GeneratedMessage {
   static GetPostLikesResponse? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.List<PostAuthorRelation> get items => $_getList(0);
+  $pb.PbList<PostAuthorRelation> get items => $_getList(0);
 
   @$pb.TagNumber(2)
   $core.int get page => $_getIZ(1);
@@ -1515,7 +1575,7 @@ class GetPostLikesResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $core.bool hasPage() => $_has(1);
   @$pb.TagNumber(2)
-  void clearPage() => clearField(2);
+  void clearPage() => $_clearField(2);
 
   @$pb.TagNumber(3)
   $core.int get pageSize => $_getIZ(2);
@@ -1524,7 +1584,7 @@ class GetPostLikesResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   $core.bool hasPageSize() => $_has(2);
   @$pb.TagNumber(3)
-  void clearPageSize() => clearField(3);
+  void clearPageSize() => $_clearField(3);
 
   @$pb.TagNumber(4)
   $core.bool get hasMore => $_getBF(3);
@@ -1533,27 +1593,28 @@ class GetPostLikesResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   $core.bool hasHasMore() => $_has(3);
   @$pb.TagNumber(4)
-  void clearHasMore() => clearField(4);
+  void clearHasMore() => $_clearField(4);
 }
 
 class LikePostRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'LikePostRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'app.v1'), createEmptyInstance: create)
-    ..aInt64(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'postId')
-    ..hasRequiredFields = false
-  ;
-
-  LikePostRequest._() : super();
   factory LikePostRequest({
     $fixnum.Int64? postId,
   }) {
-    final _result = create();
+    final $result = create();
     if (postId != null) {
-      _result.postId = postId;
+      $result.postId = postId;
     }
-    return _result;
+    return $result;
   }
+  LikePostRequest._() : super();
   factory LikePostRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory LikePostRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'LikePostRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'app.v1'), createEmptyInstance: create)
+    ..aInt64(1, _omitFieldNames ? '' : 'postId')
+    ..hasRequiredFields = false
+  ;
+
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -1563,8 +1624,10 @@ class LikePostRequest extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  LikePostRequest copyWith(void Function(LikePostRequest) updates) => super.copyWith((message) => updates(message as LikePostRequest)) as LikePostRequest; // ignore: deprecated_member_use
+  LikePostRequest copyWith(void Function(LikePostRequest) updates) => super.copyWith((message) => updates(message as LikePostRequest)) as LikePostRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static LikePostRequest create() => LikePostRequest._();
   LikePostRequest createEmptyInstance() => create();
@@ -1580,37 +1643,38 @@ class LikePostRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $core.bool hasPostId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearPostId() => clearField(1);
+  void clearPostId() => $_clearField(1);
 }
 
 class LikePostResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'LikePostResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'app.v1'), createEmptyInstance: create)
-    ..aOB(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'success')
-    ..aInt64(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'likeCount')
-    ..aOB(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'isLiked')
-    ..hasRequiredFields = false
-  ;
-
-  LikePostResponse._() : super();
   factory LikePostResponse({
     $core.bool? success,
     $fixnum.Int64? likeCount,
     $core.bool? isLiked,
   }) {
-    final _result = create();
+    final $result = create();
     if (success != null) {
-      _result.success = success;
+      $result.success = success;
     }
     if (likeCount != null) {
-      _result.likeCount = likeCount;
+      $result.likeCount = likeCount;
     }
     if (isLiked != null) {
-      _result.isLiked = isLiked;
+      $result.isLiked = isLiked;
     }
-    return _result;
+    return $result;
   }
+  LikePostResponse._() : super();
   factory LikePostResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory LikePostResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'LikePostResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'app.v1'), createEmptyInstance: create)
+    ..aOB(1, _omitFieldNames ? '' : 'success')
+    ..aInt64(2, _omitFieldNames ? '' : 'likeCount')
+    ..aOB(3, _omitFieldNames ? '' : 'isLiked')
+    ..hasRequiredFields = false
+  ;
+
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -1620,8 +1684,10 @@ class LikePostResponse extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  LikePostResponse copyWith(void Function(LikePostResponse) updates) => super.copyWith((message) => updates(message as LikePostResponse)) as LikePostResponse; // ignore: deprecated_member_use
+  LikePostResponse copyWith(void Function(LikePostResponse) updates) => super.copyWith((message) => updates(message as LikePostResponse)) as LikePostResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static LikePostResponse create() => LikePostResponse._();
   LikePostResponse createEmptyInstance() => create();
@@ -1637,7 +1703,7 @@ class LikePostResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $core.bool hasSuccess() => $_has(0);
   @$pb.TagNumber(1)
-  void clearSuccess() => clearField(1);
+  void clearSuccess() => $_clearField(1);
 
   @$pb.TagNumber(2)
   $fixnum.Int64 get likeCount => $_getI64(1);
@@ -1646,7 +1712,7 @@ class LikePostResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $core.bool hasLikeCount() => $_has(1);
   @$pb.TagNumber(2)
-  void clearLikeCount() => clearField(2);
+  void clearLikeCount() => $_clearField(2);
 
   @$pb.TagNumber(3)
   $core.bool get isLiked => $_getBF(2);
@@ -1655,27 +1721,28 @@ class LikePostResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   $core.bool hasIsLiked() => $_has(2);
   @$pb.TagNumber(3)
-  void clearIsLiked() => clearField(3);
+  void clearIsLiked() => $_clearField(3);
 }
 
 class UnlikePostRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'UnlikePostRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'app.v1'), createEmptyInstance: create)
-    ..aInt64(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'postId')
-    ..hasRequiredFields = false
-  ;
-
-  UnlikePostRequest._() : super();
   factory UnlikePostRequest({
     $fixnum.Int64? postId,
   }) {
-    final _result = create();
+    final $result = create();
     if (postId != null) {
-      _result.postId = postId;
+      $result.postId = postId;
     }
-    return _result;
+    return $result;
   }
+  UnlikePostRequest._() : super();
   factory UnlikePostRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory UnlikePostRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'UnlikePostRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'app.v1'), createEmptyInstance: create)
+    ..aInt64(1, _omitFieldNames ? '' : 'postId')
+    ..hasRequiredFields = false
+  ;
+
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -1685,8 +1752,10 @@ class UnlikePostRequest extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  UnlikePostRequest copyWith(void Function(UnlikePostRequest) updates) => super.copyWith((message) => updates(message as UnlikePostRequest)) as UnlikePostRequest; // ignore: deprecated_member_use
+  UnlikePostRequest copyWith(void Function(UnlikePostRequest) updates) => super.copyWith((message) => updates(message as UnlikePostRequest)) as UnlikePostRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static UnlikePostRequest create() => UnlikePostRequest._();
   UnlikePostRequest createEmptyInstance() => create();
@@ -1702,37 +1771,38 @@ class UnlikePostRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $core.bool hasPostId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearPostId() => clearField(1);
+  void clearPostId() => $_clearField(1);
 }
 
 class UnlikePostResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'UnlikePostResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'app.v1'), createEmptyInstance: create)
-    ..aOB(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'success')
-    ..aInt64(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'likeCount')
-    ..aOB(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'isLiked')
-    ..hasRequiredFields = false
-  ;
-
-  UnlikePostResponse._() : super();
   factory UnlikePostResponse({
     $core.bool? success,
     $fixnum.Int64? likeCount,
     $core.bool? isLiked,
   }) {
-    final _result = create();
+    final $result = create();
     if (success != null) {
-      _result.success = success;
+      $result.success = success;
     }
     if (likeCount != null) {
-      _result.likeCount = likeCount;
+      $result.likeCount = likeCount;
     }
     if (isLiked != null) {
-      _result.isLiked = isLiked;
+      $result.isLiked = isLiked;
     }
-    return _result;
+    return $result;
   }
+  UnlikePostResponse._() : super();
   factory UnlikePostResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory UnlikePostResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'UnlikePostResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'app.v1'), createEmptyInstance: create)
+    ..aOB(1, _omitFieldNames ? '' : 'success')
+    ..aInt64(2, _omitFieldNames ? '' : 'likeCount')
+    ..aOB(3, _omitFieldNames ? '' : 'isLiked')
+    ..hasRequiredFields = false
+  ;
+
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -1742,8 +1812,10 @@ class UnlikePostResponse extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  UnlikePostResponse copyWith(void Function(UnlikePostResponse) updates) => super.copyWith((message) => updates(message as UnlikePostResponse)) as UnlikePostResponse; // ignore: deprecated_member_use
+  UnlikePostResponse copyWith(void Function(UnlikePostResponse) updates) => super.copyWith((message) => updates(message as UnlikePostResponse)) as UnlikePostResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static UnlikePostResponse create() => UnlikePostResponse._();
   UnlikePostResponse createEmptyInstance() => create();
@@ -1759,7 +1831,7 @@ class UnlikePostResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $core.bool hasSuccess() => $_has(0);
   @$pb.TagNumber(1)
-  void clearSuccess() => clearField(1);
+  void clearSuccess() => $_clearField(1);
 
   @$pb.TagNumber(2)
   $fixnum.Int64 get likeCount => $_getI64(1);
@@ -1768,7 +1840,7 @@ class UnlikePostResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $core.bool hasLikeCount() => $_has(1);
   @$pb.TagNumber(2)
-  void clearLikeCount() => clearField(2);
+  void clearLikeCount() => $_clearField(2);
 
   @$pb.TagNumber(3)
   $core.bool get isLiked => $_getBF(2);
@@ -1777,32 +1849,33 @@ class UnlikePostResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   $core.bool hasIsLiked() => $_has(2);
   @$pb.TagNumber(3)
-  void clearIsLiked() => clearField(3);
+  void clearIsLiked() => $_clearField(3);
 }
 
 class CreatePostCommentRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'CreatePostCommentRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'app.v1'), createEmptyInstance: create)
-    ..aInt64(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'postId')
-    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'content')
-    ..hasRequiredFields = false
-  ;
-
-  CreatePostCommentRequest._() : super();
   factory CreatePostCommentRequest({
     $fixnum.Int64? postId,
     $core.String? content,
   }) {
-    final _result = create();
+    final $result = create();
     if (postId != null) {
-      _result.postId = postId;
+      $result.postId = postId;
     }
     if (content != null) {
-      _result.content = content;
+      $result.content = content;
     }
-    return _result;
+    return $result;
   }
+  CreatePostCommentRequest._() : super();
   factory CreatePostCommentRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory CreatePostCommentRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CreatePostCommentRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'app.v1'), createEmptyInstance: create)
+    ..aInt64(1, _omitFieldNames ? '' : 'postId')
+    ..aOS(2, _omitFieldNames ? '' : 'content')
+    ..hasRequiredFields = false
+  ;
+
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -1812,8 +1885,10 @@ class CreatePostCommentRequest extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  CreatePostCommentRequest copyWith(void Function(CreatePostCommentRequest) updates) => super.copyWith((message) => updates(message as CreatePostCommentRequest)) as CreatePostCommentRequest; // ignore: deprecated_member_use
+  CreatePostCommentRequest copyWith(void Function(CreatePostCommentRequest) updates) => super.copyWith((message) => updates(message as CreatePostCommentRequest)) as CreatePostCommentRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static CreatePostCommentRequest create() => CreatePostCommentRequest._();
   CreatePostCommentRequest createEmptyInstance() => create();
@@ -1829,7 +1904,7 @@ class CreatePostCommentRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $core.bool hasPostId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearPostId() => clearField(1);
+  void clearPostId() => $_clearField(1);
 
   @$pb.TagNumber(2)
   $core.String get content => $_getSZ(1);
@@ -1838,27 +1913,28 @@ class CreatePostCommentRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $core.bool hasContent() => $_has(1);
   @$pb.TagNumber(2)
-  void clearContent() => clearField(2);
+  void clearContent() => $_clearField(2);
 }
 
 class CreatePostCommentResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'CreatePostCommentResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'app.v1'), createEmptyInstance: create)
-    ..aOM<PostCommentItem>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'comment', subBuilder: PostCommentItem.create)
-    ..hasRequiredFields = false
-  ;
-
-  CreatePostCommentResponse._() : super();
   factory CreatePostCommentResponse({
     PostCommentItem? comment,
   }) {
-    final _result = create();
+    final $result = create();
     if (comment != null) {
-      _result.comment = comment;
+      $result.comment = comment;
     }
-    return _result;
+    return $result;
   }
+  CreatePostCommentResponse._() : super();
   factory CreatePostCommentResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory CreatePostCommentResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CreatePostCommentResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'app.v1'), createEmptyInstance: create)
+    ..aOM<PostCommentItem>(1, _omitFieldNames ? '' : 'comment', subBuilder: PostCommentItem.create)
+    ..hasRequiredFields = false
+  ;
+
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -1868,8 +1944,10 @@ class CreatePostCommentResponse extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  CreatePostCommentResponse copyWith(void Function(CreatePostCommentResponse) updates) => super.copyWith((message) => updates(message as CreatePostCommentResponse)) as CreatePostCommentResponse; // ignore: deprecated_member_use
+  CreatePostCommentResponse copyWith(void Function(CreatePostCommentResponse) updates) => super.copyWith((message) => updates(message as CreatePostCommentResponse)) as CreatePostCommentResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static CreatePostCommentResponse create() => CreatePostCommentResponse._();
   CreatePostCommentResponse createEmptyInstance() => create();
@@ -1881,43 +1959,44 @@ class CreatePostCommentResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   PostCommentItem get comment => $_getN(0);
   @$pb.TagNumber(1)
-  set comment(PostCommentItem v) { setField(1, v); }
+  set comment(PostCommentItem v) { $_setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasComment() => $_has(0);
   @$pb.TagNumber(1)
-  void clearComment() => clearField(1);
+  void clearComment() => $_clearField(1);
   @$pb.TagNumber(1)
   PostCommentItem ensureComment() => $_ensure(0);
 }
 
 class ReplyPostCommentRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'ReplyPostCommentRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'app.v1'), createEmptyInstance: create)
-    ..aInt64(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'postId')
-    ..aInt64(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'commentId')
-    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'content')
-    ..hasRequiredFields = false
-  ;
-
-  ReplyPostCommentRequest._() : super();
   factory ReplyPostCommentRequest({
     $fixnum.Int64? postId,
     $fixnum.Int64? commentId,
     $core.String? content,
   }) {
-    final _result = create();
+    final $result = create();
     if (postId != null) {
-      _result.postId = postId;
+      $result.postId = postId;
     }
     if (commentId != null) {
-      _result.commentId = commentId;
+      $result.commentId = commentId;
     }
     if (content != null) {
-      _result.content = content;
+      $result.content = content;
     }
-    return _result;
+    return $result;
   }
+  ReplyPostCommentRequest._() : super();
   factory ReplyPostCommentRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory ReplyPostCommentRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ReplyPostCommentRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'app.v1'), createEmptyInstance: create)
+    ..aInt64(1, _omitFieldNames ? '' : 'postId')
+    ..aInt64(2, _omitFieldNames ? '' : 'commentId')
+    ..aOS(3, _omitFieldNames ? '' : 'content')
+    ..hasRequiredFields = false
+  ;
+
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -1927,8 +2006,10 @@ class ReplyPostCommentRequest extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  ReplyPostCommentRequest copyWith(void Function(ReplyPostCommentRequest) updates) => super.copyWith((message) => updates(message as ReplyPostCommentRequest)) as ReplyPostCommentRequest; // ignore: deprecated_member_use
+  ReplyPostCommentRequest copyWith(void Function(ReplyPostCommentRequest) updates) => super.copyWith((message) => updates(message as ReplyPostCommentRequest)) as ReplyPostCommentRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static ReplyPostCommentRequest create() => ReplyPostCommentRequest._();
   ReplyPostCommentRequest createEmptyInstance() => create();
@@ -1944,7 +2025,7 @@ class ReplyPostCommentRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $core.bool hasPostId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearPostId() => clearField(1);
+  void clearPostId() => $_clearField(1);
 
   @$pb.TagNumber(2)
   $fixnum.Int64 get commentId => $_getI64(1);
@@ -1953,7 +2034,7 @@ class ReplyPostCommentRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $core.bool hasCommentId() => $_has(1);
   @$pb.TagNumber(2)
-  void clearCommentId() => clearField(2);
+  void clearCommentId() => $_clearField(2);
 
   @$pb.TagNumber(3)
   $core.String get content => $_getSZ(2);
@@ -1962,27 +2043,28 @@ class ReplyPostCommentRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   $core.bool hasContent() => $_has(2);
   @$pb.TagNumber(3)
-  void clearContent() => clearField(3);
+  void clearContent() => $_clearField(3);
 }
 
 class ReplyPostCommentResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'ReplyPostCommentResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'app.v1'), createEmptyInstance: create)
-    ..aOM<PostCommentItem>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'comment', subBuilder: PostCommentItem.create)
-    ..hasRequiredFields = false
-  ;
-
-  ReplyPostCommentResponse._() : super();
   factory ReplyPostCommentResponse({
     PostCommentItem? comment,
   }) {
-    final _result = create();
+    final $result = create();
     if (comment != null) {
-      _result.comment = comment;
+      $result.comment = comment;
     }
-    return _result;
+    return $result;
   }
+  ReplyPostCommentResponse._() : super();
   factory ReplyPostCommentResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory ReplyPostCommentResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ReplyPostCommentResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'app.v1'), createEmptyInstance: create)
+    ..aOM<PostCommentItem>(1, _omitFieldNames ? '' : 'comment', subBuilder: PostCommentItem.create)
+    ..hasRequiredFields = false
+  ;
+
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -1992,8 +2074,10 @@ class ReplyPostCommentResponse extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  ReplyPostCommentResponse copyWith(void Function(ReplyPostCommentResponse) updates) => super.copyWith((message) => updates(message as ReplyPostCommentResponse)) as ReplyPostCommentResponse; // ignore: deprecated_member_use
+  ReplyPostCommentResponse copyWith(void Function(ReplyPostCommentResponse) updates) => super.copyWith((message) => updates(message as ReplyPostCommentResponse)) as ReplyPostCommentResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static ReplyPostCommentResponse create() => ReplyPostCommentResponse._();
   ReplyPostCommentResponse createEmptyInstance() => create();
@@ -2005,38 +2089,39 @@ class ReplyPostCommentResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   PostCommentItem get comment => $_getN(0);
   @$pb.TagNumber(1)
-  set comment(PostCommentItem v) { setField(1, v); }
+  set comment(PostCommentItem v) { $_setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasComment() => $_has(0);
   @$pb.TagNumber(1)
-  void clearComment() => clearField(1);
+  void clearComment() => $_clearField(1);
   @$pb.TagNumber(1)
   PostCommentItem ensureComment() => $_ensure(0);
 }
 
 class DeletePostCommentRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'DeletePostCommentRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'app.v1'), createEmptyInstance: create)
-    ..aInt64(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'commentId')
-    ..aInt64(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'postId')
-    ..hasRequiredFields = false
-  ;
-
-  DeletePostCommentRequest._() : super();
   factory DeletePostCommentRequest({
     $fixnum.Int64? commentId,
     $fixnum.Int64? postId,
   }) {
-    final _result = create();
+    final $result = create();
     if (commentId != null) {
-      _result.commentId = commentId;
+      $result.commentId = commentId;
     }
     if (postId != null) {
-      _result.postId = postId;
+      $result.postId = postId;
     }
-    return _result;
+    return $result;
   }
+  DeletePostCommentRequest._() : super();
   factory DeletePostCommentRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory DeletePostCommentRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DeletePostCommentRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'app.v1'), createEmptyInstance: create)
+    ..aInt64(1, _omitFieldNames ? '' : 'commentId')
+    ..aInt64(2, _omitFieldNames ? '' : 'postId')
+    ..hasRequiredFields = false
+  ;
+
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -2046,8 +2131,10 @@ class DeletePostCommentRequest extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  DeletePostCommentRequest copyWith(void Function(DeletePostCommentRequest) updates) => super.copyWith((message) => updates(message as DeletePostCommentRequest)) as DeletePostCommentRequest; // ignore: deprecated_member_use
+  DeletePostCommentRequest copyWith(void Function(DeletePostCommentRequest) updates) => super.copyWith((message) => updates(message as DeletePostCommentRequest)) as DeletePostCommentRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static DeletePostCommentRequest create() => DeletePostCommentRequest._();
   DeletePostCommentRequest createEmptyInstance() => create();
@@ -2063,7 +2150,7 @@ class DeletePostCommentRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $core.bool hasCommentId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearCommentId() => clearField(1);
+  void clearCommentId() => $_clearField(1);
 
   @$pb.TagNumber(2)
   $fixnum.Int64 get postId => $_getI64(1);
@@ -2072,27 +2159,28 @@ class DeletePostCommentRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $core.bool hasPostId() => $_has(1);
   @$pb.TagNumber(2)
-  void clearPostId() => clearField(2);
+  void clearPostId() => $_clearField(2);
 }
 
 class DeletePostCommentResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'DeletePostCommentResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'app.v1'), createEmptyInstance: create)
-    ..aOB(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'success')
-    ..hasRequiredFields = false
-  ;
-
-  DeletePostCommentResponse._() : super();
   factory DeletePostCommentResponse({
     $core.bool? success,
   }) {
-    final _result = create();
+    final $result = create();
     if (success != null) {
-      _result.success = success;
+      $result.success = success;
     }
-    return _result;
+    return $result;
   }
+  DeletePostCommentResponse._() : super();
   factory DeletePostCommentResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory DeletePostCommentResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DeletePostCommentResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'app.v1'), createEmptyInstance: create)
+    ..aOB(1, _omitFieldNames ? '' : 'success')
+    ..hasRequiredFields = false
+  ;
+
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -2102,8 +2190,10 @@ class DeletePostCommentResponse extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  DeletePostCommentResponse copyWith(void Function(DeletePostCommentResponse) updates) => super.copyWith((message) => updates(message as DeletePostCommentResponse)) as DeletePostCommentResponse; // ignore: deprecated_member_use
+  DeletePostCommentResponse copyWith(void Function(DeletePostCommentResponse) updates) => super.copyWith((message) => updates(message as DeletePostCommentResponse)) as DeletePostCommentResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static DeletePostCommentResponse create() => DeletePostCommentResponse._();
   DeletePostCommentResponse createEmptyInstance() => create();
@@ -2119,27 +2209,28 @@ class DeletePostCommentResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $core.bool hasSuccess() => $_has(0);
   @$pb.TagNumber(1)
-  void clearSuccess() => clearField(1);
+  void clearSuccess() => $_clearField(1);
 }
 
 class DeletePostRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'DeletePostRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'app.v1'), createEmptyInstance: create)
-    ..aInt64(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'postId')
-    ..hasRequiredFields = false
-  ;
-
-  DeletePostRequest._() : super();
   factory DeletePostRequest({
     $fixnum.Int64? postId,
   }) {
-    final _result = create();
+    final $result = create();
     if (postId != null) {
-      _result.postId = postId;
+      $result.postId = postId;
     }
-    return _result;
+    return $result;
   }
+  DeletePostRequest._() : super();
   factory DeletePostRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory DeletePostRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DeletePostRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'app.v1'), createEmptyInstance: create)
+    ..aInt64(1, _omitFieldNames ? '' : 'postId')
+    ..hasRequiredFields = false
+  ;
+
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -2149,8 +2240,10 @@ class DeletePostRequest extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  DeletePostRequest copyWith(void Function(DeletePostRequest) updates) => super.copyWith((message) => updates(message as DeletePostRequest)) as DeletePostRequest; // ignore: deprecated_member_use
+  DeletePostRequest copyWith(void Function(DeletePostRequest) updates) => super.copyWith((message) => updates(message as DeletePostRequest)) as DeletePostRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static DeletePostRequest create() => DeletePostRequest._();
   DeletePostRequest createEmptyInstance() => create();
@@ -2166,27 +2259,28 @@ class DeletePostRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $core.bool hasPostId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearPostId() => clearField(1);
+  void clearPostId() => $_clearField(1);
 }
 
 class DeletePostResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'DeletePostResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'app.v1'), createEmptyInstance: create)
-    ..aOB(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'success')
-    ..hasRequiredFields = false
-  ;
-
-  DeletePostResponse._() : super();
   factory DeletePostResponse({
     $core.bool? success,
   }) {
-    final _result = create();
+    final $result = create();
     if (success != null) {
-      _result.success = success;
+      $result.success = success;
     }
-    return _result;
+    return $result;
   }
+  DeletePostResponse._() : super();
   factory DeletePostResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory DeletePostResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DeletePostResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'app.v1'), createEmptyInstance: create)
+    ..aOB(1, _omitFieldNames ? '' : 'success')
+    ..hasRequiredFields = false
+  ;
+
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -2196,8 +2290,10 @@ class DeletePostResponse extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  DeletePostResponse copyWith(void Function(DeletePostResponse) updates) => super.copyWith((message) => updates(message as DeletePostResponse)) as DeletePostResponse; // ignore: deprecated_member_use
+  DeletePostResponse copyWith(void Function(DeletePostResponse) updates) => super.copyWith((message) => updates(message as DeletePostResponse)) as DeletePostResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static DeletePostResponse create() => DeletePostResponse._();
   DeletePostResponse createEmptyInstance() => create();
@@ -2213,32 +2309,33 @@ class DeletePostResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $core.bool hasSuccess() => $_has(0);
   @$pb.TagNumber(1)
-  void clearSuccess() => clearField(1);
+  void clearSuccess() => $_clearField(1);
 }
 
 class UpdatePostVisibilityRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'UpdatePostVisibilityRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'app.v1'), createEmptyInstance: create)
-    ..aInt64(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'postId')
-    ..e<PostVisibility>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'visibility', $pb.PbFieldType.OE, defaultOrMaker: PostVisibility.UNSPECIFIED, valueOf: PostVisibility.valueOf, enumValues: PostVisibility.values)
-    ..hasRequiredFields = false
-  ;
-
-  UpdatePostVisibilityRequest._() : super();
   factory UpdatePostVisibilityRequest({
     $fixnum.Int64? postId,
     PostVisibility? visibility,
   }) {
-    final _result = create();
+    final $result = create();
     if (postId != null) {
-      _result.postId = postId;
+      $result.postId = postId;
     }
     if (visibility != null) {
-      _result.visibility = visibility;
+      $result.visibility = visibility;
     }
-    return _result;
+    return $result;
   }
+  UpdatePostVisibilityRequest._() : super();
   factory UpdatePostVisibilityRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory UpdatePostVisibilityRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'UpdatePostVisibilityRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'app.v1'), createEmptyInstance: create)
+    ..aInt64(1, _omitFieldNames ? '' : 'postId')
+    ..e<PostVisibility>(2, _omitFieldNames ? '' : 'visibility', $pb.PbFieldType.OE, defaultOrMaker: PostVisibility.UNSPECIFIED, valueOf: PostVisibility.valueOf, enumValues: PostVisibility.values)
+    ..hasRequiredFields = false
+  ;
+
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -2248,8 +2345,10 @@ class UpdatePostVisibilityRequest extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  UpdatePostVisibilityRequest copyWith(void Function(UpdatePostVisibilityRequest) updates) => super.copyWith((message) => updates(message as UpdatePostVisibilityRequest)) as UpdatePostVisibilityRequest; // ignore: deprecated_member_use
+  UpdatePostVisibilityRequest copyWith(void Function(UpdatePostVisibilityRequest) updates) => super.copyWith((message) => updates(message as UpdatePostVisibilityRequest)) as UpdatePostVisibilityRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static UpdatePostVisibilityRequest create() => UpdatePostVisibilityRequest._();
   UpdatePostVisibilityRequest createEmptyInstance() => create();
@@ -2265,36 +2364,37 @@ class UpdatePostVisibilityRequest extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $core.bool hasPostId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearPostId() => clearField(1);
+  void clearPostId() => $_clearField(1);
 
   @$pb.TagNumber(2)
   PostVisibility get visibility => $_getN(1);
   @$pb.TagNumber(2)
-  set visibility(PostVisibility v) { setField(2, v); }
+  set visibility(PostVisibility v) { $_setField(2, v); }
   @$pb.TagNumber(2)
   $core.bool hasVisibility() => $_has(1);
   @$pb.TagNumber(2)
-  void clearVisibility() => clearField(2);
+  void clearVisibility() => $_clearField(2);
 }
 
 class UpdatePostVisibilityResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'UpdatePostVisibilityResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'app.v1'), createEmptyInstance: create)
-    ..aOM<PostItem>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'post', subBuilder: PostItem.create)
-    ..hasRequiredFields = false
-  ;
-
-  UpdatePostVisibilityResponse._() : super();
   factory UpdatePostVisibilityResponse({
     PostItem? post,
   }) {
-    final _result = create();
+    final $result = create();
     if (post != null) {
-      _result.post = post;
+      $result.post = post;
     }
-    return _result;
+    return $result;
   }
+  UpdatePostVisibilityResponse._() : super();
   factory UpdatePostVisibilityResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory UpdatePostVisibilityResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'UpdatePostVisibilityResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'app.v1'), createEmptyInstance: create)
+    ..aOM<PostItem>(1, _omitFieldNames ? '' : 'post', subBuilder: PostItem.create)
+    ..hasRequiredFields = false
+  ;
+
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -2304,8 +2404,10 @@ class UpdatePostVisibilityResponse extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  UpdatePostVisibilityResponse copyWith(void Function(UpdatePostVisibilityResponse) updates) => super.copyWith((message) => updates(message as UpdatePostVisibilityResponse)) as UpdatePostVisibilityResponse; // ignore: deprecated_member_use
+  UpdatePostVisibilityResponse copyWith(void Function(UpdatePostVisibilityResponse) updates) => super.copyWith((message) => updates(message as UpdatePostVisibilityResponse)) as UpdatePostVisibilityResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static UpdatePostVisibilityResponse create() => UpdatePostVisibilityResponse._();
   UpdatePostVisibilityResponse createEmptyInstance() => create();
@@ -2317,36 +2419,16 @@ class UpdatePostVisibilityResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   PostItem get post => $_getN(0);
   @$pb.TagNumber(1)
-  set post(PostItem v) { setField(1, v); }
+  set post(PostItem v) { $_setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasPost() => $_has(0);
   @$pb.TagNumber(1)
-  void clearPost() => clearField(1);
+  void clearPost() => $_clearField(1);
   @$pb.TagNumber(1)
   PostItem ensurePost() => $_ensure(0);
 }
 
 class PostNotificationItem extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'PostNotificationItem', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'app.v1'), createEmptyInstance: create)
-    ..aInt64(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'notificationId')
-    ..e<PostNotificationType>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'type', $pb.PbFieldType.OE, defaultOrMaker: PostNotificationType.POST_LIKED, valueOf: PostNotificationType.valueOf, enumValues: PostNotificationType.values)
-    ..aOM<PostAuthorRelation>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'actor', subBuilder: PostAuthorRelation.create)
-    ..aInt64(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'postId')
-    ..aInt64(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'commentId')
-    ..aInt64(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'replyCommentId')
-    ..aOS(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'previewText')
-    ..aOS(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'previewThumbUrl')
-    ..aOB(9, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'isRead')
-    ..aInt64(10, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'readAt')
-    ..aOB(11, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'isPostDeleted')
-    ..aOB(12, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'isCommentDeleted')
-    ..aOB(13, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'isReplyCommentDeleted')
-    ..aInt64(14, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'createdAt')
-    ..aInt64(15, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'updatedAt')
-    ..hasRequiredFields = false
-  ;
-
-  PostNotificationItem._() : super();
   factory PostNotificationItem({
     $fixnum.Int64? notificationId,
     PostNotificationType? type,
@@ -2364,56 +2446,77 @@ class PostNotificationItem extends $pb.GeneratedMessage {
     $fixnum.Int64? createdAt,
     $fixnum.Int64? updatedAt,
   }) {
-    final _result = create();
+    final $result = create();
     if (notificationId != null) {
-      _result.notificationId = notificationId;
+      $result.notificationId = notificationId;
     }
     if (type != null) {
-      _result.type = type;
+      $result.type = type;
     }
     if (actor != null) {
-      _result.actor = actor;
+      $result.actor = actor;
     }
     if (postId != null) {
-      _result.postId = postId;
+      $result.postId = postId;
     }
     if (commentId != null) {
-      _result.commentId = commentId;
+      $result.commentId = commentId;
     }
     if (replyCommentId != null) {
-      _result.replyCommentId = replyCommentId;
+      $result.replyCommentId = replyCommentId;
     }
     if (previewText != null) {
-      _result.previewText = previewText;
+      $result.previewText = previewText;
     }
     if (previewThumbUrl != null) {
-      _result.previewThumbUrl = previewThumbUrl;
+      $result.previewThumbUrl = previewThumbUrl;
     }
     if (isRead != null) {
-      _result.isRead = isRead;
+      $result.isRead = isRead;
     }
     if (readAt != null) {
-      _result.readAt = readAt;
+      $result.readAt = readAt;
     }
     if (isPostDeleted != null) {
-      _result.isPostDeleted = isPostDeleted;
+      $result.isPostDeleted = isPostDeleted;
     }
     if (isCommentDeleted != null) {
-      _result.isCommentDeleted = isCommentDeleted;
+      $result.isCommentDeleted = isCommentDeleted;
     }
     if (isReplyCommentDeleted != null) {
-      _result.isReplyCommentDeleted = isReplyCommentDeleted;
+      $result.isReplyCommentDeleted = isReplyCommentDeleted;
     }
     if (createdAt != null) {
-      _result.createdAt = createdAt;
+      $result.createdAt = createdAt;
     }
     if (updatedAt != null) {
-      _result.updatedAt = updatedAt;
+      $result.updatedAt = updatedAt;
     }
-    return _result;
+    return $result;
   }
+  PostNotificationItem._() : super();
   factory PostNotificationItem.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory PostNotificationItem.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'PostNotificationItem', package: const $pb.PackageName(_omitMessageNames ? '' : 'app.v1'), createEmptyInstance: create)
+    ..aInt64(1, _omitFieldNames ? '' : 'notificationId')
+    ..e<PostNotificationType>(2, _omitFieldNames ? '' : 'type', $pb.PbFieldType.OE, defaultOrMaker: PostNotificationType.POST_LIKED, valueOf: PostNotificationType.valueOf, enumValues: PostNotificationType.values)
+    ..aOM<PostAuthorRelation>(3, _omitFieldNames ? '' : 'actor', subBuilder: PostAuthorRelation.create)
+    ..aInt64(4, _omitFieldNames ? '' : 'postId')
+    ..aInt64(5, _omitFieldNames ? '' : 'commentId')
+    ..aInt64(6, _omitFieldNames ? '' : 'replyCommentId')
+    ..aOS(7, _omitFieldNames ? '' : 'previewText')
+    ..aOS(8, _omitFieldNames ? '' : 'previewThumbUrl')
+    ..aOB(9, _omitFieldNames ? '' : 'isRead')
+    ..aInt64(10, _omitFieldNames ? '' : 'readAt')
+    ..aOB(11, _omitFieldNames ? '' : 'isPostDeleted')
+    ..aOB(12, _omitFieldNames ? '' : 'isCommentDeleted')
+    ..aOB(13, _omitFieldNames ? '' : 'isReplyCommentDeleted')
+    ..aInt64(14, _omitFieldNames ? '' : 'createdAt')
+    ..aInt64(15, _omitFieldNames ? '' : 'updatedAt')
+    ..hasRequiredFields = false
+  ;
+
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -2423,8 +2526,10 @@ class PostNotificationItem extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  PostNotificationItem copyWith(void Function(PostNotificationItem) updates) => super.copyWith((message) => updates(message as PostNotificationItem)) as PostNotificationItem; // ignore: deprecated_member_use
+  PostNotificationItem copyWith(void Function(PostNotificationItem) updates) => super.copyWith((message) => updates(message as PostNotificationItem)) as PostNotificationItem;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static PostNotificationItem create() => PostNotificationItem._();
   PostNotificationItem createEmptyInstance() => create();
@@ -2440,25 +2545,25 @@ class PostNotificationItem extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $core.bool hasNotificationId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearNotificationId() => clearField(1);
+  void clearNotificationId() => $_clearField(1);
 
   @$pb.TagNumber(2)
   PostNotificationType get type => $_getN(1);
   @$pb.TagNumber(2)
-  set type(PostNotificationType v) { setField(2, v); }
+  set type(PostNotificationType v) { $_setField(2, v); }
   @$pb.TagNumber(2)
   $core.bool hasType() => $_has(1);
   @$pb.TagNumber(2)
-  void clearType() => clearField(2);
+  void clearType() => $_clearField(2);
 
   @$pb.TagNumber(3)
   PostAuthorRelation get actor => $_getN(2);
   @$pb.TagNumber(3)
-  set actor(PostAuthorRelation v) { setField(3, v); }
+  set actor(PostAuthorRelation v) { $_setField(3, v); }
   @$pb.TagNumber(3)
   $core.bool hasActor() => $_has(2);
   @$pb.TagNumber(3)
-  void clearActor() => clearField(3);
+  void clearActor() => $_clearField(3);
   @$pb.TagNumber(3)
   PostAuthorRelation ensureActor() => $_ensure(2);
 
@@ -2469,7 +2574,7 @@ class PostNotificationItem extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   $core.bool hasPostId() => $_has(3);
   @$pb.TagNumber(4)
-  void clearPostId() => clearField(4);
+  void clearPostId() => $_clearField(4);
 
   @$pb.TagNumber(5)
   $fixnum.Int64 get commentId => $_getI64(4);
@@ -2478,7 +2583,7 @@ class PostNotificationItem extends $pb.GeneratedMessage {
   @$pb.TagNumber(5)
   $core.bool hasCommentId() => $_has(4);
   @$pb.TagNumber(5)
-  void clearCommentId() => clearField(5);
+  void clearCommentId() => $_clearField(5);
 
   @$pb.TagNumber(6)
   $fixnum.Int64 get replyCommentId => $_getI64(5);
@@ -2487,7 +2592,7 @@ class PostNotificationItem extends $pb.GeneratedMessage {
   @$pb.TagNumber(6)
   $core.bool hasReplyCommentId() => $_has(5);
   @$pb.TagNumber(6)
-  void clearReplyCommentId() => clearField(6);
+  void clearReplyCommentId() => $_clearField(6);
 
   @$pb.TagNumber(7)
   $core.String get previewText => $_getSZ(6);
@@ -2496,7 +2601,7 @@ class PostNotificationItem extends $pb.GeneratedMessage {
   @$pb.TagNumber(7)
   $core.bool hasPreviewText() => $_has(6);
   @$pb.TagNumber(7)
-  void clearPreviewText() => clearField(7);
+  void clearPreviewText() => $_clearField(7);
 
   @$pb.TagNumber(8)
   $core.String get previewThumbUrl => $_getSZ(7);
@@ -2505,7 +2610,7 @@ class PostNotificationItem extends $pb.GeneratedMessage {
   @$pb.TagNumber(8)
   $core.bool hasPreviewThumbUrl() => $_has(7);
   @$pb.TagNumber(8)
-  void clearPreviewThumbUrl() => clearField(8);
+  void clearPreviewThumbUrl() => $_clearField(8);
 
   @$pb.TagNumber(9)
   $core.bool get isRead => $_getBF(8);
@@ -2514,7 +2619,7 @@ class PostNotificationItem extends $pb.GeneratedMessage {
   @$pb.TagNumber(9)
   $core.bool hasIsRead() => $_has(8);
   @$pb.TagNumber(9)
-  void clearIsRead() => clearField(9);
+  void clearIsRead() => $_clearField(9);
 
   @$pb.TagNumber(10)
   $fixnum.Int64 get readAt => $_getI64(9);
@@ -2523,7 +2628,7 @@ class PostNotificationItem extends $pb.GeneratedMessage {
   @$pb.TagNumber(10)
   $core.bool hasReadAt() => $_has(9);
   @$pb.TagNumber(10)
-  void clearReadAt() => clearField(10);
+  void clearReadAt() => $_clearField(10);
 
   @$pb.TagNumber(11)
   $core.bool get isPostDeleted => $_getBF(10);
@@ -2532,7 +2637,7 @@ class PostNotificationItem extends $pb.GeneratedMessage {
   @$pb.TagNumber(11)
   $core.bool hasIsPostDeleted() => $_has(10);
   @$pb.TagNumber(11)
-  void clearIsPostDeleted() => clearField(11);
+  void clearIsPostDeleted() => $_clearField(11);
 
   @$pb.TagNumber(12)
   $core.bool get isCommentDeleted => $_getBF(11);
@@ -2541,7 +2646,7 @@ class PostNotificationItem extends $pb.GeneratedMessage {
   @$pb.TagNumber(12)
   $core.bool hasIsCommentDeleted() => $_has(11);
   @$pb.TagNumber(12)
-  void clearIsCommentDeleted() => clearField(12);
+  void clearIsCommentDeleted() => $_clearField(12);
 
   @$pb.TagNumber(13)
   $core.bool get isReplyCommentDeleted => $_getBF(12);
@@ -2550,7 +2655,7 @@ class PostNotificationItem extends $pb.GeneratedMessage {
   @$pb.TagNumber(13)
   $core.bool hasIsReplyCommentDeleted() => $_has(12);
   @$pb.TagNumber(13)
-  void clearIsReplyCommentDeleted() => clearField(13);
+  void clearIsReplyCommentDeleted() => $_clearField(13);
 
   @$pb.TagNumber(14)
   $fixnum.Int64 get createdAt => $_getI64(13);
@@ -2559,7 +2664,7 @@ class PostNotificationItem extends $pb.GeneratedMessage {
   @$pb.TagNumber(14)
   $core.bool hasCreatedAt() => $_has(13);
   @$pb.TagNumber(14)
-  void clearCreatedAt() => clearField(14);
+  void clearCreatedAt() => $_clearField(14);
 
   @$pb.TagNumber(15)
   $fixnum.Int64 get updatedAt => $_getI64(14);
@@ -2568,42 +2673,43 @@ class PostNotificationItem extends $pb.GeneratedMessage {
   @$pb.TagNumber(15)
   $core.bool hasUpdatedAt() => $_has(14);
   @$pb.TagNumber(15)
-  void clearUpdatedAt() => clearField(15);
+  void clearUpdatedAt() => $_clearField(15);
 }
 
 class GetPostNotificationsResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GetPostNotificationsResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'app.v1'), createEmptyInstance: create)
-    ..pc<PostNotificationItem>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'items', $pb.PbFieldType.PM, subBuilder: PostNotificationItem.create)
-    ..a<$core.int>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'page', $pb.PbFieldType.O3)
-    ..a<$core.int>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'pageSize', $pb.PbFieldType.O3)
-    ..aOB(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'hasMore')
-    ..hasRequiredFields = false
-  ;
-
-  GetPostNotificationsResponse._() : super();
   factory GetPostNotificationsResponse({
     $core.Iterable<PostNotificationItem>? items,
     $core.int? page,
     $core.int? pageSize,
     $core.bool? hasMore,
   }) {
-    final _result = create();
+    final $result = create();
     if (items != null) {
-      _result.items.addAll(items);
+      $result.items.addAll(items);
     }
     if (page != null) {
-      _result.page = page;
+      $result.page = page;
     }
     if (pageSize != null) {
-      _result.pageSize = pageSize;
+      $result.pageSize = pageSize;
     }
     if (hasMore != null) {
-      _result.hasMore = hasMore;
+      $result.hasMore = hasMore;
     }
-    return _result;
+    return $result;
   }
+  GetPostNotificationsResponse._() : super();
   factory GetPostNotificationsResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory GetPostNotificationsResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetPostNotificationsResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'app.v1'), createEmptyInstance: create)
+    ..pc<PostNotificationItem>(1, _omitFieldNames ? '' : 'items', $pb.PbFieldType.PM, subBuilder: PostNotificationItem.create)
+    ..a<$core.int>(2, _omitFieldNames ? '' : 'page', $pb.PbFieldType.O3)
+    ..a<$core.int>(3, _omitFieldNames ? '' : 'pageSize', $pb.PbFieldType.O3)
+    ..aOB(4, _omitFieldNames ? '' : 'hasMore')
+    ..hasRequiredFields = false
+  ;
+
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -2613,8 +2719,10 @@ class GetPostNotificationsResponse extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  GetPostNotificationsResponse copyWith(void Function(GetPostNotificationsResponse) updates) => super.copyWith((message) => updates(message as GetPostNotificationsResponse)) as GetPostNotificationsResponse; // ignore: deprecated_member_use
+  GetPostNotificationsResponse copyWith(void Function(GetPostNotificationsResponse) updates) => super.copyWith((message) => updates(message as GetPostNotificationsResponse)) as GetPostNotificationsResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GetPostNotificationsResponse create() => GetPostNotificationsResponse._();
   GetPostNotificationsResponse createEmptyInstance() => create();
@@ -2624,7 +2732,7 @@ class GetPostNotificationsResponse extends $pb.GeneratedMessage {
   static GetPostNotificationsResponse? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.List<PostNotificationItem> get items => $_getList(0);
+  $pb.PbList<PostNotificationItem> get items => $_getList(0);
 
   @$pb.TagNumber(2)
   $core.int get page => $_getIZ(1);
@@ -2633,7 +2741,7 @@ class GetPostNotificationsResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $core.bool hasPage() => $_has(1);
   @$pb.TagNumber(2)
-  void clearPage() => clearField(2);
+  void clearPage() => $_clearField(2);
 
   @$pb.TagNumber(3)
   $core.int get pageSize => $_getIZ(2);
@@ -2642,7 +2750,7 @@ class GetPostNotificationsResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   $core.bool hasPageSize() => $_has(2);
   @$pb.TagNumber(3)
-  void clearPageSize() => clearField(3);
+  void clearPageSize() => $_clearField(3);
 
   @$pb.TagNumber(4)
   $core.bool get hasMore => $_getBF(3);
@@ -2651,27 +2759,28 @@ class GetPostNotificationsResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   $core.bool hasHasMore() => $_has(3);
   @$pb.TagNumber(4)
-  void clearHasMore() => clearField(4);
+  void clearHasMore() => $_clearField(4);
 }
 
 class GetPostUnreadCountResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GetPostUnreadCountResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'app.v1'), createEmptyInstance: create)
-    ..aInt64(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'unreadCount')
-    ..hasRequiredFields = false
-  ;
-
-  GetPostUnreadCountResponse._() : super();
   factory GetPostUnreadCountResponse({
     $fixnum.Int64? unreadCount,
   }) {
-    final _result = create();
+    final $result = create();
     if (unreadCount != null) {
-      _result.unreadCount = unreadCount;
+      $result.unreadCount = unreadCount;
     }
-    return _result;
+    return $result;
   }
+  GetPostUnreadCountResponse._() : super();
   factory GetPostUnreadCountResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory GetPostUnreadCountResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GetPostUnreadCountResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'app.v1'), createEmptyInstance: create)
+    ..aInt64(1, _omitFieldNames ? '' : 'unreadCount')
+    ..hasRequiredFields = false
+  ;
+
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -2681,8 +2790,10 @@ class GetPostUnreadCountResponse extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  GetPostUnreadCountResponse copyWith(void Function(GetPostUnreadCountResponse) updates) => super.copyWith((message) => updates(message as GetPostUnreadCountResponse)) as GetPostUnreadCountResponse; // ignore: deprecated_member_use
+  GetPostUnreadCountResponse copyWith(void Function(GetPostUnreadCountResponse) updates) => super.copyWith((message) => updates(message as GetPostUnreadCountResponse)) as GetPostUnreadCountResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static GetPostUnreadCountResponse create() => GetPostUnreadCountResponse._();
   GetPostUnreadCountResponse createEmptyInstance() => create();
@@ -2698,32 +2809,33 @@ class GetPostUnreadCountResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $core.bool hasUnreadCount() => $_has(0);
   @$pb.TagNumber(1)
-  void clearUnreadCount() => clearField(1);
+  void clearUnreadCount() => $_clearField(1);
 }
 
 class MarkPostNotificationsReadResponse extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'MarkPostNotificationsReadResponse', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'app.v1'), createEmptyInstance: create)
-    ..aOB(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'success')
-    ..aInt64(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'unreadCount')
-    ..hasRequiredFields = false
-  ;
-
-  MarkPostNotificationsReadResponse._() : super();
   factory MarkPostNotificationsReadResponse({
     $core.bool? success,
     $fixnum.Int64? unreadCount,
   }) {
-    final _result = create();
+    final $result = create();
     if (success != null) {
-      _result.success = success;
+      $result.success = success;
     }
     if (unreadCount != null) {
-      _result.unreadCount = unreadCount;
+      $result.unreadCount = unreadCount;
     }
-    return _result;
+    return $result;
   }
+  MarkPostNotificationsReadResponse._() : super();
   factory MarkPostNotificationsReadResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory MarkPostNotificationsReadResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'MarkPostNotificationsReadResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'app.v1'), createEmptyInstance: create)
+    ..aOB(1, _omitFieldNames ? '' : 'success')
+    ..aInt64(2, _omitFieldNames ? '' : 'unreadCount')
+    ..hasRequiredFields = false
+  ;
+
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -2733,8 +2845,10 @@ class MarkPostNotificationsReadResponse extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  MarkPostNotificationsReadResponse copyWith(void Function(MarkPostNotificationsReadResponse) updates) => super.copyWith((message) => updates(message as MarkPostNotificationsReadResponse)) as MarkPostNotificationsReadResponse; // ignore: deprecated_member_use
+  MarkPostNotificationsReadResponse copyWith(void Function(MarkPostNotificationsReadResponse) updates) => super.copyWith((message) => updates(message as MarkPostNotificationsReadResponse)) as MarkPostNotificationsReadResponse;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MarkPostNotificationsReadResponse create() => MarkPostNotificationsReadResponse._();
   MarkPostNotificationsReadResponse createEmptyInstance() => create();
@@ -2750,7 +2864,7 @@ class MarkPostNotificationsReadResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(1)
   $core.bool hasSuccess() => $_has(0);
   @$pb.TagNumber(1)
-  void clearSuccess() => clearField(1);
+  void clearSuccess() => $_clearField(1);
 
   @$pb.TagNumber(2)
   $fixnum.Int64 get unreadCount => $_getI64(1);
@@ -2759,18 +2873,19 @@ class MarkPostNotificationsReadResponse extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $core.bool hasUnreadCount() => $_has(1);
   @$pb.TagNumber(2)
-  void clearUnreadCount() => clearField(2);
+  void clearUnreadCount() => $_clearField(2);
 }
 
 class MarkPostNotificationsReadRequest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'MarkPostNotificationsReadRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'app.v1'), createEmptyInstance: create)
+  factory MarkPostNotificationsReadRequest() => create();
+  MarkPostNotificationsReadRequest._() : super();
+  factory MarkPostNotificationsReadRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory MarkPostNotificationsReadRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'MarkPostNotificationsReadRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'app.v1'), createEmptyInstance: create)
     ..hasRequiredFields = false
   ;
 
-  MarkPostNotificationsReadRequest._() : super();
-  factory MarkPostNotificationsReadRequest() => create();
-  factory MarkPostNotificationsReadRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory MarkPostNotificationsReadRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
@@ -2780,8 +2895,10 @@ class MarkPostNotificationsReadRequest extends $pb.GeneratedMessage {
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  MarkPostNotificationsReadRequest copyWith(void Function(MarkPostNotificationsReadRequest) updates) => super.copyWith((message) => updates(message as MarkPostNotificationsReadRequest)) as MarkPostNotificationsReadRequest; // ignore: deprecated_member_use
+  MarkPostNotificationsReadRequest copyWith(void Function(MarkPostNotificationsReadRequest) updates) => super.copyWith((message) => updates(message as MarkPostNotificationsReadRequest)) as MarkPostNotificationsReadRequest;
+
   $pb.BuilderInfo get info_ => _i;
+
   @$core.pragma('dart2js:noInline')
   static MarkPostNotificationsReadRequest create() => MarkPostNotificationsReadRequest._();
   MarkPostNotificationsReadRequest createEmptyInstance() => create();
@@ -2791,3 +2908,6 @@ class MarkPostNotificationsReadRequest extends $pb.GeneratedMessage {
   static MarkPostNotificationsReadRequest? _defaultInstance;
 }
 
+
+const _omitFieldNames = $core.bool.fromEnvironment('protobuf.omit_field_names');
+const _omitMessageNames = $core.bool.fromEnvironment('protobuf.omit_message_names');

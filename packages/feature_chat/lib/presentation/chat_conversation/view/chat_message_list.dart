@@ -5,10 +5,14 @@ import 'package:shared/shared.dart';
 
 import '../../../models/chat_message.dart';
 import '../../../utils/chat_time_formatter.dart';
+import 'chat_message_image_bubble.dart';
+import 'chat_message_text_bubble.dart';
+import 'chat_message_voice_bubble.dart';
 
 class ChatMessageActionMenu extends StatelessWidget {
   const ChatMessageActionMenu({
     super.key,
+    required this.message,
     required this.isMine,
     required this.onCopy,
     required this.onRecall,
@@ -16,6 +20,7 @@ class ChatMessageActionMenu extends StatelessWidget {
     required this.onDismiss,
   });
 
+  final ChatMessage message;
   final bool isMine;
   final VoidCallback onCopy;
   final VoidCallback onRecall;
@@ -24,6 +29,7 @@ class ChatMessageActionMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final canCopy = message.type == ChatMessageType.text;
     return Stack(
       children: [
         Positioned.fill(
@@ -40,9 +46,9 @@ class ChatMessageActionMenu extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              _MenuItem(label: '复制', onTap: onCopy),
+              if (canCopy) _MenuItem(label: '复制', onTap: onCopy),
+              if (canCopy && isMine) _divider(),
               if (isMine) ...[
-                _divider(),
                 _MenuItem(label: '撤回', onTap: onRecall),
                 _divider(),
                 _MenuItem(label: '删除', onTap: onDelete, isDestructive: true),
@@ -55,10 +61,7 @@ class ChatMessageActionMenu extends StatelessWidget {
   }
 
   Widget _divider() {
-    return Divider(
-      height: 1,
-      color: Colors.white.withOpacity(0.12),
-    );
+    return Divider(height: 1, color: Colors.white.withOpacity(0.12));
   }
 }
 
@@ -91,27 +94,116 @@ class _MenuItem extends StatelessWidget {
   }
 }
 
-class _ChatAvatar extends StatelessWidget {
-  const _ChatAvatar({required this.url});
+class ChatMessageList extends StatelessWidget {
+  const ChatMessageList({
+    super.key,
+    required this.messages,
+    required this.peerAvatar,
+    required this.scrollController,
+    required this.selectedMessageId,
+    required this.onLongPress,
+    required this.onCopy,
+    required this.onRecall,
+    required this.onDelete,
+    required this.onDismissMenu,
+    required this.onBackgroundTap,
+  });
 
-  final String url;
+  final List<ChatMessage> messages;
+  final String peerAvatar;
+  final ScrollController scrollController;
+  final String? selectedMessageId;
+  final void Function(ChatMessage message) onLongPress;
+  final void Function(ChatMessage message) onCopy;
+  final void Function(ChatMessage message) onRecall;
+  final void Function(ChatMessage message) onDelete;
+  final VoidCallback onDismissMenu;
+  final VoidCallback onBackgroundTap;
 
   @override
   Widget build(BuildContext context) {
-    if (url.isEmpty) {
-      return const CircleAvatar(
-        radius: 20,
-        backgroundColor: AppColors.borderGray,
-        child: Icon(Icons.person, color: AppColors.textMuted, size: 20),
-      );
-    }
-    return CircleAvatar(radius: 20, backgroundImage: NetworkImage(url));
+    DateTime? previousTime;
+
+    return GestureDetector(
+      onTap: onBackgroundTap,
+      behavior: HitTestBehavior.translucent,
+      child: ListView.builder(
+        reverse: true,
+        shrinkWrap: true,
+        controller: scrollController,
+        padding: const EdgeInsets.all(16),
+        itemCount: messages.length,
+        itemBuilder: (context, index) {
+          final message = messages[index];
+          final items = <Widget>[];
+
+          if (!message.isSystem &&
+              ChatTimeFormatter.shouldShowMessageTime(
+                previousTime,
+                message.createdAt,
+              )) {
+            items.add(
+              Center(
+                child: Padding(
+                  padding: const EdgeInsets.only(bottom: 12),
+                  child: Text(
+                    ChatTimeFormatter.formatMessageTime(message.createdAt),
+                    style: const TextStyle(
+                      fontSize: 12,
+                      color: AppColors.textMuted,
+                    ),
+                  ),
+                ),
+              ),
+            );
+          }
+          if (!message.isSystem) {
+            previousTime = message.createdAt;
+          }
+
+          final isMine = message.sender == ChatMessageSender.me;
+          final isSelected = selectedMessageId == message.id;
+
+          items.add(
+            Stack(
+              clipBehavior: Clip.none,
+              children: [
+                _MessageBubble(
+                  message: message,
+                  peerAvatar: peerAvatar,
+                  isMine: isMine,
+                  onLongPress: () => onLongPress(message),
+                ),
+                if (isSelected && !message.isSystem)
+                  Positioned(
+                    top: -48,
+                    left: isMine ? null : 48,
+                    right: isMine ? 48 : null,
+                    child: ChatMessageActionMenu(
+                      message: message,
+                      isMine: isMine,
+                      onCopy: () => onCopy(message),
+                      onRecall: () => onRecall(message),
+                      onDelete: () => onDelete(message),
+                      onDismiss: onDismissMenu,
+                    ),
+                  ),
+              ],
+            ),
+          );
+
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: items,
+          );
+        },
+      ),
+    );
   }
 }
 
-class ChatMessageBubble extends StatelessWidget {
-  const ChatMessageBubble({
-    super.key,
+class _MessageBubble extends StatelessWidget {
+  const _MessageBubble({
     required this.message,
     required this.peerAvatar,
     required this.isMine,
@@ -136,170 +228,41 @@ class ChatMessageBubble extends StatelessWidget {
           ),
           child: Text(
             message.systemText ?? '',
-            style: const TextStyle(
-              fontSize: 12,
-              color: AppColors.textSecondary,
-            ),
+            style: const TextStyle(fontSize: 12, color: AppColors.textSecondary),
           ),
         ),
       );
     }
 
-    final avatar = isMine ? '' : peerAvatar;
-
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 12),
-      child: Row(
-        mainAxisAlignment:
-            isMine ? MainAxisAlignment.end : MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.end,
-        children: [
-          if (!isMine) ...[
-            _ChatAvatar(url: avatar),
-            const SizedBox(width: 8),
-          ],
-          Flexible(
-            child: GestureDetector(
-              onLongPress: onLongPress,
-              child: Container(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
-                decoration: BoxDecoration(
-                  gradient: isMine
-                      ? const LinearGradient(
-                          colors: [AppColors.primaryLight, AppColors.accent],
-                        )
-                      : null,
-                  color: isMine ? null : Colors.white,
-                  borderRadius: BorderRadius.only(
-                    topLeft: const Radius.circular(12),
-                    topRight: const Radius.circular(12),
-                    bottomLeft: Radius.circular(isMine ? 12 : 4),
-                    bottomRight: Radius.circular(isMine ? 4 : 12),
-                  ),
-                  border:
-                      isMine ? null : Border.all(color: AppColors.borderPurple),
-                ),
-                child: Text(
-                  message.content ?? '',
-                  style: TextStyle(
-                    fontSize: 15,
-                    color: isMine ? Colors.white : AppColors.textPrimary,
-                  ),
-                ),
-              ),
-            ),
-          ),
-          if (isMine) ...[
-            const SizedBox(width: 8),
-            _ChatAvatar(url: avatar),
-          ],
-        ],
-      ),
-    );
-  }
-}
-
-class ChatMessageList extends StatelessWidget {
-  const ChatMessageList({
-    super.key,
-    required this.messages,
-    required this.peerAvatar,
-    required this.scrollController,
-    required this.selectedMessageId,
-    required this.onLongPress,
-    required this.onCopy,
-    required this.onRecall,
-    required this.onDelete,
-    required this.onDismissMenu,
-  });
-
-  final List<ChatMessage> messages;
-  final String peerAvatar;
-  final ScrollController scrollController;
-  final String? selectedMessageId;
-  final void Function(ChatMessage message) onLongPress;
-  final void Function(ChatMessage message) onCopy;
-  final void Function(ChatMessage message) onRecall;
-  final void Function(ChatMessage message) onDelete;
-  final VoidCallback onDismissMenu;
-
-  @override
-  Widget build(BuildContext context) {
-    DateTime? previousTime;
-
-    return ListView.builder(
-      controller: scrollController,
-      padding: const EdgeInsets.all(16),
-      itemCount: messages.length,
-      itemBuilder: (context, index) {
-        final message = messages[index];
-        final items = <Widget>[];
-
-        if (!message.isSystem &&
-            ChatTimeFormatter.shouldShowMessageTime(
-              previousTime,
-              message.createdAt,
-            )) {
-          items.add(
-            Center(
-              child: Padding(
-                padding: const EdgeInsets.only(bottom: 12),
-                child: Text(
-                  ChatTimeFormatter.formatMessageTime(message.createdAt),
-                  style: const TextStyle(
-                    fontSize: 12,
-                    color: AppColors.textMuted,
-                  ),
-                ),
-              ),
-            ),
-          );
-        }
-        if (!message.isSystem) {
-          previousTime = message.createdAt;
-        }
-
-        final isMine = message.sender == ChatMessageSender.me;
-        final isSelected = selectedMessageId == message.id;
-
-        items.add(
-          Stack(
-            clipBehavior: Clip.none,
-            children: [
-              ChatMessageBubble(
-                message: message,
-                peerAvatar: peerAvatar,
-                isMine: isMine,
-                onLongPress: () => onLongPress(message),
-              ),
-              if (isSelected && !message.isSystem)
-                Positioned(
-                  top: -48,
-                  left: isMine ? null : 48,
-                  right: isMine ? 48 : null,
-                  child: ChatMessageActionMenu(
-                    isMine: isMine,
-                    onCopy: () => onCopy(message),
-                    onRecall: () => onRecall(message),
-                    onDelete: () => onDelete(message),
-                    onDismiss: onDismissMenu,
-                  ),
-                ),
-            ],
-          ),
+    switch (message.type) {
+      case ChatMessageType.image:
+        return ChatMessageImageBubble(
+          message: message,
+          peerAvatar: peerAvatar,
+          isMine: isMine,
+          onLongPress: onLongPress,
         );
-
-        return Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: items,
+      case ChatMessageType.voice:
+        return ChatMessageVoiceBubble(
+          message: message,
+          peerAvatar: peerAvatar,
+          isMine: isMine,
+          onLongPress: onLongPress,
         );
-      },
-    );
+      case ChatMessageType.text:
+      case ChatMessageType.system:
+        return ChatMessageTextBubble(
+          message: message,
+          peerAvatar: peerAvatar,
+          isMine: isMine,
+          onLongPress: onLongPress,
+        );
+    }
   }
 }
 
 void copyChatMessage(ChatMessage message) {
+  if (message.type != ChatMessageType.text) return;
   final text = message.content;
   if (text == null || text.isEmpty) return;
   Clipboard.setData(ClipboardData(text: text));
